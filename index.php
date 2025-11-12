@@ -43,21 +43,25 @@ $news_list = $stmt->fetchAll();
                 <a href="/field.php" class="btn-outline">업무분야안내</a>
             </div>
             <div class="services-grid">
-                <div class="service-item">
-                    <img src="/images/service-civil.jpg" alt="민사재판">
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
                     <h3>민사재판</h3>
+                    <p>민사 분쟁 및 소송 전문 법률 서비스를 제공합니다</p>
                 </div>
-                <div class="service-item">
-                    <img src="/images/service-criminal.jpg" alt="형사재판">
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
                     <h3>형사재판</h3>
+                    <p>형사 사건 변호 및 법률 상담을 제공합니다</p>
                 </div>
-                <div class="service-item">
-                    <img src="/images/service-family.jpg" alt="조정중재">
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
                     <h3>조정중재</h3>
+                    <p>분쟁 조정 및 중재를 통한 해결을 지원합니다</p>
                 </div>
-                <div class="service-item">
-                    <img src="/images/service-admin.jpg" alt="기업상담">
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
                     <h3>기업상담</h3>
+                    <p>기업 법무 자문 및 컨설팅을 제공합니다</p>
                 </div>
             </div>
         </div>
