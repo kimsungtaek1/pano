@@ -3,9 +3,11 @@ include 'includes/header.php';
 include 'includes/db.php';
 
 // 최신 뉴스 3개 가져오기
+/*
 $stmt = $pdo->prepare("SELECT * FROM news ORDER BY created_at DESC LIMIT 3");
 $stmt->execute();
 $news_list = $stmt->fetchAll();
+*/
 ?>
 
 <main>
@@ -62,6 +64,7 @@ $news_list = $stmt->fetchAll();
     </section>
 
     <!-- 뉴스 섹션 -->
+    <!--
     <section class="news">
         <div class="container">
             <div class="section-header">
@@ -82,6 +85,7 @@ $news_list = $stmt->fetchAll();
             </div>
         </div>
     </section>
+    -->
 
     <!-- 상담문의 섹션 -->
     <section class="consultation">
