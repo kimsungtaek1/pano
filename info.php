@@ -15,7 +15,27 @@
         </div>
     </section>
 
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
+        var map = L.map('map').setView([37.4982, 127.0067], 17);
+
+        // OpenStreetMap 타일 레이어 추가
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // 마커 추가
+        var marker = L.marker([37.4982, 127.0067]).addTo(map);
+        
+        // 팝업 추가
+        marker.bindPopup('<b>법무법인 파노</b><br>서울 서초구 반포대로28길 63, 3층').openPopup();
+    </script>
     <script>
         var mapOptions = {
             center: new naver.maps.LatLng(37.4982, 127.0067),
