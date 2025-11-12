@@ -77,12 +77,15 @@ $consultations = $stmt->fetchAll();
 $status_counts = [
     'all' => 0,
     'pending' => 0,
-    'processed' => 0
+    'processing' => 0,
+    'completed' => 0
 ];
 
 $count_stmt = $pdo->query("SELECT status, COUNT(*) as cnt FROM consultations GROUP BY status");
 while ($row = $count_stmt->fetch()) {
-    $status_counts[$row['status']] = $row['cnt'];
+    if (isset($status_counts[$row['status']])) {
+        $status_counts[$row['status']] = $row['cnt'];
+    }
     $status_counts['all'] += $row['cnt'];
 }
 ?>
@@ -124,12 +127,16 @@ while ($row = $count_stmt->fetch()) {
                 <span class="stat-value"><?php echo number_format($status_counts['all']); ?></span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">대기중</span>
+                <span class="stat-label">미처리</span>
                 <span class="stat-value pending"><?php echo number_format($status_counts['pending']); ?></span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">처리완료</span>
-                <span class="stat-value processed"><?php echo number_format($status_counts['processed']); ?></span>
+                <span class="stat-label">처리중</span>
+                <span class="stat-value processing"><?php echo number_format($status_counts['processing']); ?></span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">완료</span>
+                <span class="stat-value processed"><?php echo number_format($status_counts['completed']); ?></span>
             </div>
         </div>
 
@@ -138,8 +145,9 @@ while ($row = $count_stmt->fetch()) {
                 <div class="filter-group">
                     <select name="status">
                         <option value="">전체 상태</option>
-                        <option value="pending" <?php echo $status_filter === 'pending' ? 'selected' : ''; ?>>대기중</option>
-                        <option value="processed" <?php echo $status_filter === 'processed' ? 'selected' : ''; ?>>처리완료</option>
+                        <option value="pending" <?php echo $status_filter === 'pending' ? 'selected' : ''; ?>>미처리</option>
+                        <option value="processing" <?php echo $status_filter === 'processing' ? 'selected' : ''; ?>>처리중</option>
+                        <option value="completed" <?php echo $status_filter === 'completed' ? 'selected' : ''; ?>>완료</option>
                     </select>
                     <input type="text" name="search" placeholder="이름, 전화번호, 내용 검색" value="<?php echo htmlspecialchars($search); ?>">
                     <button type="submit" class="btn-primary">검색</button>
@@ -185,7 +193,14 @@ while ($row = $count_stmt->fetch()) {
                                 <td><?php echo date('Y-m-d H:i', strtotime($consultation['created_at'])); ?></td>
                                 <td>
                                     <span class="badge badge-<?php echo $consultation['status']; ?>">
-                                        <?php echo $consultation['status'] === 'pending' ? '대기중' : '처리완료'; ?>
+                                        <?php
+                                        $status_labels = [
+                                            'pending' => '미처리',
+                                            'processing' => '처리중',
+                                            'completed' => '완료'
+                                        ];
+                                        echo $status_labels[$consultation['status']] ?? $consultation['status'];
+                                        ?>
                                     </span>
                                 </td>
                                 <td>

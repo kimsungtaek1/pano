@@ -1131,6 +1131,18 @@ body {
     color: #065f46;
 }
 
+/* Admin Stats 개선 */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-value.processing {
+    color: #3b82f6;
+}
+
 @media (max-width: 1400px) {
     .stats-grid-main {
         grid-template-columns: repeat(2, 1fr);
