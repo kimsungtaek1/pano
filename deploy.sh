@@ -16,7 +16,7 @@ echo "=========================================="
 lftp -e "
 set ssl:verify-certificate no
 open ftp://${FTP_USERNAME}:${FTP_PASSWORD}@${FTP_HOST}
-mirror --reverse --delete --verbose --exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore ./ ${FTP_REMOTE_DIR}
+mirror --reverse --delete --verbose --exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/ ./ ${FTP_REMOTE_DIR}
 bye
 "
 
