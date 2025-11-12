@@ -34,7 +34,7 @@
         var marker = L.marker([37.491680, 127.011680]).addTo(map);
         
         // 팝업 추가
-        marker.bindPopup('<b>법무법인 파노</b><br>서울 서초구 반포대로28길 63, 3층').openPopup();
+        marker.bindPopup('<b>파노 법률사무소</b><br>서울 서초구 반포대로28길 63, 3층').openPopup();
     </script>
 
     <!-- 연락처 정보 -->
