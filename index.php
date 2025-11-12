@@ -32,15 +32,6 @@ $news_list = $stmt->fetchAll();
         </div>
     </section>
 
-    <!-- 40년 전통의 법률사무소 -->
-    <section class="tradition">
-        <div class="container">
-            <h2>40년 전통의 법률사무소</h2>
-            <p>전문변호 임무와 30년 이상, 귀하의 재산분쟁<br>고객에게 최선의 결과를 제공할 수 있게 최선을 다합니다</p>
-            <a href="/intro.php" class="btn-primary">법률사무소소개</a>
-        </div>
-    </section>
-
     <!-- 업무분야 -->
     <section class="services">
         <div class="container">
