@@ -783,8 +783,9 @@ footer {
         gap: 20px;
     }
 
-    .hero h1 {
-        font-size: 48px;
+    .hero-logo {
+        max-width: 400px;
+        width: 70%;
     }
 
     .services .container {
