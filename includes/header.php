@@ -29,10 +29,7 @@
                         <li><a href="/info.php">정보마당</a></li>
                     </ul>
                 </nav>
-                <div class="lang">
-                    <a href="#" class="active">KOR</a>
-                    <a href="#">ENG</a>
-                </div>
+
             </div>
         </div>
     </header>
