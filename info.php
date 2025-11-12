@@ -4,7 +4,7 @@
     <!-- 페이지 타이틀 -->
     <section class="page-title">
         <div class="container">
-            <h1>법인정보</h1>
+            <h1>법률사무소 정보</h1>
         </div>
     </section>
 
