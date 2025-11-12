@@ -25,7 +25,7 @@ $news_list = $stmt->fetchAll();
         </div>
         <div class="hero-overlay">
             <div class="hero-content">
-                <h1>PANO</h1>
+                <img src="/images/logo.png" alt="PANO" class="hero-logo">
                 <p class="subtitle">Song Dong Min</p>
                 <p class="description">의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다</p>
             </div>

@@ -49,7 +49,8 @@ header {
 }
 
 .logo a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
 }
 
 .logo img {
@@ -135,10 +136,10 @@ nav a:hover {
     color: #fff;
 }
 
-.hero h1 {
-    font-size: 72px;
-    font-weight: bold;
-    letter-spacing: 10px;
+.hero-logo {
+    max-width: 600px;
+    width: 80%;
+    height: auto;
     margin-bottom: 10px;
 }
 
