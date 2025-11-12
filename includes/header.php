@@ -19,7 +19,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1 class="logo"><a href="/index.php">PANO</a></h1>
+                <h1 class="logo"><a href="/index.php"><img src="/images/logo.png" alt="PANO 법률사무소"></a></h1>
                 <nav>
                     <ul>
                         <li><a href="/intro.php">법률사무소 소개</a></li>
