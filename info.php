@@ -11,7 +11,7 @@
     <!-- 지도 섹션 -->
     <section class="map-section">
         <div class="container">
-            <div id="map" style="width:100%;height:400px;"></div>
+            <div id="map" style="width:100%;aspect-ratio:1/1;"></div>
         </div>
     </section>
 
