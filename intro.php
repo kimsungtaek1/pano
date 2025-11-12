@@ -36,7 +36,7 @@
             <h2>연혁의 발자취</h2>
             <div class="history-grid">
                 <div class="history-item">
-                    <h3>저금 성장 법무법인</h3>
+                    <h3>저금 성장 법률사무소</h3>
                     <p>성장지 성장 응력</p>
                     <span class="year">권장되다</span>
                 </div>

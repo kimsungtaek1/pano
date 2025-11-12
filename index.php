@@ -12,12 +12,12 @@
         </div>
     </section>
 
-    <!-- 40년 전통의 법무법인 -->
+    <!-- 40년 전통의 법률사무소 -->
     <section class="tradition">
         <div class="container">
-            <h2>40년 전통의 법무법인</h2>
+            <h2>40년 전통의 법률사무소</h2>
             <p>전문변호 임무와 30년 이상, 귀하의 재산분쟁<br>고객에게 최선의 결과를 제공할 수 있게 최선을 다합니다</p>
-            <a href="/intro.php" class="btn-primary">법무법인소개</a>
+            <a href="/intro.php" class="btn-primary">법률사무소소개</a>
         </div>
     </section>
 
@@ -59,19 +59,19 @@
             </div>
             <div class="news-grid">
                 <div class="news-item">
-                    <span class="badge badge-red">법무법인</span>
-                    <h3>회계법 적발에 관한 리뷰의견 / 법무법인 법무신 Compliance Progr...</h3>
+                    <span class="badge badge-red">법률사무소</span>
+                    <h3>회계법 적발에 관한 리뷰의견 / 법률사무소 법무신 Compliance Progr...</h3>
                     <p>중소기업의 경우 회계법 적발 요인이 발생할 경우, 회계법 위반사항에 대한 대응 및 향후 관리 소홀로 기업 대표자의 횡령사유에 관한 법형사적 책임 발생 가능이 있습니다.</p>
                     <span class="date">2024-11-01</span>
                 </div>
                 <div class="news-item">
-                    <span class="badge badge-blue">법무법인</span>
+                    <span class="badge badge-blue">법률사무소</span>
                     <h3>파노 법률사무소, 회사법 측면 특허 보호 및 설정</h3>
                     <p>회사법인 설립 시 고유 제품에 관한 특허 또는 회사가 보유 중인 저작권 및 제조 관련 방법에 관한 특허 법률관리 계약 방식으로 지원합니다.</p>
                     <span class="date">2024-10-18</span>
                 </div>
                 <div class="news-item">
-                    <span class="badge badge-blue">법무법인</span>
+                    <span class="badge badge-blue">법률사무소</span>
                     <h3>자동차 사고보상, 피해배상 절차 및 법적 산정 배상액</h3>
                     <p>교통사고 발생 시 운전자 보험 가입과 보상 산정금액 관련 가입한 보험금과는 차이로 인한 피해 중재절차 또는 보상 민형사적 절차에 관한 사항을 지원합니다.</p>
                     <span class="date">2024-08-25</span>
