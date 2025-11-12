@@ -3,7 +3,7 @@ session_start();
 
 // 이미 로그인된 경우 뉴스 관리 페이지로 리다이렉트
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
-    header('Location: news_list.php');
+    header('Location: dashboard.php');
     exit;
 }
 
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_id'] = $admin['id'];
             $_SESSION['admin_username'] = $admin['username'];
-            header('Location: news_list.php');
+            header('Location: dashboard.php');
             exit;
         } else {
             $error = '아이디 또는 비밀번호가 잘못되었습니다.';
