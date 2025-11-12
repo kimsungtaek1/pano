@@ -1,9 +1,9 @@
 <?php
 // 데이터베이스 연결 설정
 $host = 'localhost';
-$dbname = 'pano_db';
-$username = 'root';
-$password = '';
+$dbname = 'lez0628';
+$username = 'lez0628';
+$password = 'vkshdb*0628';
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
