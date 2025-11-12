@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS news (
     INDEX idx_is_published (is_published)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 기본 관리자 계정 추가 (아이디: admin, 비밀번호: admin123)
-INSERT INTO admin_users (username, password) VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+-- 기본 관리자 계정 추가 (아이디: admin, 비밀번호: admin)
+INSERT INTO admin_users (username, password) VALUES ('admin', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy');
 
 -- 샘플 뉴스 데이터 추가
 INSERT INTO news (category, title, content, summary, news_date) VALUES
