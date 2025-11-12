@@ -3,7 +3,7 @@
             <div class="footer-content">
                 <div class="footer-logo">PANO</div>
                 <div class="footer-info">
-                    <p>법무법인 파노 | 광고책임변호사 송동민</p>
+                    <p>파노 법률사무소 | 광고책임변호사 송동민</p>
                     <p>주소: 서울 서초구 반포대로28길 63, 3층 | 대표번호: 02-1551-8385 | 팩스번호: 02-6008-2884 | 대표이메일: intake@panolaw.com</p>
                     <p>© Copyright 2024 Law Firm PANO. All Rights Reserved.</p>
                 </div>

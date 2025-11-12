@@ -66,7 +66,7 @@
                 </div>
                 <div class="news-item">
                     <span class="badge badge-blue">법무법인</span>
-                    <h3>법무법인 파노, 회사법 측면 특허 보호 및 설정</h3>
+                    <h3>파노 법률사무소, 회사법 측면 특허 보호 및 설정</h3>
                     <p>회사법인 설립 시 고유 제품에 관한 특허 또는 회사가 보유 중인 저작권 및 제조 관련 방법에 관한 특허 법률관리 계약 방식으로 지원합니다.</p>
                     <span class="date">2024-10-18</span>
                 </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="consultation-item">
                     <p class="label">상담안내</p>
-                    <h3>법무법인 파노의 법률 및 법무 문의<br>확인 문의를 기다리고 계십니다.</h3>
+                    <h3>파노 법률사무소의 법률 및 법무 문의<br>확인 문의를 기다리고 계십니다.</h3>
                     <a href="/guide.php" class="btn-outline-white">예약 상담안내</a>
                 </div>
             </div>

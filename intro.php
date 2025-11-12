@@ -4,7 +4,7 @@
     <!-- 페이지 타이틀 -->
     <section class="page-title">
         <div class="container">
-            <h1>세상과<br>당신 사이,<br>법무법인 파노이 있습니다.</h1>
+            <h1>세상과<br>당신 사이,<br>파노 법률사무소이 있습니다.</h1>
         </div>
     </section>
 
@@ -16,7 +16,7 @@
     <!-- 소개 텍스트 1 -->
     <section class="intro-text">
         <div class="container">
-            <h2>법무법인 파노은<br>깊이 있는 법무와 정성으로<br>고객에게 최적화된<br>서비스를 제공합니다.</h2>
+            <h2>파노 법률사무소은<br>깊이 있는 법무와 정성으로<br>고객에게 최적화된<br>서비스를 제공합니다.</h2>
         </div>
     </section>
 
@@ -24,7 +24,7 @@
     <section class="intro-image-dark">
         <div class="overlay">
             <div class="container">
-                <h2>법무법인 파노은 지금 당장<br>변호인들로 할 수 있는 프립니다.</h2>
+                <h2>파노 법률사무소은 지금 당장<br>변호인들로 할 수 있는 프립니다.</h2>
                 <p>전문적인 사건을 경험한 다수의 법률가와 다른 전력의 변호로 최적의 결과를 이끌어 냄을 축적할 수 있는 경험과 노하우를 전달받아 신뢰받고 있습니다.</p>
             </div>
         </div>
