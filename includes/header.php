@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAMSAN - 법률사무소</title>
+    <title>PANO - 법률사무소</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -11,7 +11,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1 class="logo"><a href="/index.php">NAMSAN</a></h1>
+                <h1 class="logo"><a href="/index.php">PANO</a></h1>
                 <nav>
                     <ul>
                         <li><a href="/intro.php">법무법인 소개</a></li>
