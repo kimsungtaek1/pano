@@ -36,32 +36,6 @@
         // 팝업 추가
         marker.bindPopup('<b>법무법인 파노</b><br>서울 서초구 반포대로28길 63, 3층').openPopup();
     </script>
-    <script>
-        var mapOptions = {
-            center: new naver.maps.LatLng(37.4982, 127.0067),
-            zoom: 17
-        };
-
-        var map = new naver.maps.Map('map', mapOptions);
-
-        var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(37.4982, 127.0067),
-            map: map,
-            title: '법무법인 파노'
-        });
-
-        var infoWindow = new naver.maps.InfoWindow({
-            content: '<div style="width:200px;text-align:center;padding:10px;"><b>법무법인 파노</b><br>서울 서초구 반포대로28길 63, 3층</div>'
-        });
-
-        naver.maps.Event.addListener(marker, 'click', function() {
-            if (infoWindow.getMap()) {
-                infoWindow.close();
-            } else {
-                infoWindow.open(map, marker);
-            }
-        });
-    </script>
 
     <!-- 연락처 정보 -->
     <section class="contact-info">
