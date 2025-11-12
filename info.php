@@ -11,12 +11,37 @@
     <!-- 지도 섹션 -->
     <section class="map-section">
         <div class="container">
-            <div id="map" style="width:100%;height:400px;background:#f0f0f0;">
-                <!-- 실제 구현시 카카오맵 또는 구글맵 API 사용 -->
-                <p style="text-align:center;padding-top:180px;color:#999;">지도 영역</p>
-            </div>
+            <div id="map" style="width:100%;height:400px;"></div>
         </div>
     </section>
+
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.4982, 127.0067),
+            zoom: 17
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(37.4982, 127.0067),
+            map: map,
+            title: '법무법인 파노'
+        });
+
+        var infoWindow = new naver.maps.InfoWindow({
+            content: '<div style="width:200px;text-align:center;padding:10px;"><b>법무법인 파노</b><br>서울 서초구 반포대로28길 63, 3층</div>'
+        });
+
+        naver.maps.Event.addListener(marker, 'click', function() {
+            if (infoWindow.getMap()) {
+                infoWindow.close();
+            } else {
+                infoWindow.open(map, marker);
+            }
+        });
+    </script>
 
     <!-- 연락처 정보 -->
     <section class="contact-info">
