@@ -49,10 +49,12 @@ header {
 }
 
 .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    letter-spacing: 2px;
+    display: inline-block;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
 }
 
 nav ul {
@@ -769,6 +771,10 @@ footer {
     .header-content {
         flex-direction: column;
         gap: 20px;
+    }
+
+    .logo img {
+        height: 30px;
     }
 
     nav ul {
