@@ -86,14 +86,14 @@ include 'includes/header.php';
                     <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
                 <?php else: ?>
                     <?php foreach ($news_list as $news): ?>
-                        <div class="news-card">
+                        <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="news-card">
                             <span class="badge <?php echo getBadgeClass($news['category']); ?>">
                                 <?php echo htmlspecialchars($news['category']); ?>
                             </span>
                             <h3><?php echo htmlspecialchars($news['title']); ?></h3>
                             <p><?php echo htmlspecialchars($news['summary'] ?: mb_substr(strip_tags($news['content']), 0, 100) . '...'); ?></p>
                             <span class="date"><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></span>
-                        </div>
+                        </a>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
