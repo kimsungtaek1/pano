@@ -94,17 +94,10 @@ $news_list = $stmt->fetchAll();
     <!-- 상담문의 섹션 -->
     <section class="consultation">
         <div class="container">
-            <div class="consultation-grid">
-                <div class="consultation-item">
-                    <p class="label">문의하기</p>
-                    <h3>고객님께 전담변호사를 배정하여<br>법률 상담부터 해결까지 도와드립니다.</h3>
-                    <a href="/contact.php" class="btn-outline-white">무료상담 신청</a>
-                </div>
-                <div class="consultation-item">
-                    <p class="label">상담안내</p>
-                    <h3>파노 법률사무소의 법률 및 법무 문의<br>확인 문의를 기다리고 계십니다.</h3>
-                    <a href="/guide.php" class="btn-outline-white">예약 상담안내</a>
-                </div>
+            <div class="consultation-single">
+                <p class="label">문의하기</p>
+                <h3>고객님께 전담변호사를 배정하여<br>법률 상담부터 해결까지 도와드립니다.</h3>
+                <a href="/consultation.php" class="btn-outline-white">무료상담 신청</a>
             </div>
         </div>
     </section>

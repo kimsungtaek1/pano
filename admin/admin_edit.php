@@ -110,6 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <nav class="admin-nav">
                 <a href="news_list.php">뉴스 관리</a>
+                <a href="consultation_list.php">상담신청 관리</a>
                 <a href="admin_list.php" class="active">관리자 관리</a>
                 <a href="logout.php">로그아웃</a>
             </nav>

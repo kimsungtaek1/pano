@@ -76,6 +76,7 @@ if (isset($_GET['delete'])) {
             </div>
             <nav class="admin-nav">
                 <a href="news_list.php" class="active">뉴스 관리</a>
+                <a href="consultation_list.php">상담신청 관리</a>
                 <a href="admin_list.php">관리자 관리</a>
                 <a href="logout.php">로그아웃</a>
             </nav>

@@ -95,9 +95,25 @@ while ($row = $count_stmt->fetch()) {
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-    <?php include 'includes/nav.php'; ?>
-
     <div class="admin-container">
+        <!-- 사이드바 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>PANO 관리자</h2>
+            </div>
+            <nav class="admin-nav">
+                <a href="news_list.php">뉴스 관리</a>
+                <a href="consultation_list.php" class="active">상담신청 관리</a>
+                <a href="admin_list.php">관리자 관리</a>
+                <a href="logout.php">로그아웃</a>
+            </nav>
+            <div class="admin-info">
+                <p><?php echo htmlspecialchars($_SESSION['admin_username']); ?>님</p>
+            </div>
+        </aside>
+
+        <!-- 메인 컨텐츠 -->
+        <main class="main-content">
         <div class="admin-header">
             <h1>상담신청 관리</h1>
         </div>
@@ -215,6 +231,7 @@ while ($row = $count_stmt->fetch()) {
                 </div>
             <?php endif; ?>
         </div>
+        </main>
     </div>
 </body>
 </html>
