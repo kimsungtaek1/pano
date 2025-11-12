@@ -1,4 +1,12 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+include 'includes/db.php';
+
+// 최신 뉴스 3개 가져오기
+$stmt = $pdo->prepare("SELECT * FROM news ORDER BY created_at DESC LIMIT 3");
+$stmt->execute();
+$news_list = $stmt->fetchAll();
+?>
 
 <main>
     <!-- 메인 비주얼 -->
@@ -54,28 +62,20 @@
     <section class="news">
         <div class="container">
             <div class="section-header">
-                <h2>법무소식</h2>
+                <h2>소식</h2>
                 <a href="/news.php" class="more">더보기 ›</a>
             </div>
             <div class="news-grid">
+                <?php foreach ($news_list as $news): ?>
                 <div class="news-item">
-                    <span class="badge badge-red">법률사무소</span>
-                    <h3>회계법 적발에 관한 리뷰의견 / 법률사무소 법무신 Compliance Progr...</h3>
-                    <p>중소기업의 경우 회계법 적발 요인이 발생할 경우, 회계법 위반사항에 대한 대응 및 향후 관리 소홀로 기업 대표자의 횡령사유에 관한 법형사적 책임 발생 가능이 있습니다.</p>
-                    <span class="date">2024-11-01</span>
+                    <span class="badge <?php echo $news['category'] === '중요' ? 'badge-red' : 'badge-blue'; ?>">
+                        <?php echo htmlspecialchars($news['category']); ?>
+                    </span>
+                    <h3><?php echo htmlspecialchars($news['title']); ?></h3>
+                    <p><?php echo htmlspecialchars(mb_substr($news['content'], 0, 100)); ?>...</p>
+                    <span class="date"><?php echo date('Y-m-d', strtotime($news['created_at'])); ?></span>
                 </div>
-                <div class="news-item">
-                    <span class="badge badge-blue">법률사무소</span>
-                    <h3>파노 법률사무소, 회사법 측면 특허 보호 및 설정</h3>
-                    <p>회사 법인 설립 시 고유 제품에 관한 특허 또는 회사가 보유 중인 저작권 및 제조 관련 방법에 관한 특허 법률관리 계약 방식으로 지원합니다.</p>
-                    <span class="date">2024-10-18</span>
-                </div>
-                <div class="news-item">
-                    <span class="badge badge-blue">법률사무소</span>
-                    <h3>자동차 사고보상, 피해배상 절차 및 법적 산정 배상액</h3>
-                    <p>교통사고 발생 시 운전자 보험 가입과 보상 산정금액 관련 가입한 보험금과는 차이로 인한 피해 중재절차 또는 보상 민형사적 절차에 관한 사항을 지원합니다.</p>
-                    <span class="date">2024-08-25</span>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
