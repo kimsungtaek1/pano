@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h2>PANO 관리자</h2>
             </div>
             <nav class="admin-nav">
-                <a href="news_list.php">뉴스 관리</a>
+                <a href="dashboard.php">대시보드</a>
                 <a href="consultation_list.php" class="active">상담신청 관리</a>
                 <a href="admin_list.php">관리자 관리</a>
                 <a href="logout.php">로그아웃</a>
