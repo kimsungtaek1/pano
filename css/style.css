@@ -92,7 +92,7 @@ nav a:hover {
 /* Hero Section */
 .hero {
     height: 600px;
-    background: url('../home.png') center center/cover no-repeat;
+    background: #e5e5e5;
     position: relative;
 }
 
