@@ -69,9 +69,7 @@ $total = $count_stmt->fetchColumn();
 $total_pages = ceil($total / $per_page);
 
 // 상담신청 목록 조회
-$sql = "SELECT * FROM consultations $where_sql ORDER BY created_at DESC LIMIT ? OFFSET ?";
-$params[] = $per_page;
-$params[] = $offset;
+$sql = "SELECT * FROM consultations $where_sql ORDER BY created_at DESC LIMIT $per_page OFFSET $offset";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $consultations = $stmt->fetchAll();
