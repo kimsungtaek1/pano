@@ -25,13 +25,13 @@
                 <!-- 주소 -->
                 <div class="info-item">
                     <h3>주소</h3>
-                    <p class="info-large">서울 중구 퇴계로 97<br>고려대연건물 17층 04535</p>
+                    <p class="info-large">서울 서초구 반포대로28길 63, 3층</p>
                 </div>
 
                 <!-- 이메일 -->
                 <div class="info-item">
                     <h3>이메일</h3>
-                    <p class="info-large">pano@panolaw.com</p>
+                    <p class="info-large">intake@panolaw.com</p>
                 </div>
             </div>
 
@@ -39,13 +39,13 @@
                 <!-- 전화번호 -->
                 <div class="info-item">
                     <h3>전화번호</h3>
-                    <p class="info-large">02-777-0550</p>
+                    <p class="info-large">02-1551-8385</p>
                 </div>
 
                 <!-- 팩스번호 -->
                 <div class="info-item">
                     <h3>팩스번호</h3>
-                    <p class="info-large">02-754-0077</p>
+                    <p class="info-large">02-6008-2884</p>
                 </div>
             </div>
         </div>

@@ -3,8 +3,8 @@
             <div class="footer-content">
                 <div class="footer-logo">PANO</div>
                 <div class="footer-info">
-                    <p>법무법인 파노 | 대표변호사 홍길동 | 사업자등록번호 123-45-67890</p>
-                    <p>서울특별시 중구 퇴계로 97 고려대연건물 10층 | 전화: 02-1234-5678 | 팩스: 02-1234-5679</p>
+                    <p>법무법인 파노 | 광고책임변호사 송동민</p>
+                    <p>주소: 서울 서초구 반포대로28길 63, 3층 | 대표번호: 02-1551-8385 | 팩스번호: 02-6008-2884 | 대표이메일: intake@panolaw.com</p>
                     <p>© Copyright 2024 Law Firm PANO. All Rights Reserved.</p>
                 </div>
                 <div class="footer-links">
