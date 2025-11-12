@@ -11,10 +11,22 @@ $news_list = $stmt->fetchAll();
 <main>
     <!-- 메인 비주얼 -->
     <section class="hero">
+        <div class="hero-slide active">
+            <img src="/images/1.jpg" alt="배경 1">
+        </div>
+        <div class="hero-slide">
+            <img src="/images/2.jpg" alt="배경 2">
+        </div>
+        <div class="hero-slide">
+            <img src="/images/3.jpg" alt="배경 3">
+        </div>
+        <div class="hero-slide">
+            <img src="/images/4.jpg" alt="배경 4">
+        </div>
         <div class="hero-overlay">
             <div class="hero-content">
                 <h1>PANO</h1>
-                <p class="subtitle">Lim, Chung & Suh</p>
+                <p class="subtitle">Song Dong Min</p>
                 <p class="description">의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다</p>
             </div>
         </div>
@@ -67,14 +79,14 @@ $news_list = $stmt->fetchAll();
             </div>
             <div class="news-grid">
                 <?php foreach ($news_list as $news): ?>
-                <div class="news-item">
+                <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="news-item">
                     <span class="badge <?php echo $news['category'] === '중요' ? 'badge-red' : 'badge-blue'; ?>">
                         <?php echo htmlspecialchars($news['category']); ?>
                     </span>
                     <h3><?php echo htmlspecialchars($news['title']); ?></h3>
                     <p><?php echo htmlspecialchars(mb_substr($news['content'], 0, 100)); ?>...</p>
                     <span class="date"><?php echo date('Y-m-d', strtotime($news['created_at'])); ?></span>
-                </div>
+                </a>
                 <?php endforeach; ?>
             </div>
         </div>

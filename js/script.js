@@ -15,7 +15,19 @@ function scrollToTop() {
     });
 }
 
-// Mobile Menu Toggle (if needed in future)
+// Hero Slider
 document.addEventListener('DOMContentLoaded', function() {
-    // Add any initialization code here
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        
+        // Change slide every 4 seconds
+        setInterval(nextSlide, 4000);
+    }
 });
