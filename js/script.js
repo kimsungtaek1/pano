@@ -1,10 +1,12 @@
 // Scroll to Top Button
 window.addEventListener('scroll', function() {
     const scrollTopBtn = document.getElementById('scrollTop');
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.style.display = 'block';
-    } else {
-        scrollTopBtn.style.display = 'none';
+    if (scrollTopBtn) {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.style.display = 'block';
+        } else {
+            scrollTopBtn.style.display = 'none';
+        }
     }
 });
 
