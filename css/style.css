@@ -626,67 +626,95 @@ footer {
 }
 
 /* Person Page */
-.person-filter {
-    padding: 40px 0;
-    background: #f8f9fa;
-}
-
-.filter-row {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.filter-select {
-    padding: 10px 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    background: #fff;
-}
-
-.search-btn {
-    padding: 10px 20px;
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.person-grid {
+.person-list {
     padding: 60px 0;
 }
 
-.person-grid .grid {
+.person-category {
+    margin-bottom: 80px;
+}
+
+.person-category h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #2563eb;
+}
+
+.person-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
 }
 
 .person-card {
-    text-align: center;
+    display: flex;
+    gap: 30px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
+    transition: all 0.3s;
 }
 
-.person-card img {
-    width: 100%;
+.person-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+.person-image {
+    flex: 0 0 200px;
+}
+
+.person-image img {
+    width: 200px;
     height: 250px;
     object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 15px;
     background: #f0f0f0;
 }
 
-.person-card h3 {
-    font-size: 16px;
+.person-info {
+    flex: 1;
+}
+
+.person-info h3 {
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.person-card p {
+.person-info .position {
+    font-size: 14px;
+    color: #2563eb;
+    margin-bottom: 20px;
+}
+
+.person-details h4 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.person-details h4:first-child {
+    margin-top: 0;
+}
+
+.person-details ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.person-details li {
     font-size: 13px;
     color: #666;
+    line-height: 1.8;
+    margin-bottom: 5px;
 }
 
 /* News Page */
@@ -965,8 +993,22 @@ footer {
     .services-grid,
     .news-grid,
     .consultation-grid,
-    .person-grid .grid {
+    .person-grid {
         grid-template-columns: 1fr;
+    }
+
+    .person-card {
+        flex-direction: column;
+    }
+
+    .person-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .person-image img {
+        width: 100%;
+        height: 300px;
     }
 
     .field-category ul,
