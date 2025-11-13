@@ -536,6 +536,8 @@ footer {
 
 .floating-btn.consultation {
     background: #2563EB;
+    font-size: 28px;
+    line-height: 1;
 }
 
 /* Scroll to Top Button */
