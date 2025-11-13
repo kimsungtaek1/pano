@@ -17,7 +17,6 @@
             </div>
         </div>
     </footer>
-    <button id="scrollTop" onclick="scrollToTop()">↑</button>
     <script src="/js/script.js"></script>
 </body>
 </html>

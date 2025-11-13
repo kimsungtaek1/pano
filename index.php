@@ -133,6 +133,9 @@ $news_list = $stmt->fetchAll();
     <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
         📝
     </a>
+    <a href="#" class="floating-btn scroll-top" title="맨 위로" onclick="scrollToTop(event)">
+        ↑
+    </a>
 </div>
 
 </main>
@@ -180,6 +183,12 @@ function scrollToConsultation(event) {
     if (consultationSection) {
         consultationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+}
+
+// 맨 위로 스크롤
+function scrollToTop(event) {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
 
