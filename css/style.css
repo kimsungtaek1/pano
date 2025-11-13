@@ -486,6 +486,50 @@ footer {
     color: #fff;
 }
 
+/* Floating Action Buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.floating-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.floating-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.floating-btn.kakao {
+    background: #FEE500;
+    color: #000;
+}
+
+.floating-btn.phone {
+    background: #10B981;
+}
+
+.floating-btn.consultation {
+    background: #2563EB;
+}
+
 /* Scroll to Top Button */
 #scrollTop {
     position: fixed;

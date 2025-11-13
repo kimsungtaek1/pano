@@ -140,6 +140,19 @@ $news_list = $stmt->fetchAll();
             </form>
         </div>
     </section>
+<!-- Floating Action Buttons -->
+<div class="floating-buttons">
+    <a href="https://pf.kakao.com/_Exaaxib/chat" target="_blank" class="floating-btn kakao" title="카카오톡 상담">
+        💬
+    </a>
+    <a href="tel:010-5633-1803" class="floating-btn phone" title="전화 상담">
+        📞
+    </a>
+    <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
+        📝
+    </a>
+</div>
+
 </main>
 
 <script>
@@ -175,6 +188,17 @@ document.getElementById('consultationForm').addEventListener('submit', function(
         submitBtn.textContent = '무료상담 신청';
     });
 });
+</script>
+
+<script>
+// 상담신청 섹션으로 스크롤
+function scrollToConsultation(event) {
+    event.preventDefault();
+    const consultationSection = document.querySelector('.consultation');
+    if (consultationSection) {
+        consultationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
 </script>
 
 <?php include 'includes/footer.php'; ?>
