@@ -347,6 +347,7 @@ nav a:hover {
 .consultation {
     background: #1e293b;
     color: #fff;
+    padding: 40px 0 60px;
 }
 
 .consultation-grid {
@@ -890,17 +891,15 @@ footer {
 /* Consultation Form */
 .consultation-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .consultation-header .label {
-    font-size: 14px;
-    color: #94a3b8;
-    margin-bottom: 15px;
+    display: none;
 }
 
 .consultation-header h2 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: bold;
     line-height: 1.6;
 }
@@ -909,7 +908,7 @@ footer {
     max-width: 800px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.05);
-    padding: 50px;
+    padding: 35px 40px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -917,8 +916,8 @@ footer {
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
 .form-group {
@@ -974,7 +973,7 @@ footer {
 
 .form-actions {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 25px;
 }
 
 .btn-submit {
