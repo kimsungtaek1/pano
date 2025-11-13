@@ -127,7 +127,7 @@ $news_list = $stmt->fetchAll();
     <a href="https://pf.kakao.com/_Exaaxib/chat" target="_blank" class="floating-btn kakao" title="카카오톡 상담">
         <img src="/images/kakao.png" alt="카카오톡">
     </a>
-    <a href="tel:010-5633-1803" class="floating-btn phone" title="전화 상담">
+    <a href="tel:02-1551-8385" class="floating-btn phone" title="전화 상담">
         <img src="/images/phone.png" alt="전화">
     </a>
     <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
