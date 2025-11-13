@@ -122,6 +122,16 @@ $news_list = $stmt->fetchAll();
             </form>
         </div>
     </section>
+<!-- Fixed Bottom Consultation Bar -->
+<div class="fixed-consultation-bar">
+    <form id="fixedConsultationForm" class="fixed-consultation-form" method="POST" action="/api/submit_consultation.php">
+        <input type="text" name="name" placeholder="이름" required>
+        <input type="tel" name="phone" placeholder="연락처 (010-1234-5678)" required>
+        <textarea name="content" placeholder="상담내용을 간단히 입력해주세요" required></textarea>
+        <button type="submit" class="btn-submit-bar">상담신청</button>
+    </form>
+</div>
+
 <!-- Floating Action Buttons -->
 <div class="floating-buttons">
     <a href="https://pf.kakao.com/_Exaaxib/chat" target="_blank" class="floating-btn kakao" title="카카오톡 상담">
@@ -190,6 +200,40 @@ function scrollToTop(event) {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// 하단 고정 바 상담 신청 폼
+document.getElementById('fixedConsultationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const submitBtn = this.querySelector('.btn-submit-bar');
+
+    // 버튼 비활성화
+    submitBtn.disabled = true;
+    submitBtn.textContent = '전송 중...';
+
+    fetch('/api/submit_consultation.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('상담신청이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
+            this.reset();
+        } else {
+            alert('오류가 발생했습니다: ' + (data.message || '다시 시도해주세요.'));
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('오류가 발생했습니다. 다시 시도해주세요.');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '상담신청';
+    });
+});
 </script>
 
 <?php include 'includes/footer.php'; ?>

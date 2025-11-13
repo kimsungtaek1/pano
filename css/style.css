@@ -345,7 +345,6 @@ nav a:hover {
 
 /* Consultation Section */
 .consultation {
-    padding: 80px 0;
     background: #1e293b;
     color: #fff;
 }
@@ -489,7 +488,7 @@ footer {
 /* Floating Action Buttons */
 .floating-buttons {
     position: fixed;
-    bottom: 30px;
+    bottom: 100px;
     right: 30px;
     display: flex;
     flex-direction: column;
@@ -997,6 +996,85 @@ footer {
 }
 
 .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Fixed Bottom Consultation Bar */
+.fixed-consultation-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #1e293b;
+    padding: 15px 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+}
+
+.fixed-consultation-form {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.fixed-consultation-form input,
+.fixed-consultation-form textarea {
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.fixed-consultation-form input::placeholder,
+.fixed-consultation-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.fixed-consultation-form input:focus,
+.fixed-consultation-form textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.fixed-consultation-form input[name="name"] {
+    flex: 0 0 150px;
+}
+
+.fixed-consultation-form input[name="phone"] {
+    flex: 0 0 180px;
+}
+
+.fixed-consultation-form textarea {
+    flex: 1;
+    resize: none;
+    height: 40px;
+}
+
+.fixed-consultation-form .btn-submit-bar {
+    padding: 10px 30px;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.fixed-consultation-form .btn-submit-bar:hover {
+    background: #1d4ed8;
+}
+
+.fixed-consultation-form .btn-submit-bar:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
