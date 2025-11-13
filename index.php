@@ -111,24 +111,6 @@ $news_list = $stmt->fetchAll();
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="email" id="email" name="email" placeholder="example@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="category">상담분야</label>
-                        <select id="category" name="category">
-                            <option value="">선택하세요</option>
-                            <option value="민사재판">민사재판</option>
-                            <option value="형사재판">형사재판</option>
-                            <option value="조정중재">조정중재</option>
-                            <option value="기업상담">기업상담</option>
-                            <option value="기타">기타</option>
-                        </select>
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <label for="content">상담내용 <span class="required">*</span></label>
                     <textarea id="content" name="content" rows="8" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>

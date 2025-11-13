@@ -108,14 +108,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><?php echo htmlspecialchars($consultation['phone']); ?></td>
                         </tr>
                         <tr>
-                            <th>이메일</th>
-                            <td><?php echo htmlspecialchars($consultation['email'] ?: '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>상담분야</th>
-                            <td><?php echo htmlspecialchars($consultation['category'] ?: '-'); ?></td>
-                        </tr>
-                        <tr>
                             <th>신청일시</th>
                             <td><?php echo date('Y-m-d H:i:s', strtotime($consultation['created_at'])); ?></td>
                         </tr>

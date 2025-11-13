@@ -17,8 +17,6 @@ require_once '../includes/db.php';
 // 입력값 받기 및 검증
 $name = trim($_POST['name'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
-$email = trim($_POST['email'] ?? '');
-$category = trim($_POST['category'] ?? '');
 $content = trim($_POST['content'] ?? '');
 
 // 필수 항목 검증
@@ -33,20 +31,12 @@ if (!preg_match('/^[0-9-]+$/', $phone)) {
     exit;
 }
 
-// 이메일 형식 검증 (입력된 경우)
-if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo json_encode(['success' => false, 'message' => '이메일 형식이 올바르지 않습니다.']);
-    exit;
-}
-
 try {
     // 테이블이 없으면 생성
     $createTableSQL = "CREATE TABLE IF NOT EXISTS consultations (
         id INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(100) NOT NULL COMMENT '이름',
         phone VARCHAR(20) NOT NULL COMMENT '전화번호',
-        email VARCHAR(100) COMMENT '이메일',
-        category VARCHAR(50) COMMENT '상담분야',
         content TEXT NOT NULL COMMENT '상담내용',
         status VARCHAR(20) DEFAULT 'pending' COMMENT '상태',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '신청일시',
@@ -60,15 +50,13 @@ try {
 
     // 데이터 삽입
     $stmt = $pdo->prepare("
-        INSERT INTO consultations (name, phone, email, category, content, status)
-        VALUES (?, ?, ?, ?, ?, 'pending')
+        INSERT INTO consultations (name, phone, content, status)
+        VALUES (?, ?, ?, 'pending')
     ");
 
     $result = $stmt->execute([
         $name,
         $phone,
-        $email ?: null,
-        $category ?: null,
         $content
     ]);
 

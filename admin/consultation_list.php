@@ -206,7 +206,6 @@ try {
                             <th width="60">No</th>
                             <th width="100">이름</th>
                             <th width="130">연락처</th>
-                            <th width="100">분야</th>
                             <th>내용</th>
                             <th width="150">신청일시</th>
                             <th width="80">상태</th>
@@ -216,7 +215,7 @@ try {
                     <tbody>
                         <?php if (empty($consultations)): ?>
                             <tr>
-                                <td colspan="8" class="text-center">등록된 상담신청이 없습니다.</td>
+                                <td colspan="7" class="text-center">등록된 상담신청이 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($consultations as $idx => $consultation): ?>
@@ -224,7 +223,6 @@ try {
                                     <td><?php echo $total - ($offset + $idx); ?></td>
                                     <td><?php echo htmlspecialchars($consultation['name']); ?></td>
                                     <td><?php echo htmlspecialchars($consultation['phone']); ?></td>
-                                    <td><?php echo htmlspecialchars($consultation['category'] ?: '-'); ?></td>
                                     <td class="title-cell">
                                         <?php echo htmlspecialchars(mb_substr($consultation['content'], 0, 50)); ?>
                                         <?php if (mb_strlen($consultation['content']) > 50): ?>...<?php endif; ?>

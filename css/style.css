@@ -510,6 +510,14 @@ footer {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     transition: all 0.3s;
     text-decoration: none;
+    overflow: hidden;
+    position: relative;
+}
+
+.floating-btn img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
 }
 
 .floating-btn:hover {
