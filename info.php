@@ -16,7 +16,7 @@ include 'includes/header.php';
     <!-- 지도 섹션 -->
     <section class="map-section">
         <div class="container">
-            <div id="map" style="width:100%;aspect-ratio:1/1;"></div>
+            <div id="map" style="width:80%;aspect-ratio:2/1;margin:0 auto;"></div>
         </div>
     </section>
 
@@ -84,7 +84,7 @@ include 'includes/header.php';
 
         // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
         var mapOptions = {
-            center: new naver.maps.LatLng(37.491680, 127.011830),
+            center: new naver.maps.LatLng(37.491680, 127.011780),
             zoom: 18
         };
 
@@ -92,7 +92,7 @@ include 'includes/header.php';
 
         // 마커 추가
         var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(37.491680, 127.011830),
+            position: new naver.maps.LatLng(37.491680, 127.011780),
             map: map
         });
 
