@@ -1,5 +1,7 @@
 <?php
-require_once 'includes/config.php';
+// 네이버 지도 API 키 (환경변수에서 로드)
+$naver_map_client_id = 'xchb6be6bp';
+
 include 'includes/header.php';
 ?>
 
@@ -19,7 +21,7 @@ include 'includes/header.php';
     </section>
 
     <!-- 네이버 지도 API -->
-    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=<?php echo getenv('NAVER_MAP_CLIENT_ID'); ?>"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=<?php echo $naver_map_client_id; ?>"></script>
 
     <script>
         // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
