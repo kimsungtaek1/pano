@@ -72,7 +72,7 @@ include 'includes/header.php';
 <?php include 'includes/footer.php'; ?>
 
 <!-- 네이버 지도 API -->
-<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xchb6be6bp"></script>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=xchb6be6bp"></script>
 
 <script>
     // DOM과 네이버 지도 스크립트가 모두 로드된 후 실행
