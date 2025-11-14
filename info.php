@@ -16,7 +16,7 @@
     </section>
 
     <!-- 네이버 지도 API -->
-    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=xchb6be6bp">
     
     <script>
         // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
