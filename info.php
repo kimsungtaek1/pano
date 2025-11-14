@@ -24,36 +24,39 @@ include 'includes/header.php';
     <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=<?php echo $naver_map_client_id; ?>"></script>
 
     <script>
-        // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
-        var mapOptions = {
-            center: new naver.maps.LatLng(37.491680, 127.011680),
-            zoom: 17
-        };
+        // 네이버 지도 스크립트 로드 후 초기화
+        window.addEventListener('load', function() {
+            // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
+            var mapOptions = {
+                center: new naver.maps.LatLng(37.491680, 127.011680),
+                zoom: 17
+            };
 
-        var map = new naver.maps.Map('map', mapOptions);
+            var map = new naver.maps.Map('map', mapOptions);
 
-        // 마커 추가
-        var marker = new naver.maps.Marker({
-            position: new naver.maps.LatLng(37.491680, 127.011680),
-            map: map
+            // 마커 추가
+            var marker = new naver.maps.Marker({
+                position: new naver.maps.LatLng(37.491680, 127.011680),
+                map: map
+            });
+
+            // 정보창 추가
+            var infowindow = new naver.maps.InfoWindow({
+                content: '<div style="padding:10px;"><b>파노 법률사무소</b><br>서울 서초구 반포대로28길 63, 3층</div>'
+            });
+
+            // 마커 클릭 시 정보창 표시
+            naver.maps.Event.addListener(marker, 'click', function() {
+                if (infowindow.getMap()) {
+                    infowindow.close();
+                } else {
+                    infowindow.open(map, marker);
+                }
+            });
+
+            // 처음에 정보창 열기
+            infowindow.open(map, marker);
         });
-
-        // 정보창 추가
-        var infowindow = new naver.maps.InfoWindow({
-            content: '<div style="padding:10px;"><b>파노 법률사무소</b><br>서울 서초구 반포대로28길 63, 3층</div>'
-        });
-
-        // 마커 클릭 시 정보창 표시
-        naver.maps.Event.addListener(marker, 'click', function() {
-            if (infowindow.getMap()) {
-                infowindow.close();
-            } else {
-                infowindow.open(map, marker);
-            }
-        });
-
-        // 처음에 정보창 열기
-        infowindow.open(map, marker);
     </script>
 
     <!-- 연락처 정보 -->
