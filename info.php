@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php
+require_once 'includes/config.php';
+include 'includes/header.php';
+?>
 
 <main>
     <!-- 페이지 타이틀 -->
@@ -16,8 +19,8 @@
     </section>
 
     <!-- 네이버 지도 API -->
-    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=xchb6be6bp">
-    
+    <script type="text/javascript" src="https://oapi.map.naver.com/v3/maps.js?ncpClientId=<?php echo getenv('NAVER_MAP_CLIENT_ID'); ?>"></script>
+
     <script>
         // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
         var mapOptions = {
