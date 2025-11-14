@@ -16,7 +16,7 @@ include 'includes/header.php';
     <!-- 지도 섹션 -->
     <section class="map-section">
         <div class="container">
-            <div id="map" style="width:80%;aspect-ratio:2/1;margin:0 auto;"></div>
+            <div id="map" style="width:100%;aspect-ratio:2/1;"></div>
         </div>
     </section>
 
