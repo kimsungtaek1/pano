@@ -85,7 +85,7 @@ include 'includes/header.php';
         // 네이버 지도 초기화 (서울 서초구 반포대로28길 63, 3층)
         var mapOptions = {
             center: new naver.maps.LatLng(37.491680, 127.011780),
-            zoom: 17.5
+            zoom: 17
         };
 
         var map = new naver.maps.Map('map', mapOptions);
