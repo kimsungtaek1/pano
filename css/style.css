@@ -1089,13 +1089,13 @@ footer {
 
 .success-cards {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     transition: transform 0.5s ease;
 }
 
 .success-card {
-    flex: 0 0 calc((100% - 40px) / 3);
-    min-width: calc((100% - 40px) / 3);
+    flex: 0 0 calc((100% - 50px) / 3);
+    min-width: calc((100% - 50px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -1270,13 +1270,13 @@ footer {
 
 .press-cards {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     transition: transform 0.5s ease;
 }
 
 .press-card {
-    flex: 0 0 calc((100% - 40px) / 3);
-    min-width: calc((100% - 40px) / 3);
+    flex: 0 0 calc((100% - 50px) / 3);
+    min-width: calc((100% - 50px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
