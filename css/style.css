@@ -1398,28 +1398,28 @@ footer {
 .recruitment {
     padding: 60px 0;
     background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
 }
 
 .recruitment-text {
     font-size: 14px;
     line-height: 1.8;
     color: #666;
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 30px;
 }
 
-/* Contact Email Section */
-.contact-email {
-    padding: 60px 0;
-    background: #fff;
+.recruitment-email {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+    text-align: left;
 }
 
-.email-address {
-    font-size: 20px;
-    font-weight: 500;
+.recruitment-email strong {
+    font-size: 16px;
+    font-weight: 600;
     color: #000;
-    text-align: center;
 }
 
 /* Success Stories Section */

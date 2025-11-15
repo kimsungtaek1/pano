@@ -155,12 +155,7 @@
                     지원 유유 및 경력 및영에 응치는 일여메일 파일주 무의지별 광관련하거 로터천력정스지각반효<br>
                     지원 파라 법률서무소는 물인국 이상도화 수원을 갖출 존언인정 새민 손인 원스의<br>
                     전공자의 체인개발 모은 범청하 재수덴어 가광률 업쳐와 참며압고.</p>
-                </div>
-
-                <!-- 이메일 섹션 -->
-                <div class="contact-email">
-                    <h2 class="section-title">이메일</h2>
-                    <p class="email-address">info@ex@panolawn.com</p>
+                    <p class="recruitment-email"><strong>이메일</strong><br>info@ex@panolawn.com</p>
                 </div>
             </div>
         </div>
