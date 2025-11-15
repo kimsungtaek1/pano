@@ -1919,11 +1919,15 @@ footer {
 .field-grid-2col .field-item {
     background: transparent;
     border: none;
-    padding: 0 30px 80px 30px;
-    transition: all 0.3s ease;
+    padding: 0;
 }
 
-.field-grid-2col .field-item:hover {
+.field-grid-2col .field-content {
+    padding: 0 30px 80px 30px;
+    transition: background 0.3s ease;
+}
+
+.field-grid-2col .field-item:hover .field-content {
     background: #F4F4F4;
 }
 
