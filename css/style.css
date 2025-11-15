@@ -1089,10 +1089,48 @@ footer {
     line-height: 1;
 }
 
+/* Intro Tabs Section */
+.intro-tabs-section {
+    padding: 60px 0 40px;
+    background: #fff;
+}
+
+.intro-tab-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.intro-tab-btn {
+    padding: 15px 50px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    border-radius: 50px;
+    background: #fff;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.intro-tab-btn.active {
+    background: #182650;
+    color: #fff;
+    border-color: #182650;
+}
+
+.intro-tab-btn:hover {
+    border-color: #182650;
+    color: #182650;
+}
+
+.intro-tab-btn.active:hover {
+    color: #fff;
+}
+
 /* Intro Content Section */
 .intro-content-section {
-    padding: 0;
-    position: relative;
+    padding: 0 0 80px;
+    background: #fff;
 }
 
 .intro-bg-container {
@@ -1113,9 +1151,7 @@ footer {
 
 .intro-text-overlay {
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 40px;
+    padding: 100px 0;
     z-index: 1;
 }
 
