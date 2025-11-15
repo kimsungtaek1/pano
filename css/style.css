@@ -72,6 +72,10 @@ nav ul {
     min-width: 500px;
 }
 
+nav li {
+    padding: 0 30px;
+}
+
 nav a {
     font-size: 16px;
     font-weight: 700;
