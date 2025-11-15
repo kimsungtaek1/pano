@@ -1307,13 +1307,8 @@ footer {
     align-items: center;
     background: rgb(24, 38, 80);
     padding: 20px;
-    margin: 0 calc(-50vw + 50%) -60px;
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    margin: 0 -40px -60px;
+    width: 100%;
 }
 
 .expertise-label {
