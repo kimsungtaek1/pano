@@ -1089,13 +1089,13 @@ footer {
 
 .success-cards {
     display: flex;
-    gap: 26px;
+    gap: 28px;
     transition: transform 0.5s ease;
 }
 
 .success-card {
-    flex: 0 0 calc((100% - 52px) / 3);
-    min-width: calc((100% - 52px) / 3);
+    flex: 0 0 calc((100% - 56px) / 3);
+    min-width: calc((100% - 56px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -1295,54 +1295,38 @@ footer {
     background: transparent;
 }
 
-.practice-layout {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
+.practice-header {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.practice-intro {
-    flex: 0 0 280px;
-    padding-top: 20px;
-}
-
-.practice-intro .section-label-text {
+.practice-header .section-label-text {
     font-size: 20px;
     font-weight: 700;
     color: #000;
     margin-bottom: 0;
 }
 
-.practice-intro h2 {
+.practice-header h2 {
     font-size: 34px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     color: #000;
 }
 
-.practice-intro .section-desc {
-    font-size: 20px;
-    color: #000;
-    font-weight: 300;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-.practice-content {
-    flex: 1;
-    overflow: hidden;
-    padding: 20px 20px;
-}
-
-.practice-cards {
+.practice-header .btn-more-wrapper {
+    margin-top: 20px;
     display: flex;
-    gap: 26px;
-    transition: transform 0.5s ease;
+    justify-content: center;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 25px;
 }
 
 .practice-card {
-    flex: 0 0 calc((100% - 52px) / 3);
-    min-width: calc((100% - 52px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
