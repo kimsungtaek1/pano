@@ -230,54 +230,13 @@ include 'includes/db.php';
                     <div class="practice-icon">
                         <img src="/images/icon_bankruptcy.png" alt="도산">
                     </div>
-                    <h3>도산<span class="dot">·</span>회생<span class="dot">·</span>파산</h3>
+                    <h3>도산(회생·파산)</h3>
                 </div>
                 <div class="practice-card">
                     <div class="practice-icon">
                         <img src="/images/icon_admin.png" alt="행정">
                     </div>
                     <h3>행정</h3>
-                </div>
-            </div>
-                    <div class="card-body">
-                        <p>형사 사건의 모든 단계에서 최선의 변호를 제공합니다. 수사 단계부터 재판까지 체계적인 법률 서비스를 제공합니다.</p>
-                    </div>
-                </div>
-                <div class="practice-card">
-                    <div class="card-header">
-                        <span class="card-tag">의료</span>
-                        <h3>의료 분쟁<br>전문 변호</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>의료 사고 및 분쟁에 대한 전문적인 법률 서비스를 제공합니다. 의료 전문 지식을 바탕으로 최선의 해결책을 제시합니다.</p>
-                    </div>
-                </div>
-                <div class="practice-card">
-                    <div class="card-header">
-                        <span class="card-tag">금융·경제</span>
-                        <h3>금융·경제<br>법률 자문</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>금융 및 경제 관련 법률 문제에 대한 전문적인 자문과 소송 대리를 제공합니다.</p>
-                    </div>
-                </div>
-                <div class="practice-card">
-                    <div class="card-header">
-                        <span class="card-tag">도산</span>
-                        <h3>회생·파산<br>절차 지원</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>기업 및 개인의 회생과 파산 절차를 전문적으로 지원합니다. 최선의 결과를 위해 노력합니다.</p>
-                    </div>
-                </div>
-                <div class="practice-card">
-                    <div class="card-header">
-                        <span class="card-tag">행정</span>
-                        <h3>행정 소송<br>전문 대리</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>행정 소송 및 행정 심판에 대한 전문적인 법률 서비스를 제공합니다.</p>
-                    </div>
                 </div>
             </div>
         </div>
