@@ -1981,7 +1981,7 @@ footer {
     color: #000;
     line-height: 2;
     position: relative;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .field-grid-2col .field-item li:before {
