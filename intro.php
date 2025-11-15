@@ -100,7 +100,7 @@
                     <div class="team-grid">
                         <div class="team-card">
                             <div class="team-photo">
-                                <img src="/images/advisor1.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
