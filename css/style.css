@@ -1223,7 +1223,7 @@ footer {
 /* Members Tab - Main Member Section */
 .member-main {
     background-image: url('/images/person_background.svg');
-    background-size: 100% 90%;
+    background-size: 111% 90%;
     background-position: center 70%;
     background-repeat: no-repeat;
     padding: 0;
@@ -1298,10 +1298,14 @@ footer {
 }
 
 .member-career li:before {
-    content: '•';
+    content: '';
     position: absolute;
     left: 0;
     color: #fff;
+}
+
+.member-career li:last-child:before {
+    content: '';
 }
 
 .member-expertise {
