@@ -284,7 +284,7 @@ nav a:hover {
 .consultation {
     background: #1e293b;
     color: #fff;
-    padding: 20px 0 60px;
+    padding: 80px 0 60px;
 }
 
 .consultation-grid {
@@ -869,24 +869,36 @@ footer {
 
 .consultation-form {
     flex: 1;
+    background: rgba(52, 58, 71, 1);
+    padding: 40px;
+    border-radius: 12px;
 }
 
-.form-row {
+.form-row-horizontal {
     display: flex;
     gap: 15px;
     margin-bottom: 15px;
+}
+
+.form-row-vertical {
+    margin-bottom: 15px;
+}
+
+.form-row-button {
+    display: flex;
+    justify-content: flex-end;
 }
 
 
 
 .consultation-form input,
 .consultation-form textarea {
-    flex: 1;
+    width: 100%;
     padding: 15px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: none;
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
     font-size: 14px;
     font-family: inherit;
     transition: all 0.3s;
@@ -894,14 +906,13 @@ footer {
 
 .consultation-form input::placeholder,
 .consultation-form textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .consultation-form input:focus,
 .consultation-form textarea:focus {
     outline: none;
-    border-color: #60a5fa;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 1);
 }
 
 .consultation-form textarea {

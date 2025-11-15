@@ -241,12 +241,14 @@ include 'includes/db.php';
                 </div>
                 
                 <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
-                    <div class="form-row">
+                    <div class="form-row-horizontal">
                         <input type="text" id="name" name="name" required placeholder="성함">
                         <input type="tel" id="phone" name="phone" required placeholder="연락처">
                     </div>
-                    <div class="form-row">
-                        <textarea id="content" name="content" rows="1" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
+                    <div class="form-row-vertical">
+                        <textarea id="content" name="content" rows="4" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
+                    </div>
+                    <div class="form-row-button">
                         <button type="submit" class="btn-submit">상담신청</button>
                     </div>
                 </form>
