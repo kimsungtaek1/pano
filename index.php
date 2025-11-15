@@ -44,34 +44,58 @@ include 'includes/db.php';
                 <div class="success-content">
                     <div class="success-cards">
                         <div class="success-card">
-                            <span class="card-tag">구속영장 기각</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">구속영장 기각</span>
+                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>피고인이 2023년 5월 조치 불출시기 방법 조직범죄 관한처분을 범죄 권리위반 신청원 고발원이 만약어 제재우 송수청원 권립라윈 것....</p>
+                            </div>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">무죄 판결</span>
-                            <h3>횡령 혐의<br>1심 무죄 판결</h3>
-                            <p>검찰이 제기한 횡령 혐의에 대해<br>철저한 증거 분석과 법리 검토를 통해<br>1심에서 무죄 판결을 이끌어냈습니다.</p>
+                            <div class="card-header">
+                                <span class="card-tag">무죄 판결</span>
+                                <h3>횡령 혐의<br>1심 무죄 판결</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>검찰이 제기한 횡령 혐의에 대해 철저한 증거 분석과 법리 검토를 통해 1심에서 무죄 판결을 이끌어냈습니다.</p>
+                            </div>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">집행유예</span>
-                            <h3>특수상해 사건<br>집행유예 선고</h3>
-                            <p>특수상해 혐의로 기소된 사건에서<br>피고인의 정상 참작 사유를 적극 주장하여<br>실형이 아닌 집행유예 판결을 받았습니다.</p>
+                            <div class="card-header">
+                                <span class="card-tag">집행유예</span>
+                                <h3>특수상해 사건<br>집행유예 선고</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>특수상해 혐의로 기소된 사건에서 피고인의 정상 참작 사유를 적극 주장하여 실형이 아닌 집행유예 판결을 받았습니다.</p>
+                            </div>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">불기소 처분</span>
-                            <h3>사기 혐의<br>불기소 처분</h3>
-                            <p>사기 혐의로 고소된 사건에서<br>명확한 법리 검토와 증거 제출로<br>검찰의 불기소 처분을 받았습니다.</p>
+                            <div class="card-header">
+                                <span class="card-tag">불기소 처분</span>
+                                <h3>사기 혐의<br>불기소 처분</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>사기 혐의로 고소된 사건에서 명확한 법리 검토와 증거 제출로 검찰의 불기소 처분을 받았습니다.</p>
+                            </div>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">승소 판결</span>
-                            <h3>민사 손해배상<br>원고 승소</h3>
-                            <p>손해배상 청구 소송에서<br>피해 사실을 명확히 입증하여<br>법원으로부터 전액 배상 판결을 받았습니다.</p>
+                            <div class="card-header">
+                                <span class="card-tag">승소 판결</span>
+                                <h3>민사 손해배상<br>원고 승소</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>손해배상 청구 소송에서 피해 사실을 명확히 입증하여 법원으로부터 전액 배상 판결을 받았습니다.</p>
+                            </div>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">합의 성공</span>
-                            <h3>교통사고<br>원만한 합의</h3>
-                            <p>교통사고 피해 사건에서<br>보험사와의 협상을 통해<br>의뢰인에게 유리한 조건으로 합의했습니다.</p>
+                            <div class="card-header">
+                                <span class="card-tag">합의 성공</span>
+                                <h3>교통사고<br>원만한 합의</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>교통사고 피해 사건에서 보험사와의 협상을 통해 의뢰인에게 유리한 조건으로 합의했습니다.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -101,34 +125,58 @@ include 'includes/db.php';
                 <div class="press-content">
                     <div class="press-cards">
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>피고인이 2023년 5월 조치 불출시기 방법 조직범죄 관한처분을 범죄 권리위반 신청원 고발원이 만약어 제재우 송수청원 권립라윈 것....</p>
+                            </div>
                         </div>
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>법무법인 파노<br>전문성 인정</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>다양한 분야의 법률 서비스 제공으로 의뢰인들로부터 높은 평가를 받고 있으며 업계에서 전문성을 인정받고 있습니다.</p>
+                            </div>
                         </div>
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>공익활동 참여<br>사회공헌 활동</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>법률 소외계층을 위한 무료 법률 상담 및 공익 소송 지원 등 다양한 사회공헌 활동을 펼치고 있습니다.</p>
+                            </div>
                         </div>
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>형사전문 변호사<br>업계 주목</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>형사 사건 전문 변호사들의 뛰어난 실력과 높은 승소율로 업계의 주목을 받고 있습니다.</p>
+                            </div>
                         </div>
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>의료 분쟁 해결<br>전문성 강화</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>의료 분쟁 분야에서의 전문성을 강화하여 의료 사고 피해자들의 권리 보호에 앞장서고 있습니다.</p>
+                            </div>
                         </div>
                         <div class="press-card">
-                            <span class="card-tag">언론보도</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <div class="card-header">
+                                <span class="card-tag">언론보도</span>
+                                <h3>기업법무 강화<br>법률 파트너</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>기업들의 신뢰할 수 있는 법률 파트너로서 기업법무 서비스를 강화하여 많은 기업들과 협력하고 있습니다.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
