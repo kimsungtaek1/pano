@@ -1226,7 +1226,7 @@ footer {
     background-size: 100% auto;
     background-position: center bottom;
     background-repeat: no-repeat;
-    padding: 0 0 60px;
+    padding: 0;
     position: relative;
     min-height: 600px;
 }
