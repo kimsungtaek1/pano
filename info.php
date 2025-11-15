@@ -31,45 +31,51 @@ include 'includes/header.php';
     <section class="contact-info">
         <div class="container">
             <div class="info-grid">
-                <!-- 주소 -->
+                <!-- 오시는길 -->
                 <div class="info-item">
-                    <h3>주소</h3>
-                    <p class="info-large">서울 서초구 반포대로28길 63, 3층</p>
+                    <h3>오시는길</h3>
+                    <p class="info-large">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</p>
                 </div>
 
-                <!-- 이메일 -->
+                <!-- 업무시간 -->
                 <div class="info-item">
-                    <h3>이메일</h3>
-                    <p class="info-large">intake@panolaw.com</p>
+                    <h3>업무시간</h3>
+                    <p class="info-large">평일 9:00~18:00</p>
                 </div>
             </div>
 
             <div class="info-grid">
-                <!-- 전화번호 -->
+                <!-- 대표전화 -->
                 <div class="info-item">
-                    <h3>전화번호</h3>
-                    <p class="info-large">02-1551-8385</p>
+                    <h3>대표전화</h3>
+                    <p class="info-large">1551-8385</p>
                 </div>
 
-                <!-- 팩스번호 -->
+                <!-- 대표팩스 -->
                 <div class="info-item">
-                    <h3>팩스번호</h3>
+                    <h3>대표팩스</h3>
                     <p class="info-large">02-6008-2884</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 인재모집 -->
-    <section class="recruit-section">
+    <!-- 컨설팅 섹션들 -->
+    <section class="consulting-section">
         <div class="container">
-            <h2>인재모집</h2>
-            <p class="recruit-desc">
-                고객에게 모태나 신속하고 정성있으르는 최고의 서비스를 제공하드는 목표를 가진 파노 법률사무소과 함께 걸어갈 능력있는 인재에게 남성의 믿우 문을 채니 열어 놓고 있습니다. 파노 법률사무소과 함께 하고자 하는 법조사의 적극적인 지원을 바랍니다.
-            </p>
-            <div class="recruit-contact">
-                <h3>이메일</h3>
-                <p class="info-large">recruit@panolaw.com</p>
+            <div class="consulting-grid">
+                <div class="consulting-card">
+                    <h3>건물사진 찍어주세요</h3>
+                    <p>지~~~앞씬어주세요</p>
+                </div>
+                <div class="consulting-card">
+                    <h3>건물사진 찍어주세요</h3>
+                    <p>지~~~앞씬어주세요</p>
+                </div>
+                <div class="consulting-card">
+                    <h3>건물사진 찍어주세요</h3>
+                    <p>지~~~앞씬어주세요</p>
+                </div>
             </div>
         </div>
     </section>
