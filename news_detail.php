@@ -105,7 +105,7 @@ include 'includes/header.php';
 }
 
 .badge-blue {
-    background: #0066cc;
+    background: #182650;
     color: white;
 }
 
