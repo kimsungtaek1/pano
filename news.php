@@ -258,7 +258,7 @@ include 'includes/header.php';
 }
 
 .badge-red {
-    background: #2196F3;
+    background: #182650;
     color: #fff;
     padding: 4px 12px;
     border-radius: 15px;
