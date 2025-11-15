@@ -14,20 +14,17 @@ $news_list = $stmt->fetchAll();
     <!-- 메인 비주얼 -->
     <section class="hero">
         <div class="hero-slide active">
-            <img src="/images/1.jpg" alt="배경 1">
+            <img src="/images/1.png" alt="배경 1">
         </div>
         <div class="hero-slide">
-            <img src="/images/2.jpg" alt="배경 2">
+            <img src="/images/2.png" alt="배경 2">
         </div>
         <div class="hero-slide">
-            <img src="/images/3.jpg" alt="배경 3">
-        </div>
-        <div class="hero-slide">
-            <img src="/images/4.jpg" alt="배경 4">
+            <img src="/images/3.png" alt="배경 3">
         </div>
         <div class="hero-overlay">
             <div class="hero-content">
-                <img src="/images/logo.png" alt="PANO" class="hero-logo">
+                <img src="/images/slide_logo.png" alt="PANO" class="hero-logo">
                 <p class="subtitle">Song Dong Min</p>
                 <p class="description">의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다</p>
             </div>
