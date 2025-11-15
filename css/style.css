@@ -1923,7 +1923,7 @@ footer {
 }
 
 .field-grid-2col .field-content {
-    padding: 20px;
+    margin: 20px;
     transition: background 0.3s ease;
 }
 
