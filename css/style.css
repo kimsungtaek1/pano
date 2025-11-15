@@ -1031,21 +1031,21 @@ footer {
 }
 
 .section-label-text {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     color: #000;
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .success-intro h2 {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #000;
 }
 
 .section-desc {
-    font-size: 14px;
+    font-size: 20px;
     color: #000;
     line-height: 1.6;
     margin-bottom: 25px;
@@ -1145,9 +1145,9 @@ footer {
 }
 
 .btn-more-link span {
-    font-size: 18px;
+    font-size: 20px;
     color: #000;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .btn-circle-arrow {
@@ -1228,10 +1228,10 @@ footer {
 }
 
 .press-intro .section-label-text {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 700;
     color: #000;
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 
 .press-intro h2 {
@@ -1242,7 +1242,7 @@ footer {
 }
 
 .press-intro .section-desc {
-    font-size: 14px;
+    font-size: 20px;
     color: #000;
     line-height: 1.6;
     margin-bottom: 25px;
