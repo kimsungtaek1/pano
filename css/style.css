@@ -1918,29 +1918,8 @@ footer {
 
 .field-grid-2col .field-item {
     background: transparent;
-    border-top: 1px solid #000;
-    border-right: none;
-    border-bottom: 1px solid #000;
-    border-left: none;
-    padding: 40px 30px;
-}
-
-.field-grid-2col .field-item:nth-child(1),
-.field-grid-2col .field-item:nth-child(2) {
-    border-top: 1px solid #000;
-}
-
-.field-grid-2col .field-item:nth-child(3),
-.field-grid-2col .field-item:nth-child(4) {
-    border-top: none;
-}
-
-.field-grid-2col .field-item:nth-child(1) {
-    padding-bottom: 80px;
-}
-
-.field-grid-2col .field-item:nth-child(2) {
-    padding-bottom: 80px;
+    border: none;
+    padding: 0 30px 80px 30px;
 }
 
 .field-grid-2col .field-item h2 {
@@ -1978,6 +1957,12 @@ footer {
     left: 0;
     color: #000;
     font-weight: normal;
+}
+
+.field-divider-top {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 0 0 20px 0;
 }
 
 .field-divider {
