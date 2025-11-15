@@ -22,16 +22,17 @@
                 <!-- 형사 -->
                 <div class="field-item">
                     <h2>형사</h2>
-                    <p class="field-subtitle-text">검사 출신 변호사들을 중심으로<br>양질의서비스를 제공해 드립니다.</p>
+                    <p class="field-subtitle-text">검사 재직 경험을 바탕으로<br>형사사건 전 과정에 대응합니다.</p>
+                    <hr class="field-divider">
                     <ul>
-                        <li>성범죄</li>
-                        <li>폭력·상해</li>
-                        <li>마약(대마, 필로폰, 향정 등)</li>
-                        <li>스토킹</li>
-                        <li>학폭(학교폭력)</li>
-                        <li>교통사고</li>
-                        <li>사기·횡령·배임</li>
-                        <li>음주운전·무면허 운전</li>
+                        <li>·  성범죄</li>
+                        <li>·  폭행·상해</li>
+                        <li>·  마약(대마, 필로폰, 향정 등)</li>
+                        <li>·  스토킹</li>
+                        <li>·  학폭(학교폭력)</li>
+                        <li>·  교통사고</li>
+                        <li>·  사기·횡령·배임</li>
+                        <li>·  음주운전·무면허 운전</li>
                     </ul>
                 </div>
 
