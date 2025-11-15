@@ -1923,9 +1923,8 @@ footer {
 }
 
 .field-grid-2col .field-content {
-    padding: 0 30px 80px 30px;
+    margin: 30px 30px 80px 30px;
     transition: background 0.3s ease;
-    padding-top: 30px;
 }
 
 .field-grid-2col .field-item:hover .field-content {
