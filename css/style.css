@@ -1140,9 +1140,9 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    color: #1e293b;
+    background: rgba(24, 38, 80, 1);
+    border: none;
+    color: #fff;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -1152,9 +1152,8 @@ footer {
 }
 
 .btn-circle-arrow:hover {
-    background: #1e293b;
-    color: #fff;
-    border-color: #1e293b;
+    background: rgba(24, 38, 80, 0.8);
+    transform: scale(1.1);
 }
 
 /* 슬라이더 화살표 버튼 */
