@@ -1926,7 +1926,7 @@ footer {
 .field-grid-2col .field-header-row {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 80px;
     margin-bottom: 30px;
 }
 
@@ -1936,6 +1936,8 @@ footer {
     margin: 0;
     color: #000;
     white-space: nowrap;
+    flex-shrink: 0;
+    width: 150px;
 }
 
 .field-grid-2col .field-subtitle-text {
@@ -1946,16 +1948,22 @@ footer {
     font-weight: 400;
     opacity: 0;
     transition: opacity 0.3s ease;
+    flex: 1;
 }
 
 .field-grid-2col .field-item:hover .field-subtitle-text {
     opacity: 1;
 }
 
+.field-grid-2col .field-item .field-divider {
+    margin-left: 230px;
+}
+
 .field-grid-2col .field-item ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: 230px;
 }
 
 .field-grid-2col .field-item li {
