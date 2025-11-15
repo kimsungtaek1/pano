@@ -1033,12 +1033,12 @@ footer {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #1e293b;
+    color: #000;
 }
 
 .section-desc {
     font-size: 14px;
-    color: #64748b;
+    color: #000;
     line-height: 1.6;
     margin-bottom: 25px;
 }
@@ -1062,32 +1062,18 @@ footer {
 
 .success-content {
     flex: 1;
-}
-
-.success-counter {
-    margin-bottom: 30px;
-}
-
-.counter-text {
-    font-size: 48px;
-    font-weight: bold;
-    color: #1e293b;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.success-counter p {
-    font-size: 14px;
-    color: #64748b;
+    overflow: hidden;
 }
 
 .success-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 20px;
+    transition: transform 0.5s ease;
 }
 
 .success-card {
+    flex: 0 0 calc(33.333% - 14px);
+    min-width: calc(33.333% - 14px);
     background: #fff;
     border-radius: 12px;
     padding: 30px 25px;
@@ -1122,6 +1108,69 @@ footer {
     font-size: 12px;
     color: #64748b;
     line-height: 1.6;
+}
+
+/* 더 알아보기 버튼 스타일 */
+.btn-more-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-more-wrapper span {
+    font-size: 14px;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn-circle-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-circle-arrow:hover {
+    background: #1e293b;
+    color: #fff;
+    border-color: #1e293b;
+}
+
+/* 슬라이더 화살표 버튼 */
+.slider-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.slider-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-arrow:hover {
+    background: #1e293b;
+    color: #fff;
+    border-color: #1e293b;
 }
 
 /* Press Coverage Section */
@@ -1268,21 +1317,7 @@ footer {
     margin-bottom: 20px;
 }
 
-.btn-more-areas {
-    background: #2563eb;
-    color: #fff;
-    border: none;
-    padding: 12px 30px;
-    font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
 
-.btn-more-areas:hover {
-    background: #1d4ed8;
-    transform: translateY(-2px);
-}
 
 .practice-grid {
     display: grid;
