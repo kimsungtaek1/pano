@@ -58,6 +58,7 @@
             <div class="intro-tab-content" id="tab-members">
                 <!-- 대표 변호사 섹션 -->
                 <div class="member-main">
+                    <img src="/images/person_logo.svg" alt="PANO" class="member-main-logo">
                     <div class="member-main-content">
                         <div class="member-info">
                             <h2 class="member-name">송동민 <span class="member-title">대표변호사</span></h2>
