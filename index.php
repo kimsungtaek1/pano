@@ -209,10 +209,36 @@ include 'includes/db.php';
             </div>
             <div class="practice-grid">
                 <div class="practice-card">
-                    <div class="card-header">
-                        <span class="card-tag">형사</span>
-                        <h3>형사 전문<br>법률 서비스</h3>
+                    <div class="practice-icon">
+                        <img src="/images/icon_criminal.png" alt="형사">
                     </div>
+                    <h3>형사</h3>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_medical.png" alt="의료">
+                    </div>
+                    <h3>의료</h3>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_finance.png" alt="금융·경제">
+                    </div>
+                    <h3>금융<span class="dot">·</span>경제</h3>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_bankruptcy.png" alt="도산">
+                    </div>
+                    <h3>도산<span class="dot">·</span>회생<span class="dot">·</span>파산</h3>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_admin.png" alt="행정">
+                    </div>
+                    <h3>행정</h3>
+                </div>
+            </div>
                     <div class="card-body">
                         <p>형사 사건의 모든 단계에서 최선의 변호를 제공합니다. 수사 단계부터 재판까지 체계적인 법률 서비스를 제공합니다.</p>
                     </div>
