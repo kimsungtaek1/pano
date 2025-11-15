@@ -292,9 +292,9 @@ function moveSuccessSlide(direction) {
     currentSuccessSlide += direction;
 
     if (currentSuccessSlide < 0) {
-        currentSuccessSlide = totalCards - 3;
-    } else if (currentSuccessSlide > totalCards - 3) {
         currentSuccessSlide = 0;
+    } else if (currentSuccessSlide > totalCards - 3) {
+        currentSuccessSlide = totalCards - 3;
     }
 
     const container = document.querySelector('.success-cards');
@@ -312,9 +312,9 @@ function movePressSlide(direction) {
     currentPressSlide += direction;
 
     if (currentPressSlide < 0) {
-        currentPressSlide = totalCards - 3;
-    } else if (currentPressSlide > totalCards - 3) {
         currentPressSlide = 0;
+    } else if (currentPressSlide > totalCards - 3) {
+        currentPressSlide = totalCards - 3;
     }
 
     const container = document.querySelector('.press-cards');
