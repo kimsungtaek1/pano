@@ -1828,9 +1828,9 @@ footer {
 }
 
 .practice-icon {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
