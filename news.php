@@ -143,7 +143,6 @@ include 'includes/header.php';
     margin: 40px 0;
 }
 
-.news-card,
 .case-card {
     background: #fff;
     border-top: 1px solid #ddd;
@@ -157,8 +156,24 @@ include 'includes/header.php';
     gap: 15px;
 }
 
-.news-card:hover,
 .case-card:hover {
+    background: #fafafa;
+}
+
+.news-card {
+    background: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    padding: 15px 0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.news-card:hover {
     background: #fafafa;
 }
 
@@ -176,7 +191,6 @@ include 'includes/header.php';
     flex-shrink: 0;
 }
 
-.news-card .content,
 .case-card .content {
     display: flex;
     flex-direction: column;
@@ -184,12 +198,10 @@ include 'includes/header.php';
     gap: 8px;
 }
 
-.news-card .badge,
 .case-card .badge {
     align-self: flex-start;
 }
 
-.news-card h3,
 .case-card h3 {
     font-size: 15px;
     color: #000;
@@ -197,30 +209,56 @@ include 'includes/header.php';
     font-weight: 500;
 }
 
-.news-card p,
 .case-card p {
     font-size: 13px;
     color: #666;
     line-height: 1.5;
 }
 
-.news-card .date,
 .case-card .date {
     font-size: 12px;
     color: #999;
 }
 
-.badge-blue {
-    background: #fff;
-    color: #333;
-    border: 1px solid #333;
+.news-card .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+}
+
+.news-card .badge {
+    align-self: flex-start;
+}
+
+.news-card h3 {
+    font-size: 15px;
+    color: #000;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.news-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.news-card .date {
+    font-size: 12px;
+    color: #999;
+}
+
+.badge-red {
+    background: #182650;
+    color: #fff;
     padding: 4px 12px;
     border-radius: 0;
     font-size: 11px;
     font-weight: 400;
 }
 
-.badge-red {
+.badge-blue {
     background: #182650;
     color: #fff;
     padding: 4px 12px;
