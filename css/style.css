@@ -67,7 +67,7 @@ header {
 
 nav ul {
     display: flex;
-    gap: 60px;
+    gap: 5%;
 }
 
 nav a {
@@ -1076,6 +1076,112 @@ footer {
 .fixed-consultation-form .btn-submit-bar:disabled {
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+/* Intro Full Image */
+.intro-full-image {
+    padding: 0;
+}
+
+.intro-full-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Success Stories & Press Coverage Sliders */
+.success-stories,
+.press-coverage {
+    padding: 80px 0;
+}
+
+.success-stories {
+    background: #f8f9fa;
+}
+
+.success-stories h2,
+.press-coverage h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.slide h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.slide p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.slide .year {
+    display: inline-block;
+    font-size: 14px;
+    color: #2563eb;
+    font-weight: bold;
+    padding: 8px 16px;
+    background: #e0e7ff;
+    border-radius: 20px;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(37, 99, 235, 0.9);
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: rgba(37, 99, 235, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn.prev {
+    left: -60px;
+}
+
+.slider-btn.next {
+    right: -60px;
 }
 
 /* Responsive */
