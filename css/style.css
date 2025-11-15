@@ -1916,14 +1916,21 @@ footer {
     margin-bottom: 30px;
 }
 
+.field-grid-2col .field-item {
+    background: transparent;
+}
+
 .field-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
+.field-grid-3col .field-item {
+    background: #F4F4F4;
+}
+
 .field-item {
-    background: #fff;
     padding: 30px;
     border-radius: 0;
     border-bottom: 1px solid #e0e0e0;
