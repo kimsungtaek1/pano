@@ -1070,6 +1070,7 @@ footer {
 .success-content {
     flex: 1;
     overflow: hidden;
+    padding: 20px 0;
 }
 
 .success-cards {
@@ -1084,13 +1085,13 @@ footer {
     background: #fff;
     border-radius: 12px;
     padding: 30px 25px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
     transition: all 0.3s;
 }
 
 .success-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
 }
 
 .card-tag {
