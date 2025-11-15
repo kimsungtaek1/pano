@@ -1316,9 +1316,11 @@ footer {
     gap: 10px;
     align-items: center;
     background: rgb(24, 38, 80);
-    padding: 20px;
+    padding: 20px 0;
     margin: 0 0 60px 0;
-    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .expertise-label {
@@ -1326,7 +1328,7 @@ footer {
     font-weight: 500;
     color: #fff;
     margin-right: 5px;
-    padding-left: 0;
+    padding-left: 20px;
 }
 
 .expertise-btn {
