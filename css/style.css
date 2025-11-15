@@ -1956,8 +1956,7 @@ footer {
 }
 
 .field-grid-2col .field-item .field-divider {
-    margin-left: -230px;
-    width: calc(100% + 230px);
+    margin-left: 0;
 }
 
 .field-grid-2col .field-item ul {
