@@ -1925,6 +1925,7 @@ footer {
 .field-grid-2col .field-content {
     padding: 0 30px 80px 30px;
     transition: background 0.3s ease;
+    padding-top: 30px;
 }
 
 .field-grid-2col .field-item:hover .field-content {
@@ -1993,15 +1994,16 @@ footer {
 }
 
 .field-divider-top {
-    border: none;
-    border-top: 1px solid #000;
-    margin: 0 0 20px 0;
+    display: none;
 }
 
-.field-divider {
+.field-grid-2col .field-item .field-divider {
     border: none;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
     margin: 20px 0;
+    height: 1px;
+    padding: 10px 0;
 }
 
 .field-grid-3col {
