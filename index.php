@@ -16,8 +16,10 @@ include 'includes/db.php';
             <img src="/images/3.png" alt="배경 3">
         </div>
         <div class="hero-overlay">
-            <div class="hero-content">
-                <img src="/images/slide_logo.png" alt="PANO" class="hero-logo">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="/images/slide_logo.png" alt="PANO" class="hero-logo">
+                </div>
             </div>
         </div>
     </section>

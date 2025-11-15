@@ -477,6 +477,9 @@ footer {
 .floating-btn.consultation {
     background: #2563EB;
     line-height: 1;
+    padding: 0;
+    font-size: 28px;
+    overflow: visible;
 }
 
 .floating-btn.scroll-top {
