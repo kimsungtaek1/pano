@@ -87,10 +87,13 @@ include 'includes/header.php';
                     <?php else: ?>
                         <?php foreach ($cases_list as $case): ?>
                             <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
-                                <span class="badge badge-red">파노 성공사례</span>
-                                <h3><?php echo htmlspecialchars($case['title']); ?></h3>
-                                <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
-                                <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
+                                <div class="thumbnail"></div>
+                                <div class="content">
+                                    <span class="badge badge-red">파노 성공사례</span>
+                                    <h3><?php echo htmlspecialchars($case['title']); ?></h3>
+                                    <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
+                                    <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
+                                </div>
                             </a>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -127,10 +130,13 @@ include 'includes/header.php';
                     <?php else: ?>
                         <?php foreach ($news_list as $news): ?>
                             <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="news-card">
-                                <span class="badge badge-blue">언론보도</span>
-                                <h3><?php echo htmlspecialchars($news['title']); ?></h3>
-                                <p><?php echo htmlspecialchars($news['summary'] ?: mb_substr(strip_tags($news['content']), 0, 100) . '...'); ?></p>
-                                <span class="date"><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></span>
+                                <div class="thumbnail"></div>
+                                <div class="content">
+                                    <span class="badge badge-blue">언론보도</span>
+                                    <h3><?php echo htmlspecialchars($news['title']); ?></h3>
+                                    <p><?php echo htmlspecialchars($news['summary'] ?: mb_substr(strip_tags($news['content']), 0, 100) . '...'); ?></p>
+                                    <span class="date"><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></span>
+                                </div>
                             </a>
                         <?php endforeach; ?>
                     <?php endif; ?>
@@ -184,9 +190,9 @@ include 'includes/header.php';
 
 /* 뉴스 그리드 */
 .news-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     margin: 40px 0;
 }
 
@@ -194,27 +200,41 @@ include 'includes/header.php';
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px;
     text-decoration: none;
     transition: all 0.3s;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.news-card .thumbnail {
+    width: 200px;
+    height: 150px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.news-card .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .news-card .badge {
-    align-self: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .news-card h3 {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.4;
 }
 
@@ -222,7 +242,7 @@ include 'includes/header.php';
     font-size: 14px;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     flex: 1;
 }
 
@@ -278,9 +298,9 @@ include 'includes/header.php';
 
 /* 성공사례 그리드 */
 .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     margin: 40px 0;
 }
 
@@ -288,27 +308,41 @@ include 'includes/header.php';
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    padding: 30px;
+    padding: 20px;
     text-decoration: none;
     transition: all 0.3s;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 20px;
 }
 
 .case-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.case-card .thumbnail {
+    width: 200px;
+    height: 150px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.case-card .content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .case-card .badge {
-    align-self: flex-start;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .case-card h3 {
-    font-size: 18px;
+    font-size: 16px;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     line-height: 1.4;
 }
 
@@ -316,7 +350,7 @@ include 'includes/header.php';
     font-size: 14px;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     flex: 1;
 }
 
@@ -326,10 +360,15 @@ include 'includes/header.php';
 }
 
 @media (max-width: 768px) {
-    .news-grid,
-    .cases-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .news-card,
+    .case-card {
+        flex-direction: column;
+    }
+
+    .news-card .thumbnail,
+    .case-card .thumbnail {
+        width: 100%;
+        height: 200px;
     }
 }
 </style>
