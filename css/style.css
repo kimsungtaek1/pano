@@ -1097,7 +1097,7 @@ footer {
 .card-header {
     background: rgba(24, 38, 80, 1);
     padding: 20px 25px;
-    border-radius: 16px 16px 0 0;
+    border-radius: 16px;
 }
 
 .card-tag {
