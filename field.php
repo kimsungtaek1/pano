@@ -44,7 +44,7 @@
                     <hr class="field-divider-top">
                     <div class="field-header-row">
                         <h2>의료</h2>
-                        <p class="field-subtitle-text">한의사 면허 및 검사 경력을 토대<br>의료인의 입장에서 법률 컨즈를 분석합니다.</p>
+                        <p class="field-subtitle-text">한의사 면허 및 임상 경험을 통해<br>의료인의 입장에서 법률 리스크를 관리합니다.</p>
                     </div>
                     <hr class="field-divider">
                     <ul>
@@ -63,7 +63,7 @@
                     <hr class="field-divider-top">
                     <div class="field-header-row">
                         <h2>금융·경제</h2>
-                        <p class="field-subtitle-text">금융·경제사건 관련 장사로 세이버시<br>축척된 경험을 바탕으로 법률 서비스를 지원합니다.</p>
+                        <p class="field-subtitle-text">금융·경제사건 전담 검사로 재직하며<br>축적한 경험을 바탕으로 법률 대응을 지원합니다.</p>
                     </div>
                     <hr class="field-divider">
                     <ul>
@@ -83,7 +83,7 @@
                     <hr class="field-divider-top">
                     <div class="field-header-row">
                         <h2>도산·회생·파산</h2>
-                        <p class="field-subtitle-text">새로사에서나 등 전문 서본단과 협업하여<br>작업자의 사무 실무로 분석하여 도산 경지를 지원합니다.</p>
+                        <p class="field-subtitle-text">세무사·회계사 등 전문 자문단과 협업하여<br>채무자의 재무 상황을 분석하고 최적의 도산 절차를 지원합니다.</p>
                     </div>
                     <hr class="field-divider">
                     <ul>
