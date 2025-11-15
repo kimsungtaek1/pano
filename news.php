@@ -174,7 +174,7 @@ include 'includes/header.php';
 }
 
 .news-card .thumbnail {
-    width: 120px;
+    width: 240px;
     height: 180px;
     background: #e8e8e8;
     flex-shrink: 0;
