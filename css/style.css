@@ -1006,7 +1006,7 @@ footer {
 /* Success Stories Section */
 .success-stories {
     padding: 80px 0;
-    background: #f8f9fa;
+    background: transparent;
 }
 
 .success-layout {
