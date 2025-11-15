@@ -198,31 +198,31 @@ include 'includes/db.php';
             <div class="practice-grid">
                 <div class="practice-card">
                     <div class="practice-icon">
-                        <img src="/images/icon_criminal.png" alt="형사">
+                        <img src="/images/practice1.png" alt="형사">
                     </div>
                     <h3>형사</h3>
                 </div>
                 <div class="practice-card">
                     <div class="practice-icon">
-                        <img src="/images/icon_medical.png" alt="의료">
+                        <img src="/images/practice2.png" alt="의료">
                     </div>
                     <h3>의료</h3>
                 </div>
                 <div class="practice-card">
                     <div class="practice-icon">
-                        <img src="/images/icon_finance.png" alt="금융·경제">
+                        <img src="/images/practice3.png" alt="금융·경제">
                     </div>
                     <h3>금융<span class="dot">·</span>경제</h3>
                 </div>
                 <div class="practice-card">
                     <div class="practice-icon">
-                        <img src="/images/icon_bankruptcy.png" alt="도산">
+                        <img src="/images/practice4.png" alt="도산">
                     </div>
                     <h3>도산(회생·파산)</h3>
                 </div>
                 <div class="practice-card">
                     <div class="practice-icon">
-                        <img src="/images/icon_admin.png" alt="행정">
+                        <img src="/images/practice5.png" alt="행정">
                     </div>
                     <h3>행정</h3>
                 </div>
