@@ -113,7 +113,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor2.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
@@ -126,7 +126,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor3.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
@@ -139,7 +139,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor4.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
@@ -152,7 +152,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor5.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
@@ -165,7 +165,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor6.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
@@ -178,7 +178,7 @@
                         <div class="team-card">
                             <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
-                                <img src="/images/advisor7.jpg" alt="송동민 변호사">
+                                <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
                             <div class="team-info-box">
                                 <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>

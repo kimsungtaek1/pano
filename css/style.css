@@ -1414,12 +1414,12 @@ footer {
 }
 
 .team-photo img {
-    width: 85%;
-    height: 85%;
+    width: 80%;
+    height: 90%;
     object-fit: cover;
     margin: auto;
     display: block;
-    padding-top: 15%;
+    padding-top: 10%;
 }
 
 .team-info-box {
