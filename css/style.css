@@ -1208,7 +1208,10 @@ footer {
 
 /* Members Tab - Main Member Section */
 .member-main {
-    background: linear-gradient(to bottom, #3B4D6F 0%, #3B4D6F 70%, #fff 70%, #fff 100%);
+    background-image: url('/images/person_background.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 0 0 60px;
 }
 
