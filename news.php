@@ -207,7 +207,7 @@ include 'includes/header.php';
     background: #182650;
     color: #fff;
     padding: 4px 12px;
-    border-radius: 0;
+    border-radius: 20px;
     font-size: 11px;
     font-weight: 400;
 }
@@ -216,7 +216,8 @@ include 'includes/header.php';
     background: transparent;
     color: #000;
     padding: 4px 12px;
-    border-radius: 0;
+    border-radius: 20px;
+    border: 1px solid #000;
     font-size: 11px;
     font-weight: 400;
 }
