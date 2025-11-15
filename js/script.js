@@ -10,11 +10,20 @@ window.addEventListener('scroll', function() {
     }
 });
 
-function scrollToTop() {
+function scrollToTop(event) {
+    if (event) event.preventDefault();
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
+}
+
+function scrollToConsultation(event) {
+    if (event) event.preventDefault();
+    const consultationSection = document.querySelector('.consultation');
+    if (consultationSection) {
+        consultationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 // Hero Slider
