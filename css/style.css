@@ -1,3 +1,11 @@
+/* Font Face */
+@font-face {
+    font-family: 'Nanum Pen Script';
+    src: url('/fonts/NanumPenScript-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -1167,8 +1175,9 @@ footer {
 }
 
 .intro-text h2 {
-    font-size: 40px;
-    font-weight: bold;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 60px;
+    font-weight: normal;
     line-height: 1.4;
     margin-bottom: 30px;
     color: #000;
@@ -1184,7 +1193,7 @@ footer {
 }
 
 .intro-text p strong {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
 }
 
