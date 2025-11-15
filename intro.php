@@ -194,11 +194,9 @@
                 <!-- 인재 모집 섹션 -->
                 <div class="recruitment">
                     <h2 class="section-title">인재 모집</h2>
-                    <p class="recruitment-text">파노 법률사무소는 고객에게 스타일과 권은 하는 전스 말씀 서비스를 제공하는 것을 목표로 하고 있습니다.<br>
-                    지원 유유 및 경력 및영에 응치는 일여메일 파일주 무의지별 광관련하거 로터천력정스지각반효<br>
-                    지원 파라 법률서무소는 물인국 이상도화 수원을 갖출 존언인정 새민 손인 원스의<br>
-                    전공자의 체인개발 모은 범청하 재수덴어 가광률 업쳐와 참며압고.</p>
-                    <p class="recruitment-email"><strong>이메일</strong><br>info@ex@panolawn.com</p>
+                    <p class="recruitment-text">파노 법률사무소는 고객에게 신속하고 정성 있는 최고의 법률 서비스를 제공하는 것을 목표로 합니다. 함께 성장하며 이 목표를 실현해 갈 능력 있는 법조인재를 기다리고 있습니다.<br>
+                    저희 파노 법률사무소는 열려 있는 마음으로 새로운 동료를 맞이할 준비가 되어 있으며, 전문성과 책임감을 갖춘 분들의 적극적인 지원을 환영합니다.</p>
+                    <p class="recruitment-email"><strong>이메일</strong><br>intake@panolaw.com</p>
                 </div>
             </div>
         </div>
