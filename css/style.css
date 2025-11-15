@@ -1089,23 +1089,23 @@ footer {
 
 .success-cards {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     transition: transform 0.5s ease;
 }
 
 .success-card {
-    flex: 0 0 calc((100% - 30px) / 3);
-    min-width: calc((100% - 30px) / 3);
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s;
 }
 
 .success-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 .card-header {
@@ -1270,23 +1270,23 @@ footer {
 
 .press-cards {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     transition: transform 0.5s ease;
 }
 
 .press-card {
-    flex: 0 0 calc((100% - 30px) / 3);
-    min-width: calc((100% - 30px) / 3);
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s;
 }
 
 .press-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
 /* Practice Areas Section */
