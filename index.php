@@ -298,8 +298,10 @@ function moveSuccessSlide(direction) {
     }
 
     const container = document.querySelector('.success-cards');
-    const offset = currentSuccessSlide * (100 / 3);
-    container.style.transform = `translateX(-${offset}%)`;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 20;
+    const offset = currentSuccessSlide * (cardWidth + gap);
+    container.style.transform = `translateX(-${offset}px)`;
 }
 
 // Press slider functionality
@@ -318,8 +320,10 @@ function movePressSlide(direction) {
     }
 
     const container = document.querySelector('.press-cards');
-    const offset = currentPressSlide * (100 / 3);
-    container.style.transform = `translateX(-${offset}%)`;
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 20;
+    const offset = currentPressSlide * (cardWidth + gap);
+    container.style.transform = `translateX(-${offset}px)`;
 }
 
 // Consultation form submit
