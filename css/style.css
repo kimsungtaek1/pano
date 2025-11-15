@@ -1362,7 +1362,7 @@ footer {
 }
 
 .practice-card {
-    background: #fff;
+    background: rgba(244, 244, 244, 1);
     border-radius: 12px;
     padding: 40px 20px;
     text-align: center;
