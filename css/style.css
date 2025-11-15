@@ -138,10 +138,15 @@ nav a:hover {
     background: rgba(0, 0, 0, 0.5);
 }
 
+.hero-overlay .container {
+    position: relative;
+    height: 100%;
+}
+
 .hero-content {
     position: absolute;
     bottom: 40px;
-    right: 20%;
+    right: 20px;
     text-align: right;
     color: #fff;
 }
