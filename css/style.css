@@ -1070,7 +1070,7 @@ footer {
 .success-content {
     flex: 1;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 20px 20px;
 }
 
 .success-cards {
@@ -1091,7 +1091,7 @@ footer {
 
 .success-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .card-header {
@@ -1250,6 +1250,7 @@ footer {
 .press-content {
     flex: 1;
     overflow: hidden;
+    padding: 20px 20px;
 }
 
 .press-cards {
@@ -1270,7 +1271,7 @@ footer {
 
 .press-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 /* Practice Areas Section */
