@@ -160,30 +160,6 @@ include 'includes/header.php';
     background: #fafafa;
 }
 
-.news-card {
-    background: #fff;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-left: none;
-    border-right: none;
-    padding: 15px 0;
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-.news-card:hover {
-    background: #fafafa;
-}
-
-.news-card .thumbnail {
-    width: 240px;
-    height: 180px;
-    background: #e8e8e8;
-    flex-shrink: 0;
-}
-
 .case-card .thumbnail {
     width: 120px;
     height: 180px;
@@ -216,35 +192,6 @@ include 'includes/header.php';
 }
 
 .case-card .date {
-    font-size: 12px;
-    color: #999;
-}
-
-.news-card .content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 8px;
-}
-
-.news-card .badge {
-    align-self: flex-start;
-}
-
-.news-card h3 {
-    font-size: 15px;
-    color: #000;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.news-card p {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.5;
-}
-
-.news-card .date {
     font-size: 12px;
     color: #999;
 }
@@ -296,14 +243,12 @@ include 'includes/header.php';
 
 
 @media (max-width: 768px) {
-    .news-card,
     .case-card {
         flex-direction: column;
         gap: 10px;
         padding: 15px;
     }
 
-    .news-card .thumbnail,
     .case-card .thumbnail {
         width: 100%;
         height: 200px;
