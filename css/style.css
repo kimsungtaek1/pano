@@ -1326,7 +1326,7 @@ footer {
     font-weight: 500;
     color: #fff;
     margin-right: 5px;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .expertise-btn {
@@ -1361,6 +1361,7 @@ footer {
     padding: 80px 0;
     background: #fff;
     border-top: 1px solid #e0e0e0;
+    margin-top: 60px;
 }
 
 .section-title {
