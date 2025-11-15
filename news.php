@@ -232,7 +232,7 @@ include 'includes/header.php';
 /* 페이지네이션 */
 .pagination {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 10px;
     margin: 40px 0;
 }
