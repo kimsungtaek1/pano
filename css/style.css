@@ -1318,9 +1318,7 @@ footer {
     background: rgb(24, 38, 80);
     padding: 20px 0;
     margin: 0 0 60px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
 .expertise-label {
@@ -1328,7 +1326,7 @@ footer {
     font-weight: 500;
     color: #fff;
     margin-right: 5px;
-    padding-left: 20px;
+    margin-left: calc((100vw - 1200px) / 2 + 20px);
 }
 
 .expertise-btn {
