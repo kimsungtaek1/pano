@@ -30,28 +30,24 @@ include 'includes/header.php';
     <!-- 연락처 정보 -->
     <section class="contact-info">
         <div class="container">
-            <!-- 오시는길 -->
-            <div class="info-item">
-                <h3>오시는길</h3>
-                <p class="info-large">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</p>
+            <div class="info-row">
+                <div class="info-label">오시는길</div>
+                <div class="info-value">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</div>
             </div>
 
-            <!-- 업무시간 -->
-            <div class="info-item">
-                <h3>업무시간</h3>
-                <p class="info-large">평일 9:00~18:00</p>
+            <div class="info-row">
+                <div class="info-label">업무시간</div>
+                <div class="info-value">평일 9:00~18:00</div>
             </div>
 
-            <!-- 대표전화 -->
-            <div class="info-item">
-                <h3>대표전화</h3>
-                <p class="info-large">1551-8385</p>
+            <div class="info-row">
+                <div class="info-label">대표전화</div>
+                <div class="info-value">1551-8385</div>
             </div>
 
-            <!-- 대표팩스 -->
-            <div class="info-item">
-                <h3>대표팩스</h3>
-                <p class="info-large">02-6008-2884</p>
+            <div class="info-row">
+                <div class="info-label">대표팩스</div>
+                <div class="info-value">02-6008-2884</div>
             </div>
         </div>
     </section>
