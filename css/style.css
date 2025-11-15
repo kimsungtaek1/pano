@@ -1911,14 +1911,15 @@ footer {
 
 .field-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
 .field-item {
-    background: #f8f9fa;
+    background: #fff;
     padding: 30px;
-    border-radius: 8px;
+    border-radius: 0;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .field-item h2 {
