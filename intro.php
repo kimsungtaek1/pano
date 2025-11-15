@@ -79,10 +79,10 @@
                                 <li>파노법률사무소 대표변호사(현)</li>
                             </ul>
                             <div class="member-expertise">
-                                <button class="expertise-btn">인정취지 ( )</button>
-                                <button class="expertise-btn">심령답</button>
-                                <button class="expertise-btn">의료</button>
-                                <button class="expertise-btn">형사포렴</button>
+                                <span class="expertise-label">전문분야  |</span>
+                                <button class="expertise-btn">성범죄</button>
+                                <button class="expertise-btn">마약</button>
+                                <button class="expertise-btn">학교폭력</button>
                                 <button class="expertise-btn">교통사고</button>
                             </div>
                         </div>
