@@ -27,6 +27,7 @@ include 'includes/db.php';
         <div class="container">
             <div class="success-layout">
                 <div class="success-intro">
+                    <p class="section-label-text">성공사례</p>
                     <h2>SUCCESS STORIES</h2>
                     <p class="section-desc">파노의 성공사례를 만나보세요.</p>
                     <div class="slider-controls">
@@ -34,8 +35,10 @@ include 'includes/db.php';
                         <button class="slider-arrow next" onclick="moveSuccessSlide(1)">→</button>
                     </div>
                     <div class="btn-more-wrapper">
-                        <span>더 알아보기</span>
-                        <button class="btn-circle-arrow">→</button>
+                        <a href="/news.php" class="btn-more-link">
+                            <span>더 알아보기</span>
+                            <button class="btn-circle-arrow">→</button>
+                        </a>
                     </div>
                 </div>
                 <div class="success-content">
@@ -43,17 +46,32 @@ include 'includes/db.php';
                         <div class="success-card">
                             <span class="card-tag">구속영장 기각</span>
                             <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">구속영장 기각</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <span class="card-tag">무죄 판결</span>
+                            <h3>횡령 혐의<br>1심 무죄 판결</h3>
+                            <p>검찰이 제기한 횡령 혐의에 대해<br>철저한 증거 분석과 법리 검토를 통해<br>1심에서 무죄 판결을 이끌어냈습니다.</p>
                         </div>
                         <div class="success-card">
-                            <span class="card-tag">구속영장 기각</span>
-                            <h3>현행범체포<br>구속영장청구 기각</h3>
-                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            <span class="card-tag">집행유예</span>
+                            <h3>특수상해 사건<br>집행유예 선고</h3>
+                            <p>특수상해 혐의로 기소된 사건에서<br>피고인의 정상 참작 사유를 적극 주장하여<br>실형이 아닌 집행유예 판결을 받았습니다.</p>
+                        </div>
+                        <div class="success-card">
+                            <span class="card-tag">불기소 처분</span>
+                            <h3>사기 혐의<br>불기소 처분</h3>
+                            <p>사기 혐의로 고소된 사건에서<br>명확한 법리 검토와 증거 제출로<br>검찰의 불기소 처분을 받았습니다.</p>
+                        </div>
+                        <div class="success-card">
+                            <span class="card-tag">승소 판결</span>
+                            <h3>민사 손해배상<br>원고 승소</h3>
+                            <p>손해배상 청구 소송에서<br>피해 사실을 명확히 입증하여<br>법원으로부터 전액 배상 판결을 받았습니다.</p>
+                        </div>
+                        <div class="success-card">
+                            <span class="card-tag">합의 성공</span>
+                            <h3>교통사고<br>원만한 합의</h3>
+                            <p>교통사고 피해 사건에서<br>보험사와의 협상을 통해<br>의뢰인에게 유리한 조건으로 합의했습니다.</p>
                         </div>
                     </div>
                 </div>

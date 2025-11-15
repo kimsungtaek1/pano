@@ -1029,6 +1029,13 @@ footer {
     padding-left: 10px;
 }
 
+.section-label-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+}
+
 .success-intro h2 {
     font-size: 32px;
     font-weight: bold;
@@ -1112,13 +1119,17 @@ footer {
 
 /* 더 알아보기 버튼 스타일 */
 .btn-more-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     margin-top: 20px;
 }
 
-.btn-more-wrapper span {
+.btn-more-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.btn-more-link span {
     font-size: 14px;
     color: #000;
     font-weight: 500;
