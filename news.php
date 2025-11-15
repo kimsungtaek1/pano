@@ -150,15 +150,17 @@ include 'includes/header.php';
 </main>
 
 <style>
-/* 뉴스 리스트 */
-.news-grid {
+/* 뉴스 및 성공사례 리스트 */
+.news-grid,
+.cases-grid {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin: 40px 0;
 }
 
-.news-card {
+.news-card,
+.case-card {
     background: #fff;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -169,7 +171,8 @@ include 'includes/header.php';
     gap: 15px;
 }
 
-.news-card:hover {
+.news-card:hover,
+.case-card:hover {
     background: #fafafa;
 }
 
@@ -180,31 +183,43 @@ include 'includes/header.php';
     flex-shrink: 0;
 }
 
-.news-card .content {
+.case-card .thumbnail {
+    width: 120px;
+    height: 180px;
+    background: #e8e8e8;
+    flex-shrink: 0;
+}
+
+.news-card .content,
+.case-card .content {
     display: flex;
     flex-direction: column;
     flex: 1;
     gap: 8px;
 }
 
-.news-card .badge {
+.news-card .badge,
+.case-card .badge {
     align-self: flex-start;
 }
 
-.news-card h3 {
+.news-card h3,
+.case-card h3 {
     font-size: 15px;
     color: #000;
     line-height: 1.5;
     font-weight: 500;
 }
 
-.news-card p {
+.news-card p,
+.case-card p {
     font-size: 13px;
     color: #666;
     line-height: 1.5;
 }
 
-.news-card .date {
+.news-card .date,
+.case-card .date {
     font-size: 12px;
     color: #999;
 }
@@ -255,64 +270,6 @@ include 'includes/header.php';
     border-color: #0066cc;
 }
 
-/* 성공사례 리스트 */
-.cases-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin: 40px 0;
-}
-
-.case-card {
-    background: #fff;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 15px 0;
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-.case-card:hover {
-    background: #fafafa;
-}
-
-.case-card .thumbnail {
-    width: 120px;
-    height: 180px;
-    background: #e8e8e8;
-    flex-shrink: 0;
-}
-
-.case-card .content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 8px;
-}
-
-.case-card .badge {
-    align-self: flex-start;
-}
-
-.case-card h3 {
-    font-size: 15px;
-    color: #000;
-    line-height: 1.5;
-    font-weight: 500;
-}
-
-.case-card p {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.5;
-}
-
-.case-card .date {
-    font-size: 12px;
-    color: #999;
-}
 
 @media (max-width: 768px) {
     .news-card,
