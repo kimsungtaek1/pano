@@ -845,7 +845,7 @@ footer {
 .consultation-wrapper {
     display: flex;
     gap: 60px;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .consultation-text {
@@ -868,10 +868,11 @@ footer {
 }
 
 .consultation-form {
-    flex: 1;
+    flex: 0 0 60%;
+    max-width: 60%;
     background: rgba(52, 58, 71, 1);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .form-row-horizontal {
@@ -896,7 +897,7 @@ footer {
     width: 100%;
     padding: 15px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     background: rgba(255, 255, 255, 0.9);
     color: #333;
     font-size: 14px;
@@ -925,7 +926,7 @@ footer {
     background: #ffffff;
     color: #333;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
