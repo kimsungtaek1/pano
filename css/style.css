@@ -2015,11 +2015,13 @@ footer {
     background: transparent;
     border: none;
     padding: 0;
+    margin: 20px;
 }
 
 .field-grid-3col .field-content {
-    padding: 0 30px 80px 30px;
+    padding: 20px;
     transition: background 0.3s ease;
+    border-top: 1px solid #000;
 }
 
 .field-grid-3col .field-item:hover .field-content {
@@ -2034,13 +2036,16 @@ footer {
 }
 
 .field-grid-3col .field-item .field-divider {
-    margin-left: 0;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 20px 0;
 }
 
 .field-grid-3col .field-item ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-left: 190px;
 }
 
 .field-grid-3col .field-item li {
