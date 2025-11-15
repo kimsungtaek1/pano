@@ -917,14 +917,13 @@ footer {
 
 .consultation-form textarea {
     resize: vertical;
-    min-height: 50px;
+    min-height: 120px;
 }
 
 .consultation-form .btn-submit {
-    flex: 0 0 auto;
-    padding: 15px 40px;
-    background: #2563eb;
-    color: #fff;
+    padding: 15px 50px;
+    background: #ffffff;
+    color: #333;
     border: none;
     border-radius: 8px;
     font-size: 14px;
@@ -935,7 +934,7 @@ footer {
 }
 
 .consultation-form .btn-submit:hover {
-    background: #1d4ed8;
+    background: #f0f0f0;
     transform: translateY(-2px);
 }
 
