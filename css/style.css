@@ -1909,9 +1909,16 @@ footer {
     background: #fff;
 }
 
-.field-grid {
+.field-grid-2col {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.field-grid-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
@@ -2065,7 +2072,8 @@ footer {
         width: 100%;
     }
 
-    .field-grid {
+    .field-grid-2col,
+    .field-grid-3col {
         grid-template-columns: 1fr;
     }
 }

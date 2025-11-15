@@ -17,7 +17,8 @@
     <!-- 업무분야 그리드 -->
     <section class="field-grid-section">
         <div class="container">
-            <div class="field-grid">
+            <!-- 2열 그리드 (상위 4개) -->
+            <div class="field-grid-2col">
                 <!-- 형사 -->
                 <div class="field-item">
                     <h2>형사</h2>
@@ -80,7 +81,10 @@
                         <li>도산 관련 형사 리스크 (사채유융, 허위재산 등)</li>
                     </ul>
                 </div>
+            </div>
 
+            <!-- 3열 그리드 (하위 6개) -->
+            <div class="field-grid-3col">
                 <!-- 민사 -->
                 <div class="field-item">
                     <h2>민사</h2>
