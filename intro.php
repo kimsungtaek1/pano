@@ -78,17 +78,17 @@
                                 <li>해운사, 의약외품 제조사 등 고문변호사</li>
                                 <li>파노법률사무소 대표변호사(현)</li>
                             </ul>
-                            <div class="member-expertise">
-                                <span class="expertise-label">전문분야  |</span>
-                                <button class="expertise-btn">성범죄</button>
-                                <button class="expertise-btn">마약</button>
-                                <button class="expertise-btn">학교폭력</button>
-                                <button class="expertise-btn">교통사고</button>
-                            </div>
                         </div>
                         <div class="member-photo">
                             <img src="/images/person/main.png" alt="송동민 대표변호사">
                         </div>
+                    </div>
+                    <div class="member-expertise">
+                        <span class="expertise-label">전문분야  |</span>
+                        <button class="expertise-btn">성범죄</button>
+                        <button class="expertise-btn">마약</button>
+                        <button class="expertise-btn">학교폭력</button>
+                        <button class="expertise-btn">교통사고</button>
                     </div>
                 </div>
 

@@ -1306,8 +1306,8 @@ footer {
     gap: 10px;
     align-items: center;
     background: rgb(24, 38, 80);
-    padding: 20px;
-    margin: 0 0 -60px;
+    padding: 20px 40px;
+    margin: 0;
     width: 100%;
 }
 
