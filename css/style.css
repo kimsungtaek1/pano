@@ -1924,12 +1924,11 @@ footer {
 
 .field-grid-2col .field-content {
     padding: 0 30px 80px 30px;
+    background: #F4F4F4;
     transition: background 0.3s ease;
 }
 
-.field-grid-2col .field-item:hover .field-content {
-    background: #F4F4F4;
-}
+
 
 .field-grid-2col .field-header-row {
     display: flex;
