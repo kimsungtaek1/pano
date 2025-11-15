@@ -52,7 +52,7 @@ include 'includes/header.php';
                     <span class="date"><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></span>
                 </div>
 
-                <?php if ($news['image']): ?>
+                <?php if (!empty($news['image'])): ?>
                     <div class="news-detail-image">
                         <img src="<?php echo htmlspecialchars($news['image']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>">
                     </div>
@@ -100,7 +100,7 @@ include 'includes/header.php';
 }
 
 .badge-red {
-    background: #dc3545;
+    background: #182650;
     color: white;
 }
 
