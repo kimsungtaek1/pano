@@ -25,55 +25,79 @@ include 'includes/db.php';
     <!-- Success Stories Section -->
     <section class="success-stories">
         <div class="container">
-            <h2>SUCCESS STORIES</h2>
-            <div class="slider-container">
-                <div class="slider" id="successSlider">
-                    <div class="slide">
-                        <h3>사례 1</h3>
-                        <p>성공적인 법률 서비스 제공 사례입니다.</p>
-                        <span class="year">2024.01</span>
+            <div class="success-layout">
+                <div class="success-intro">
+                    <p class="section-label">성공사례</p>
+                    <h2>SUCCESS STORIES</h2>
+                    <p class="section-desc">파노의 성공사례를 만나보세요.</p>
+                    <button class="btn-more" onclick="scrollToSlide(-1)">← 더 알아보기 →</button>
+                </div>
+                <div class="success-content">
+                    <div class="success-counter">
+                        <span class="counter-text">250 × 36.1</span>
+                        <p>건의 성공사례를 보유하고 있습니다.</p>
                     </div>
-                    <div class="slide">
-                        <h3>사례 2</h3>
-                        <p>의뢰인의 권리를 보호한 사례입니다.</p>
-                        <span class="year">2024.02</span>
-                    </div>
-                    <div class="slide">
-                        <h3>사례 3</h3>
-                        <p>복잡한 법률 문제를 해결한 사례입니다.</p>
-                        <span class="year">2024.03</span>
+                    <div class="success-cards">
+                        <div class="success-card">
+                            <span class="card-tag">구속영장 기각</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
+                        <div class="success-card">
+                            <span class="card-tag">구속영장 기각</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
+                        <div class="success-card">
+                            <span class="card-tag">구속영장 기각</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
                     </div>
                 </div>
-                <button class="slider-btn prev" onclick="moveSlide('success', -1)">‹</button>
-                <button class="slider-btn next" onclick="moveSlide('success', 1)">›</button>
             </div>
         </div>
     </section>
 
     <!-- Press Coverage Section -->
     <section class="press-coverage">
-        <div class="container">
-            <h2>PRESS COVERAGE</h2>
-            <div class="slider-container">
-                <div class="slider" id="pressSlider">
-                    <div class="slide">
-                        <h3>언론 보도 1</h3>
-                        <p>법무법인 파노의 주요 활동이 언론에 보도되었습니다.</p>
-                        <span class="year">2024.01</span>
-                    </div>
-                    <div class="slide">
-                        <h3>언론 보도 2</h3>
-                        <p>전문성을 인정받은 법률 서비스 제공 사례입니다.</p>
-                        <span class="year">2024.02</span>
-                    </div>
-                    <div class="slide">
-                        <h3>언론 보도 3</h3>
-                        <p>사회 공헌 활동이 주목받았습니다.</p>
-                        <span class="year">2024.03</span>
-                    </div>
+        <div class="press-background">
+            <div class="container">
+                <div class="press-header">
+                    <p class="section-label">언론보도</p>
+                    <h2>PRESS COVERAGE</h2>
+                    <p class="section-desc">파노의 언론소식을 만나보세요.</p>
                 </div>
-                <button class="slider-btn prev" onclick="moveSlide('press', -1)">‹</button>
-                <button class="slider-btn next" onclick="moveSlide('press', 1)">›</button>
+                <div class="press-slider">
+                    <button class="press-nav prev" onclick="movePressSlide(-1)">‹</button>
+                    <div class="press-cards">
+                        <div class="press-card">
+                            <div class="press-image"></div>
+                            <div class="press-info">
+                                <span class="press-tag">언론보도</span>
+                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            </div>
+                        </div>
+                        <div class="press-card">
+                            <div class="press-image"></div>
+                            <div class="press-info">
+                                <span class="press-tag">언론보도</span>
+                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            </div>
+                        </div>
+                        <div class="press-card">
+                            <div class="press-image"></div>
+                            <div class="press-info">
+                                <span class="press-tag">언론보도</span>
+                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="press-nav next" onclick="movePressSlide(1)">›</button>
+                </div>
             </div>
         </div>
     </section>
@@ -81,28 +105,40 @@ include 'includes/db.php';
     <!-- Practice Areas Section -->
     <section class="services">
         <div class="container">
-            <div class="services-intro">
+            <div class="practice-header">
+                <p class="section-label">업무분야</p>
                 <h2>PRACTICE AREAS</h2>
+                <button class="btn-more-areas">더 알아보기 →</button>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⚖️</div>
-                    <h3>민사</h3>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏛️</div>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_law.png" alt="형사" onerror="this.style.display='none'">
+                    </div>
                     <h3>형사</h3>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>조정중재</h3>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_medical.png" alt="의료" onerror="this.style.display='none'">
+                    </div>
+                    <h3>의료</h3>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">🌳</div>
-                    <h3>환경법규</h3>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_finance.png" alt="금융·경제" onerror="this.style.display='none'">
+                    </div>
+                    <h3>금융·경제</h3>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">📋</div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_environment.png" alt="도산(회생·파산)" onerror="this.style.display='none'">
+                    </div>
+                    <h3>도산(회생·파산)</h3>
+                </div>
+                <div class="practice-card">
+                    <div class="practice-icon">
+                        <img src="/images/icon_admin.png" alt="행정" onerror="this.style.display='none'">
+                    </div>
                     <h3>행정</h3>
                 </div>
             </div>
@@ -113,29 +149,19 @@ include 'includes/db.php';
     <section class="consultation">
         <div class="container">
             <div class="consultation-header">
-                <p class="label">문의하기</p>
+                <p class="section-label">상담신청</p>
                 <h2>CONSULTATION REQUEST</h2>
+                <p class="consultation-subtitle">법률 상담부터 해결까지 파노가 도와드립니다.</p>
             </div>
 
             <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">이름 <span class="required">*</span></label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">연락처 <span class="required">*</span></label>
-                        <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678">
-                    </div>
+                    <input type="text" id="name" name="name" required placeholder="성함">
+                    <input type="tel" id="phone" name="phone" required placeholder="연락처">
                 </div>
-
-                <div class="form-group">
-                    <label for="content">상담내용 <span class="required">*</span></label>
-                    <textarea id="content" name="content" rows="8" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn-submit">무료상담 신청</button>
+                <div class="form-row">
+                    <textarea id="content" name="content" rows="1" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
+                    <button type="submit" class="btn-submit">상담신청</button>
                 </div>
             </form>
         </div>
@@ -169,36 +195,32 @@ include 'includes/db.php';
 </main>
 
 <script>
-// Slider functionality
-let currentSlide = {
-    success: 0,
-    press: 0
-};
+// Press slider functionality
+let currentPressSlide = 0;
 
-function moveSlide(type, direction) {
-    const slider = document.getElementById(type + 'Slider');
-    const slides = slider.children;
-    const totalSlides = slides.length;
+function movePressSlide(direction) {
+    const cards = document.querySelectorAll('.press-card');
+    const totalCards = cards.length;
 
-    currentSlide[type] += direction;
+    currentPressSlide += direction;
 
-    if (currentSlide[type] < 0) {
-        currentSlide[type] = totalSlides - 1;
-    } else if (currentSlide[type] >= totalSlides) {
-        currentSlide[type] = 0;
+    if (currentPressSlide < 0) {
+        currentPressSlide = totalCards - 3;
+    } else if (currentPressSlide > totalCards - 3) {
+        currentPressSlide = 0;
     }
 
-    slider.style.transform = `translateX(-${currentSlide[type] * 100}%)`;
+    const container = document.querySelector('.press-cards');
+    const offset = currentPressSlide * (100 / 3);
+    container.style.transform = `translateX(-${offset}%)`;
 }
 
-// Auto slide
-setInterval(() => {
-    moveSlide('success', 1);
-}, 5000);
-
-setInterval(() => {
-    moveSlide('press', 1);
-}, 5500);
+function scrollToSlide(direction) {
+    const section = document.querySelector('.success-stories');
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
 // Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
