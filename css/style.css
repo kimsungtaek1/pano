@@ -67,7 +67,9 @@ header {
 
 nav ul {
     display: flex;
-    gap: 5%;
+    gap: 80px;
+    justify-content: space-between;
+    min-width: 500px;
 }
 
 nav a {
