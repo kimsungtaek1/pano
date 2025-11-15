@@ -95,6 +95,7 @@
 
                 <!-- 전문 자문단 섹션 -->
                 <div class="advisory-team">
+                    <img src="/images/person_logo.svg" alt="PANO" class="advisory-team-logo">
                     <h2 class="section-title">전문 자문단</h2>
                     <div class="team-grid">
                         <div class="team-card">

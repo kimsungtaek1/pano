@@ -1361,6 +1361,18 @@ footer {
     padding: 60px 0;
     background: #fff;
     border-top: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.advisory-team-logo {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+    background: transparent;
+    opacity: 0.6;
 }
 
 .section-title {
