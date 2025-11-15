@@ -70,7 +70,7 @@ include 'includes/header.php';
     <section class="intro-tabs-section">
         <div class="container">
             <div class="intro-tab-buttons">
-                <button class="intro-tab-btn <?php echo $tab === 'cases' ? 'active' : ''; ?>" data-tab="cases">성공사례</button>
+                <button class="intro-tab-btn <?php echo $tab === 'cases' ? 'active' : ''; ?>" data-tab="cases">파노 성공사례</button>
                 <button class="intro-tab-btn <?php echo $tab === 'press' ? 'active' : ''; ?>" data-tab="press">언론보도</button>
             </div>
         </div>
@@ -83,11 +83,11 @@ include 'includes/header.php';
             <div class="intro-tab-content <?php echo $tab === 'cases' ? 'active' : ''; ?>" id="tab-cases">
                 <div class="cases-grid">
                     <?php if (empty($cases_list)): ?>
-                        <p style="text-align: center; padding: 60px 0; color: #999;">등록된 성공사례가 없습니다.</p>
+                        <p style="text-align: center; padding: 60px 0; color: #999;">등록된 파노 성공사례가 없습니다.</p>
                     <?php else: ?>
                         <?php foreach ($cases_list as $case): ?>
                             <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
-                                <span class="badge badge-red">성공사례</span>
+                                <span class="badge badge-red">파노 성공사례</span>
                                 <h3><?php echo htmlspecialchars($case['title']); ?></h3>
                                 <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
                                 <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
