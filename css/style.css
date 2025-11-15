@@ -1923,6 +1923,10 @@ footer {
     transition: all 0.3s ease;
 }
 
+.field-grid-2col .field-item:hover {
+    background: #F4F4F4;
+}
+
 .field-grid-2col .field-header-row {
     display: flex;
     align-items: center;
