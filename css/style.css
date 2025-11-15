@@ -880,7 +880,7 @@ footer {
 
 .form-row-horizontal {
     display: flex;
-    gap: 15px;
+    gap: 45px;
     margin-bottom: 15px;
 }
 
