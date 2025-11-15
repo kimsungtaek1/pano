@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="member-photo">
-                            <img src="/images/song_dongmin.jpg" alt="송동민 대표변호사">
+                            <img src="/images/person/main.png" alt="송동민 대표변호사">
                         </div>
                     </div>
                 </div>
