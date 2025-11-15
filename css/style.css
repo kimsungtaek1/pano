@@ -1286,7 +1286,7 @@ footer {
 .member-career {
     list-style: none;
     padding: 0;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .member-career li {
@@ -1294,11 +1294,11 @@ footer {
     line-height: 2;
     color: #fff;
     position: relative;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .member-career li:before {
-    content: '•';
+    content: '';
     position: absolute;
     left: 0;
     color: #fff;
@@ -1320,7 +1320,7 @@ footer {
     font-weight: 500;
     color: #fff;
     margin-right: 5px;
-    padding-left: 20px;
+    padding-left: 0;
 }
 
 .expertise-btn {
