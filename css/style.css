@@ -1075,7 +1075,7 @@ footer {
 
 .intro-hero-text-container {
     position: absolute;
-    bottom: 80px;
+    bottom: 40px;
     left: 0;
     right: 0;
     z-index: 2;
@@ -1089,7 +1089,7 @@ footer {
     font-size: 38px;
     font-weight: 300;
     color: #fff;
-    margin: 0;
+    margin: 0 0 10px 0;
     line-height: 1;
 }
 
