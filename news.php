@@ -3,7 +3,24 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'includes/db.php';
 
-// 언론 탭 데이터
+// 현재 탭 확인
+$tab = $_GET['tab'] ?? 'cases';
+
+// 성공사례 탭 데이터
+$cases_page = isset($_GET['cases_page']) ? (int)$_GET['cases_page'] : 1;
+$cases_per_page = 9;
+$cases_offset = ($cases_page - 1) * $cases_per_page;
+
+$cases_where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
+
+$cases_count_sql = "SELECT COUNT(*) FROM news $cases_where_sql";
+$cases_total = $pdo->query($cases_count_sql)->fetchColumn();
+$cases_total_pages = ceil($cases_total / $cases_per_page);
+
+$cases_sql = "SELECT * FROM news $cases_where_sql ORDER BY news_date DESC, created_at DESC LIMIT $cases_per_page OFFSET $cases_offset";
+$cases_list = $pdo->query($cases_sql)->fetchAll();
+
+// 언론보도 탭 데이터
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $per_page = 9;
 $offset = ($page - 1) * $per_page;
@@ -32,19 +49,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $news_list = $stmt->fetchAll();
 
-// 성공사례 탭 데이터
-$cases_page = 1;
-$cases_per_page = 9;
-$cases_offset = 0;
-
-$cases_where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
-
-$cases_count_sql = "SELECT COUNT(*) FROM news $cases_where_sql";
-$cases_total = $pdo->query($cases_count_sql)->fetchColumn();
-
-$cases_sql = "SELECT * FROM news $cases_where_sql ORDER BY news_date DESC, created_at DESC LIMIT $cases_per_page OFFSET $cases_offset";
-$cases_list = $pdo->query($cases_sql)->fetchAll();
-
 include 'includes/header.php';
 ?>
 
@@ -66,8 +70,8 @@ include 'includes/header.php';
     <section class="intro-tabs-section">
         <div class="container">
             <div class="intro-tab-buttons">
-                <button class="intro-tab-btn active">성공사례</button>
-                <button class="intro-tab-btn">언론보도</button>
+                <button class="intro-tab-btn <?php echo $tab === 'cases' ? 'active' : ''; ?>" data-tab="cases">성공사례</button>
+                <button class="intro-tab-btn <?php echo $tab === 'press' ? 'active' : ''; ?>" data-tab="press">언론보도</button>
             </div>
         </div>
     </section>
@@ -76,27 +80,41 @@ include 'includes/header.php';
     <section class="intro-content-section">
         <div class="container">
             <!-- 성공사례 탭 컨텐츠 -->
-            <div class="intro-tab-content active" id="tab-cases">
-                <div class="cases-grid" id="casesGrid">
-                    <?php foreach ($cases_list as $case): ?>
-                        <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
-                            <span class="badge badge-red">성공사례</span>
-                            <h3><?php echo htmlspecialchars($case['title']); ?></h3>
-                            <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
-                            <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
-                        </a>
-                    <?php endforeach; ?>
+            <div class="intro-tab-content <?php echo $tab === 'cases' ? 'active' : ''; ?>" id="tab-cases">
+                <div class="cases-grid">
+                    <?php if (empty($cases_list)): ?>
+                        <p style="text-align: center; padding: 60px 0; color: #999;">등록된 성공사례가 없습니다.</p>
+                    <?php else: ?>
+                        <?php foreach ($cases_list as $case): ?>
+                            <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
+                                <span class="badge badge-red">성공사례</span>
+                                <h3><?php echo htmlspecialchars($case['title']); ?></h3>
+                                <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
+                                <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
-                <div id="casesLoader" style="text-align: center; padding: 30px; display: none;">
-                    <div class="loader"></div>
-                </div>
+
+                <!-- 페이지네이션 -->
+                <?php if ($cases_total_pages > 1): ?>
+                    <div class="pagination">
+                        <?php for ($i = 1; $i <= $cases_total_pages; $i++): ?>
+                            <a href="?tab=cases&cases_page=<?php echo $i; ?>"
+                               class="page <?php echo $i === $cases_page ? 'active' : ''; ?>">
+                                <?php echo $i; ?>
+                            </a>
+                        <?php endfor; ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <!-- 언론보도 탭 컨텐츠 -->
-            <div class="intro-tab-content" id="tab-press">
+            <div class="intro-tab-content <?php echo $tab === 'press' ? 'active' : ''; ?>" id="tab-press">
                 <!-- 검색 영역 -->
                 <section class="news-filter">
                     <form method="GET" class="search-box">
+                        <input type="hidden" name="tab" value="press">
                         <input type="text" name="search" placeholder="검색" value="<?php echo htmlspecialchars($search ?? ''); ?>">
                         <button type="submit" class="search-btn">🔍</button>
                     </form>
@@ -122,7 +140,7 @@ include 'includes/header.php';
                 <?php if ($total_pages > 1): ?>
                     <div class="pagination">
                         <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                            <a href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search ?? ''); ?>"
+                            <a href="?tab=press&page=<?php echo $i; ?>&search=<?php echo urlencode($search ?? ''); ?>"
                                class="page <?php echo $i === $page ? 'active' : ''; ?>">
                                 <?php echo $i; ?>
                             </a>
@@ -307,22 +325,6 @@ include 'includes/header.php';
     color: #999;
 }
 
-/* 로더 */
-.loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #0066cc;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    margin: 0 auto;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 @media (max-width: 768px) {
     .news-grid,
     .cases-grid {
@@ -336,90 +338,14 @@ include 'includes/header.php';
 // 탭 전환 기능
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.intro-tab-btn');
-    const tabContents = document.querySelectorAll('.intro-tab-content');
 
-    tabButtons.forEach((button, index) => {
+    tabButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // 모든 버튼과 컨텐츠에서 active 제거
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-
-            // 클릭한 버튼과 해당 컨텐츠에 active 추가
-            button.classList.add('active');
-            tabContents[index].classList.add('active');
-
-            // 성공사례 탭으로 전환 시 무한 스크롤 초기화
-            if (index === 0) {
-                initInfiniteScroll();
-            }
+            const tab = button.getAttribute('data-tab');
+            window.location.href = '?tab=' + tab;
         });
     });
 });
-
-// 무한 스크롤 기능
-let currentPage = 1;
-let isLoading = false;
-let hasMore = <?php echo ($cases_offset + $cases_per_page) < $cases_total ? 'true' : 'false'; ?>;
-
-function initInfiniteScroll() {
-    if (window.scrollInfiniteInitialized) return;
-    window.scrollInfiniteInitialized = true;
-
-    window.addEventListener('scroll', function() {
-        if (isLoading || !hasMore) return;
-
-        const casesTab = document.getElementById('tab-cases');
-        if (!casesTab.classList.contains('active')) return;
-
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const pageHeight = document.documentElement.scrollHeight;
-
-        if (scrollPosition >= pageHeight - 300) {
-            loadMoreCases();
-        }
-    });
-}
-
-function loadMoreCases() {
-    isLoading = true;
-    document.getElementById('casesLoader').style.display = 'block';
-
-    currentPage++;
-
-    fetch(`ajax/load_cases.php?page=${currentPage}`)
-        .then(response => response.json())
-        .then(data => {
-            const grid = document.getElementById('casesGrid');
-
-            data.cases.forEach(caseItem => {
-                const card = document.createElement('a');
-                card.href = `news_detail.php?id=${caseItem.id}`;
-                card.className = 'case-card';
-
-                const summary = caseItem.summary || caseItem.content.replace(/<[^>]*>/g, '').substring(0, 100) + '...';
-                const newsDate = new Date(caseItem.news_date);
-                const formattedDate = `${newsDate.getFullYear()}.${String(newsDate.getMonth() + 1).padStart(2, '0')}.${String(newsDate.getDate()).padStart(2, '0')}`;
-
-                card.innerHTML = `
-                    <span class="badge badge-red">성공사례</span>
-                    <h3>${caseItem.title}</h3>
-                    <p>${summary}</p>
-                    <span class="date">${formattedDate}</span>
-                `;
-
-                grid.appendChild(card);
-            });
-
-            hasMore = data.has_more;
-            isLoading = false;
-            document.getElementById('casesLoader').style.display = 'none';
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            isLoading = false;
-            document.getElementById('casesLoader').style.display = 'none';
-        });
-}
 </script>
 
 <?php include 'includes/footer.php'; ?>
