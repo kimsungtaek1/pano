@@ -22,11 +22,10 @@
                 <h1 class="logo"><a href="/index.php"><img src="/images/logo.png" alt="PANO 법률사무소"></a></h1>
                 <nav>
                     <ul>
-                        <li><a href="/intro.php">법률사무소 소개</a></li>
+                        <li><a href="/intro.php">파노소개</a></li>
                         <li><a href="/field.php">업무분야</a></li>
-                        <li><a href="/person.php">구성원</a></li>
-                        <li><a href="/news.php">소식</a></li>
-                        <li><a href="/info.php">정보마당</a></li>
+                        <li><a href="/news.php">소식/자료</a></li>
+                        <li><a href="/info.php">오시는길</a></li>
                     </ul>
                 </nav>
 
