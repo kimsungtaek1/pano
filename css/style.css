@@ -1224,7 +1224,7 @@ footer {
 .member-main {
     background-image: url('/images/person_background.svg');
     background-size: 100% 80%;
-    background-position: center bottom;
+    background-position: center 62.5%;
     background-repeat: no-repeat;
     padding: 0;
     position: relative;
@@ -1276,7 +1276,11 @@ footer {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 30px;
-    color: #fff;
+    color: #000;
+    background: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 .member-career {
