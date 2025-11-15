@@ -1238,7 +1238,7 @@ footer {
     height: 50px;
     z-index: 10;
     background: transparent;
-    opacity: 1;
+    opacity: 0.6;
 }
 
 .member-main-content {
