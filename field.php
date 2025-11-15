@@ -116,7 +116,6 @@
             <div class="field-grid-3col">
                 <!-- 민사 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>민사</h2>
                         <hr class="field-divider">
@@ -132,7 +131,6 @@
 
                 <!-- 행정 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>행정</h2>
                         <hr class="field-divider">
@@ -148,7 +146,6 @@
 
                 <!-- 기업자문 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>기업자문</h2>
                         <hr class="field-divider">
@@ -164,7 +161,6 @@
 
                 <!-- 부동산·건설 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>부동산·건설</h2>
                         <hr class="field-divider">
@@ -180,7 +176,6 @@
 
                 <!-- 조세·관세 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>조세·관세</h2>
                         <hr class="field-divider">
@@ -196,7 +191,6 @@
 
                 <!-- 가사·상속 -->
                 <div class="field-item">
-                    <hr class="field-divider-top">
                     <div class="field-content">
                         <h2>가사·상속</h2>
                         <hr class="field-divider">
