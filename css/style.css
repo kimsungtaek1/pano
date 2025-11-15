@@ -727,46 +727,6 @@ footer {
 }
 
 /* News Page */
-.news-filter {
-    padding: 40px 0;
-    background: #f8f9fa;
-}
-
-.filter-tabs {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.tab {
-    padding: 10px 20px;
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-}
-
-.tab.active {
-    border-bottom-color: #2563eb;
-    color: #2563eb;
-    font-weight: bold;
-}
-
-.search-box {
-    display: flex;
-    gap: 10px;
-    max-width: 400px;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
 .news-list {
     padding: 60px 0;
 }

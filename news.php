@@ -114,16 +114,7 @@ include 'includes/header.php';
 
             <!-- 언론보도 탭 컨텐츠 -->
             <div class="intro-tab-content <?php echo $tab === 'press' ? 'active' : ''; ?>" id="tab-press">
-                <!-- 검색 영역 -->
-                <section class="news-filter">
-                    <form method="GET" class="search-box">
-                        <input type="hidden" name="tab" value="press">
-                        <input type="text" name="search" placeholder="검색" value="<?php echo htmlspecialchars($search ?? ''); ?>">
-                        <button type="submit" class="search-btn">🔍</button>
-                    </form>
-                </section>
-
-                <!-- 뉴스 목록 -->
+<!-- 뉴스 목록 -->
                 <div class="news-grid">
                     <?php if (empty($news_list)): ?>
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
@@ -159,35 +150,6 @@ include 'includes/header.php';
 </main>
 
 <style>
-/* 검색 영역 */
-.news-filter {
-    margin: 40px 0;
-}
-
-.search-box {
-    display: flex;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 12px 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 25px 0 0 25px;
-    font-size: 14px;
-}
-
-.search-btn {
-    padding: 12px 30px;
-    background: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 0 25px 25px 0;
-    cursor: pointer;
-    font-size: 16px;
-}
-
 /* 뉴스 리스트 */
 .news-grid {
     display: flex;
