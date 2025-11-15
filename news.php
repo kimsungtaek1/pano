@@ -104,7 +104,7 @@ include 'includes/header.php';
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
                     <?php else: ?>
                         <?php foreach ($news_list as $news): ?>
-                            <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="news-card">
+                            <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="case-card">
                                 <div class="thumbnail"></div>
                                 <div class="content">
                                     <span class="badge badge-blue">언론보도</span>
@@ -160,8 +160,15 @@ include 'includes/header.php';
     background: #fafafa;
 }
 
-.case-card .thumbnail {
+.cases-grid .case-card .thumbnail {
     width: 120px;
+    height: 180px;
+    background: #e8e8e8;
+    flex-shrink: 0;
+}
+
+.news-grid .case-card .thumbnail {
+    width: 240px;
     height: 180px;
     background: #e8e8e8;
     flex-shrink: 0;
