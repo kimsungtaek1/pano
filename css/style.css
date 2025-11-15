@@ -888,14 +888,14 @@ footer {
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
 }
 
 .form-row-vertical {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     display: flex;
     align-items: flex-start;
-    gap: 15px;
+    gap: 30px;
 }
 
 .consultation-form label {
@@ -951,7 +951,7 @@ footer {
 }
 
 .consultation-form .btn-submit {
-    padding: 15px 50px;
+    padding: 12px 35px;
     background: #ffffff;
     color: #333;
     border: none;
