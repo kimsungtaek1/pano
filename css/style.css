@@ -1237,6 +1237,8 @@ footer {
     width: 50px;
     height: 50px;
     z-index: 10;
+    background: transparent;
+    opacity: 1;
 }
 
 .member-main-content {
