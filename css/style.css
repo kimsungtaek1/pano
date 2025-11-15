@@ -1286,9 +1286,7 @@ footer {
 .press-card {
     flex: 0 0 calc((100% - 56px) / 3);
     min-width: calc((100% - 56px) / 3);
-    background-image: url('../images/press_card.png');
-    background-size: cover;
-    background-position: center;
+    background: #1a2947;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
