@@ -198,8 +198,9 @@ include 'includes/header.php';
 
 .news-card {
     background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
     text-decoration: none;
     display: flex;
     flex-direction: row;
@@ -212,7 +213,7 @@ include 'includes/header.php';
 
 .news-card .thumbnail {
     width: 120px;
-    height: 90px;
+    height: 180px;
     background: #e8e8e8;
     flex-shrink: 0;
 }
@@ -257,7 +258,7 @@ include 'includes/header.php';
 }
 
 .badge-red {
-    background: #1a237e;
+    background: #2196F3;
     color: #fff;
     padding: 4px 12px;
     border-radius: 15px;
@@ -302,8 +303,9 @@ include 'includes/header.php';
 
 .case-card {
     background: #fff;
-    border: 1px solid #ddd;
-    padding: 15px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
     text-decoration: none;
     display: flex;
     flex-direction: row;
@@ -316,7 +318,7 @@ include 'includes/header.php';
 
 .case-card .thumbnail {
     width: 120px;
-    height: 90px;
+    height: 180px;
     background: #e8e8e8;
     flex-shrink: 0;
 }
@@ -355,12 +357,13 @@ include 'includes/header.php';
     .case-card {
         flex-direction: column;
         gap: 10px;
+        padding: 15px;
     }
 
     .news-card .thumbnail,
     .case-card .thumbnail {
         width: 100%;
-        height: 150px;
+        height: 200px;
     }
 }
 </style>
