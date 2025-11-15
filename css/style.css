@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'Paperlogy';
-    src: url('/fonts/Paperlogy-ExtraBold.ttf') format('truetype');
+    src: url('/fonts/Paperlogy-ExtraBold.woff2') format('woff2');
     font-weight: 800;
     font-style: normal;
 }
