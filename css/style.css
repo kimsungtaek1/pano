@@ -1920,21 +1920,36 @@ footer {
     background: transparent;
     border: none;
     padding: 0 30px 80px 30px;
+    transition: all 0.3s ease;
+}
+
+.field-grid-2col .field-header-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 30px;
 }
 
 .field-grid-2col .field-item h2 {
     font-size: 28px;
     font-weight: 700;
-    margin: 0 0 20px 0;
+    margin: 0;
     color: #000;
+    white-space: nowrap;
 }
 
 .field-grid-2col .field-subtitle-text {
     font-size: 16px;
     color: #000;
     line-height: 1.6;
-    margin: 0 0 30px 0;
+    margin: 0;
     font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.field-grid-2col .field-item:hover .field-subtitle-text {
+    opacity: 1;
 }
 
 .field-grid-2col .field-item ul {

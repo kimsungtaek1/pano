@@ -22,8 +22,10 @@
                 <!-- 형사 -->
                 <div class="field-item">
                     <hr class="field-divider-top">
-                    <h2>형사</h2>
-                    <p class="field-subtitle-text">검사 재직 경험을 바탕으로<br>형사사건 전 과정에 대응합니다.</p>
+                    <div class="field-header-row">
+                        <h2>형사</h2>
+                        <p class="field-subtitle-text">검사 재직 경험을 바탕으로<br>형사사건 전 과정에 대응합니다.</p>
+                    </div>
                     <hr class="field-divider">
                     <ul>
                         <li>·  성범죄</li>
@@ -40,8 +42,10 @@
                 <!-- 의료 -->
                 <div class="field-item">
                     <hr class="field-divider-top">
-                    <h2>의료</h2>
-                    <p class="field-subtitle-text">한의사 면허 및 검사 경력을 토대<br>의료인의 입장에서 법률 컨즈를 분석합니다.</p>
+                    <div class="field-header-row">
+                        <h2>의료</h2>
+                        <p class="field-subtitle-text">한의사 면허 및 검사 경력을 토대<br>의료인의 입장에서 법률 컨즈를 분석합니다.</p>
+                    </div>
                     <hr class="field-divider">
                     <ul>
                         <li>면허관련(면허정지·취소)</li>
@@ -57,8 +61,10 @@
                 <!-- 금융·경제 -->
                 <div class="field-item">
                     <hr class="field-divider-top">
-                    <h2>금융·경제</h2>
-                    <p class="field-subtitle-text">금융·경제사건 관련 장사로 세이버시<br>축척된 경험을 바탕으로 법률 서비스를 지원합니다.</p>
+                    <div class="field-header-row">
+                        <h2>금융·경제</h2>
+                        <p class="field-subtitle-text">금융·경제사건 관련 장사로 세이버시<br>축척된 경험을 바탕으로 법률 서비스를 지원합니다.</p>
+                    </div>
                     <hr class="field-divider">
                     <ul>
                         <li>보이스피싱</li>
@@ -75,8 +81,10 @@
                 <!-- 도산·회생·파산 -->
                 <div class="field-item">
                     <hr class="field-divider-top">
-                    <h2>도산·회생·파산</h2>
-                    <p class="field-subtitle-text">새로사에서나 등 전문 서본단과 협업하여<br>작업자의 사무 실무로 분석하여 도산 경지를 지원합니다.</p>
+                    <div class="field-header-row">
+                        <h2>도산·회생·파산</h2>
+                        <p class="field-subtitle-text">새로사에서나 등 전문 서본단과 협업하여<br>작업자의 사무 실무로 분석하여 도산 경지를 지원합니다.</p>
+                    </div>
                     <hr class="field-divider">
                     <ul>
                         <li>개인회생 (금이스트시·지금받아 특수직)</li>
