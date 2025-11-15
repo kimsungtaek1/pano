@@ -284,7 +284,7 @@ nav a:hover {
 .consultation {
     background: #1e293b;
     color: #fff;
-    padding: 40px 0 60px;
+    padding: 20px 0 60px;
 }
 
 .consultation-grid {
@@ -855,8 +855,8 @@ footer {
 
 .consultation-text .consultation-label {
     font-size: 14px;
-    color: #94a3b8;
-    margin-bottom: 10px;
+    color: #ffffff;
+    margin-bottom: 0;
     display: block;
 }
 

@@ -237,7 +237,7 @@ include 'includes/db.php';
                 <div class="consultation-text">
                     <p class="consultation-label">상담신청</p>
                     <h2>CONSULTATION REQUEST</h2>
-                    <p class="consultation-subtitle">법률 상담부터 해결까지 파노가 도와드립니다.</p>
+                    <p class="consultation-subtitle">법률 상담부터 해결까지 파노 법률사무소가 도와드립니다.</p>
                 </div>
                 
                 <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
