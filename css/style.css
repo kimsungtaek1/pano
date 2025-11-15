@@ -67,7 +67,7 @@ header {
 
 nav ul {
     display: flex;
-    gap: 80px;
+    gap: 120px;
     justify-content: space-between;
     min-width: 500px;
 }
@@ -1188,6 +1188,28 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 60px;
+        min-width: 400px;
+    }
+    
+    nav a {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    nav ul {
+        gap: 40px;
+        min-width: 350px;
+    }
+    
+    nav a {
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
