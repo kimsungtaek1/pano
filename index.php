@@ -27,16 +27,18 @@ include 'includes/db.php';
         <div class="container">
             <div class="success-layout">
                 <div class="success-intro">
-                    <p class="section-label">성공사례</p>
                     <h2>SUCCESS STORIES</h2>
                     <p class="section-desc">파노의 성공사례를 만나보세요.</p>
-                    <button class="btn-more" onclick="scrollToSlide(-1)">← 더 알아보기 →</button>
+                    <div class="slider-controls">
+                        <button class="slider-arrow prev" onclick="moveSuccessSlide(-1)">←</button>
+                        <button class="slider-arrow next" onclick="moveSuccessSlide(1)">→</button>
+                    </div>
+                    <div class="btn-more-wrapper">
+                        <span>더 알아보기</span>
+                        <button class="btn-circle-arrow">→</button>
+                    </div>
                 </div>
                 <div class="success-content">
-                    <div class="success-counter">
-                        <span class="counter-text">250 × 36.1</span>
-                        <p>건의 성공사례를 보유하고 있습니다.</p>
-                    </div>
                     <div class="success-cards">
                         <div class="success-card">
                             <span class="card-tag">구속영장 기각</span>
@@ -64,7 +66,6 @@ include 'includes/db.php';
         <div class="press-background">
             <div class="container">
                 <div class="press-header">
-                    <p class="section-label">언론보도</p>
                     <h2>PRESS COVERAGE</h2>
                     <p class="section-desc">파노의 언론소식을 만나보세요.</p>
                 </div>
@@ -106,9 +107,11 @@ include 'includes/db.php';
     <section class="services">
         <div class="container">
             <div class="practice-header">
-                <p class="section-label">업무분야</p>
                 <h2>PRACTICE AREAS</h2>
-                <button class="btn-more-areas">더 알아보기 →</button>
+                <div class="btn-more-wrapper">
+                    <span>더 알아보기</span>
+                    <button class="btn-circle-arrow">→</button>
+                </div>
             </div>
             <div class="practice-grid">
                 <div class="practice-card">
@@ -149,7 +152,6 @@ include 'includes/db.php';
     <section class="consultation">
         <div class="container">
             <div class="consultation-header">
-                <p class="section-label">상담신청</p>
                 <h2>CONSULTATION REQUEST</h2>
                 <p class="consultation-subtitle">법률 상담부터 해결까지 파노가 도와드립니다.</p>
             </div>
@@ -195,6 +197,26 @@ include 'includes/db.php';
 </main>
 
 <script>
+// Success Stories slider functionality
+let currentSuccessSlide = 0;
+
+function moveSuccessSlide(direction) {
+    const cards = document.querySelectorAll('.success-card');
+    const totalCards = cards.length;
+
+    currentSuccessSlide += direction;
+
+    if (currentSuccessSlide < 0) {
+        currentSuccessSlide = totalCards - 3;
+    } else if (currentSuccessSlide > totalCards - 3) {
+        currentSuccessSlide = 0;
+    }
+
+    const container = document.querySelector('.success-cards');
+    const offset = currentSuccessSlide * (100 / 3);
+    container.style.transform = `translateX(-${offset}%)`;
+}
+
 // Press slider functionality
 let currentPressSlide = 0;
 
@@ -213,13 +235,6 @@ function movePressSlide(direction) {
     const container = document.querySelector('.press-cards');
     const offset = currentPressSlide * (100 / 3);
     container.style.transform = `translateX(-${offset}%)`;
-}
-
-function scrollToSlide(direction) {
-    const section = document.querySelector('.success-stories');
-    if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-    }
 }
 
 // Consultation form submit
