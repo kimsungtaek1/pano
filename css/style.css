@@ -1963,7 +1963,7 @@ footer {
 }
 
 .field-grid-2col .field-content {
-    padding: 20px;
+    padding: 20px 0;
     transition: background 0.3s ease;
     border-top: 1px solid #000;
 }
