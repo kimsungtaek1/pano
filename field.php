@@ -1,14 +1,14 @@
 <?php include 'includes/header.php'; ?>
 
 <main>
-    <!-- 페이지 히어로 섹션 -->
-    <section class="field-hero">
-        <img src="images/field.png" alt="업무분야">
-        <div class="field-hero-overlay">
+    <!-- Top Image Section -->
+    <section class="intro-hero">
+        <img src="/images/field.png" alt="업무분야" style="width: 100%; display: block;">
+        <div class="intro-hero-text-container">
             <div class="container">
-                <div class="field-hero-text">
-                    <p class="field-subtitle">LAW FIRM PANO</p>
-                    <h1 class="field-title">업무분야</h1>
+                <div class="intro-hero-text">
+                    <p class="hero-subtitle">LAW FIRM PANO</p>
+                    <h1 class="hero-title">업무분야</h1>
                 </div>
             </div>
         </div>
