@@ -2005,54 +2005,58 @@ footer {
 .field-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 0;
 }
 
 .field-grid-3col .field-item {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.field-grid-3col .field-content {
+    padding: 0 30px 80px 30px;
+    transition: background 0.3s ease;
+}
+
+.field-grid-3col .field-item:hover .field-content {
     background: #F4F4F4;
 }
 
-.field-item {
-    padding: 30px;
-    border-radius: 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.field-item h2 {
-    font-size: 20px;
+.field-grid-3col .field-item h2 {
+    font-size: 28px;
     font-weight: 700;
-    margin: 0 0 15px 0;
+    margin: 0 0 30px 0;
     color: #000;
 }
 
-.field-subtitle-text {
-    font-size: 13px;
-    color: #666;
-    line-height: 1.6;
-    margin: 0 0 20px 0;
+.field-grid-3col .field-item .field-divider {
+    margin-left: 0;
 }
 
-.field-item ul {
+.field-grid-3col .field-item ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.field-item li {
-    font-size: 14px;
-    color: #333;
+.field-grid-3col .field-item li {
+    font-size: 16px;
+    color: #000;
     line-height: 2;
     position: relative;
-    padding-left: 15px;
+    padding-left: 0;
 }
 
-.field-item li:before {
-    content: '·';
+.field-grid-3col .field-item li:before {
+    content: '';
     position: absolute;
     left: 0;
-    color: #333;
-    font-weight: bold;
+    color: #000;
+    font-weight: normal;
 }
+
+
 
 /* Responsive */
 @media (max-width: 1200px) {

@@ -111,74 +111,98 @@
             <div class="field-grid-3col">
                 <!-- 민사 -->
                 <div class="field-item">
-                    <h2>민사</h2>
-                    <ul>
-                        <li>계약서 작성·검토 및 계약 해석 분쟁</li>
-                        <li>이행·계약해제·해지 관련 소송</li>
-                        <li>부당이득 반환·부정경쟁 관련 분쟁</li>
-                        <li>불법행위 손해배상</li>
-                        <li>금전·채권채무 분쟁</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>민사</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  계약서 작성·검토 및 계약 해석 분쟁</li>
+                            <li>·  이행·계약해제·해지 관련 소송</li>
+                            <li>·  부당이득 반환·부정경쟁 관련 분쟁</li>
+                            <li>·  불법행위 손해배상</li>
+                            <li>·  금전·채권채무 분쟁</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 행정 -->
                 <div class="field-item">
-                    <h2>행정</h2>
-                    <ul>
-                        <li>인허가 취소·영업정지·과징금 처분 불복</li>
-                        <li>병역처분 이의신청 및 행정심판</li>
-                        <li>세무·관세 관련 이의신청·심판 청구</li>
-                        <li>운전면허 취소·정지 처분 불복</li>
-                        <li>각종 공공기관·지자체 처분 관련 소송</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>행정</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  인허가 취소·영업정지·과징금 처분 불복</li>
+                            <li>·  병역처분 이의신청 및 행정심판</li>
+                            <li>·  세무·관세 관련 이의신청·심판 청구</li>
+                            <li>·  운전면허 취소·정지 처분 불복</li>
+                            <li>·  각종 공공기관·지자체 처분 관련 소송</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 기업자문 -->
                 <div class="field-item">
-                    <h2>기업자문</h2>
-                    <ul>
-                        <li>계약서 작성·검토 및 자문</li>
-                        <li>노동·인사 관련 분쟁 및 자문</li>
-                        <li>채권 회수 및 거래 분쟁</li>
-                        <li>기업형사·행정 리스크 관리</li>
-                        <li>프랜차이즈·가맹 관련 분쟁</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>기업자문</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  계약서 작성·검토 및 자문</li>
+                            <li>·  노동·인사 관련 분쟁 및 자문</li>
+                            <li>·  채권 회수 및 거래 분쟁</li>
+                            <li>·  기업형사·행정 리스크 관리</li>
+                            <li>·  프랜차이즈·가맹 관련 분쟁</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 부동산·건설 -->
                 <div class="field-item">
-                    <h2>부동산·건설</h2>
-                    <ul>
-                        <li>부동산 매매·임대차 계약 분쟁</li>
-                        <li>부동산 사기·이중계약 등 형사사건</li>
-                        <li>재개발·재건축 관련 분쟁</li>
-                        <li>건설공사대금 및 하자 분쟁</li>
-                        <li>무허가·불법건축 관련 형사·행정 대응</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>부동산·건설</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  부동산 매매·임대차 계약 분쟁</li>
+                            <li>·  부동산 사기·이중계약 등 형사사건</li>
+                            <li>·  재개발·재건축 관련 분쟁</li>
+                            <li>·  건설공사대금 및 하자 분쟁</li>
+                            <li>·  무허가·불법건축 관련 형사·행정 대응</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 조세·관세 -->
                 <div class="field-item">
-                    <h2>조세·관세</h2>
-                    <ul>
-                        <li>조세 포탈·허위 세금계산서 등 형사사건</li>
-                        <li>관세법 위반 및 밀수입 형사 대응</li>
-                        <li>법인세·양도소득세 등 고액 과세처분 불복</li>
-                        <li>상속세·증여세 과세처분 취소 및 불복</li>
-                        <li>세무조사 입회 및 사전 대응</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>조세·관세</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  조세 포탈·허위 세금계산서 등 형사사건</li>
+                            <li>·  관세법 위반 및 밀수입 형사 대응</li>
+                            <li>·  법인세·양도소득세 등 고액 과세처분 불복</li>
+                            <li>·  상속세·증여세 과세처분 취소 및 불복</li>
+                            <li>·  세무조사 입회 및 사전 대응</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 가사·상속 -->
                 <div class="field-item">
-                    <h2>가사·상속</h2>
-                    <ul>
-                        <li>재산분할 소송</li>
-                        <li>상속재산분할 및 유류분 청구</li>
-                        <li>상속포기·한정승인</li>
-                        <li>유언장 작성·검인 및 유언무효 소송</li>
-                        <li>이혼 위자료 청구 소송</li>
-                    </ul>
+                    <hr class="field-divider-top">
+                    <div class="field-content">
+                        <h2>가사·상속</h2>
+                        <hr class="field-divider">
+                        <ul>
+                            <li>·  재산분할 소송</li>
+                            <li>·  상속재산분할 및 유류분 청구</li>
+                            <li>·  상속포기·한정승인</li>
+                            <li>·  유언장 작성·검인 및 유언무효 소송</li>
+                            <li>·  이혼 위자료 청구 소송</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
