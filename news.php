@@ -148,6 +148,8 @@ include 'includes/header.php';
     background: #fff;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
     padding: 15px 0;
     text-decoration: none;
     display: flex;
