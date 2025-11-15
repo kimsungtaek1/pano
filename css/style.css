@@ -1170,7 +1170,7 @@ footer {
 }
 
 .intro-text {
-    max-width: 700px;
+    max-width: 100%;
     text-align: left;
 }
 
