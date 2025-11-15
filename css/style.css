@@ -1223,8 +1223,8 @@ footer {
 /* Members Tab - Main Member Section */
 .member-main {
     background-image: url('/images/person_background.svg');
-    background-size: 100% 80%;
-    background-position: center 66%;
+    background-size: 100% 90%;
+    background-position: center 70%;
     background-repeat: no-repeat;
     padding: 0;
     position: relative;
@@ -1275,10 +1275,10 @@ footer {
 .member-subtitle {
     font-size: 24px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #fff;
     background: rgb(24, 38, 80);
-    padding: 12px 20px;
+    padding: 8px 20px;
     border-radius: 8px;
     display: inline-block;
 }
