@@ -101,50 +101,85 @@
                             <div class="team-photo">
                                 <img src="/images/advisor1.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor2.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor3.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor4.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor5.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor6.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="team-card">
                             <div class="team-photo">
                                 <img src="/images/advisor7.jpg" alt="송동민 변호사">
                             </div>
-                            <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                            <p class="team-specialty">예전시 개인변호 역임 9년 고경험자<br>지주회의 11년 연수경력(재직)</p>
+                            <div class="team-info-box">
+                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
+                                <ul class="team-specialty">
+                                    <li>예전시 개인변호 역임 9년 고경험자</li>
+                                    <li>지주회의 11년 연수경력(재직)</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
