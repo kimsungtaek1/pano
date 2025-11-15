@@ -6,6 +6,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('/fonts/Paperlogy-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/Pretendard-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -1240,16 +1254,19 @@ footer {
 }
 
 .member-name {
+    font-family: 'Paperlogy', sans-serif;
     font-size: 36px;
-    font-weight: bold;
+    font-weight: 800;
     margin-bottom: 10px;
-    color: #fff;
+    color: #000;
 }
 
 .member-title {
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
     font-size: 24px;
     font-weight: normal;
     margin-left: 10px;
+    color: #000;
 }
 
 .member-subtitle {
