@@ -95,10 +95,10 @@
 
                 <!-- 전문 자문단 섹션 -->
                 <div class="advisory-team">
-                    <img src="/images/person_logo.svg" alt="PANO" class="advisory-team-logo">
                     <h2 class="section-title">전문 자문단</h2>
                     <div class="team-grid">
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/person/main.png" alt="송동민 변호사">
                             </div>
@@ -111,6 +111,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor2.jpg" alt="송동민 변호사">
                             </div>
@@ -123,6 +124,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor3.jpg" alt="송동민 변호사">
                             </div>
@@ -135,6 +137,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor4.jpg" alt="송동민 변호사">
                             </div>
@@ -147,6 +150,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor5.jpg" alt="송동민 변호사">
                             </div>
@@ -159,6 +163,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor6.jpg" alt="송동민 변호사">
                             </div>
@@ -171,6 +176,7 @@
                             </div>
                         </div>
                         <div class="team-card">
+                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                             <div class="team-photo">
                                 <img src="/images/advisor7.jpg" alt="송동민 변호사">
                             </div>
