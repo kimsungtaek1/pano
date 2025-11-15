@@ -1055,6 +1055,7 @@ footer {
 .section-desc {
     font-size: 20px;
     color: #000;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 25px;
 }
@@ -1155,7 +1156,7 @@ footer {
 .btn-more-link span {
     font-size: 20px;
     color: #000;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 .btn-circle-arrow {
@@ -1252,6 +1253,7 @@ footer {
 .press-intro .section-desc {
     font-size: 20px;
     color: #000;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 25px;
 }
