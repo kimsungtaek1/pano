@@ -38,7 +38,6 @@
                             <li>·  사기·횡령·배임</li>
                             <li>·  음주운전·무면허 운전</li>
                         </ul>
-                        <hr class="field-divider-bottom">
                     </div>
                 </div>
 

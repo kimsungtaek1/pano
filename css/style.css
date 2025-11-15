@@ -1926,6 +1926,7 @@ footer {
 .field-grid-2col .field-content {
     padding: 20px;
     transition: background 0.3s ease;
+    border-bottom: 1px solid #000;
 }
 
 .field-grid-2col .field-item:hover .field-content {
@@ -2003,11 +2004,6 @@ footer {
     margin: 20px 0;
 }
 
-.field-grid-2col .field-item .field-divider-bottom {
-    border: none;
-    border-top: 1px solid #000;
-    margin: 20px 0 0 0;
-}
 
 .field-grid-3col {
     display: grid;
