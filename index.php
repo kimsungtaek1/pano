@@ -81,41 +81,56 @@ include 'includes/db.php';
 
     <!-- Press Coverage Section -->
     <section class="press-coverage">
-        <div class="press-background">
-            <div class="container">
-                <div class="press-header">
+        <div class="container">
+            <div class="press-layout">
+                <div class="press-intro">
+                    <p class="section-label-text">언론보도</p>
                     <h2>PRESS COVERAGE</h2>
                     <p class="section-desc">파노의 언론소식을 만나보세요.</p>
+                    <div class="slider-controls">
+                        <button class="slider-arrow prev" onclick="movePressSlide(-1)">←</button>
+                        <button class="slider-arrow next" onclick="movePressSlide(1)">→</button>
+                    </div>
+                    <div class="btn-more-wrapper">
+                        <a href="/news.php" class="btn-more-link">
+                            <span>더 알아보기</span>
+                            <button class="btn-circle-arrow">→</button>
+                        </a>
+                    </div>
                 </div>
-                <div class="press-slider">
-                    <button class="press-nav prev" onclick="movePressSlide(-1)">‹</button>
+                <div class="press-content">
                     <div class="press-cards">
                         <div class="press-card">
-                            <div class="press-image"></div>
-                            <div class="press-info">
-                                <span class="press-tag">언론보도</span>
-                                <h3>현행범체포<br>구속영장청구 기각</h3>
-                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
-                            </div>
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
                         </div>
                         <div class="press-card">
-                            <div class="press-image"></div>
-                            <div class="press-info">
-                                <span class="press-tag">언론보도</span>
-                                <h3>현행범체포<br>구속영장청구 기각</h3>
-                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
-                            </div>
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
                         </div>
                         <div class="press-card">
-                            <div class="press-image"></div>
-                            <div class="press-info">
-                                <span class="press-tag">언론보도</span>
-                                <h3>현행범체포<br>구속영장청구 기각</h3>
-                                <p class="press-desc">피고인이 2023년 5 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
-                            </div>
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
+                        <div class="press-card">
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
+                        <div class="press-card">
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
+                        </div>
+                        <div class="press-card">
+                            <span class="card-tag">언론보도</span>
+                            <h3>현행범체포<br>구속영장청구 기각</h3>
+                            <p>피고인이 2023년 5월 조치 불출시기 방법<br>조직범죄 관한처분을 범죄 권리위반 신청원<br>고발원이 만약어 제재우 송수청원 권립라윈 것...</p>
                         </div>
                     </div>
-                    <button class="press-nav next" onclick="movePressSlide(1)">›</button>
                 </div>
             </div>
         </div>
