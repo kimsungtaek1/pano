@@ -821,17 +821,12 @@ footer {
 .info-row {
     display: flex;
     align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.info-row:last-child {
-    border-bottom: none;
+    padding: 15px 0;
 }
 
 .info-label {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 700;
     color: #000;
     min-width: 200px;
     flex-shrink: 0;
