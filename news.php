@@ -114,7 +114,6 @@ include 'includes/header.php';
 
             <!-- 언론보도 탭 컨텐츠 -->
             <div class="intro-tab-content <?php echo $tab === 'press' ? 'active' : ''; ?>" id="tab-press">
-<!-- 뉴스 목록 -->
                 <div class="news-grid">
                     <?php if (empty($news_list)): ?>
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
