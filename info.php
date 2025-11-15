@@ -30,52 +30,39 @@ include 'includes/header.php';
     <!-- 연락처 정보 -->
     <section class="contact-info">
         <div class="container">
-            <div class="info-grid">
-                <!-- 오시는길 -->
-                <div class="info-item">
-                    <h3>오시는길</h3>
-                    <p class="info-large">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</p>
-                </div>
-
-                <!-- 업무시간 -->
-                <div class="info-item">
-                    <h3>업무시간</h3>
-                    <p class="info-large">평일 9:00~18:00</p>
-                </div>
+            <!-- 오시는길 -->
+            <div class="info-item">
+                <h3>오시는길</h3>
+                <p class="info-large">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</p>
             </div>
 
-            <div class="info-grid">
-                <!-- 대표전화 -->
-                <div class="info-item">
-                    <h3>대표전화</h3>
-                    <p class="info-large">1551-8385</p>
-                </div>
+            <!-- 업무시간 -->
+            <div class="info-item">
+                <h3>업무시간</h3>
+                <p class="info-large">평일 9:00~18:00</p>
+            </div>
 
-                <!-- 대표팩스 -->
-                <div class="info-item">
-                    <h3>대표팩스</h3>
-                    <p class="info-large">02-6008-2884</p>
-                </div>
+            <!-- 대표전화 -->
+            <div class="info-item">
+                <h3>대표전화</h3>
+                <p class="info-large">1551-8385</p>
+            </div>
+
+            <!-- 대표팩스 -->
+            <div class="info-item">
+                <h3>대표팩스</h3>
+                <p class="info-large">02-6008-2884</p>
             </div>
         </div>
     </section>
 
-    <!-- 컨설팅 섹션들 -->
-    <section class="consulting-section">
+    <!-- 건물 사진 섹션 -->
+    <section class="building-photos">
         <div class="container">
-            <div class="consulting-grid">
-                <div class="consulting-card">
-                    <h3>건물사진 찍어주세요</h3>
-                    <p>지~~~앞씬어주세요</p>
-                </div>
-                <div class="consulting-card">
-                    <h3>건물사진 찍어주세요</h3>
-                    <p>지~~~앞씬어주세요</p>
-                </div>
-                <div class="consulting-card">
-                    <h3>건물사진 찍어주세요</h3>
-                    <p>지~~~앞씬어주세요</p>
-                </div>
+            <div class="photo-grid">
+                <div class="photo-card"></div>
+                <div class="photo-card"></div>
+                <div class="photo-card"></div>
             </div>
         </div>
     </section>
