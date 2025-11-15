@@ -32,17 +32,17 @@ include 'includes/db.php';
                     <p class="section-desc">파노의 성공사례를 만나보세요.</p>
                     <div class="slider-controls">
                         <button class="slider-arrow prev" onclick="moveSuccessSlide(-1)">
-                            <img src="/images/left.png" alt="이전">
+                            <img src="/images/left.svg" alt="이전">
                         </button>
                         <button class="slider-arrow next" onclick="moveSuccessSlide(1)">
-                            <img src="/images/right.png" alt="다음">
+                            <img src="/images/right.svg" alt="다음">
                         </button>
                     </div>
                     <div class="btn-more-wrapper">
                         <a href="/news.php" class="btn-more-link">
                             <span>더 알아보기</span>
                             <button class="btn-circle-arrow">
-                                <img src="/images/right_w.png" alt="더 알아보기">
+                                <img src="/images/right_w.svg" alt="더 알아보기">
                             </button>
                         </a>
                     </div>
