@@ -1046,7 +1046,7 @@ footer {
 }
 
 .success-intro h2 {
-    font-size: 40px;
+    font-size: 34px;
     font-weight: bold;
     margin-bottom: 5px;
     color: #000;
@@ -1085,13 +1085,13 @@ footer {
 
 .success-cards {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     transition: transform 0.5s ease;
 }
 
 .success-card {
-    flex: 0 0 calc((100% - 60px) / 3);
-    min-width: calc((100% - 60px) / 3);
+    flex: 0 0 calc((100% - 30px) / 3);
+    min-width: calc((100% - 30px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -1266,13 +1266,13 @@ footer {
 
 .press-cards {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     transition: transform 0.5s ease;
 }
 
 .press-card {
-    flex: 0 0 calc((100% - 60px) / 3);
-    min-width: calc((100% - 60px) / 3);
+    flex: 0 0 calc((100% - 30px) / 3);
+    min-width: calc((100% - 30px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
