@@ -1245,7 +1245,7 @@ footer {
 .member-main-content {
     display: flex;
     gap: 40px;
-    align-items: flex-start;
+    align-items: flex-end;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -1336,6 +1336,7 @@ footer {
 
 .member-photo {
     flex: 0 0 400px;
+    margin-bottom: 0;
 }
 
 .member-photo img {
