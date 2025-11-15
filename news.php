@@ -213,8 +213,8 @@ include 'includes/header.php';
 }
 
 .badge-blue {
-    background: #182650;
-    color: #fff;
+    background: transparent;
+    color: #000;
     padding: 4px 12px;
     border-radius: 0;
     font-size: 11px;
