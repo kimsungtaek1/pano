@@ -25,29 +25,14 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $per_page = 9;
 $offset = ($page - 1) * $per_page;
 
-$search = $_GET['search'] ?? '';
-
-$where = ["is_published = 1", "category = '언론보도'"];
-$params = [];
-
-if (!empty($search)) {
-    $where[] = "(title LIKE ? OR content LIKE ?)";
-    $params[] = "%$search%";
-    $params[] = "%$search%";
-}
-
-$where_sql = "WHERE " . implode(" AND ", $where);
+$where_sql = "WHERE is_published = 1 AND category = '언론보도'";
 
 $count_sql = "SELECT COUNT(*) FROM news $where_sql";
-$count_stmt = $pdo->prepare($count_sql);
-$count_stmt->execute($params);
-$total = $count_stmt->fetchColumn();
+$total = $pdo->query($count_sql)->fetchColumn();
 $total_pages = ceil($total / $per_page);
 
 $sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
-$stmt = $pdo->prepare($sql);
-$stmt->execute($params);
-$news_list = $stmt->fetchAll();
+$news_list = $pdo->query($sql)->fetchAll();
 
 include 'includes/header.php';
 ?>
@@ -136,7 +121,7 @@ include 'includes/header.php';
                 <?php if ($total_pages > 1): ?>
                     <div class="pagination">
                         <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                            <a href="?tab=press&page=<?php echo $i; ?>&search=<?php echo urlencode($search ?? ''); ?>"
+                            <a href="?tab=press&page=<?php echo $i; ?>"
                                class="page <?php echo $i === $page ? 'active' : ''; ?>">
                                 <?php echo $i; ?>
                             </a>
