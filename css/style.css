@@ -1253,7 +1253,7 @@ footer {
 .member-info {
     flex: 1;
     color: #fff;
-    padding: 80px 0 40px;
+    padding: 0;
 }
 
 .member-name {
