@@ -1223,8 +1223,8 @@ footer {
 /* Members Tab - Main Member Section */
 .member-main {
     background-image: url('/images/person_background.svg');
-    background-size: cover;
-    background-position: center;
+    background-size: 100% 50%;
+    background-position: center bottom;
     background-repeat: no-repeat;
     padding: 0 0 60px;
     position: relative;
@@ -1304,6 +1304,10 @@ footer {
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
+    background: rgb(24, 38, 80);
+    padding: 20px;
+    margin: 0 -40px -60px;
+    border-radius: 0;
 }
 
 .expertise-label {
