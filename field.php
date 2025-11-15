@@ -146,26 +146,4 @@
     </section>
 </main>
 
-<!-- 플로팅 버튼 -->
-<div class="field-floating-buttons">
-    <button class="field-floating-btn" onclick="scrollToTop()">
-        <span>↑</span>
-    </button>
-    <button class="field-floating-btn">
-        <span>↓</span>
-    </button>
-    <button class="field-floating-btn">
-        <span>↓</span>
-    </button>
-    <button class="field-floating-btn">
-        <span>↓</span>
-    </button>
-</div>
-
-<script>
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-</script>
-
 <?php include 'includes/footer.php'; ?>
