@@ -1296,7 +1296,7 @@ footer {
 }
 
 .practice-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 50px;
 }
 
@@ -1317,7 +1317,7 @@ footer {
 .practice-header .btn-more-wrapper {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .practice-grid {
