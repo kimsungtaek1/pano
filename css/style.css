@@ -2044,6 +2044,11 @@ footer {
 }
 
 
+.field-grid-3col-wrapper {
+    background: #F4F4F4;
+    padding: 60px 0;
+}
+
 .field-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2059,12 +2064,7 @@ footer {
 
 .field-grid-3col .field-content {
     padding: 20px;
-    transition: background 0.3s ease;
     border-top: 1px solid #000;
-}
-
-.field-grid-3col .field-item:hover .field-content {
-    background: #F4F4F4;
 }
 
 .field-grid-3col .field-item h2 {

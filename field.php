@@ -107,7 +107,12 @@
                 </div>
             </div>
 
-            <!-- 3열 그리드 (하위 6개) -->
+        </div>
+    </section>
+
+    <!-- 3열 그리드 (하위 6개) 전체 배경 섹션 -->
+    <section class="field-grid-3col-wrapper">
+        <div class="container">
             <div class="field-grid-3col">
                 <!-- 민사 -->
                 <div class="field-item">
