@@ -1080,8 +1080,8 @@ footer {
 }
 
 .success-card {
-    flex: 0 0 calc(33.333% - 14px);
-    min-width: calc(33.333% - 14px);
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
@@ -1252,8 +1252,8 @@ footer {
 }
 
 .press-card {
-    flex: 0 0 calc(33.333% - 14px);
-    min-width: calc(33.333% - 14px);
+    flex: 0 0 calc((100% - 40px) / 3);
+    min-width: calc((100% - 40px) / 3);
     background: #fff;
     border-radius: 16px;
     overflow: hidden;
