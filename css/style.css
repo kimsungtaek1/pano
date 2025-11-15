@@ -1286,15 +1286,14 @@ footer {
 .press-card {
     flex: 0 0 calc((100% - 56px) / 3);
     min-width: calc((100% - 56px) / 3);
-    background: #1a2947;
+    background: #fff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s;
     height: 280px;
-    position: relative;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
 }
 
 .press-card:hover {
@@ -1302,13 +1301,21 @@ footer {
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
+.press-card .card-image {
+    flex: 1;
+    background: #e5e7eb;
+    background-size: cover;
+    background-position: center;
+}
+
 .press-card .card-header {
-    background: transparent;
-    padding: 30px;
-    width: 100%;
+    background: #1a2947;
+    padding: 20px 25px;
+    flex: 0 0 auto;
 }
 
 .press-card .card-tag {
+    display: inline-block;
     background: transparent;
     color: #fff;
     border: 1px solid #fff;
@@ -1316,12 +1323,12 @@ footer {
     font-weight: 600;
     padding: 6px 12px;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .press-card .card-header h3 {
     color: #fff;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     line-height: 1.5;
     margin: 0;

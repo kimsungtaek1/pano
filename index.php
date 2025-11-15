@@ -133,57 +133,45 @@ include 'includes/db.php';
                 <div class="press-content">
                     <div class="press-cards">
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>현행범체포<br>구속영장청구 기각</h3>
                             </div>
-                            <div class="card-body">
-                                <p>피고인이 2023년 5월 조치 불출시기 방법 조직범죄 관한처분을 범죄 권리위반 신청원 고발원이 만약어 제재우 송수청원 권립라윈 것....</p>
-                            </div>
                         </div>
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>법무법인 파노<br>전문성 인정</h3>
                             </div>
-                            <div class="card-body">
-                                <p>다양한 분야의 법률 서비스 제공으로 의뢰인들로부터 높은 평가를 받고 있으며 업계에서 전문성을 인정받고 있습니다.</p>
-                            </div>
                         </div>
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>공익활동 참여<br>사회공헌 활동</h3>
                             </div>
-                            <div class="card-body">
-                                <p>법률 소외계층을 위한 무료 법률 상담 및 공익 소송 지원 등 다양한 사회공헌 활동을 펼치고 있습니다.</p>
-                            </div>
                         </div>
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>형사전문 변호사<br>업계 주목</h3>
                             </div>
-                            <div class="card-body">
-                                <p>형사 사건 전문 변호사들의 뛰어난 실력과 높은 승소율로 업계의 주목을 받고 있습니다.</p>
-                            </div>
                         </div>
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>의료 분쟁 해결<br>전문성 강화</h3>
                             </div>
-                            <div class="card-body">
-                                <p>의료 분쟁 분야에서의 전문성을 강화하여 의료 사고 피해자들의 권리 보호에 앞장서고 있습니다.</p>
-                            </div>
                         </div>
                         <div class="press-card">
+                            <div class="card-image"></div>
                             <div class="card-header">
                                 <span class="card-tag">언론보도</span>
                                 <h3>기업법무 강화<br>법률 파트너</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>기업들의 신뢰할 수 있는 법률 파트너로서 기업법무 서비스를 강화하여 많은 기업들과 협력하고 있습니다.</p>
                             </div>
                         </div>
                     </div>
