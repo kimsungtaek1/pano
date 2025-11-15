@@ -31,8 +31,12 @@ include 'includes/db.php';
                     <h2>SUCCESS STORIES</h2>
                     <p class="section-desc">파노의 성공사례를 만나보세요.</p>
                     <div class="slider-controls">
-                        <button class="slider-arrow prev" onclick="moveSuccessSlide(-1)">←</button>
-                        <button class="slider-arrow next" onclick="moveSuccessSlide(1)">→</button>
+                        <button class="slider-arrow prev" onclick="moveSuccessSlide(-1)">
+                            <img src="/images/left.png" alt="이전">
+                        </button>
+                        <button class="slider-arrow next" onclick="moveSuccessSlide(1)">
+                            <img src="/images/right_w.png" alt="다음">
+                        </button>
                     </div>
                     <div class="btn-more-wrapper">
                         <a href="/news.php" class="btn-more-link">
