@@ -4,9 +4,13 @@
     <!-- Top Image Section -->
     <section class="intro-hero">
         <img src="/images/intro_main.png" alt="파노 법률사무소" style="width: 100%; display: block;">
-        <div class="intro-hero-text">
-            <p class="hero-subtitle">Law firm pano</p>
-            <h1 class="hero-title">파노 소개</h1>
+        <div class="intro-hero-text-container">
+            <div class="container">
+                <div class="intro-hero-text">
+                    <p class="hero-subtitle">LAW FIRM PANO</p>
+                    <h1 class="hero-title">파노 소개</h1>
+                </div>
+            </div>
         </div>
     </section>
 
