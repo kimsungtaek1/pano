@@ -215,7 +215,7 @@ include 'includes/header.php';
     color: #333;
     border: 1px solid #333;
     padding: 4px 12px;
-    border-radius: 15px;
+    border-radius: 0;
     font-size: 11px;
     font-weight: 400;
 }
@@ -224,7 +224,7 @@ include 'includes/header.php';
     background: #182650;
     color: #fff;
     padding: 4px 12px;
-    border-radius: 15px;
+    border-radius: 0;
     font-size: 11px;
     font-weight: 400;
 }
@@ -240,7 +240,7 @@ include 'includes/header.php';
 .pagination .page {
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
+    border-radius: 0;
     text-decoration: none;
     color: #666;
     transition: all 0.3s;
