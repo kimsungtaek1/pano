@@ -245,21 +245,24 @@ include 'includes/db.php';
     <!-- Consultation Request Section -->
     <section class="consultation">
         <div class="container">
-            <div class="consultation-header">
-                <h2>CONSULTATION REQUEST</h2>
-                <p class="consultation-subtitle">법률 상담부터 해결까지 파노가 도와드립니다.</p>
+            <div class="consultation-wrapper">
+                <div class="consultation-text">
+                    <p class="consultation-label">상담신청</p>
+                    <h2>CONSULTATION REQUEST</h2>
+                    <p class="consultation-subtitle">법률 상담부터 해결까지 파노가 도와드립니다.</p>
+                </div>
+                
+                <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
+                    <div class="form-row">
+                        <input type="text" id="name" name="name" required placeholder="성함">
+                        <input type="tel" id="phone" name="phone" required placeholder="연락처">
+                    </div>
+                    <div class="form-row">
+                        <textarea id="content" name="content" rows="1" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
+                        <button type="submit" class="btn-submit">상담신청</button>
+                    </div>
+                </form>
             </div>
-
-            <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
-                <div class="form-row">
-                    <input type="text" id="name" name="name" required placeholder="성함">
-                    <input type="tel" id="phone" name="phone" required placeholder="연락처">
-                </div>
-                <div class="form-row">
-                    <textarea id="content" name="content" rows="1" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
-                    <button type="submit" class="btn-submit">상담신청</button>
-                </div>
-            </form>
         </div>
     </section>
 
