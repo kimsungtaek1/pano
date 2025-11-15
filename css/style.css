@@ -138,7 +138,7 @@ nav a:hover {
 .hero-content {
     position: absolute;
     bottom: 40px;
-    right: 40px;
+    right: 10%;
     text-align: right;
     color: #fff;
 }
@@ -147,7 +147,7 @@ nav a:hover {
     max-width: 300px;
     width: auto;
     height: auto;
-    margin-bottom: 10px;
+    margin-left: auto;
 }
 
 .hero .subtitle {
