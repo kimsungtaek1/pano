@@ -66,10 +66,16 @@ include 'includes/header.php';
 ?>
 
 <main>
-    <!-- 페이지 타이틀 -->
-    <section class="page-title">
-        <div class="container">
-            <h1>소식</h1>
+    <!-- Top Image Section -->
+    <section class="intro-hero">
+        <img src="/images/news.png" alt="소식" style="width: 100%; display: block;">
+        <div class="intro-hero-text-container">
+            <div class="container">
+                <div class="intro-hero-text">
+                    <p class="hero-subtitle">LAW FIRM PANO</p>
+                    <h1 class="hero-title">소식</h1>
+                </div>
+            </div>
         </div>
     </section>
 
