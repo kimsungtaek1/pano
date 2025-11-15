@@ -2002,6 +2002,12 @@ footer {
     margin: 20px 0;
 }
 
+.field-grid-2col .field-item .field-divider-bottom {
+    border: none;
+    border-top: 1px solid #000;
+    margin: 20px 0 0 0;
+}
+
 .field-grid-3col {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
