@@ -3,64 +3,47 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require_once 'includes/db.php';
 
-// 탭 구분
-$tab = $_GET['tab'] ?? 'press';
+// 언론 탭 데이터
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$per_page = 9;
+$offset = ($page - 1) * $per_page;
 
-// 언론 탭 (페이징)
-if ($tab === 'press') {
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    $per_page = 9;
-    $offset = ($page - 1) * $per_page;
+$search = $_GET['search'] ?? '';
 
-    $search = $_GET['search'] ?? '';
+$where = ["is_published = 1", "category = '언론보도'"];
+$params = [];
 
-    $where = ["is_published = 1", "category = '언론보도'"];
-    $params = [];
-
-    if (!empty($search)) {
-        $where[] = "(title LIKE ? OR content LIKE ?)";
-        $params[] = "%$search%";
-        $params[] = "%$search%";
-    }
-
-    $where_sql = "WHERE " . implode(" AND ", $where);
-
-    $count_sql = "SELECT COUNT(*) FROM news $where_sql";
-    $count_stmt = $pdo->prepare($count_sql);
-    $count_stmt->execute($params);
-    $total = $count_stmt->fetchColumn();
-    $total_pages = ceil($total / $per_page);
-
-    $sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
-    $news_list = $stmt->fetchAll();
+if (!empty($search)) {
+    $where[] = "(title LIKE ? OR content LIKE ?)";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
 }
 
-// 성공사례 탭 (무한 스크롤)
-if ($tab === 'cases') {
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-    $per_page = 9;
-    $offset = ($page - 1) * $per_page;
+$where_sql = "WHERE " . implode(" AND ", $where);
 
-    $where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
+$count_sql = "SELECT COUNT(*) FROM news $where_sql";
+$count_stmt = $pdo->prepare($count_sql);
+$count_stmt->execute($params);
+$total = $count_stmt->fetchColumn();
+$total_pages = ceil($total / $per_page);
 
-    $count_sql = "SELECT COUNT(*) FROM news $where_sql";
-    $total = $pdo->query($count_sql)->fetchColumn();
+$sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
+$stmt = $pdo->prepare($sql);
+$stmt->execute($params);
+$news_list = $stmt->fetchAll();
 
-    $sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
-    $cases_list = $pdo->query($sql)->fetchAll();
+// 성공사례 탭 데이터
+$cases_page = 1;
+$cases_per_page = 9;
+$cases_offset = 0;
 
-    // AJAX 요청인 경우 JSON 반환
-    if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
-        header('Content-Type: application/json');
-        echo json_encode([
-            'cases' => $cases_list,
-            'has_more' => ($offset + $per_page) < $total
-        ]);
-        exit;
-    }
-}
+$cases_where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
+
+$cases_count_sql = "SELECT COUNT(*) FROM news $cases_where_sql";
+$cases_total = $pdo->query($cases_count_sql)->fetchColumn();
+
+$cases_sql = "SELECT * FROM news $cases_where_sql ORDER BY news_date DESC, created_at DESC LIMIT $cases_per_page OFFSET $cases_offset";
+$cases_list = $pdo->query($cases_sql)->fetchAll();
 
 include 'includes/header.php';
 ?>
@@ -79,30 +62,30 @@ include 'includes/header.php';
         </div>
     </section>
 
-    <!-- 탭 영역 -->
-    <section class="news-tabs-section">
+    <!-- Tab Buttons Section -->
+    <section class="intro-tabs-section">
         <div class="container">
-            <div class="main-tabs">
-                <a href="?tab=press" class="main-tab <?php echo $tab === 'press' ? 'active' : ''; ?>">언론</a>
-                <a href="?tab=cases" class="main-tab <?php echo $tab === 'cases' ? 'active' : ''; ?>">성공사례</a>
+            <div class="intro-tab-buttons">
+                <button class="intro-tab-btn active">언론</button>
+                <button class="intro-tab-btn">성공사례</button>
             </div>
         </div>
     </section>
 
-    <?php if ($tab === 'press'): ?>
-        <!-- 언론 탭: 검색 + 뉴스 목록 + 페이징 -->
-        <section class="news-filter">
-            <div class="container">
-                <form method="GET" class="search-box">
-                    <input type="hidden" name="tab" value="press">
-                    <input type="text" name="search" placeholder="검색" value="<?php echo htmlspecialchars($search ?? ''); ?>">
-                    <button type="submit" class="search-btn">🔍</button>
-                </form>
-            </div>
-        </section>
+    <!-- Content Section -->
+    <section class="intro-content-section">
+        <div class="container">
+            <!-- 언론 탭 컨텐츠 -->
+            <div class="intro-tab-content active" id="tab-press">
+                <!-- 검색 영역 -->
+                <section class="news-filter">
+                    <form method="GET" class="search-box">
+                        <input type="text" name="search" placeholder="검색" value="<?php echo htmlspecialchars($search ?? ''); ?>">
+                        <button type="submit" class="search-btn">🔍</button>
+                    </form>
+                </section>
 
-        <section class="news-list">
-            <div class="container">
+                <!-- 뉴스 목록 -->
                 <div class="news-grid">
                     <?php if (empty($news_list)): ?>
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
@@ -122,7 +105,7 @@ include 'includes/header.php';
                 <?php if ($total_pages > 1): ?>
                     <div class="pagination">
                         <?php for ($i = 1; $i <= $total_pages; $i++): ?>
-                            <a href="?tab=press&page=<?php echo $i; ?>&search=<?php echo urlencode($search ?? ''); ?>"
+                            <a href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search ?? ''); ?>"
                                class="page <?php echo $i === $page ? 'active' : ''; ?>">
                                 <?php echo $i; ?>
                             </a>
@@ -130,12 +113,9 @@ include 'includes/header.php';
                     </div>
                 <?php endif; ?>
             </div>
-        </section>
 
-    <?php else: ?>
-        <!-- 성공사례 탭: 3열 카드 + 무한 스크롤 -->
-        <section class="cases-list">
-            <div class="container">
+            <!-- 성공사례 탭 컨텐츠 -->
+            <div class="intro-tab-content" id="tab-cases">
                 <div class="cases-grid" id="casesGrid">
                     <?php foreach ($cases_list as $case): ?>
                         <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
@@ -150,104 +130,140 @@ include 'includes/header.php';
                     <div class="loader"></div>
                 </div>
             </div>
-        </section>
-
-        <script>
-        let currentPage = 1;
-        let isLoading = false;
-        let hasMore = <?php echo ($offset + $per_page) < $total ? 'true' : 'false'; ?>;
-
-        window.addEventListener('scroll', function() {
-            if (isLoading || !hasMore) return;
-
-            const scrollPosition = window.innerHeight + window.scrollY;
-            const pageHeight = document.documentElement.scrollHeight;
-
-            if (scrollPosition >= pageHeight - 300) {
-                loadMoreCases();
-            }
-        });
-
-        function loadMoreCases() {
-            isLoading = true;
-            document.getElementById('casesLoader').style.display = 'block';
-
-            currentPage++;
-
-            fetch(`?tab=cases&page=${currentPage}&ajax=1`)
-                .then(response => response.json())
-                .then(data => {
-                    const grid = document.getElementById('casesGrid');
-
-                    data.cases.forEach(caseItem => {
-                        const card = document.createElement('a');
-                        card.href = `news_detail.php?id=${caseItem.id}`;
-                        card.className = 'case-card';
-
-                        const summary = caseItem.summary || caseItem.content.replace(/<[^>]*>/g, '').substring(0, 100) + '...';
-                        const newsDate = new Date(caseItem.news_date);
-                        const formattedDate = `${newsDate.getFullYear()}.${String(newsDate.getMonth() + 1).padStart(2, '0')}.${String(newsDate.getDate()).padStart(2, '0')}`;
-
-                        card.innerHTML = `
-                            <span class="badge badge-red">성공사례</span>
-                            <h3>${caseItem.title}</h3>
-                            <p>${summary}</p>
-                            <span class="date">${formattedDate}</span>
-                        `;
-
-                        grid.appendChild(card);
-                    });
-
-                    hasMore = data.has_more;
-                    isLoading = false;
-                    document.getElementById('casesLoader').style.display = 'none';
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    isLoading = false;
-                    document.getElementById('casesLoader').style.display = 'none';
-                });
-        }
-        </script>
-    <?php endif; ?>
+        </div>
+    </section>
 </main>
 
 <style>
-.news-tabs-section {
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 0;
+/* 검색 영역 */
+.news-filter {
+    margin: 40px 0;
 }
 
-.main-tabs {
+.search-box {
     display: flex;
-    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.main-tab {
-    padding: 20px 40px;
-    font-size: 18px;
-    font-weight: 500;
-    color: #666;
+.search-box input {
+    flex: 1;
+    padding: 12px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px 0 0 25px;
+    font-size: 14px;
+}
+
+.search-btn {
+    padding: 12px 30px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* 뉴스 그리드 */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.news-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 30px;
     text-decoration: none;
-    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.news-card .badge {
+    align-self: flex-start;
+    margin-bottom: 15px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.news-card p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.news-card .date {
+    font-size: 13px;
+    color: #999;
+}
+
+.badge-blue {
+    background: #e3f2fd;
+    color: #0066cc;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-red {
+    background: #ffebee;
+    color: #d32f2f;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 40px 0;
+}
+
+.pagination .page {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #666;
     transition: all 0.3s;
 }
 
-.main-tab:hover {
-    color: #333;
+.pagination .page:hover {
+    background: #f5f5f5;
 }
 
-.main-tab.active {
-    color: #0066cc;
-    border-bottom-color: #0066cc;
+.pagination .page.active {
+    background: #0066cc;
+    color: white;
+    border-color: #0066cc;
 }
 
+/* 성공사례 그리드 */
 .cases-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-top: 40px;
+    margin: 40px 0;
 }
 
 .case-card {
@@ -291,6 +307,7 @@ include 'includes/header.php';
     color: #999;
 }
 
+/* 로더 */
 .loader {
     border: 4px solid #f3f3f3;
     border-top: 4px solid #0066cc;
@@ -307,16 +324,102 @@ include 'includes/header.php';
 }
 
 @media (max-width: 768px) {
+    .news-grid,
     .cases-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-
-    .main-tab {
-        padding: 15px 20px;
-        font-size: 16px;
-    }
 }
 </style>
+
+<script>
+// 탭 전환 기능
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.intro-tab-btn');
+    const tabContents = document.querySelectorAll('.intro-tab-content');
+
+    tabButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+            // 모든 버튼과 컨텐츠에서 active 제거
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // 클릭한 버튼과 해당 컨텐츠에 active 추가
+            button.classList.add('active');
+            tabContents[index].classList.add('active');
+
+            // 성공사례 탭으로 전환 시 무한 스크롤 초기화
+            if (index === 1) {
+                initInfiniteScroll();
+            }
+        });
+    });
+});
+
+// 무한 스크롤 기능
+let currentPage = 1;
+let isLoading = false;
+let hasMore = <?php echo ($cases_offset + $cases_per_page) < $cases_total ? 'true' : 'false'; ?>;
+
+function initInfiniteScroll() {
+    if (window.scrollInfiniteInitialized) return;
+    window.scrollInfiniteInitialized = true;
+
+    window.addEventListener('scroll', function() {
+        if (isLoading || !hasMore) return;
+
+        const casesTab = document.getElementById('tab-cases');
+        if (!casesTab.classList.contains('active')) return;
+
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const pageHeight = document.documentElement.scrollHeight;
+
+        if (scrollPosition >= pageHeight - 300) {
+            loadMoreCases();
+        }
+    });
+}
+
+function loadMoreCases() {
+    isLoading = true;
+    document.getElementById('casesLoader').style.display = 'block';
+
+    currentPage++;
+
+    fetch(`ajax/load_cases.php?page=${currentPage}`)
+        .then(response => response.json())
+        .then(data => {
+            const grid = document.getElementById('casesGrid');
+
+            data.cases.forEach(caseItem => {
+                const card = document.createElement('a');
+                card.href = `news_detail.php?id=${caseItem.id}`;
+                card.className = 'case-card';
+
+                const summary = caseItem.summary || caseItem.content.replace(/<[^>]*>/g, '').substring(0, 100) + '...';
+                const newsDate = new Date(caseItem.news_date);
+                const formattedDate = `${newsDate.getFullYear()}.${String(newsDate.getMonth() + 1).padStart(2, '0')}.${String(newsDate.getDate()).padStart(2, '0')}`;
+
+                card.innerHTML = `
+                    <span class="badge badge-red">성공사례</span>
+                    <h3>${caseItem.title}</h3>
+                    <p>${summary}</p>
+                    <span class="date">${formattedDate}</span>
+                `;
+
+                grid.appendChild(card);
+            });
+
+            hasMore = data.has_more;
+            isLoading = false;
+            document.getElementById('casesLoader').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            isLoading = false;
+            document.getElementById('casesLoader').style.display = 'none';
+        });
+}
+</script>
 
 <?php include 'includes/footer.php'; ?>
