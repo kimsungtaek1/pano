@@ -89,7 +89,7 @@ include 'includes/header.php';
                             <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
                                 <div class="thumbnail"></div>
                                 <div class="content">
-                                    <span class="badge badge-red">파노 성공사례</span>
+                                    <span class="badge badge-red">구속영장 기각</span>
                                     <h3><?php echo htmlspecialchars($case['title']); ?></h3>
                                     <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
                                     <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
@@ -188,36 +188,32 @@ include 'includes/header.php';
     font-size: 16px;
 }
 
-/* 뉴스 그리드 */
+/* 뉴스 리스트 */
 .news-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     margin: 40px 0;
 }
 
 .news-card {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
     text-decoration: none;
-    transition: all 0.3s;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
 }
 
 .news-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: #fafafa;
 }
 
 .news-card .thumbnail {
-    width: 200px;
-    height: 150px;
-    background: #f5f5f5;
-    border-radius: 4px;
+    width: 120px;
+    height: 90px;
+    background: #e8e8e8;
     flex-shrink: 0;
 }
 
@@ -225,48 +221,48 @@ include 'includes/header.php';
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: 8px;
 }
 
 .news-card .badge {
-    margin-bottom: 10px;
+    align-self: flex-start;
 }
 
 .news-card h3 {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 8px;
-    line-height: 1.4;
+    font-size: 15px;
+    color: #000;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 .news-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    flex: 1;
+    line-height: 1.5;
 }
 
 .news-card .date {
-    font-size: 13px;
+    font-size: 12px;
     color: #999;
 }
 
 .badge-blue {
-    background: #e3f2fd;
-    color: #0066cc;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
+    background: #fff;
+    color: #333;
+    border: 1px solid #333;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 400;
 }
 
 .badge-red {
-    background: #ffebee;
-    color: #d32f2f;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 500;
+    background: #1a237e;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 400;
 }
 
 /* 페이지네이션 */
@@ -296,36 +292,32 @@ include 'includes/header.php';
     border-color: #0066cc;
 }
 
-/* 성공사례 그리드 */
+/* 성공사례 리스트 */
 .cases-grid {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     margin: 40px 0;
 }
 
 .case-card {
     background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
     text-decoration: none;
-    transition: all 0.3s;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
 }
 
 .case-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background: #fafafa;
 }
 
 .case-card .thumbnail {
-    width: 200px;
-    height: 150px;
-    background: #f5f5f5;
-    border-radius: 4px;
+    width: 120px;
+    height: 90px;
+    background: #e8e8e8;
     flex-shrink: 0;
 }
 
@@ -333,29 +325,28 @@ include 'includes/header.php';
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: 8px;
 }
 
 .case-card .badge {
-    margin-bottom: 10px;
+    align-self: flex-start;
 }
 
 .case-card h3 {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 8px;
-    line-height: 1.4;
+    font-size: 15px;
+    color: #000;
+    line-height: 1.5;
+    font-weight: 500;
 }
 
 .case-card p {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    flex: 1;
+    line-height: 1.5;
 }
 
 .case-card .date {
-    font-size: 13px;
+    font-size: 12px;
     color: #999;
 }
 
@@ -363,12 +354,13 @@ include 'includes/header.php';
     .news-card,
     .case-card {
         flex-direction: column;
+        gap: 10px;
     }
 
     .news-card .thumbnail,
     .case-card .thumbnail {
         width: 100%;
-        height: 200px;
+        height: 150px;
     }
 }
 </style>
