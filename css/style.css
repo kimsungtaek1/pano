@@ -1114,6 +1114,8 @@ footer {
     color: #9ca3af;
     cursor: pointer;
     transition: all 0.3s;
+    min-width: 180px;
+    text-align: center;
 }
 
 .intro-tab-btn.active {
