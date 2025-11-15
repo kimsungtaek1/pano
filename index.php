@@ -1,13 +1,6 @@
 <?php
 include 'includes/header.php';
 include 'includes/db.php';
-
-// 최신 뉴스 3개 가져오기
-/*
-$stmt = $pdo->prepare("SELECT * FROM news ORDER BY created_at DESC LIMIT 3");
-$stmt->execute();
-$news_list = $stmt->fetchAll();
-*/
 ?>
 
 <main>
@@ -29,69 +22,99 @@ $news_list = $stmt->fetchAll();
         </div>
     </section>
 
-    <!-- 업무분야 -->
+    <!-- Success Stories Section -->
+    <section class="success-stories">
+        <div class="container">
+            <h2>SUCCESS STORIES</h2>
+            <div class="slider-container">
+                <div class="slider" id="successSlider">
+                    <div class="slide">
+                        <h3>사례 1</h3>
+                        <p>성공적인 법률 서비스 제공 사례입니다.</p>
+                        <span class="year">2024.01</span>
+                    </div>
+                    <div class="slide">
+                        <h3>사례 2</h3>
+                        <p>의뢰인의 권리를 보호한 사례입니다.</p>
+                        <span class="year">2024.02</span>
+                    </div>
+                    <div class="slide">
+                        <h3>사례 3</h3>
+                        <p>복잡한 법률 문제를 해결한 사례입니다.</p>
+                        <span class="year">2024.03</span>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="moveSlide('success', -1)">‹</button>
+                <button class="slider-btn next" onclick="moveSlide('success', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Coverage Section -->
+    <section class="press-coverage">
+        <div class="container">
+            <h2>PRESS COVERAGE</h2>
+            <div class="slider-container">
+                <div class="slider" id="pressSlider">
+                    <div class="slide">
+                        <h3>언론 보도 1</h3>
+                        <p>법무법인 파노의 주요 활동이 언론에 보도되었습니다.</p>
+                        <span class="year">2024.01</span>
+                    </div>
+                    <div class="slide">
+                        <h3>언론 보도 2</h3>
+                        <p>전문성을 인정받은 법률 서비스 제공 사례입니다.</p>
+                        <span class="year">2024.02</span>
+                    </div>
+                    <div class="slide">
+                        <h3>언론 보도 3</h3>
+                        <p>사회 공헌 활동이 주목받았습니다.</p>
+                        <span class="year">2024.03</span>
+                    </div>
+                </div>
+                <button class="slider-btn prev" onclick="moveSlide('press', -1)">‹</button>
+                <button class="slider-btn next" onclick="moveSlide('press', 1)">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practice Areas Section -->
     <section class="services">
         <div class="container">
             <div class="services-intro">
-                <p>의뢰인의 믿음과</p>
-                <h2>맞춤나 신속한 절차법<br>법률서비스를<br>제공합니다.</h2>
-                <a href="/field.php" class="btn-outline">업무분야안내</a>
+                <h2>PRACTICE AREAS</h2>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">⚖️</div>
-                    <h3>민사재판</h3>
-                    <p>민사 분쟁 및 소송 전문 법률 서비스를 제공합니다</p>
+                    <h3>민사</h3>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🏛️</div>
-                    <h3>형사재판</h3>
-                    <p>형사 사건 변호 및 법률 상담을 제공합니다</p>
+                    <h3>형사</h3>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🤝</div>
                     <h3>조정중재</h3>
-                    <p>분쟁 조정 및 중재를 통한 해결을 지원합니다</p>
                 </div>
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>기업상담</h3>
-                    <p>기업 법무 자문 및 컨설팅을 제공합니다</p>
+                    <div class="service-icon">🌳</div>
+                    <h3>환경법규</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>행정</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 뉴스 섹션 -->
-    <!--
-    <section class="news">
-        <div class="container">
-            <div class="section-header">
-                <h2>소식</h2>
-                <a href="/news.php" class="more">더보기 ›</a>
-            </div>
-            <div class="news-grid">
-                <?php foreach ($news_list as $news): ?>
-                <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="news-item">
-                    <span class="badge <?php echo $news['category'] === '중요' ? 'badge-red' : 'badge-blue'; ?>">
-                        <?php echo htmlspecialchars($news['category']); ?>
-                    </span>
-                    <h3><?php echo htmlspecialchars($news['title']); ?></h3>
-                    <p><?php echo htmlspecialchars(mb_substr($news['content'], 0, 100)); ?>...</p>
-                    <span class="date"><?php echo date('Y-m-d', strtotime($news['created_at'])); ?></span>
-                </a>
-                <?php endforeach; ?>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <!-- 상담문의 섹션 -->
+    <!-- Consultation Request Section -->
     <section class="consultation">
         <div class="container">
             <div class="consultation-header">
                 <p class="label">문의하기</p>
-                <h2>고객님께 전담변호사를 배정하여<br>법률 상담부터 해결까지 도와드립니다.</h2>
+                <h2>CONSULTATION REQUEST</h2>
             </div>
 
             <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
@@ -117,42 +140,73 @@ $news_list = $stmt->fetchAll();
             </form>
         </div>
     </section>
-<!-- Fixed Bottom Consultation Bar -->
-<div class="fixed-consultation-bar">
-    <form id="fixedConsultationForm" class="fixed-consultation-form" method="POST" action="/api/submit_consultation.php">
-        <input type="text" name="name" placeholder="이름" required>
-        <input type="tel" name="phone" placeholder="연락처 (010-1234-5678)" required>
-        <textarea name="content" placeholder="상담내용을 간단히 입력해주세요" required></textarea>
-        <button type="submit" class="btn-submit-bar">상담신청</button>
-    </form>
-</div>
 
-<!-- Floating Action Buttons -->
-<div class="floating-buttons">
-    <a href="https://pf.kakao.com/_Exaaxib/chat" target="_blank" class="floating-btn kakao" title="카카오톡 상담">
-        <img src="/images/kakao.png" alt="카카오톡">
-    </a>
-    <a href="tel:02-1551-8385" class="floating-btn phone" title="전화 상담">
-        <img src="/images/phone.png" alt="전화">
-    </a>
-    <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
-        📝
-    </a>
-    <a href="#" class="floating-btn scroll-top" title="맨 위로" onclick="scrollToTop(event)">
-        ↑
-    </a>
-</div>
+    <!-- Fixed Bottom Consultation Bar -->
+    <div class="fixed-consultation-bar">
+        <form id="fixedConsultationForm" class="fixed-consultation-form" method="POST" action="/api/submit_consultation.php">
+            <input type="text" name="name" placeholder="이름" required>
+            <input type="tel" name="phone" placeholder="연락처 (010-1234-5678)" required>
+            <textarea name="content" placeholder="상담내용을 간단히 입력해주세요" required></textarea>
+            <button type="submit" class="btn-submit-bar">상담신청</button>
+        </form>
+    </div>
 
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://pf.kakao.com/_Exaaxib/chat" target="_blank" class="floating-btn kakao" title="카카오톡 상담">
+            <img src="/images/kakao.png" alt="카카오톡">
+        </a>
+        <a href="tel:02-1551-8385" class="floating-btn phone" title="전화 상담">
+            <img src="/images/phone.png" alt="전화">
+        </a>
+        <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
+            📝
+        </a>
+        <a href="#" class="floating-btn scroll-top" title="맨 위로" onclick="scrollToTop(event)">
+            ↑
+        </a>
+    </div>
 </main>
 
 <script>
+// Slider functionality
+let currentSlide = {
+    success: 0,
+    press: 0
+};
+
+function moveSlide(type, direction) {
+    const slider = document.getElementById(type + 'Slider');
+    const slides = slider.children;
+    const totalSlides = slides.length;
+
+    currentSlide[type] += direction;
+
+    if (currentSlide[type] < 0) {
+        currentSlide[type] = totalSlides - 1;
+    } else if (currentSlide[type] >= totalSlides) {
+        currentSlide[type] = 0;
+    }
+
+    slider.style.transform = `translateX(-${currentSlide[type] * 100}%)`;
+}
+
+// Auto slide
+setInterval(() => {
+    moveSlide('success', 1);
+}, 5000);
+
+setInterval(() => {
+    moveSlide('press', 1);
+}, 5500);
+
+// Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
     const submitBtn = this.querySelector('.btn-submit');
 
-    // 버튼 비활성화
     submitBtn.disabled = true;
     submitBtn.textContent = '전송 중...';
 
@@ -178,10 +232,8 @@ document.getElementById('consultationForm').addEventListener('submit', function(
         submitBtn.textContent = '무료상담 신청';
     });
 });
-</script>
 
-<script>
-// 상담신청 섹션으로 스크롤
+// Scroll functions
 function scrollToConsultation(event) {
     event.preventDefault();
     const consultationSection = document.querySelector('.consultation');
@@ -190,20 +242,18 @@ function scrollToConsultation(event) {
     }
 }
 
-// 맨 위로 스크롤
 function scrollToTop(event) {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 하단 고정 바 상담 신청 폼
+// Fixed consultation form
 document.getElementById('fixedConsultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
     const submitBtn = this.querySelector('.btn-submit-bar');
 
-    // 버튼 비활성화
     submitBtn.disabled = true;
     submitBtn.textContent = '전송 중...';
 
