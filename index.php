@@ -193,45 +193,78 @@ include 'includes/db.php';
     </section>
 
     <!-- Practice Areas Section -->
-    <section class="services">
+    <section class="practice-areas">
         <div class="container">
-            <div class="practice-header">
-                <h2>PRACTICE AREAS</h2>
-                <div class="btn-more-wrapper">
-                    <span>더 알아보기</span>
-                    <button class="btn-circle-arrow">→</button>
-                </div>
-            </div>
-            <div class="practice-grid">
-                <div class="practice-card">
-                    <div class="practice-icon">
-                        <img src="/images/icon_law.png" alt="형사" onerror="this.style.display='none'">
+            <div class="practice-layout">
+                <div class="practice-intro">
+                    <p class="section-label-text">업무분야</p>
+                    <h2>PRACTICE AREAS</h2>
+                    <p class="section-desc">파노의 전문 분야를 만나보세요.</p>
+                    <div class="slider-controls">
+                        <button class="slider-arrow prev" onclick="movePracticeSlide(-1)">
+                            <img src="/images/left.svg" alt="이전">
+                        </button>
+                        <button class="slider-arrow next" onclick="movePracticeSlide(1)">
+                            <img src="/images/right.svg" alt="다음">
+                        </button>
                     </div>
-                    <h3>형사</h3>
-                </div>
-                <div class="practice-card">
-                    <div class="practice-icon">
-                        <img src="/images/icon_medical.png" alt="의료" onerror="this.style.display='none'">
+                    <div class="btn-more-wrapper">
+                        <a href="/field.php" class="btn-more-link">
+                            <span>더 알아보기</span>
+                            <button class="btn-circle-arrow">
+                                <img src="/images/right_w.svg" alt="더 알아보기">
+                            </button>
+                        </a>
                     </div>
-                    <h3>의료</h3>
                 </div>
-                <div class="practice-card">
-                    <div class="practice-icon">
-                        <img src="/images/icon_finance.png" alt="금융·경제" onerror="this.style.display='none'">
+                <div class="practice-content">
+                    <div class="practice-cards">
+                        <div class="practice-card">
+                            <div class="card-header">
+                                <span class="card-tag">형사</span>
+                                <h3>형사 전문<br>법률 서비스</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>형사 사건의 모든 단계에서 최선의 변호를 제공합니다. 수사 단계부터 재판까지 체계적인 법률 서비스를 제공합니다.</p>
+                            </div>
+                        </div>
+                        <div class="practice-card">
+                            <div class="card-header">
+                                <span class="card-tag">의료</span>
+                                <h3>의료 분쟁<br>전문 변호</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>의료 사고 및 분쟁에 대한 전문적인 법률 서비스를 제공합니다. 의료 전문 지식을 바탕으로 최선의 해결책을 제시합니다.</p>
+                            </div>
+                        </div>
+                        <div class="practice-card">
+                            <div class="card-header">
+                                <span class="card-tag">금융·경제</span>
+                                <h3>금융·경제<br>법률 자문</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>금융 및 경제 관련 법률 문제에 대한 전문적인 자문과 소송 대리를 제공합니다.</p>
+                            </div>
+                        </div>
+                        <div class="practice-card">
+                            <div class="card-header">
+                                <span class="card-tag">도산</span>
+                                <h3>회생·파산<br>절차 지원</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>기업 및 개인의 회생과 파산 절차를 전문적으로 지원합니다. 최선의 결과를 위해 노력합니다.</p>
+                            </div>
+                        </div>
+                        <div class="practice-card">
+                            <div class="card-header">
+                                <span class="card-tag">행정</span>
+                                <h3>행정 소송<br>전문 대리</h3>
+                            </div>
+                            <div class="card-body">
+                                <p>행정 소송 및 행정 심판에 대한 전문적인 법률 서비스를 제공합니다.</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>금융·경제</h3>
-                </div>
-                <div class="practice-card">
-                    <div class="practice-icon">
-                        <img src="/images/icon_environment.png" alt="도산(회생·파산)" onerror="this.style.display='none'">
-                    </div>
-                    <h3>도산(회생·파산)</h3>
-                </div>
-                <div class="practice-card">
-                    <div class="practice-icon">
-                        <img src="/images/icon_admin.png" alt="행정" onerror="this.style.display='none'">
-                    </div>
-                    <h3>행정</h3>
                 </div>
             </div>
         </div>
@@ -327,6 +360,28 @@ function movePressSlide(direction) {
     const cardWidth = cards[0].offsetWidth;
     const gap = 26;
     const offset = currentPressSlide * (cardWidth + gap);
+    container.style.transform = `translateX(-${offset}px)`;
+}
+
+// Practice Areas slider functionality
+let currentPracticeSlide = 0;
+
+function movePracticeSlide(direction) {
+    const cards = document.querySelectorAll('.practice-card');
+    const totalCards = cards.length;
+
+    currentPracticeSlide += direction;
+
+    if (currentPracticeSlide < 0) {
+        currentPracticeSlide = 0;
+    } else if (currentPracticeSlide > totalCards - 3) {
+        currentPracticeSlide = totalCards - 3;
+    }
+
+    const container = document.querySelector('.practice-cards');
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 26;
+    const offset = currentPracticeSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
 
