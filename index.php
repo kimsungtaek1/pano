@@ -323,7 +323,7 @@ function moveSuccessSlide(direction) {
 
     const container = document.querySelector('.success-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 26;
+    const gap = 28;
     const offset = currentSuccessSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
@@ -345,7 +345,7 @@ function movePressSlide(direction) {
 
     const container = document.querySelector('.press-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 26;
+    const gap = 28;
     const offset = currentPressSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }

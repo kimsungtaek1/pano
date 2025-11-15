@@ -1270,13 +1270,13 @@ footer {
 
 .press-cards {
     display: flex;
-    gap: 26px;
+    gap: 28px;
     transition: transform 0.5s ease;
 }
 
 .press-card {
-    flex: 0 0 calc((100% - 52px) / 3);
-    min-width: calc((100% - 52px) / 3);
+    flex: 0 0 calc((100% - 56px) / 3);
+    min-width: calc((100% - 56px) / 3);
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
