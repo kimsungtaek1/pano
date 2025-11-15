@@ -1163,6 +1163,12 @@ footer {
     transition: all 0.3s;
 }
 
+.btn-circle-arrow img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
 .btn-circle-arrow:hover {
     background: rgba(24, 38, 80, 0.8);
     transform: scale(1.1);
@@ -1191,8 +1197,8 @@ footer {
 }
 
 .slider-arrow img {
-    width: 20px;
-    height: 20px;
+    width: 14px;
+    height: 14px;
     object-fit: contain;
 }
 

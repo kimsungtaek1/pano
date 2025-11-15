@@ -35,13 +35,15 @@ include 'includes/db.php';
                             <img src="/images/left.png" alt="이전">
                         </button>
                         <button class="slider-arrow next" onclick="moveSuccessSlide(1)">
-                            <img src="/images/right_w.png" alt="다음">
+                            <img src="/images/right.png" alt="다음">
                         </button>
                     </div>
                     <div class="btn-more-wrapper">
                         <a href="/news.php" class="btn-more-link">
                             <span>더 알아보기</span>
-                            <button class="btn-circle-arrow">→</button>
+                            <button class="btn-circle-arrow">
+                                <img src="/images/right_w.png" alt="더 알아보기">
+                            </button>
                         </a>
                     </div>
                 </div>
