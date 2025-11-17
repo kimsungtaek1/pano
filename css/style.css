@@ -823,6 +823,14 @@ footer {
     padding: 15px 0;
 }
 
+.info-row:first-child {
+    padding-top: 0;
+}
+
+.info-row:last-child {
+    padding-bottom: 0;
+}
+
 .info-label {
     font-size: 20px;
     font-weight: 700;
