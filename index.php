@@ -120,13 +120,19 @@ include 'includes/db.php';
                     <h2>PRESS COVERAGE</h2>
                     <p class="section-desc">파노의 언론소식을 만나보세요.</p>
                     <div class="slider-controls">
-                        <button class="slider-arrow prev" onclick="movePressSlide(-1)">←</button>
-                        <button class="slider-arrow next" onclick="movePressSlide(1)">→</button>
+                        <button class="slider-arrow prev" onclick="movePressSlide(-1)">
+                            <img src="/images/left.svg" alt="이전">
+                        </button>
+                        <button class="slider-arrow next" onclick="movePressSlide(1)">
+                            <img src="/images/right.svg" alt="다음">
+                        </button>
                     </div>
                     <div class="btn-more-wrapper">
                         <a href="/news.php" class="btn-more-link">
                             <span>더 알아보기</span>
-                            <button class="btn-circle-arrow">→</button>
+                            <button class="btn-circle-arrow">
+                                <img src="/images/right_w.svg" alt="더 알아보기">
+                            </button>
                         </a>
                     </div>
                 </div>
