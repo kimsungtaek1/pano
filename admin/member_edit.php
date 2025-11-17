@@ -150,13 +150,26 @@ if (isset($_GET['success'])) {
                     </div>
 
                     <div class="form-group">
-                        <label for="profile_image">프로필 이미지 URL</label>
-                        <input type="url" id="profile_image" name="profile_image" value="<?php echo htmlspecialchars($member['profile_image'] ?? ''); ?>" placeholder="https://example.com/image.jpg">
-                        <?php if (!empty($member['profile_image'])): ?>
-                            <div class="image-preview" style="margin-top: 10px;">
-                                <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="프로필 미리보기" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px;">
-                            </div>
-                        <?php endif; ?>
+                        <label for="profile_image">프로필 이미지</label>
+
+                        <!-- 이미지 업로드 -->
+                        <div style="margin-bottom: 15px;">
+                            <input type="file" id="image_file" accept="image/*" style="margin-bottom: 10px;">
+                            <button type="button" id="upload_btn" class="btn btn-secondary btn-sm">이미지 업로드</button>
+                            <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, jpg/png/gif/webp)</small>
+                        </div>
+
+                        <!-- URL 입력 -->
+                        <input type="url" id="profile_image" name="profile_image" value="<?php echo htmlspecialchars($member['profile_image'] ?? ''); ?>" placeholder="https://example.com/image.jpg 또는 /uploads/members/xxx.jpg">
+
+                        <!-- 이미지 미리보기 -->
+                        <div id="image_preview_container" style="margin-top: 10px; <?php echo empty($member['profile_image']) ? 'display:none;' : ''; ?>">
+                            <img id="image_preview" src="<?php echo htmlspecialchars($member['profile_image'] ?? ''); ?>" alt="프로필 미리보기" style="max-width: 200px; max-height: 200px; border: 1px solid #ddd; border-radius: 4px;">
+                            <button type="button" id="remove_image_btn" class="btn btn-sm" style="display: block; margin-top: 5px; background: #e74c3c; color: white;">이미지 제거</button>
+                        </div>
+
+                        <!-- 업로드 진행 상태 -->
+                        <div id="upload_status" style="margin-top: 10px; display: none;"></div>
                     </div>
 
                     <div class="form-group">
@@ -187,5 +200,103 @@ if (isset($_GET['success'])) {
     </div>
 
     <script src="js/admin.js"></script>
+    <script>
+    // 이미지 업로드 기능
+    document.addEventListener('DOMContentLoaded', function() {
+        const uploadBtn = document.getElementById('upload_btn');
+        const imageFile = document.getElementById('image_file');
+        const profileImageInput = document.getElementById('profile_image');
+        const imagePreview = document.getElementById('image_preview');
+        const imagePreviewContainer = document.getElementById('image_preview_container');
+        const uploadStatus = document.getElementById('upload_status');
+        const removeImageBtn = document.getElementById('remove_image_btn');
+
+        // 업로드 버튼 클릭
+        uploadBtn.addEventListener('click', function() {
+            if (!imageFile.files || !imageFile.files[0]) {
+                alert('업로드할 이미지를 선택해주세요.');
+                return;
+            }
+
+            const file = imageFile.files[0];
+
+            // 파일 크기 체크 (5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('파일 크기는 5MB 이하여야 합니다.');
+                return;
+            }
+
+            // 파일 형식 체크
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+            if (!allowedTypes.includes(file.type)) {
+                alert('jpg, png, gif, webp 형식의 이미지만 업로드 가능합니다.');
+                return;
+            }
+
+            // FormData 생성
+            const formData = new FormData();
+            formData.append('image', file);
+
+            // 업로드 상태 표시
+            uploadStatus.style.display = 'block';
+            uploadStatus.innerHTML = '<span style="color: #3498db;">업로드 중...</span>';
+            uploadBtn.disabled = true;
+
+            // AJAX 업로드
+            fetch('upload_member_image.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // URL 입력란에 업로드된 이미지 경로 설정
+                    profileImageInput.value = data.url;
+
+                    // 미리보기 표시
+                    imagePreview.src = data.url;
+                    imagePreviewContainer.style.display = 'block';
+
+                    uploadStatus.innerHTML = '<span style="color: #27ae60;">✓ 업로드 완료!</span>';
+                    setTimeout(() => {
+                        uploadStatus.style.display = 'none';
+                    }, 3000);
+
+                    // 파일 입력 초기화
+                    imageFile.value = '';
+                } else {
+                    uploadStatus.innerHTML = '<span style="color: #e74c3c;">✗ ' + data.error + '</span>';
+                }
+            })
+            .catch(error => {
+                console.error('Upload error:', error);
+                uploadStatus.innerHTML = '<span style="color: #e74c3c;">✗ 업로드 중 오류가 발생했습니다.</span>';
+            })
+            .finally(() => {
+                uploadBtn.disabled = false;
+            });
+        });
+
+        // URL 입력란 변경 시 미리보기 업데이트
+        profileImageInput.addEventListener('input', function() {
+            const url = this.value.trim();
+            if (url) {
+                imagePreview.src = url;
+                imagePreviewContainer.style.display = 'block';
+            } else {
+                imagePreviewContainer.style.display = 'none';
+            }
+        });
+
+        // 이미지 제거 버튼
+        removeImageBtn.addEventListener('click', function() {
+            if (confirm('이미지를 제거하시겠습니까?')) {
+                profileImageInput.value = '';
+                imagePreviewContainer.style.display = 'none';
+                imageFile.value = '';
+            }
+        });
+    });
+    </script>
 </body>
 </html>

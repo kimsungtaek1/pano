@@ -75,6 +75,7 @@ $members = $stmt->fetchAll();
                     <thead>
                         <tr>
                             <th width="80">ID</th>
+                            <th width="80">사진</th>
                             <th width="100">이름</th>
                             <th width="120">직책</th>
                             <th width="120">부서</th>
@@ -88,12 +89,19 @@ $members = $stmt->fetchAll();
                     <tbody>
                         <?php if (empty($members)): ?>
                             <tr>
-                                <td colspan="9" class="text-center">등록된 구성원이 없습니다.</td>
+                                <td colspan="10" class="text-center">등록된 구성원이 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($members as $member): ?>
                                 <tr>
                                     <td><?php echo $member['id']; ?></td>
+                                    <td>
+                                        <?php if (!empty($member['profile_image'])): ?>
+                                            <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="프로필" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;">
+                                        <?php else: ?>
+                                            <div style="width: 50px; height: 50px; background: #ecf0f1; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #95a5a6; font-size: 20px;">👤</div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?php echo htmlspecialchars($member['name']); ?></td>
                                     <td><?php echo htmlspecialchars($member['position'] ?? '-'); ?></td>
                                     <td><?php echo htmlspecialchars($member['department'] ?? '-'); ?></td>
