@@ -269,15 +269,6 @@ include 'includes/db.php';
         </div>
     </section>
 
-    <!-- Fixed Bottom Consultation Bar -->
-    <div class="fixed-consultation-bar">
-        <form id="fixedConsultationForm" class="fixed-consultation-form" method="POST" action="/api/submit_consultation.php">
-            <input type="text" name="name" placeholder="이름" required>
-            <input type="tel" name="phone" placeholder="연락처 (010-1234-5678)" required>
-            <textarea name="content" placeholder="상담내용을 간단히 입력해주세요" required></textarea>
-            <button type="submit" class="btn-submit-bar">상담신청</button>
-        </form>
-    </div>
 </main>
 
 <script>
