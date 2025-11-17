@@ -2007,7 +2007,7 @@ footer {
 
 .field-grid-2col .field-content {
     margin: 10px 0;
-    padding: 20px 0;
+    padding: 0;
     transition: background 0.3s ease;
     border-top: 1px solid #000;
     flex: 1;
