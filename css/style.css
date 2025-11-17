@@ -1762,6 +1762,10 @@ footer {
     border-color: #1e293b;
 }
 
+.slider-arrow:hover img {
+    filter: brightness(0) invert(1);
+}
+
 /* Press Coverage Section */
 .press-coverage {
     padding: 80px 0;
