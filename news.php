@@ -488,12 +488,14 @@ function showDetail(id, tabType) {
             imagesContainer.innerHTML = '';
 
             if (data.image_urls && data.image_urls.length > 0) {
-                data.image_urls.forEach((url, index) => {
+                // 이미지가 3개일 때는 처음 2개만 표시
+                const maxImages = data.image_urls.length === 3 ? 2 : data.image_urls.length;
+                for (let i = 0; i < maxImages; i++) {
                     const img = document.createElement('img');
-                    img.src = url;
-                    img.alt = data.title + ' 이미지 ' + (index + 1);
+                    img.src = data.image_urls[i];
+                    img.alt = data.title + ' 이미지 ' + (i + 1);
                     imagesContainer.appendChild(img);
-                });
+                }
             } else {
                 // 이미지가 없을 때 테스트 회색 이미지 2개 표시
                 const testImage1 = document.createElement('div');
