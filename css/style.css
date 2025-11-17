@@ -1793,7 +1793,7 @@ footer {
 .press-intro h2 {
     font-size: 32px;
     font-weight: bold;
-    margin-top: -20px;
+    margin-top: -10px;
     margin-bottom: 15px;
     color: #000;
 }
@@ -1895,6 +1895,7 @@ footer {
 .practice-header h2 {
     font-size: 34px;
     font-weight: bold;
+    margin-top: -20px;
     margin-bottom: 20px;
     color: #000;
 }
