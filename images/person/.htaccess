@@ -1,5 +1,5 @@
 Options -Indexes
-<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+<FilesMatch "\.(jpg|jpeg|png|webp)$">
     Order Allow,Deny
     Allow from all
 </FilesMatch>

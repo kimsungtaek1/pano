@@ -156,7 +156,7 @@ if (isset($_GET['success'])) {
                         <div style="margin-bottom: 15px;">
                             <input type="file" id="image_file" accept="image/*" style="margin-bottom: 10px;">
                             <button type="button" id="upload_btn" class="btn btn-secondary btn-sm">이미지 업로드</button>
-                            <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, jpg/png/gif/webp)</small>
+                            <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, jpg/png/webp)</small>
                         </div>
 
                         <!-- URL 입력 -->
@@ -227,9 +227,9 @@ if (isset($_GET['success'])) {
             }
 
             // 파일 형식 체크
-            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
             if (!allowedTypes.includes(file.type)) {
-                alert('jpg, png, gif, webp 형식의 이미지만 업로드 가능합니다.');
+                alert('jpg, png, webp 형식의 이미지만 업로드 가능합니다.');
                 return;
             }
 
