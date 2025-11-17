@@ -162,6 +162,12 @@ header:hover .header-submenu-area {
     color: #2563eb;
 }
 
+.submenu-list .empty-space {
+    display: block;
+    height: 1px;
+    opacity: 0;
+}
+
 .lang {
     display: flex;
     gap: 10px;

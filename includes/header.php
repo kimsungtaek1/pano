@@ -43,12 +43,14 @@
                                 <a href="/person.php">구성원</a>
                             </li>
                             <li>
+                                <span class="empty-space"></span>
                             </li>
                             <li>
                                 <a href="/news.php">파노성공사례</a>
                                 <a href="/news.php">언론보도</a>
                             </li>
                             <li>
+                                <span class="empty-space"></span>
                             </li>
                         </ul>
                     </nav>
