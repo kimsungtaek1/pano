@@ -43,6 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabContents = document.querySelectorAll('.intro-tab-content');
 
     if (tabButtons.length > 0 && tabContents.length > 0) {
+        // URL 파라미터로 탭 활성화
+        const urlParams = new URLSearchParams(window.location.search);
+        const tabParam = urlParams.get('tab');
+        
+        if (tabParam === 'members') {
+            // 모든 탭에서 active 제거
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // 구성원 탭 활성화 (두 번째 탭)
+            tabButtons[1].classList.add('active');
+            tabContents[1].classList.add('active');
+        }
+
         tabButtons.forEach((button, index) => {
             button.addEventListener('click', function() {
                 // Remove active class from all buttons and contents

@@ -40,7 +40,7 @@
                         <ul>
                             <li>
                                 <a href="/intro.php">파노 법률사무소</a>
-                                <a href="/person.php">구성원</a>
+                                <a href="/intro.php?tab=members">구성원</a>
                             </li>
                             <li></li>
                             <li>
