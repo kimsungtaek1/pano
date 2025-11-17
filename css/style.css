@@ -1817,13 +1817,14 @@ footer {
 .press-content {
     flex: 1;
     overflow: hidden;
-    padding: 20px 20px;
+    padding: 5px;
 }
 
 .press-cards {
     display: flex;
     gap: 28px;
     transition: transform 0.5s ease;
+    padding: 20px 0;
 }
 
 .press-card {
