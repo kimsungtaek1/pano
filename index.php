@@ -424,7 +424,9 @@ function scrollToTop(event) {
 }
 
 // Fixed consultation form
-document.getElementById('fixedConsultationForm').addEventListener('submit', function(e) {
+const fixedForm = document.getElementById('fixedConsultationForm');
+if (fixedForm) {
+    fixedForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     const formData = new FormData(this);
@@ -454,7 +456,8 @@ document.getElementById('fixedConsultationForm').addEventListener('submit', func
         submitBtn.disabled = false;
         submitBtn.textContent = '상담신청';
     });
-});
+    });
+}
 </script>
 
 <?php include 'includes/footer.php'; ?>
