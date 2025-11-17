@@ -22,32 +22,32 @@
                 <h1 class="logo"><a href="/index.php"><img src="/images/logo.png" alt="PANO 법률사무소"></a></h1>
                 <nav>
                     <ul>
-                        <li class="has-submenu">
-                            <a href="/intro.php">파노소개</a>
-                            <div class="submenu">
-                                <a href="/intro.php">파노 법률사무소</a>
-                                <a href="/person.php">구성원</a>
-                            </div>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="/field.php">업무분야</a>
-                            <div class="submenu">
-                                <a href="/field.php">업무분야</a>
-                            </div>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="/news.php">소식/자료</a>
-                            <div class="submenu">
-                                <a href="/news.php">파노성공사례</a>
-                                <a href="/news.php">언론보도</a>
-                            </div>
-                        </li>
-                        <li>
-                            <a href="/info.php">오시는길</a>
-                        </li>
+                        <li><a href="/intro.php">파노소개</a></li>
+                        <li><a href="/field.php">업무분야</a></li>
+                        <li><a href="/news.php">소식/자료</a></li>
+                        <li><a href="/info.php">오시는길</a></li>
                     </ul>
                 </nav>
-
+            </div>
+        </div>
+        
+        <!-- 전체 서브메뉴 영역 -->
+        <div class="header-submenu-area">
+            <div class="container">
+                <div class="submenu-content">
+                    <div class="submenu-column">
+                        <a href="/intro.php">파노 법률사무소</a>
+                        <a href="/person.php">구성원</a>
+                    </div>
+                    <div class="submenu-column">
+                    </div>
+                    <div class="submenu-column">
+                        <a href="/news.php">파노성공사례</a>
+                        <a href="/news.php">언론보도</a>
+                    </div>
+                    <div class="submenu-column">
+                    </div>
+                </div>
             </div>
         </div>
     </header>
