@@ -1567,6 +1567,7 @@ footer {
 .success-intro h2 {
     font-size: 34px;
     font-weight: bold;
+    margin-top: 8px;
     margin-bottom: 5px;
     color: #000;
 }
