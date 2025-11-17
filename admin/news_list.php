@@ -45,15 +45,11 @@ $count_stmt->execute($params);
 $total = $count_stmt->fetchColumn();
 $total_pages = ceil($total / $per_page);
 
-echo "8. 전체 개수 조회 완료 (총 {$total}개)<br>";
-
 // 뉴스 목록 조회
 $sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $news_list = $stmt->fetchAll();
-
-echo "9. 뉴스 목록 조회 완료 (" . count($news_list) . "개)<br>";
 
 // 삭제 처리
 if (isset($_GET['delete'])) {
@@ -120,6 +116,7 @@ if (isset($_GET['delete'])) {
                     <thead>
                         <tr>
                             <th width="60">ID</th>
+                            <th width="80">썸네일</th>
                             <th width="120">카테고리</th>
                             <th>제목</th>
                             <th width="100">날짜</th>
@@ -130,12 +127,28 @@ if (isset($_GET['delete'])) {
                     <tbody>
                         <?php if (empty($news_list)): ?>
                             <tr>
-                                <td colspan="6" class="text-center">등록된 뉴스가 없습니다.</td>
+                                <td colspan="7" class="text-center">등록된 뉴스가 없습니다.</td>
                             </tr>
                         <?php else: ?>
-                            <?php foreach ($news_list as $news): ?>
+                            <?php foreach ($news_list as $news):
+                                // 이미지 URL 가져오기
+                                $thumbnail = '';
+                                if (!empty($news['image_urls'])) {
+                                    $image_urls = json_decode($news['image_urls'], true);
+                                    if (is_array($image_urls) && !empty($image_urls)) {
+                                        $thumbnail = $image_urls[0];
+                                    }
+                                }
+                            ?>
                                 <tr>
                                     <td><?php echo $news['id']; ?></td>
+                                    <td>
+                                        <?php if ($thumbnail): ?>
+                                            <img src="<?php echo htmlspecialchars($thumbnail); ?>" alt="썸네일" style="width: 60px; height: 60px; object-fit: cover; border-radius: 4px;">
+                                        <?php else: ?>
+                                            <div style="width: 60px; height: 60px; background: #e8e8e8; border-radius: 4px;"></div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><span class="badge"><?php echo htmlspecialchars($news['category']); ?></span></td>
                                     <td class="title-cell"><?php echo htmlspecialchars($news['title']); ?></td>
                                     <td><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></td>
