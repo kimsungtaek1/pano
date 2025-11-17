@@ -45,9 +45,7 @@ $total = $count_stmt->fetchColumn();
 $total_pages = ceil($total / $per_page);
 
 // 뉴스 목록 조회
-$sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT ? OFFSET ?";
-$params[] = $per_page;
-$params[] = $offset;
+$sql = "SELECT * FROM news $where_sql ORDER BY news_date DESC, created_at DESC LIMIT $per_page OFFSET $offset";
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $news_list = $stmt->fetchAll();
