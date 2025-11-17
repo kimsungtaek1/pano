@@ -1531,6 +1531,11 @@ footer {
     background: #f8f9fa;
 }
 
+.recruitment .section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
 .recruitment-text {
     font-size: 18px;
     line-height: 1.8;
