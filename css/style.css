@@ -132,25 +132,16 @@ header:hover .header-submenu-area {
 }
 
 .submenu-logo-space {
-    display: flex;
-    align-items: center;
+    /* 빈 로고 공간 */
 }
 
-.submenu-list {
-    display: flex;
-    gap: 120px;
-    justify-content: space-between;
-    min-width: 500px;
-}
-
-.submenu-list li {
-    padding: 0 20px;
+.header-submenu-area nav ul li {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.submenu-list a {
+.header-submenu-area nav ul li a {
     font-size: 15px;
     font-weight: 500;
     color: #666;
@@ -158,14 +149,8 @@ header:hover .header-submenu-area {
     transition: color 0.3s;
 }
 
-.submenu-list a:hover {
+.header-submenu-area nav ul li a:hover {
     color: #2563eb;
-}
-
-.submenu-list .empty-space {
-    display: block;
-    height: 1px;
-    opacity: 0;
 }
 
 .lang {

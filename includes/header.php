@@ -35,23 +35,19 @@
         <div class="header-submenu-area">
             <div class="container">
                 <div class="header-content">
-                    <div class="submenu-logo-space"></div>
+                    <h1 class="logo submenu-logo-space"></h1>
                     <nav>
-                        <ul class="submenu-list">
+                        <ul>
                             <li>
                                 <a href="/intro.php">파노 법률사무소</a>
                                 <a href="/person.php">구성원</a>
                             </li>
-                            <li>
-                                <span class="empty-space"></span>
-                            </li>
+                            <li></li>
                             <li>
                                 <a href="/news.php">파노성공사례</a>
                                 <a href="/news.php">언론보도</a>
                             </li>
-                            <li>
-                                <span class="empty-space"></span>
-                            </li>
+                            <li></li>
                         </ul>
                     </nav>
                 </div>
