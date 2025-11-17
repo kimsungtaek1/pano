@@ -134,10 +134,15 @@ header:hover .header-submenu-area {
 .submenu-logo-space {
     display: flex;
     align-items: center;
-    height: 40px;
-    width: 176px;
-    flex-shrink: 0;
+    min-height: 40px;
     visibility: hidden;
+}
+
+.submenu-logo-space::before {
+    content: '';
+    display: block;
+    width: 176px;
+    height: 40px;
 }
 
 .header-submenu-area nav ul {
