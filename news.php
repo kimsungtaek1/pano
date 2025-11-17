@@ -64,6 +64,28 @@ include 'includes/header.php';
     <!-- Content Section -->
     <section class="intro-content-section">
         <div class="container">
+            <!-- 뉴스 상세 화면 -->
+            <div id="detail-view" style="display: none;">
+                <div class="news-detail-content">
+                    <div class="news-detail-header">
+                        <span class="badge" id="detail-badge"></span>
+                        <h2 id="detail-title"></h2>
+                        <span class="date" id="detail-date"></span>
+                    </div>
+
+                    <div class="news-detail-image" id="detail-image-container" style="display: none;">
+                        <img id="detail-image" src="" alt="">
+                    </div>
+
+                    <div class="news-detail-body" id="detail-content">
+                    </div>
+
+                    <div class="news-detail-actions">
+                        <a href="#" class="btn-back" onclick="hideDetail(); return false;">목록으로</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- 성공사례 탭 컨텐츠 -->
             <div class="intro-tab-content <?php echo $tab === 'cases' ? 'active' : ''; ?>" id="tab-cases">
                 <div class="cases-grid">
@@ -71,7 +93,7 @@ include 'includes/header.php';
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 파노 성공사례가 없습니다.</p>
                     <?php else: ?>
                         <?php foreach ($cases_list as $case): ?>
-                            <a href="news_detail.php?id=<?php echo $case['id']; ?>" class="case-card">
+                            <a href="#" class="case-card" onclick="showDetail(<?php echo $case['id']; ?>, 'cases'); return false;">
                                 <div class="thumbnail"></div>
                                 <div class="content">
                                     <span class="badge badge-red">구속영장 기각</span>
@@ -104,7 +126,7 @@ include 'includes/header.php';
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
                     <?php else: ?>
                         <?php foreach ($news_list as $news): ?>
-                            <a href="news_detail.php?id=<?php echo $news['id']; ?>" class="case-card">
+                            <a href="#" class="case-card" onclick="showDetail(<?php echo $news['id']; ?>, 'press'); return false;">
                                 <div class="thumbnail"></div>
                                 <div class="content">
                                     <span class="badge badge-blue">언론보도</span>
@@ -251,6 +273,92 @@ include 'includes/header.php';
 }
 
 
+/* 뉴스 상세 화면 스타일 */
+.news-detail-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.news-detail-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.news-detail-header .badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.news-detail-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
+}
+
+.news-detail-header .date {
+    color: #999;
+    font-size: 14px;
+}
+
+.news-detail-image {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.news-detail-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.news-detail-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.news-detail-body p {
+    margin-bottom: 20px;
+}
+
+.news-detail-body img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.news-detail-actions {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+.btn-back:hover {
+    background: #555;
+}
+
 @media (max-width: 768px) {
     .case-card {
         flex-direction: column;
@@ -261,6 +369,18 @@ include 'includes/header.php';
     .case-card .thumbnail {
         width: 100%;
         height: 200px;
+    }
+
+    .news-detail-content {
+        padding: 30px 20px;
+    }
+
+    .news-detail-header h2 {
+        font-size: 22px;
+    }
+
+    .news-detail-body {
+        font-size: 15px;
     }
 }
 </style>
@@ -277,6 +397,67 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// 상세 화면 표시
+function showDetail(id, tabType) {
+    // AJAX로 뉴스 상세 정보 가져오기
+    fetch('get_news_detail.php?id=' + id)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert('뉴스를 찾을 수 없습니다.');
+                return;
+            }
+
+            // 상세 정보 채우기
+            const badge = document.getElementById('detail-badge');
+            badge.textContent = data.category;
+            badge.className = 'badge ' + (data.category === '최근 업무사례' ? 'badge-red' : 'badge-blue');
+
+            document.getElementById('detail-title').textContent = data.title;
+            document.getElementById('detail-date').textContent = data.news_date;
+            document.getElementById('detail-content').innerHTML = data.content;
+
+            // 이미지 처리
+            const imageContainer = document.getElementById('detail-image-container');
+            const image = document.getElementById('detail-image');
+            if (data.image) {
+                image.src = data.image;
+                image.alt = data.title;
+                imageContainer.style.display = 'block';
+            } else {
+                imageContainer.style.display = 'none';
+            }
+
+            // 리스트 숨기고 상세 화면 표시
+            document.getElementById('tab-cases').style.display = 'none';
+            document.getElementById('tab-press').style.display = 'none';
+            document.getElementById('detail-view').style.display = 'block';
+
+            // 페이지 상단으로 스크롤
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('오류가 발생했습니다.');
+        });
+}
+
+// 상세 화면 숨기기
+function hideDetail() {
+    document.getElementById('detail-view').style.display = 'none';
+
+    // 현재 활성 탭 다시 표시
+    const activeTab = document.querySelector('.intro-tab-btn.active').getAttribute('data-tab');
+    if (activeTab === 'cases') {
+        document.getElementById('tab-cases').style.display = 'block';
+    } else {
+        document.getElementById('tab-press').style.display = 'block';
+    }
+
+    // 페이지 상단으로 스크롤
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 </script>
 
 <?php include 'includes/footer.php'; ?>
