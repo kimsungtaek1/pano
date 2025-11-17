@@ -244,7 +244,7 @@ header:hover .header-submenu-area {
     width: auto;
     height: auto;
     margin-left: auto;
-    margin-right: 40px;
+    margin-right: 0;
 }
 
 .hero .subtitle {
