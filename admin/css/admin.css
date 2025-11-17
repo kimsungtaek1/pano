@@ -431,6 +431,34 @@ body {
     padding: 12px 30px;
 }
 
+/* 이미지 URL 입력 필드 */
+.image-urls-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-url-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.url-number {
+    width: 30px;
+    font-weight: 500;
+    color: #666;
+    flex-shrink: 0;
+}
+
+.image-url-row input[type="url"] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
 /* 반응형 */
 @media (max-width: 768px) {
     .admin-container {

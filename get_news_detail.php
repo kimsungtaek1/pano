@@ -27,4 +27,11 @@ if (!$news) {
 // 날짜 포맷 변경
 $news['news_date'] = date('Y.m.d', strtotime($news['news_date']));
 
-echo json_encode($news);
+// 이미지 URL을 배열로 변환
+if (!empty($news['image_urls'])) {
+    $news['image_urls'] = json_decode($news['image_urls'], true);
+} else {
+    $news['image_urls'] = [];
+}
+
+echo json_encode($news, JSON_UNESCAPED_UNICODE);

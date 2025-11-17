@@ -36,6 +36,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $summary = $_POST['summary'] ?? '';
     $news_date = $_POST['news_date'] ?? '';
     $is_published = isset($_POST['is_published']) ? 1 : 0;
+    
+    // 이미지 URL 처리 (최대 10개)
+    $image_urls = [];
+    for ($i = 1; $i <= 10; $i++) {
+        $url = trim($_POST["image_url_$i"] ?? '');
+        if (!empty($url)) {
+            $image_urls[] = $url;
+        }
+    }
+    $image_urls_json = json_encode($image_urls, JSON_UNESCAPED_UNICODE);
 
     // 유효성 검사
     if (empty($category) || empty($title) || empty($content) || empty($news_date)) {
@@ -44,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
             if ($is_edit) {
                 // 수정
-                $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ? WHERE id = ?");
-                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $id]);
+                $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
+                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json, $id]);
                 $success = '뉴스가 수정되었습니다.';
             } else {
                 // 새 글 작성
-                $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published]);
+                $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json]);
                 $success = '뉴스가 등록되었습니다.';
 
                 // 새로 생성된 ID로 리다이렉트
@@ -153,6 +163,30 @@ if (isset($_GET['success'])) {
                 <div class="form-group">
                     <label for="content">내용 <span class="required">*</span></label>
                     <textarea id="content" name="content" rows="15" required><?php echo isset($news) ? htmlspecialchars($news['content']) : ''; ?></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>이미지 URL (최대 10개)</label>
+                    <div class="image-urls-container">
+                        <?php
+                        $existing_urls = [];
+                        if (isset($news) && !empty($news['image_urls'])) {
+                            $existing_urls = json_decode($news['image_urls'], true) ?: [];
+                        }
+                        for ($i = 1; $i <= 10; $i++):
+                            $url_value = $existing_urls[$i - 1] ?? '';
+                        ?>
+                        <div class="image-url-row">
+                            <span class="url-number"><?php echo $i; ?>.</span>
+                            <input type="url" name="image_url_<?php echo $i; ?>"
+                                   placeholder="https://example.com/image<?php echo $i; ?>.jpg"
+                                   value="<?php echo htmlspecialchars($url_value); ?>">
+                        </div>
+                        <?php endfor; ?>
+                    </div>
+                    <small style="color: #666; display: block; margin-top: 8px;">
+                        이미지 URL을 입력하세요. 빈 칸은 자동으로 제외됩니다.
+                    </small>
                 </div>
 
                 <div class="form-actions">

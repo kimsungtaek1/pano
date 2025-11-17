@@ -483,20 +483,25 @@ function showDetail(id, tabType) {
             // 제목
             document.getElementById('detail-title').textContent = data.title;
 
-            // 이미지 처리 (본문에 img 태그가 있으면 추출)
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = data.content;
-            const images = tempDiv.getElementsByTagName('img');
+            // 이미지 처리 (image_urls 필드에서 가져오기)
             const imagesContainer = document.getElementById('detail-images-container');
             imagesContainer.innerHTML = '';
 
-            if (images.length > 0) {
-                for (let i = 0; i < Math.min(images.length, 2); i++) {
+            if (data.image_urls && data.image_urls.length > 0) {
+                data.image_urls.forEach((url, index) => {
                     const img = document.createElement('img');
-                    img.src = images[i].src;
-                    img.alt = data.title;
+                    img.src = url;
+                    img.alt = data.title + ' 이미지 ' + (index + 1);
                     imagesContainer.appendChild(img);
-                }
+                });
+            } else {
+                // 이미지가 없을 때 테스트 회색 이미지 2개 표시
+                const testImage1 = document.createElement('div');
+                testImage1.className = 'detail-test-image';
+                const testImage2 = document.createElement('div');
+                testImage2.className = 'detail-test-image';
+                imagesContainer.appendChild(testImage1);
+                imagesContainer.appendChild(testImage2);
             }
 
             // 하이라이트 박스 (본문에서 추출 또는 기본값)
