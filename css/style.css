@@ -1918,6 +1918,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 25px;
+    padding-right: 10px;
 }
 
 .practice-card {
