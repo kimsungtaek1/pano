@@ -1903,6 +1903,7 @@ footer {
     border: none;
     padding: 0;
     margin: 20px;
+    display: flex;
 }
 
 .field-grid-2col .field-content {
@@ -1910,6 +1911,9 @@ footer {
     padding: 20px 0;
     transition: background 0.3s ease;
     border-top: 1px solid #000;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .field-grid-2col .field-item:hover .field-content {
