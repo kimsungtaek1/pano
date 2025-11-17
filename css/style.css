@@ -1567,7 +1567,7 @@ footer {
 .success-intro h2 {
     font-size: 34px;
     font-weight: bold;
-    margin-top: -5px;
+    margin-top: -10px;
     margin-bottom: 5px;
     color: #000;
 }
@@ -1747,12 +1747,12 @@ footer {
 
 .press-layout {
     display: flex;
-    gap: 60px;
+    gap: 20px;
     align-items: flex-start;
 }
 
 .press-intro {
-    flex: 0 0 280px;
+    flex: 0 0 360px;
     padding-top: 20px;
 }
 
@@ -1766,6 +1766,7 @@ footer {
 .press-intro h2 {
     font-size: 32px;
     font-weight: bold;
+    margin-top: -10px;
     margin-bottom: 15px;
     color: #000;
 }
