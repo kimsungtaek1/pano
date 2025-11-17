@@ -1140,6 +1140,8 @@ footer {
     width: 100%;
     height: auto;
     display: block;
+    max-height: 66.67vh; /* 원래 높이의 2/3 */
+    object-fit: cover;
 }
 
 .intro-hero-text-container {
