@@ -1984,7 +1984,7 @@ footer {
 .field-grid-2col .field-item .field-divider {
     border: none;
     border-top: 1px solid #e0e0e0;
-    margin: 15px 0;
+    margin: 0 0 15px 0;
 }
 
 
