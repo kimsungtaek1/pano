@@ -39,14 +39,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $news_date = $_POST['news_date'] ?? '';
     $is_published = isset($_POST['is_published']) ? 1 : 0;
     
-    // 이미지 URL 처리 (최대 10개)
+    // 이미지 파일 업로드 처리 (최대 10개)
     $image_urls = [];
+    $upload_dir = '../uploads/news/';
+
+    // 기존 이미지 유지
     for ($i = 1; $i <= 10; $i++) {
-        $url = trim($_POST["image_url_$i"] ?? '');
-        if (!empty($url)) {
-            $image_urls[] = $url;
+        $existing_image = $_POST["existing_image_$i"] ?? '';
+        $delete_image = isset($_POST["delete_image_$i"]);
+
+        // 삭제 체크가 되어있으면 스킵
+        if ($delete_image && $existing_image) {
+            // 실제 파일 삭제
+            if (file_exists($existing_image)) {
+                @unlink($existing_image);
+            }
+            continue;
+        }
+
+        // 새 파일 업로드 확인
+        if (isset($_FILES["image_$i"]) && $_FILES["image_$i"]['error'] === UPLOAD_ERR_OK) {
+            $file = $_FILES["image_$i"];
+            $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+            $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
+            if (in_array($extension, $allowed)) {
+                $filename = uniqid() . '_' . time() . '.' . $extension;
+                $filepath = $upload_dir . $filename;
+
+                if (move_uploaded_file($file['tmp_name'], $filepath)) {
+                    $image_urls[] = '/uploads/news/' . $filename;
+
+                    // 기존 파일이 있으면 삭제
+                    if ($existing_image && file_exists($existing_image)) {
+                        @unlink($existing_image);
+                    }
+                }
+            }
+        } elseif ($existing_image) {
+            // 새 파일이 없으면 기존 이미지 유지
+            $image_urls[] = $existing_image;
         }
     }
+
     $image_urls_json = json_encode($image_urls, JSON_UNESCAPED_UNICODE);
 
     // 유효성 검사
@@ -136,7 +171,7 @@ if (isset($_GET['success'])) {
                 <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
             <?php endif; ?>
 
-            <form method="POST" class="news-form">
+            <form method="POST" class="news-form" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="category">카테고리 <span class="required">*</span></label>
@@ -182,8 +217,8 @@ if (isset($_GET['success'])) {
                 </div>
 
                 <div class="form-group">
-                    <label>이미지 URL (최대 10개)</label>
-                    <div class="image-urls-container">
+                    <label>이미지 업로드 (최대 10개)</label>
+                    <div class="image-upload-container">
                         <?php
                         $existing_urls = [];
                         if (isset($news) && isset($news['image_urls']) && !empty($news['image_urls'])) {
@@ -193,18 +228,26 @@ if (isset($_GET['success'])) {
                             }
                         }
                         for ($i = 1; $i <= 10; $i++):
-                            $url_value = $existing_urls[$i - 1] ?? '';
+                            $existing_image = $existing_urls[$i - 1] ?? '';
                         ?>
-                        <div class="image-url-row">
-                            <span class="url-number"><?php echo $i; ?>.</span>
-                            <input type="url" name="image_url_<?php echo $i; ?>"
-                                   placeholder="https://example.com/image<?php echo $i; ?>.jpg"
-                                   value="<?php echo htmlspecialchars($url_value); ?>">
+                        <div class="image-upload-row">
+                            <span class="upload-number"><?php echo $i; ?>.</span>
+                            <input type="file" name="image_<?php echo $i; ?>" accept="image/*" class="image-file-input">
+                            <?php if ($existing_image): ?>
+                                <div class="existing-image">
+                                    <img src="<?php echo htmlspecialchars($existing_image); ?>" alt="이미지 <?php echo $i; ?>">
+                                    <label>
+                                        <input type="checkbox" name="delete_image_<?php echo $i; ?>" value="1">
+                                        삭제
+                                    </label>
+                                    <input type="hidden" name="existing_image_<?php echo $i; ?>" value="<?php echo htmlspecialchars($existing_image); ?>">
+                                </div>
+                            <?php endif; ?>
                         </div>
                         <?php endfor; ?>
                     </div>
                     <small style="color: #666; display: block; margin-top: 8px;">
-                        이미지 URL을 입력하세요. 빈 칸은 자동으로 제외됩니다.
+                        JPG, PNG, GIF 형식의 이미지를 업로드하세요. 기존 이미지를 유지하려면 새 파일을 선택하지 마세요.
                     </small>
                 </div>
 
