@@ -2052,6 +2052,7 @@ footer {
     line-height: 1.5;
     position: relative;
     padding-left: 0;
+    margin-bottom: 3px;
 }
 
 .field-grid-2col .field-item li:before {
@@ -2130,6 +2131,7 @@ footer {
     line-height: 1.5;
     position: relative;
     padding-left: 0;
+    margin-bottom: 3px;
 }
 
 .field-grid-3col .field-item li:before {
