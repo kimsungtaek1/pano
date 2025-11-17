@@ -2026,6 +2026,7 @@ footer {
     align-items: center;
     gap: 60px;
     margin: 0;
+    height: 80px;
 }
 
 .field-grid-2col .field-item h2 {
@@ -2037,6 +2038,7 @@ footer {
     flex-shrink: 0;
     width: 150px;
     padding-left: 20px;
+    line-height: 1;
 }
 
 .field-grid-2col .field-subtitle-text {
