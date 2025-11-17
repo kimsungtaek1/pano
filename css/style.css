@@ -1624,7 +1624,7 @@ footer {
     display: flex;
     gap: 28px;
     transition: transform 0.5s ease;
-    padding: 0 20px;
+    padding: 20px 0;
 }
 
 .success-card {
