@@ -135,13 +135,21 @@ header:hover .header-submenu-area {
     /* 빈 로고 공간 */
 }
 
-.header-submenu-area nav ul li {
+.header-submenu-area nav ul {
+    display: flex;
+    gap: 120px;
+    justify-content: space-between;
+    min-width: 500px;
+}
+
+.header-submenu-area nav li {
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.header-submenu-area nav ul li a {
+.header-submenu-area nav a {
     font-size: 15px;
     font-weight: 500;
     color: #666;
@@ -149,7 +157,7 @@ header:hover .header-submenu-area {
     transition: color 0.3s;
 }
 
-.header-submenu-area nav ul li a:hover {
+.header-submenu-area nav a:hover {
     color: #2563eb;
 }
 

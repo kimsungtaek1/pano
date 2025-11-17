@@ -44,8 +44,8 @@
                             </li>
                             <li></li>
                             <li>
-                                <a href="/news.php">파노성공사례</a>
-                                <a href="/news.php">언론보도</a>
+                                <a href="/news.php?tab=cases">파노성공사례</a>
+                                <a href="/news.php?tab=press">언론보도</a>
                             </li>
                             <li></li>
                         </ul>
