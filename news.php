@@ -146,7 +146,7 @@ include 'includes/header.php';
 .case-card {
     background: #fff;
     border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none;
     border-left: none;
     border-right: none;
     padding: 15px 0;
