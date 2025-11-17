@@ -1577,7 +1577,8 @@ footer {
     color: #000;
     font-weight: 300;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .btn-more {
@@ -1713,8 +1714,8 @@ footer {
 }
 
 .slider-arrow {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(217, 217, 217, 1);
     border: 1px solid #e2e8f0;
@@ -1728,8 +1729,8 @@ footer {
 }
 
 .slider-arrow img {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     object-fit: contain;
 }
 
@@ -1776,7 +1777,8 @@ footer {
     color: #000;
     font-weight: 300;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .press-content {
