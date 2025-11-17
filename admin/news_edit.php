@@ -1,4 +1,6 @@
-<?php
+<?<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 session_start();
 
 // 로그인 체크
@@ -53,14 +55,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             if ($is_edit) {
-                // 수정
-                $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
-                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json, $id]);
+                // 수정 - image_urls 컬럼이 있는지 확인
+                try {
+                    $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
+                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json, $id]);
+                } catch (PDOException $e) {
+                    // image_urls 컬럼이 없으면 제외하고 업데이트
+                    $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ? WHERE id = ?");
+                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $id]);
+                }
                 $success = '뉴스가 수정되었습니다.';
             } else {
-                // 새 글 작성
-                $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json]);
+                // 새 글 작성 - image_urls 컬럼이 있는지 확인
+                try {
+                    $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json]);
+                } catch (PDOException $e) {
+                    // image_urls 컬럼이 없으면 제외하고 삽입
+                    $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published) VALUES (?, ?, ?, ?, ?, ?)");
+                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published]);
+                }
                 $success = '뉴스가 등록되었습니다.';
 
                 // 새로 생성된 ID로 리다이렉트
@@ -172,8 +186,11 @@ if (isset($_GET['success'])) {
                     <div class="image-urls-container">
                         <?php
                         $existing_urls = [];
-                        if (isset($news) && !empty($news['image_urls'])) {
-                            $existing_urls = json_decode($news['image_urls'], true) ?: [];
+                        if (isset($news) && isset($news['image_urls']) && !empty($news['image_urls'])) {
+                            $decoded = json_decode($news['image_urls'], true);
+                            if (is_array($decoded)) {
+                                $existing_urls = $decoded;
+                            }
                         }
                         for ($i = 1; $i <= 10; $i++):
                             $url_value = $existing_urls[$i - 1] ?? '';
