@@ -123,6 +123,9 @@ $status_labels = [
                 <a href="news_list.php">
                     <span class="nav-icon">📰</span> 뉴스 관리
                 </a>
+                <a href="member_list.php">
+                    <span class="nav-icon">👤</span> 구성원 관리
+                </a>
                 <a href="admin_list.php">
                     <span class="nav-icon">👥</span> 관리자 관리
                 </a>
