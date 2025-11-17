@@ -89,7 +89,7 @@
                     <hr class="field-divider-top">
                     <div class="field-content">
                         <div class="field-header-row">
-                            <h2>도산 | 회생·파산</h2>
+                            <h2>도산</h2>
                             <p class="field-subtitle-text">세무사·회계사 등 전문 자문단과 협업하여<br>채무자의 재무 상황을 분석하고 최적의 도산 절차를 지원합니다.</p>
                         </div>
                         <hr class="field-divider">
