@@ -496,24 +496,25 @@ footer {
 }
 
 .floating-btn.kakao {
-    background: #FEE500;
+    background: #FFFFFF;
     color: #000;
 }
 
 .floating-btn.phone {
-    background: #10B981;
+    background: #FFFFFF;
+}
+
+.floating-btn.blog {
+    background: #FFFFFF;
 }
 
 .floating-btn.consultation {
-    background: #2563EB;
+    background: #FFFFFF;
+    color: #000;
     line-height: 1;
     padding: 0;
     font-size: 28px;
     overflow: visible;
-}
-
-.floating-btn.scroll-top {
-    background: #64748B;
 }
 
 
