@@ -1469,14 +1469,14 @@ footer {
 }
 
 .recruitment-email {
-    font-size: 18px;
+    font-size: 32px;
     line-height: 1.8;
     color: #666;
     text-align: left;
 }
 
 .recruitment-email strong {
-    font-size: 18px;
+    font-size: 32px;
     font-weight: 600;
     color: #666;
 }
