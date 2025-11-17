@@ -89,14 +89,10 @@ include 'includes/header.php';
 
                 <div class="detail-navigation">
                     <button class="nav-btn" id="prev-news-btn" onclick="navigateNews('prev')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15 18 9 12 15 6"></polyline>
-                        </svg>
+                        <img src="/images/left.svg" alt="이전">
                     </button>
                     <button class="nav-btn" id="next-news-btn" onclick="navigateNews('next')">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"></polyline>
-                        </svg>
+                        <img src="/images/right.svg" alt="다음">
                     </button>
                     <button class="nav-btn-list" onclick="hideDetail()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -320,7 +316,7 @@ include 'includes/header.php';
     background: white;
     border: 1px solid #ddd;
     padding: 8px 20px;
-    border-radius: 4px;
+    border-radius: 20px;
     font-size: 14px;
     color: #333;
     cursor: default;
@@ -355,7 +351,7 @@ include 'includes/header.php';
     background: #182650;
     color: white;
     padding: 20px;
-    text-align: center;
+    text-align: left;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 30px;
@@ -383,8 +379,8 @@ include 'includes/header.php';
 
 .nav-btn,
 .nav-btn-list {
-    background: white;
-    border: 1px solid #ddd;
+    background: #D9D9D9;
+    border: none;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -397,11 +393,15 @@ include 'includes/header.php';
 
 .nav-btn:hover,
 .nav-btn-list:hover {
-    background: #f5f5f5;
-    border-color: #999;
+    background: #c0c0c0;
 }
 
-.nav-btn svg,
+.nav-btn img,
+.nav-btn-list svg {
+    width: 24px;
+    height: 24px;
+}
+
 .nav-btn-list svg {
     color: #666;
 }
