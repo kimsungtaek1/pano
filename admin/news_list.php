@@ -1,6 +1,11 @@
-<?<?php
+<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
+echo "news_list.php 테스트 페이지<br>";
+die();
+
+/*
 session_start();
 
 // 로그인 체크
@@ -166,3 +171,4 @@ if (isset($_GET['delete'])) {
     <script src="js/admin.js"></script>
 </body>
 </html>
+*/
