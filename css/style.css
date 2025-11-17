@@ -1902,8 +1902,12 @@ footer {
     background: transparent;
     border: none;
     padding: 0;
-    margin: 20px;
+    margin: 0 40px 0 0;
     display: flex;
+}
+
+.field-grid-2col .field-item:nth-child(even) {
+    margin: 0;
 }
 
 .field-grid-2col .field-content {
