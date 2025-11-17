@@ -198,7 +198,8 @@
                     함께 성장하며 이 목표를 실현해 갈 능력 있는 법조인재를 기다리고 있습니다.<br>
                     저희 파노 법률사무소는 열려 있는 마음으로 새로운 동료를 맞이할 준비가 되어 있으며,<br>
                     전문성과 책임감을 갖춘 분들의 적극적인 지원을 환영합니다.</p>
-                    <p class="recruitment-email"><strong>이메일</strong><br>intake@panolaw.com</p>
+                    <h2 class="section-title">이메일</h2>
+                    <p class="recruitment-email">intake@panolaw.com</p>
                 </div>
             </div>
         </div>

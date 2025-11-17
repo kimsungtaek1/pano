@@ -1469,17 +1469,13 @@ footer {
 }
 
 .recruitment-email {
-    font-size: 32px;
+    font-size: 18px;
     line-height: 1.8;
     color: #666;
     text-align: left;
 }
 
-.recruitment-email strong {
-    font-size: 32px;
-    font-weight: 600;
-    color: #666;
-}
+
 
 /* Success Stories Section */
 .success-stories {
