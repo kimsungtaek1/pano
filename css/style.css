@@ -2049,7 +2049,7 @@ footer {
 .field-grid-2col .field-item li {
     font-size: 18px;
     color: #000;
-    line-height: 2;
+    line-height: 1.5;
     position: relative;
     padding-left: 0;
 }
@@ -2127,7 +2127,7 @@ footer {
 .field-grid-3col .field-item li {
     font-size: 18px;
     color: #000;
-    line-height: 2;
+    line-height: 1.5;
     position: relative;
     padding-left: 0;
 }
