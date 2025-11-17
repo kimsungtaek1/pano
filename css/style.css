@@ -1915,7 +1915,7 @@ footer {
 .practice-card {
     background: rgba(244, 244, 244, 1);
     border-radius: 12px;
-    padding: 40px 20px;
+    padding: 20px 15px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     transition: all 0.3s;
@@ -1932,9 +1932,9 @@ footer {
 }
 
 .practice-icon {
-    width: 180px;
-    height: 180px;
-    margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1947,7 +1947,7 @@ footer {
 }
 
 .practice-card h3 {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 700;
     color: #333;
     margin: 0;
