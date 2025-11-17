@@ -89,14 +89,14 @@ header {
 
 nav ul {
     display: flex;
-    gap: 120px;
+    gap: 60px;
     justify-content: space-between;
     min-width: 500px;
 }
 
 nav li {
-    padding: 0 20px;
     width: 150px;
+    text-align: center;
 }
 
 nav a {
@@ -148,16 +148,16 @@ header:hover .header-submenu-area {
 
 .header-submenu-area nav ul {
     display: flex;
-    gap: 120px;
+    gap: 60px;
     min-width: 500px;
 }
 
 .header-submenu-area nav li {
-    padding: 0 20px;
     width: 150px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    text-align: center;
 }
 
 .header-submenu-area nav a {
