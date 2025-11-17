@@ -78,7 +78,6 @@ if (isset($_GET['delete'])) {
                 <a href="dashboard.php">대시보드</a>
                 <a href="consultation_list.php">상담신청 관리</a>
                 <a href="news_list.php" class="active">뉴스 관리</a>
-                <a href="member_list.php">구성원 관리</a>
                 <a href="admin_list.php">관리자 관리</a>
                 <a href="logout.php">로그아웃</a>
             </nav>
@@ -118,7 +117,6 @@ if (isset($_GET['delete'])) {
                             <th width="120">카테고리</th>
                             <th>제목</th>
                             <th width="100">날짜</th>
-                            <th width="80">조회수</th>
                             <th width="80">공개</th>
                             <th width="150">관리</th>
                         </tr>
@@ -126,7 +124,7 @@ if (isset($_GET['delete'])) {
                     <tbody>
                         <?php if (empty($news_list)): ?>
                             <tr>
-                                <td colspan="7" class="text-center">등록된 뉴스가 없습니다.</td>
+                                <td colspan="6" class="text-center">등록된 뉴스가 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($news_list as $news): ?>
@@ -135,7 +133,6 @@ if (isset($_GET['delete'])) {
                                     <td><span class="badge"><?php echo htmlspecialchars($news['category']); ?></span></td>
                                     <td class="title-cell"><?php echo htmlspecialchars($news['title']); ?></td>
                                     <td><?php echo date('Y.m.d', strtotime($news['news_date'])); ?></td>
-                                    <td><?php echo number_format($news['view_count']); ?></td>
                                     <td><?php echo $news['is_published'] ? '공개' : '비공개'; ?></td>
                                     <td class="action-cell">
                                         <a href="news_edit.php?id=<?php echo $news['id']; ?>" class="btn-sm btn-edit">수정</a>
