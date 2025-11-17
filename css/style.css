@@ -950,6 +950,7 @@ footer {
     padding: 40px;
     border-radius: 4px;
     margin-left: auto;
+    padding-right: 10px;
 }
 
 .form-row-horizontal {
