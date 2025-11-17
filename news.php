@@ -179,6 +179,7 @@ include 'includes/header.php';
     flex-direction: column;
     flex: 1;
     gap: 8px;
+    justify-content: center;
 }
 
 .case-card .badge {
