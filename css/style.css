@@ -2130,6 +2130,7 @@ footer {
     margin: 0;
     color: #000;
     padding-left: 20px;
+    line-height: 1;
 }
 
 .field-grid-3col .field-item .field-divider {
