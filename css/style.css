@@ -1793,10 +1793,9 @@ footer {
 .press-intro h2 {
     font-size: 32px;
     font-weight: bold;
-    margin-top: -10px;
+    margin-top: -20px;
     margin-bottom: 15px;
     color: #000;
-    line-height: 1.5;
 }
 
 .press-intro .section-desc {
