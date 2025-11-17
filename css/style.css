@@ -1539,12 +1539,12 @@ footer {
 
 .success-layout {
     display: flex;
-    gap: 60px;
+    gap: 20px;
     align-items: flex-start;
 }
 
 .success-intro {
-    flex: 0 0 280px;
+    flex: 0 0 360px;
     padding-top: 20px;
 }
 
