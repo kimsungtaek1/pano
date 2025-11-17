@@ -64,9 +64,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-echo "10. 모든 PHP 로직 완료. HTML 렌더링 시작<br><br>";
-
-/*
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -175,4 +172,3 @@ echo "10. 모든 PHP 로직 완료. HTML 렌더링 시작<br><br>";
     <script src="js/admin.js"></script>
 </body>
 </html>
-*/
