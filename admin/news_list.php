@@ -2,11 +2,25 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-echo "news_list.php 테스트 페이지<br>";
+echo "1. 페이지 로드 성공<br>";
+
+session_start();
+echo "2. 세션 시작 성공<br>";
+
+require_once '../includes/db.php';
+echo "3. DB 파일 로드 성공<br>";
+
+try {
+    $test_query = $pdo->query("SELECT COUNT(*) FROM news");
+    $count = $test_query->fetchColumn();
+    echo "4. DB 연결 성공 - news 테이블에 {$count}개의 데이터가 있습니다.<br>";
+} catch (PDOException $e) {
+    echo "4. DB 쿼리 실패: " . $e->getMessage() . "<br>";
+}
+
 die();
 
 /*
-session_start();
 
 // 로그인 체크
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {

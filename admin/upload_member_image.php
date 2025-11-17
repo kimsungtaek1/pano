@@ -18,7 +18,7 @@ if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
 }
 
 $file = $_FILES['image'];
-$upload_dir = '../uploads/members/';
+$upload_dir = '../images/person/';
 
 // 업로드 디렉토리 생성
 if (!is_dir($upload_dir)) {
@@ -50,7 +50,7 @@ if (move_uploaded_file($file['tmp_name'], $upload_path)) {
     chmod($upload_path, 0644);
 
     // 상대 URL 반환
-    $file_url = '/uploads/members/' . $new_filename;
+    $file_url = '/images/person/' . $new_filename;
 
     echo json_encode([
         'success' => true,

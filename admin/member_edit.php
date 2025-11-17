@@ -160,7 +160,7 @@ if (isset($_GET['success'])) {
                         </div>
 
                         <!-- URL 입력 -->
-                        <input type="url" id="profile_image" name="profile_image" value="<?php echo htmlspecialchars($member['profile_image'] ?? ''); ?>" placeholder="https://example.com/image.jpg 또는 /uploads/members/xxx.jpg">
+                        <input type="url" id="profile_image" name="profile_image" value="<?php echo htmlspecialchars($member['profile_image'] ?? ''); ?>" placeholder="https://example.com/image.jpg 또는 /images/person/xxx.jpg">
 
                         <!-- 이미지 미리보기 -->
                         <div id="image_preview_container" style="margin-top: 10px; <?php echo empty($member['profile_image']) ? 'display:none;' : ''; ?>">
