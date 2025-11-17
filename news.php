@@ -66,23 +66,45 @@ include 'includes/header.php';
         <div class="container">
             <!-- 뉴스 상세 화면 -->
             <div id="detail-view" style="display: none;">
-                <div class="news-detail-content">
-                    <div class="news-detail-header">
-                        <span class="badge" id="detail-badge"></span>
-                        <h2 id="detail-title"></h2>
-                        <span class="date" id="detail-date"></span>
-                    </div>
+                <div class="detail-header-row">
+                    <h2 id="detail-main-title">파노 성공사례</h2>
+                    <button class="detail-type-btn" id="detail-type-badge">회생파산</button>
+                </div>
 
-                    <div class="news-detail-image" id="detail-image-container" style="display: none;">
-                        <img id="detail-image" src="" alt="">
-                    </div>
+                <div class="detail-title-row">
+                    <h3 id="detail-title">제목제목제목~~~~~</h3>
+                </div>
 
-                    <div class="news-detail-body" id="detail-content">
-                    </div>
+                <div class="detail-images-row" id="detail-images-container">
+                    <!-- 이미지들이 동적으로 추가됨 -->
+                </div>
 
-                    <div class="news-detail-actions">
-                        <a href="#" class="btn-back" onclick="hideDetail(); return false;">목록으로</a>
-                    </div>
+                <div class="detail-highlight-box" id="detail-highlight">
+                    결과적 반감률 60%
+                </div>
+
+                <div class="detail-body" id="detail-content">
+                    <!-- 본문 내용 -->
+                </div>
+
+                <div class="detail-navigation">
+                    <button class="nav-btn" id="prev-news-btn" onclick="navigateNews('prev')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="nav-btn" id="next-news-btn" onclick="navigateNews('next')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="nav-btn-list" onclick="hideDetail()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
@@ -274,89 +296,114 @@ include 'includes/header.php';
 
 
 /* 뉴스 상세 화면 스타일 */
-.news-detail-content {
-    max-width: 800px;
-    margin: 0 auto;
-    background: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+#detail-view {
+    padding: 40px 0;
 }
 
-.news-detail-header {
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
-}
-
-.news-detail-header .badge {
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.news-detail-header h2 {
-    font-size: 28px;
-    color: #333;
-    margin: 0 0 15px 0;
-    line-height: 1.4;
-}
-
-.news-detail-header .date {
-    color: #999;
-    font-size: 14px;
-}
-
-.news-detail-image {
-    margin: 30px 0;
-    text-align: center;
-}
-
-.news-detail-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.news-detail-body {
-    font-size: 16px;
-    line-height: 1.8;
-    color: #333;
-    margin-bottom: 40px;
-}
-
-.news-detail-body p {
+.detail-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
     margin-bottom: 20px;
 }
 
-.news-detail-body img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
+.detail-header-row h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
 }
 
-.news-detail-actions {
-    text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid #f0f0f0;
-}
-
-.btn-back {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #333;
-    color: white;
-    text-decoration: none;
+.detail-type-btn {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
     border-radius: 4px;
-    font-size: 15px;
-    transition: background 0.3s;
+    font-size: 14px;
+    color: #333;
+    cursor: default;
 }
 
-.btn-back:hover {
-    background: #555;
+.detail-title-row {
+    margin-bottom: 30px;
+}
+
+.detail-title-row h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.detail-images-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.detail-images-row img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #e0e0e0;
+}
+
+.detail-highlight-box {
+    background: #182650;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.detail-body {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 60px;
+}
+
+.detail-body p {
+    margin-bottom: 15px;
+}
+
+.detail-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+}
+
+.nav-btn,
+.nav-btn-list {
+    background: white;
+    border: 1px solid #ddd;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-btn:hover,
+.nav-btn-list:hover {
+    background: #f5f5f5;
+    border-color: #999;
+}
+
+.nav-btn svg,
+.nav-btn-list svg {
+    color: #666;
 }
 
 @media (max-width: 768px) {
@@ -371,16 +418,18 @@ include 'includes/header.php';
         height: 200px;
     }
 
-    .news-detail-content {
-        padding: 30px 20px;
+    .detail-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
 
-    .news-detail-header h2 {
-        font-size: 22px;
+    .detail-images-row {
+        grid-template-columns: 1fr;
     }
 
-    .news-detail-body {
-        font-size: 15px;
+    .detail-body {
+        font-size: 14px;
     }
 }
 </style>
@@ -398,8 +447,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// 현재 표시 중인 뉴스 정보
+let currentNewsId = null;
+let currentNewsList = [];
+let currentTabType = null;
+
 // 상세 화면 표시
 function showDetail(id, tabType) {
+    currentNewsId = id;
+    currentTabType = tabType;
+
     // AJAX로 뉴스 상세 정보 가져오기
     fetch('get_news_detail.php?id=' + id)
         .then(response => response.json())
@@ -409,25 +466,38 @@ function showDetail(id, tabType) {
                 return;
             }
 
-            // 상세 정보 채우기
-            const badge = document.getElementById('detail-badge');
-            badge.textContent = data.category;
-            badge.className = 'badge ' + (data.category === '최근 업무사례' ? 'badge-red' : 'badge-blue');
+            // 메인 타이틀 (카테고리)
+            document.getElementById('detail-main-title').textContent = data.category;
 
+            // 종류 버튼 (일단 카테고리 표시, 추후 변경 가능)
+            document.getElementById('detail-type-badge').textContent = data.category === '최근 업무사례' ? '회생파산' : '언론보도';
+
+            // 제목
             document.getElementById('detail-title').textContent = data.title;
-            document.getElementById('detail-date').textContent = data.news_date;
-            document.getElementById('detail-content').innerHTML = data.content;
 
-            // 이미지 처리
-            const imageContainer = document.getElementById('detail-image-container');
-            const image = document.getElementById('detail-image');
-            if (data.image) {
-                image.src = data.image;
-                image.alt = data.title;
-                imageContainer.style.display = 'block';
-            } else {
-                imageContainer.style.display = 'none';
+            // 이미지 처리 (본문에 img 태그가 있으면 추출)
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data.content;
+            const images = tempDiv.getElementsByTagName('img');
+            const imagesContainer = document.getElementById('detail-images-container');
+            imagesContainer.innerHTML = '';
+
+            if (images.length > 0) {
+                for (let i = 0; i < Math.min(images.length, 2); i++) {
+                    const img = document.createElement('img');
+                    img.src = images[i].src;
+                    img.alt = data.title;
+                    imagesContainer.appendChild(img);
+                }
             }
+
+            // 하이라이트 박스 (본문에서 추출 또는 기본값)
+            const highlightBox = document.getElementById('detail-highlight');
+            // 임시로 기본값 사용, 추후 DB 필드 추가 가능
+            highlightBox.style.display = data.category === '최근 업무사례' ? 'block' : 'none';
+
+            // 본문
+            document.getElementById('detail-content').innerHTML = data.content;
 
             // 리스트 숨기고 상세 화면 표시
             document.getElementById('tab-cases').style.display = 'none';
@@ -436,11 +506,39 @@ function showDetail(id, tabType) {
 
             // 페이지 상단으로 스크롤
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 현재 탭의 뉴스 리스트 저장 (이전/다음 기능용)
+            updateNewsList();
         })
         .catch(error => {
             console.error('Error:', error);
             alert('오류가 발생했습니다.');
         });
+}
+
+// 현재 탭의 뉴스 리스트 업데이트
+function updateNewsList() {
+    const activeTab = currentTabType;
+    const cards = document.querySelectorAll(activeTab === 'cases' ? '#tab-cases .case-card' : '#tab-press .case-card');
+    currentNewsList = Array.from(cards).map(card => {
+        const onclick = card.getAttribute('onclick');
+        const match = onclick.match(/showDetail\((\d+)/);
+        return match ? parseInt(match[1]) : null;
+    }).filter(id => id !== null);
+}
+
+// 이전/다음 뉴스 이동
+function navigateNews(direction) {
+    const currentIndex = currentNewsList.indexOf(currentNewsId);
+    let newIndex;
+
+    if (direction === 'prev') {
+        newIndex = currentIndex > 0 ? currentIndex - 1 : currentNewsList.length - 1;
+    } else {
+        newIndex = currentIndex < currentNewsList.length - 1 ? currentIndex + 1 : 0;
+    }
+
+    showDetail(currentNewsList[newIndex], currentTabType);
 }
 
 // 상세 화면 숨기기
