@@ -26,11 +26,11 @@ if (!is_dir($upload_dir)) {
 }
 
 // 파일 확장자 체크
-$allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+$allowed_extensions = ['jpg', 'jpeg', 'png', 'webp'];
 $file_extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
 if (!in_array($file_extension, $allowed_extensions)) {
-    echo json_encode(['success' => false, 'error' => '허용되지 않는 파일 형식입니다. (jpg, jpeg, png, gif, webp만 가능)']);
+    echo json_encode(['success' => false, 'error' => '허용되지 않는 파일 형식입니다. (jpg, jpeg, png, webp만 가능)']);
     exit;
 }
 

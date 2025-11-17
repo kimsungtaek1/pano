@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_FILES["image_$i"]) && $_FILES["image_$i"]['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES["image_$i"];
             $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+            $allowed = ['jpg', 'jpeg', 'png', 'webp'];
 
             if (in_array($extension, $allowed)) {
                 $filename = uniqid() . '_' . time() . '.' . $extension;
@@ -247,7 +247,7 @@ if (isset($_GET['success'])) {
                         <?php endfor; ?>
                     </div>
                     <small style="color: #666; display: block; margin-top: 8px;">
-                        JPG, PNG, GIF 형식의 이미지를 업로드하세요. 기존 이미지를 유지하려면 새 파일을 선택하지 마세요.
+                        JPG, PNG, WEBP 형식의 이미지를 업로드하세요. 기존 이미지를 유지하려면 새 파일을 선택하지 마세요.
                     </small>
                 </div>
 
