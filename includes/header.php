@@ -34,21 +34,23 @@
         <!-- 전체 서브메뉴 영역 -->
         <div class="header-submenu-area">
             <div class="container">
-                <div class="submenu-wrapper">
-                    <div class="submenu-spacer"></div>
-                    <nav class="submenu-nav">
-                        <div class="submenu-column">
-                            <a href="/intro.php">파노 법률사무소</a>
-                            <a href="/person.php">구성원</a>
-                        </div>
-                        <div class="submenu-column">
-                        </div>
-                        <div class="submenu-column">
-                            <a href="/news.php">파노성공사례</a>
-                            <a href="/news.php">언론보도</a>
-                        </div>
-                        <div class="submenu-column">
-                        </div>
+                <div class="header-content">
+                    <div class="submenu-logo-space"></div>
+                    <nav>
+                        <ul class="submenu-list">
+                            <li>
+                                <a href="/intro.php">파노 법률사무소</a>
+                                <a href="/person.php">구성원</a>
+                            </li>
+                            <li>
+                            </li>
+                            <li>
+                                <a href="/news.php">파노성공사례</a>
+                                <a href="/news.php">언론보도</a>
+                            </li>
+                            <li>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
             </div>
