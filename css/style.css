@@ -132,7 +132,11 @@ header:hover .header-submenu-area {
 }
 
 .submenu-logo-space {
-    /* 빈 로고 공간 */
+    display: flex;
+    align-items: center;
+    height: 40px;
+    min-width: 150px;
+    visibility: hidden;
 }
 
 .header-submenu-area nav ul {
