@@ -12,9 +12,6 @@
         <a href="#" class="floating-btn consultation" title="상담 신청" onclick="scrollToConsultation(event)">
             📝
         </a>
-        <a href="#" class="floating-btn scroll-top" title="맨 위로" onclick="scrollToTop(event)">
-            ↑
-        </a>
     </div>
 
     <footer>
