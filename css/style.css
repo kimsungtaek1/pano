@@ -1617,14 +1617,13 @@ footer {
 .success-content {
     flex: 1;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .success-cards {
     display: flex;
     gap: 28px;
     transition: transform 0.5s ease;
-    margin: 20px;
 }
 
 .success-card {
