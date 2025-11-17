@@ -1146,7 +1146,7 @@ footer {
 .intro-bg-container {
     position: relative;
     width: 100%;
-    min-height: 900px;
+    height: auto;
 }
 
 .intro-bg-image {
