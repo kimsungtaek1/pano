@@ -76,7 +76,8 @@ include 'includes/header.php';
                 </div>
 
                 <div class="detail-images-row" id="detail-images-container">
-                    <!-- 이미지들이 동적으로 추가됨 -->
+                    <div class="detail-test-image"></div>
+                    <div class="detail-test-image"></div>
                 </div>
 
                 <div class="detail-highlight-box" id="detail-highlight">
@@ -344,6 +345,13 @@ include 'includes/header.php';
 .detail-images-row img {
     width: 100%;
     height: auto;
+    border: 1px solid #e0e0e0;
+}
+
+.detail-test-image {
+    width: 100%;
+    height: 400px;
+    background: #e8e8e8;
     border: 1px solid #e0e0e0;
 }
 
