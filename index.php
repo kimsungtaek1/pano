@@ -277,6 +277,7 @@ include 'includes/db.php';
 <script>
 // Success Stories slider functionality
 let currentSuccessSlide = 0;
+let successSliderInterval;
 
 function moveSuccessSlide(direction) {
     const cards = document.querySelectorAll('.success-card');
@@ -297,8 +298,38 @@ function moveSuccessSlide(direction) {
     container.style.transform = `translateX(-${offset}px)`;
 }
 
+function autoMoveSuccessSlide() {
+    const cards = document.querySelectorAll('.success-card');
+    const totalCards = cards.length;
+
+    currentSuccessSlide++;
+
+    if (currentSuccessSlide > totalCards - 3) {
+        currentSuccessSlide = 0;
+    }
+
+    const container = document.querySelector('.success-cards');
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 28;
+    const offset = currentSuccessSlide * (cardWidth + gap);
+    container.style.transform = `translateX(-${offset}px)`;
+}
+
+// 성공사례 자동 슬라이드 시작
+successSliderInterval = setInterval(autoMoveSuccessSlide, 3000);
+
+// 마우스 오버 시 자동 슬라이드 중지, 마우스 아웃 시 재시작
+document.querySelector('.success-stories')?.addEventListener('mouseenter', function() {
+    clearInterval(successSliderInterval);
+});
+
+document.querySelector('.success-stories')?.addEventListener('mouseleave', function() {
+    successSliderInterval = setInterval(autoMoveSuccessSlide, 3000);
+});
+
 // Press slider functionality
 let currentPressSlide = 0;
+let pressSliderInterval;
 
 function movePressSlide(direction) {
     const cards = document.querySelectorAll('.press-card');
@@ -318,6 +349,35 @@ function movePressSlide(direction) {
     const offset = currentPressSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
+
+function autoMovePressSlide() {
+    const cards = document.querySelectorAll('.press-card');
+    const totalCards = cards.length;
+
+    currentPressSlide++;
+
+    if (currentPressSlide > totalCards - 3) {
+        currentPressSlide = 0;
+    }
+
+    const container = document.querySelector('.press-cards');
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 28;
+    const offset = currentPressSlide * (cardWidth + gap);
+    container.style.transform = `translateX(-${offset}px)`;
+}
+
+// 언론보도 자동 슬라이드 시작
+pressSliderInterval = setInterval(autoMovePressSlide, 3000);
+
+// 마우스 오버 시 자동 슬라이드 중지, 마우스 아웃 시 재시작
+document.querySelector('.press-coverage')?.addEventListener('mouseenter', function() {
+    clearInterval(pressSliderInterval);
+});
+
+document.querySelector('.press-coverage')?.addEventListener('mouseleave', function() {
+    pressSliderInterval = setInterval(autoMovePressSlide, 3000);
+});
 
 // Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
