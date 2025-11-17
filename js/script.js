@@ -1,11 +1,11 @@
 function scrollToConsultation(event) {
-    if (event) event.preventDefault();
     const consultationSection = document.querySelector('.consultation');
     if (consultationSection) {
         // 현재 페이지에 상담 섹션이 있으면 스크롤
+        if (event) event.preventDefault();
         consultationSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-        // 상담 섹션이 없으면 index.php로 이동 후 스크롤
+        // 상담 섹션이 없으면 index.php로 이동 후 스크롤 (preventDefault 안 함)
         window.location.href = '/index.php#consultation';
     }
 }

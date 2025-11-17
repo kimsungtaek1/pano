@@ -528,7 +528,7 @@ footer {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     transition: all 0.3s;
     text-decoration: none;
     overflow: hidden;
@@ -543,7 +543,7 @@ footer {
 
 .floating-btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .floating-btn.kakao {
