@@ -132,8 +132,8 @@ header:hover .header-submenu-area {
 }
 
 .submenu-logo-space {
-    width: 40px;
-    height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .submenu-list {
