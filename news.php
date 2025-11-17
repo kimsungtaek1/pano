@@ -186,20 +186,20 @@ include 'includes/header.php';
 }
 
 .case-card h3 {
-    font-size: 15px;
+    font-size: 18px;
     color: #000;
     line-height: 1.5;
     font-weight: 500;
 }
 
 .case-card p {
-    font-size: 13px;
+    font-size: 15px;
     color: #666;
     line-height: 1.5;
 }
 
 .case-card .date {
-    font-size: 12px;
+    font-size: 14px;
     color: #999;
 }
 
@@ -208,7 +208,7 @@ include 'includes/header.php';
     color: #fff;
     padding: 4px 12px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
 }
 
@@ -218,7 +218,7 @@ include 'includes/header.php';
     padding: 4px 12px;
     border-radius: 20px;
     border: 1px solid #000;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 400;
 }
 
