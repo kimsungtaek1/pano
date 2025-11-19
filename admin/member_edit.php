@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <!-- 이미지 업로드 -->
                         <div style="margin-bottom: 15px;">
                             <input type="file" id="image_file" accept="image/png" style="margin-bottom: 10px;">
-                            <button type="button" id="upload_btn" class="btn btn-secondary btn-sm">이미지 업로드</button>
+                            <button type="button" id="upload_btn" class="btn btn-secondary btn-sm" style="background: #e74c3c; color: white;">이미지 업로드</button>
                             <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, PNG만 가능)</small>
                         </div>
 

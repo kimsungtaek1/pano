@@ -1,7 +1,8 @@
-<?<?php
-// 오류 출력 활성화
+<?<?<?php
+// 오류를 로그에만 기록하고 화면에는 표시하지 않음 (JSON 응답을 깨뜨리지 않기 위해)
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
+ini_set('log_errors', 1);
 
 session_start();
 
@@ -68,10 +69,16 @@ $member_id = isset($_POST['member_id']) ? (int)$_POST['member_id'] : null;
 
 // member_id가 없으면 DB에서 다음 ID 가져오기
 if (!$member_id) {
-    require_once '../includes/db.php';
-    $stmt = $pdo->query("SELECT COALESCE(MAX(id), 0) + 1 as next_id FROM members");
-    $result = $stmt->fetch();
-    $member_id = $result['next_id'];
+    try {
+        require_once '../includes/db.php';
+        $stmt = $pdo->query("SELECT COALESCE(MAX(id), 0) + 1 as next_id FROM members");
+        $result = $stmt->fetch();
+        $member_id = $result['next_id'];
+    } catch (Exception $e) {
+        error_log("DB Error: " . $e->getMessage());
+        echo json_encode(['success' => false, 'error' => 'DB 연결 오류: ' . $e->getMessage()]);
+        exit;
+    }
 }
 
 // person{id}.png 형식으로 파일명 생성
