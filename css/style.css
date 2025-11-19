@@ -1180,7 +1180,7 @@ footer {
 .intro-tab-buttons {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 .intro-tab-btn {
