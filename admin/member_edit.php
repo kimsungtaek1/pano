@@ -115,7 +115,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-}
 
 // 성공 메시지 (리다이렉트 후)
 if (isset($_GET['success'])) {
