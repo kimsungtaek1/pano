@@ -2350,12 +2350,12 @@ footer {
     }
 
     .success-cards {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 
     .success-card {
-        flex: 1;
+        flex: 0 0 100%;
         min-width: 100%;
         height: auto;
         min-height: 280px;
@@ -2381,12 +2381,12 @@ footer {
     }
 
     .press-cards {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 
     .press-card {
-        flex: 1;
+        flex: 0 0 100%;
         min-width: 100%;
         height: auto;
         min-height: 280px;

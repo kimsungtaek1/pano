@@ -279,18 +279,20 @@ let successSliderInterval;
 function moveSuccessSlide(direction) {
     const cards = document.querySelectorAll('.success-card');
     const totalCards = cards.length;
+    const isMobile = window.innerWidth <= 768;
+    const cardsPerView = isMobile ? 1 : 3;
 
     currentSuccessSlide += direction;
 
     if (currentSuccessSlide < 0) {
         currentSuccessSlide = 0;
-    } else if (currentSuccessSlide > totalCards - 3) {
-        currentSuccessSlide = totalCards - 3;
+    } else if (currentSuccessSlide > totalCards - cardsPerView) {
+        currentSuccessSlide = totalCards - cardsPerView;
     }
 
     const container = document.querySelector('.success-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 28;
+    const gap = isMobile ? 20 : 28;
     const offset = currentSuccessSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
@@ -298,16 +300,18 @@ function moveSuccessSlide(direction) {
 function autoMoveSuccessSlide() {
     const cards = document.querySelectorAll('.success-card');
     const totalCards = cards.length;
+    const isMobile = window.innerWidth <= 768;
+    const cardsPerView = isMobile ? 1 : 3;
 
     currentSuccessSlide++;
 
-    if (currentSuccessSlide > totalCards - 3) {
+    if (currentSuccessSlide > totalCards - cardsPerView) {
         currentSuccessSlide = 0;
     }
 
     const container = document.querySelector('.success-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 28;
+    const gap = isMobile ? 20 : 28;
     const offset = currentSuccessSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
@@ -331,18 +335,20 @@ let pressSliderInterval;
 function movePressSlide(direction) {
     const cards = document.querySelectorAll('.press-card');
     const totalCards = cards.length;
+    const isMobile = window.innerWidth <= 768;
+    const cardsPerView = isMobile ? 1 : 3;
 
     currentPressSlide += direction;
 
     if (currentPressSlide < 0) {
         currentPressSlide = 0;
-    } else if (currentPressSlide > totalCards - 3) {
-        currentPressSlide = totalCards - 3;
+    } else if (currentPressSlide > totalCards - cardsPerView) {
+        currentPressSlide = totalCards - cardsPerView;
     }
 
     const container = document.querySelector('.press-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 28;
+    const gap = isMobile ? 20 : 28;
     const offset = currentPressSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
@@ -350,16 +356,18 @@ function movePressSlide(direction) {
 function autoMovePressSlide() {
     const cards = document.querySelectorAll('.press-card');
     const totalCards = cards.length;
+    const isMobile = window.innerWidth <= 768;
+    const cardsPerView = isMobile ? 1 : 3;
 
     currentPressSlide++;
 
-    if (currentPressSlide > totalCards - 3) {
+    if (currentPressSlide > totalCards - cardsPerView) {
         currentPressSlide = 0;
     }
 
     const container = document.querySelector('.press-cards');
     const cardWidth = cards[0].offsetWidth;
-    const gap = 28;
+    const gap = isMobile ? 20 : 28;
     const offset = currentPressSlide * (cardWidth + gap);
     container.style.transform = `translateX(-${offset}px)`;
 }
@@ -374,6 +382,12 @@ document.querySelector('.press-coverage')?.addEventListener('mouseenter', functi
 
 document.querySelector('.press-coverage')?.addEventListener('mouseleave', function() {
     pressSliderInterval = setInterval(autoMovePressSlide, 3000);
+});
+
+// 화면 크기 변경 시 슬라이드 위치 재조정
+window.addEventListener('resize', function() {
+    moveSuccessSlide(0);
+    movePressSlide(0);
 });
 
 // Consultation form submit
