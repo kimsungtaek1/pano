@@ -110,8 +110,11 @@ foreach ($members as $key => $member) {
                 <!-- 전문 자문단 섹션 -->
                 <div class="advisory-team">
                     <h2 class="section-title">전문 자문단</h2>
-                    <div class="team-grid">
-                        <?php foreach ($members as $member): ?>
+                    <!-- 첫 번째 줄: 3명 -->
+                    <div class="team-grid team-grid-3">
+                        <?php for ($i = 0; $i < 3 && $i < count($members); $i++):
+                            $member = $members[$i];
+                        ?>
                             <div class="team-card">
                                 <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
                                 <div class="team-photo">
@@ -130,7 +133,32 @@ foreach ($members as $key => $member) {
                                     </ul>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+                        <?php endfor; ?>
+                    </div>
+                    <!-- 두 번째 줄: 4명 -->
+                    <div class="team-grid team-grid-4">
+                        <?php for ($i = 3; $i < count($members); $i++):
+                            $member = $members[$i];
+                        ?>
+                            <div class="team-card">
+                                <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
+                                <div class="team-photo">
+                                    <?php if (!empty($member['profile_image'])): ?>
+                                        <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                    <?php else: ?>
+                                        <img src="/images/person/person<?php echo $member['id']; ?>.png" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="team-info-box">
+                                    <h3 class="team-name"><?php echo htmlspecialchars($member['name']); ?> <span class="team-title"><?php echo htmlspecialchars($member['position']); ?></span></h3>
+                                    <ul class="team-specialty">
+                                        <?php foreach ($member['careers'] as $career): ?>
+                                            <li><?php echo htmlspecialchars($career); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
                     </div>
                 </div>
 
