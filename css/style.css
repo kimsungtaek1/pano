@@ -1440,17 +1440,22 @@ footer {
 }
 
 .team-grid {
-    display: grid;
+    display: flex;
     gap: 30px;
     margin-bottom: 30px;
 }
 
 .team-grid-3 {
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
 }
 
 .team-grid-4 {
-    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+}
+
+.team-card {
+    width: calc((100% - 90px) / 4);
+    flex-shrink: 0;
 }
 
 .team-card {
