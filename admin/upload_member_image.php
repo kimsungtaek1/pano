@@ -25,12 +25,11 @@ if (!is_dir($upload_dir)) {
     mkdir($upload_dir, 0755, true);
 }
 
-// 파일 확장자 체크
-$allowed_extensions = ['jpg', 'jpeg', 'png', 'webp'];
+// 파일 확장자 체크 (PNG만 허용)
 $file_extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-if (!in_array($file_extension, $allowed_extensions)) {
-    echo json_encode(['success' => false, 'error' => '허용되지 않는 파일 형식입니다. (jpg, jpeg, png, webp만 가능)']);
+if ($file_extension !== 'png') {
+    echo json_encode(['success' => false, 'error' => 'PNG 형식의 이미지만 업로드 가능합니다.']);
     exit;
 }
 
@@ -40,8 +39,19 @@ if ($file['size'] > 5 * 1024 * 1024) {
     exit;
 }
 
-// 고유한 파일명 생성
-$new_filename = uniqid('member_', true) . '.' . $file_extension;
+// member_id 받기 (POST 또는 GET)
+$member_id = isset($_POST['member_id']) ? (int)$_POST['member_id'] : null;
+
+// member_id가 없으면 DB에서 다음 ID 가져오기
+if (!$member_id) {
+    require_once '../includes/db.php';
+    $stmt = $pdo->query("SELECT COALESCE(MAX(id), 0) + 1 as next_id FROM members");
+    $result = $stmt->fetch();
+    $member_id = $result['next_id'];
+}
+
+// person{id}.png 형식으로 파일명 생성
+$new_filename = 'person' . $member_id . '.png';
 $upload_path = $upload_dir . $new_filename;
 
 // 파일 이동

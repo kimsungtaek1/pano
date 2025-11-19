@@ -177,9 +177,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <!-- 이미지 업로드 -->
                         <div style="margin-bottom: 15px;">
-                            <input type="file" id="image_file" accept="image/*" style="margin-bottom: 10px;">
+                            <input type="file" id="image_file" accept="image/png" style="margin-bottom: 10px;">
                             <button type="button" id="upload_btn" class="btn btn-secondary btn-sm">이미지 업로드</button>
-                            <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, jpg/png/webp)</small>
+                            <small style="display: block; margin-top: 5px; color: #666;">또는 아래에 이미지 URL을 직접 입력하세요 (최대 5MB, PNG만 가능)</small>
                         </div>
 
                         <!-- URL 입력 -->
@@ -264,16 +264,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 return;
             }
 
-            // 파일 형식 체크
-            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
-            if (!allowedTypes.includes(file.type)) {
-                alert('jpg, png, webp 형식의 이미지만 업로드 가능합니다.');
+            // 파일 형식 체크 (PNG만 허용)
+            if (file.type !== 'image/png') {
+                alert('PNG 형식의 이미지만 업로드 가능합니다.');
                 return;
             }
 
             // FormData 생성
             const formData = new FormData();
             formData.append('image', file);
+            <?php if ($is_edit): ?>
+            formData.append('member_id', '<?php echo $id; ?>');
+            <?php endif; ?>
 
             // 업로드 상태 표시
             uploadStatus.style.display = 'block';
