@@ -46,6 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $display_order = (int)($_POST['display_order'] ?? 0);
     $is_active = isset($_POST['is_active']) ? 1 : 0;
     $careers_data = $_POST['careers'] ?? [];
+    
+    // 디버깅: POST 데이터 로그
+    error_log("POST careers data: " . print_r($careers_data, true));
 
     // 유효성 검사
     if (empty($name)) {
