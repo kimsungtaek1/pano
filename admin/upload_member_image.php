@@ -1,4 +1,8 @@
-<?php
+<?<?php
+// 오류 출력 활성화
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
 // 로그인 체크
@@ -12,8 +16,28 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 header('Content-Type: application/json; charset=utf-8');
 
 // 파일 업로드 체크
-if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
-    echo json_encode(['success' => false, 'error' => '파일 업로드에 실패했습니다.']);
+if (!isset($_FILES['image'])) {
+    echo json_encode(['success' => false, 'error' => '파일이 전송되지 않았습니다.']);
+    exit;
+}
+
+if ($_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+    $error_message = '파일 업로드 오류: ';
+    switch ($_FILES['image']['error']) {
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            $error_message .= '파일 크기가 너무 큽니다.';
+            break;
+        case UPLOAD_ERR_PARTIAL:
+            $error_message .= '파일이 부분적으로만 업로드되었습니다.';
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            $error_message .= '파일이 업로드되지 않았습니다.';
+            break;
+        default:
+            $error_message .= '알 수 없는 오류 (코드: ' . $_FILES['image']['error'] . ')';
+    }
+    echo json_encode(['success' => false, 'error' => $error_message]);
     exit;
 }
 
@@ -54,6 +78,11 @@ if (!$member_id) {
 $new_filename = 'person' . $member_id . '.png';
 $upload_path = $upload_dir . $new_filename;
 
+// 디버깅 로그
+error_log("Upload attempt - Member ID: $member_id, Filename: $new_filename, Path: $upload_path");
+error_log("Temp file: " . $file['tmp_name'] . ", Exists: " . (file_exists($file['tmp_name']) ? 'yes' : 'no'));
+error_log("Upload dir exists: " . (is_dir($upload_dir) ? 'yes' : 'no') . ", Writable: " . (is_writable($upload_dir) ? 'yes' : 'no'));
+
 // 파일 이동
 if (move_uploaded_file($file['tmp_name'], $upload_path)) {
     // 파일 권한 설정
@@ -62,12 +91,16 @@ if (move_uploaded_file($file['tmp_name'], $upload_path)) {
     // 상대 URL 반환
     $file_url = '/images/person/' . $new_filename;
 
+    error_log("Upload success - File saved: $upload_path");
+
     echo json_encode([
         'success' => true,
         'url' => $file_url,
         'filename' => $new_filename
     ]);
 } else {
-    echo json_encode(['success' => false, 'error' => '파일 저장에 실패했습니다.']);
+    $error_detail = error_get_last();
+    error_log("Upload failed - " . print_r($error_detail, true));
+    echo json_encode(['success' => false, 'error' => '파일 저장에 실패했습니다. 디렉토리 권한을 확인하세요.']);
 }
 ?>
