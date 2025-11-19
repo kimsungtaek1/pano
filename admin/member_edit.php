@@ -75,16 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 $pdo->commit();
-                $success = '구성원 정보가 수정되었습니다.';
-
-                // 수정된 데이터 다시 로드
-                $stmt = $pdo->prepare("SELECT * FROM members WHERE id = ?");
-                $stmt->execute([$id]);
-                $member = $stmt->fetch();
-
-                $stmt = $pdo->prepare("SELECT * FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
-                $stmt->execute([$id]);
-                $careers = $stmt->fetchAll();
+                
+                // 수정 완료 후 리스트 페이지로 이동
+                header("Location: member_list.php");
+                exit;
             } else {
                 // 새 구성원 추가
                 $stmt = $pdo->prepare("INSERT INTO members (name, position, profile_image, display_order, is_active) VALUES (?, ?, ?, ?, ?)");
@@ -103,10 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
 
                 $pdo->commit();
-                $success = '구성원이 등록되었습니다.';
-
-                // 새로 생성된 ID로 리다이렉트
-                header("Location: member_edit.php?id=$id&success=1");
+                
+                // 등록 완료 후 리스트 페이지로 이동
+                header("Location: member_list.php");
                 exit;
             }
         } catch (PDOException $e) {
@@ -116,10 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 성공 메시지 (리다이렉트 후)
-if (isset($_GET['success'])) {
-    $success = '구성원이 등록되었습니다.';
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="ko">
