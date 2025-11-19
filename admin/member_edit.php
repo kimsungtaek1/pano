@@ -1,4 +1,4 @@
-&lt;?php
+<?php
 // 오류 출력 활성화 (개발 중)
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
