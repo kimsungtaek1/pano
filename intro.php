@@ -118,7 +118,7 @@ foreach ($members as $key => $member) {
                                     <?php if (!empty($member['profile_image'])): ?>
                                         <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
                                     <?php else: ?>
-                                        <img src="/images/person/main.png" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                        <img src="/images/person/person<?php echo $member['id']; ?>.png" alt="<?php echo htmlspecialchars($member['name']); ?>">
                                     <?php endif; ?>
                                 </div>
                                 <div class="team-info-box">
