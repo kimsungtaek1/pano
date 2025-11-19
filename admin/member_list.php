@@ -92,7 +92,6 @@ unset($member); // 참조 해제
                 <table class="news-table">
                     <thead>
                         <tr>
-                            <th width="80">ID</th>
                             <th width="80">사진</th>
                             <th width="150">이름</th>
                             <th width="150">직책</th>
@@ -105,12 +104,11 @@ unset($member); // 참조 해제
                     <tbody>
                         <?php if (empty($members)): ?>
                             <tr>
-                                <td colspan="8" class="text-center">등록된 구성원이 없습니다.</td>
+                                <td colspan="7" class="text-center">등록된 구성원이 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($members as $member): ?>
                                 <tr>
-                                    <td><?php echo $member['id']; ?></td>
                                     <td>
                                         <?php if (!empty($member['profile_image'])): ?>
                                             <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="프로필" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd;">
