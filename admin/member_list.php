@@ -41,6 +41,9 @@ foreach ($members as &$member) {
     $stmt = $pdo->prepare("SELECT career FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
     $stmt->execute([$member['id']]);
     $member['careers'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    
+    // 디버깅: 약력 데이터 확인
+    error_log("Member ID " . $member['id'] . " careers: " . print_r($member['careers'], true));
 }
 ?>
 <!DOCTYPE html>
@@ -121,9 +124,11 @@ foreach ($members as &$member) {
                                     <td><?php echo htmlspecialchars($member['position'] ?? '-'); ?></td>
                                     <td>
                                         <?php if (!empty($member['careers'])): ?>
+                                            <!-- 디버깅: 약력 개수 표시 -->
+                                            <small style="color: #999;">(<?php echo count($member['careers']); ?>개)</small>
                                             <ul style="margin: 0; padding-left: 20px; text-align: left;">
-                                                <?php foreach ($member['careers'] as $career): ?>
-                                                    <li><?php echo htmlspecialchars($career); ?></li>
+                                                <?php foreach ($member['careers'] as $idx => $career): ?>
+                                                    <li><small style="color: #999;">[<?php echo $idx; ?>]</small> <?php echo htmlspecialchars($career); ?></li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         <?php else: ?>
