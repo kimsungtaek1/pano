@@ -950,7 +950,6 @@ footer {
     padding: 40px;
     border-radius: 4px;
     margin-left: auto;
-    padding-right: 10px;
 }
 
 .form-row-horizontal {
@@ -1945,8 +1944,8 @@ footer {
 }
 
 .practice-icon {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     margin-bottom: 10px;
     display: flex;
     align-items: center;
