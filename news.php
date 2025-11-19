@@ -366,7 +366,7 @@ include 'includes/header.php';
 }
 
 .detail-body {
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.8;
     color: #333;
     margin-bottom: 60px;
