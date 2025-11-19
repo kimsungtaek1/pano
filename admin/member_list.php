@@ -14,10 +14,20 @@ if (isset($_GET['delete'])) {
     $delete_id = (int)$_GET['delete'];
 
     try {
+        $pdo->beginTransaction();
+        
+        // 약력 먼저 삭제
+        $delete_stmt = $pdo->prepare("DELETE FROM member_careers WHERE member_id = ?");
+        $delete_stmt->execute([$delete_id]);
+        
+        // 구성원 삭제
         $delete_stmt = $pdo->prepare("DELETE FROM members WHERE id = ?");
         $delete_stmt->execute([$delete_id]);
+        
+        $pdo->commit();
         $success = '구성원이 삭제되었습니다.';
     } catch (PDOException $e) {
+        $pdo->rollBack();
         $error = '구성원 삭제에 실패했습니다: ' . $e->getMessage();
     }
 }
@@ -25,6 +35,13 @@ if (isset($_GET['delete'])) {
 // 구성원 목록 조회
 $stmt = $pdo->query("SELECT * FROM members ORDER BY display_order ASC, id DESC");
 $members = $stmt->fetchAll();
+
+// 각 구성원의 약력 조회
+foreach ($members as &$member) {
+    $stmt = $pdo->prepare("SELECT career FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
+    $stmt->execute([$member['id']]);
+    $member['careers'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -76,11 +93,9 @@ $members = $stmt->fetchAll();
                         <tr>
                             <th width="80">ID</th>
                             <th width="80">사진</th>
-                            <th width="100">이름</th>
-                            <th width="120">직책</th>
-                            <th width="120">부서</th>
-                            <th>이메일</th>
-                            <th>전화번호</th>
+                            <th width="150">이름</th>
+                            <th width="150">직책</th>
+                            <th>약력</th>
                             <th width="80">순서</th>
                             <th width="80">활성</th>
                             <th width="150">관리</th>
@@ -89,7 +104,7 @@ $members = $stmt->fetchAll();
                     <tbody>
                         <?php if (empty($members)): ?>
                             <tr>
-                                <td colspan="10" class="text-center">등록된 구성원이 없습니다.</td>
+                                <td colspan="8" class="text-center">등록된 구성원이 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($members as $member): ?>
@@ -104,9 +119,17 @@ $members = $stmt->fetchAll();
                                     </td>
                                     <td><?php echo htmlspecialchars($member['name']); ?></td>
                                     <td><?php echo htmlspecialchars($member['position'] ?? '-'); ?></td>
-                                    <td><?php echo htmlspecialchars($member['department'] ?? '-'); ?></td>
-                                    <td><?php echo htmlspecialchars($member['email'] ?? '-'); ?></td>
-                                    <td><?php echo htmlspecialchars($member['phone'] ?? '-'); ?></td>
+                                    <td>
+                                        <?php if (!empty($member['careers'])): ?>
+                                            <ul style="margin: 0; padding-left: 20px; text-align: left;">
+                                                <?php foreach ($member['careers'] as $career): ?>
+                                                    <li><?php echo htmlspecialchars($career); ?></li>
+                                                <?php endforeach; ?>
+                                            </ul>
+                                        <?php else: ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?php echo $member['display_order']; ?></td>
                                     <td><?php echo $member['is_active'] ? '활성' : '비활성'; ?></td>
                                     <td class="action-cell">
