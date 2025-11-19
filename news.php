@@ -378,7 +378,7 @@ include 'includes/header.php';
 
 .detail-navigation {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 15px;
     padding: 30px 0;
