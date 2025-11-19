@@ -194,7 +194,7 @@ include 'includes/header.php';
     text-decoration: none;
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 30px;
 }
 
 .case-card:hover {
