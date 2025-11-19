@@ -37,14 +37,12 @@ $stmt = $pdo->query("SELECT * FROM members ORDER BY display_order ASC, id DESC")
 $members = $stmt->fetchAll();
 
 // 각 구성원의 약력 조회
-foreach ($members as &$member) {
+foreach ($members as $key => $member) {
     $stmt = $pdo->prepare("SELECT career FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
     $stmt->execute([$member['id']]);
-    $member['careers'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
-    
-    // 디버깅: 약력 데이터 확인
-    error_log("Member ID " . $member['id'] . " careers: " . print_r($member['careers'], true));
+    $members[$key]['careers'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
 }
+unset($member); // 참조 해제
 ?>
 <!DOCTYPE html>
 <html lang="ko">
