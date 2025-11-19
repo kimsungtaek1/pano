@@ -2492,9 +2492,8 @@ footer {
     .fixed-consultation-form {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto auto auto;
         gap: 8px;
-        position: relative;
     }
 
     .fixed-consultation-form input[name="name"],
@@ -2516,15 +2515,11 @@ footer {
 
     .fixed-consultation-form textarea {
         grid-row: 3;
-        padding-right: 60px;
     }
 
     .fixed-consultation-form .btn-submit-bar {
-        position: absolute;
-        right: 8px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: auto;
+        grid-row: 4;
+        width: 100%;
         font-size: 12px;
         padding: 8px 20px;
     }
