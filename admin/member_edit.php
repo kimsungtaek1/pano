@@ -1,4 +1,9 @@
-<?php
+&lt;?php
+// 오류 출력 활성화 (개발 중)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 session_start();
 
 // 로그인 체크
@@ -109,10 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = '저장 중 오류가 발생했습니다: ' . $e->getMessage();
         }
     }
-} catch (PDOException $e) {
-            $error = '저장 중 오류가 발생했습니다: ' . $e->getMessage();
-        }
-    }
+}
 }
 
 // 성공 메시지 (리다이렉트 후)
