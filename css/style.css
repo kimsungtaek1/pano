@@ -1450,7 +1450,7 @@ footer {
 }
 
 .team-grid-4 {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .team-card {
