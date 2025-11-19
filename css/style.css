@@ -2301,6 +2301,8 @@ footer {
 
 /* 뉴스 상세 화면 스타일 */
 #detail-view { padding: 40px 0; }
+#detail-view { padding: 0; }
+#detail-main-title { font-size: 26px; font-weight: 700; }
 .detail-header-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-bottom: 20px; }
 .detail-header-row h2 { font-size: 24px; color: #333; margin: 0; font-weight: 500; }
 .detail-type-btn { background: white; border: 1px solid #ddd; padding: 8px 20px; border-radius: 20px; font-size: 14px; color: #333; cursor: default; }
