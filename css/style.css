@@ -2490,20 +2490,41 @@ footer {
     }
 
     .fixed-consultation-form {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
         gap: 8px;
+        position: relative;
     }
 
-    .fixed-consultation-form input,
+    .fixed-consultation-form input[name="name"],
+    .fixed-consultation-form input[name="phone"],
     .fixed-consultation-form textarea {
-        flex: 1;
         width: 100%;
         font-size: 12px;
         padding: 8px 12px;
+        grid-column: 1;
+    }
+
+    .fixed-consultation-form input[name="name"] {
+        grid-row: 1;
+    }
+
+    .fixed-consultation-form input[name="phone"] {
+        grid-row: 2;
+    }
+
+    .fixed-consultation-form textarea {
+        grid-row: 3;
+        padding-right: 60px;
     }
 
     .fixed-consultation-form .btn-submit-bar {
-        width: 100%;
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: auto;
         font-size: 12px;
         padding: 8px 20px;
     }
