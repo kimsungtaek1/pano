@@ -26,47 +26,90 @@ if (isset($_GET['id'])) {
         header('Location: member_list.php');
         exit;
     }
+
+    // 약력 데이터 로드
+    $stmt = $pdo->prepare("SELECT * FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
+    $stmt->execute([$id]);
+    $careers = $stmt->fetchAll();
 }
 
 // 폼 제출 처리
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $position = trim($_POST['position'] ?? '');
-    $department = trim($_POST['department'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
     $profile_image = trim($_POST['profile_image'] ?? '');
-    $description = trim($_POST['description'] ?? '');
     $display_order = (int)($_POST['display_order'] ?? 0);
     $is_active = isset($_POST['is_active']) ? 1 : 0;
+    $careers_data = $_POST['careers'] ?? [];
 
     // 유효성 검사
     if (empty($name)) {
         $error = '이름은 필수 항목입니다.';
     } else {
         try {
+            $pdo->beginTransaction();
+
             if ($is_edit) {
                 // 수정
-                $stmt = $pdo->prepare("UPDATE members SET name = ?, position = ?, department = ?, email = ?, phone = ?, profile_image = ?, description = ?, display_order = ?, is_active = ? WHERE id = ?");
-                $stmt->execute([$name, $position, $department, $email, $phone, $profile_image, $description, $display_order, $is_active, $id]);
+                $stmt = $pdo->prepare("UPDATE members SET name = ?, position = ?, profile_image = ?, display_order = ?, is_active = ? WHERE id = ?");
+                $stmt->execute([$name, $position, $profile_image, $display_order, $is_active, $id]);
+
+                // 기존 약력 삭제
+                $stmt = $pdo->prepare("DELETE FROM member_careers WHERE member_id = ?");
+                $stmt->execute([$id]);
+
+                // 새 약력 추가
+                if (!empty($careers_data)) {
+                    $stmt = $pdo->prepare("INSERT INTO member_careers (member_id, career, display_order) VALUES (?, ?, ?)");
+                    foreach ($careers_data as $index => $career) {
+                        $career_text = trim($career);
+                        if (!empty($career_text)) {
+                            $stmt->execute([$id, $career_text, $index]);
+                        }
+                    }
+                }
+
+                $pdo->commit();
                 $success = '구성원 정보가 수정되었습니다.';
 
                 // 수정된 데이터 다시 로드
                 $stmt = $pdo->prepare("SELECT * FROM members WHERE id = ?");
                 $stmt->execute([$id]);
                 $member = $stmt->fetch();
+
+                $stmt = $pdo->prepare("SELECT * FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
+                $stmt->execute([$id]);
+                $careers = $stmt->fetchAll();
             } else {
                 // 새 구성원 추가
-                $stmt = $pdo->prepare("INSERT INTO members (name, position, department, email, phone, profile_image, description, display_order, is_active) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                $stmt->execute([$name, $position, $department, $email, $phone, $profile_image, $description, $display_order, $is_active]);
+                $stmt = $pdo->prepare("INSERT INTO members (name, position, profile_image, display_order, is_active) VALUES (?, ?, ?, ?, ?)");
+                $stmt->execute([$name, $position, $profile_image, $display_order, $is_active]);
+                $id = $pdo->lastInsertId();
+
+                // 약력 추가
+                if (!empty($careers_data)) {
+                    $stmt = $pdo->prepare("INSERT INTO member_careers (member_id, career, display_order) VALUES (?, ?, ?)");
+                    foreach ($careers_data as $index => $career) {
+                        $career_text = trim($career);
+                        if (!empty($career_text)) {
+                            $stmt->execute([$id, $career_text, $index]);
+                        }
+                    }
+                }
+
+                $pdo->commit();
                 $success = '구성원이 등록되었습니다.';
 
                 // 새로 생성된 ID로 리다이렉트
-                $id = $pdo->lastInsertId();
                 header("Location: member_edit.php?id=$id&success=1");
                 exit;
             }
         } catch (PDOException $e) {
+            $pdo->rollBack();
+            $error = '저장 중 오류가 발생했습니다: ' . $e->getMessage();
+        }
+    }
+} catch (PDOException $e) {
             $error = '저장 중 오류가 발생했습니다: ' . $e->getMessage();
         }
     }
@@ -134,22 +177,8 @@ if (isset($_GET['success'])) {
                         <input type="text" id="position" name="position" value="<?php echo htmlspecialchars($member['position'] ?? ''); ?>">
                     </div>
 
-                    <div class="form-group">
-                        <label for="department">부서</label>
-                        <input type="text" id="department" name="department" value="<?php echo htmlspecialchars($member['department'] ?? ''); ?>">
-                    </div>
 
-                    <div class="form-group">
-                        <label for="email">이메일</label>
-                        <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($member['email'] ?? ''); ?>">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">전화번호</label>
-                        <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($member['phone'] ?? ''); ?>" placeholder="예: 02-1234-5678">
-                    </div>
-
-                    <div class="form-group">
+<div class="form-group">
                         <label for="profile_image">프로필 이미지</label>
 
                         <!-- 이미지 업로드 -->
@@ -173,8 +202,23 @@ if (isset($_GET['success'])) {
                     </div>
 
                     <div class="form-group">
-                        <label for="description">소개</label>
-                        <textarea id="description" name="description" rows="5"><?php echo htmlspecialchars($member['description'] ?? ''); ?></textarea>
+                        <label>약력</label>
+                        <div id="careers_container">
+                            <?php if ($is_edit && !empty($careers)): ?>
+                                <?php foreach ($careers as $index => $career): ?>
+                                    <div class="career-item" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                        <input type="text" name="careers[]" value="<?php echo htmlspecialchars($career['career']); ?>" placeholder="약력을 입력하세요" style="flex: 1;">
+                                        <button type="button" class="btn btn-sm remove-career-btn" style="background: #e74c3c; color: white; padding: 5px 15px;">삭제</button>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="career-item" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                                    <input type="text" name="careers[]" placeholder="약력을 입력하세요" style="flex: 1;">
+                                    <button type="button" class="btn btn-sm remove-career-btn" style="background: #e74c3c; color: white; padding: 5px 15px;">삭제</button>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <button type="button" id="add_career_btn" class="btn btn-secondary btn-sm" style="margin-top: 10px;">약력 추가</button>
                     </div>
 
                     <div class="form-group">
@@ -294,6 +338,34 @@ if (isset($_GET['success'])) {
                 profileImageInput.value = '';
                 imagePreviewContainer.style.display = 'none';
                 imageFile.value = '';
+            }
+        });
+
+        // 약력 추가/삭제 기능
+        const careersContainer = document.getElementById('careers_container');
+        const addCareerBtn = document.getElementById('add_career_btn');
+
+        // 약력 추가
+        addCareerBtn.addEventListener('click', function() {
+            const careerItem = document.createElement('div');
+            careerItem.className = 'career-item';
+            careerItem.style.cssText = 'display: flex; gap: 10px; margin-bottom: 10px;';
+            careerItem.innerHTML = `
+                <input type="text" name="careers[]" placeholder="약력을 입력하세요" style="flex: 1;">
+                <button type="button" class="btn btn-sm remove-career-btn" style="background: #e74c3c; color: white; padding: 5px 15px;">삭제</button>
+            `;
+            careersContainer.appendChild(careerItem);
+        });
+
+        // 약력 삭제 (이벤트 위임)
+        careersContainer.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-career-btn')) {
+                const careerItems = careersContainer.querySelectorAll('.career-item');
+                if (careerItems.length > 1) {
+                    e.target.closest('.career-item').remove();
+                } else {
+                    alert('최소 1개의 약력 입력란은 유지되어야 합니다.');
+                }
             }
         });
     });
