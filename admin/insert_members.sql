@@ -2,7 +2,7 @@
 
 -- 1. 강홍구 세무사
 INSERT INTO members (name, position, display_order, is_active)
-VALUES ('강홍구', '세무사', 1, 1);
+VALUES ('강홍구', '세무사',  3, 1);
 SET @member_id1 = LAST_INSERT_ID();
 
 INSERT INTO member_careers (member_id, career, display_order) VALUES
@@ -12,7 +12,7 @@ INSERT INTO member_careers (member_id, career, display_order) VALUES
 
 -- 2. 이혁호 응급의학과 전문의
 INSERT INTO members (name, position, display_order, is_active)
-VALUES ('이혁호', '응급의학과 전문의', 2, 1);
+VALUES ('이혁호', '응급의학과 전문의', 4, 1);
 SET @member_id2 = LAST_INSERT_ID();
 
 INSERT INTO member_careers (member_id, career, display_order) VALUES
@@ -22,7 +22,7 @@ INSERT INTO member_careers (member_id, career, display_order) VALUES
 
 -- 3. 최근석 마취통증의학과 전문의
 INSERT INTO members (name, position, display_order, is_active)
-VALUES ('최근석', '마취통증의학과 전문의', 3, 1);
+VALUES ('최근석', '마취통증의학과 전문의', 5, 1);
 SET @member_id3 = LAST_INSERT_ID();
 
 INSERT INTO member_careers (member_id, career, display_order) VALUES
@@ -32,7 +32,7 @@ INSERT INTO member_careers (member_id, career, display_order) VALUES
 
 -- 4. 박영수 통합치의학과 전문의
 INSERT INTO members (name, position, display_order, is_active)
-VALUES ('박영수', '통합치의학과 전문의', 4, 1);
+VALUES ('박영수', '통합치의학과 전문의', 6, 1);
 SET @member_id4 = LAST_INSERT_ID();
 
 INSERT INTO member_careers (member_id, career, display_order) VALUES
@@ -42,7 +42,7 @@ INSERT INTO member_careers (member_id, career, display_order) VALUES
 
 -- 5. 문용진 한의사
 INSERT INTO members (name, position, display_order, is_active)
-VALUES ('문용진', '한의사', 5, 1);
+VALUES ('문용진', '한의사', 7, 1);
 SET @member_id5 = LAST_INSERT_ID();
 
 INSERT INTO member_careers (member_id, career, display_order) VALUES

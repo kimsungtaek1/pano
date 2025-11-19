@@ -1,4 +1,18 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+require_once 'includes/db.php';
+
+// 활성화된 구성원 조회 (전문 자문단)
+$stmt = $pdo->query("SELECT * FROM members WHERE is_active = 1 ORDER BY display_order ASC, id ASC");
+$members = $stmt->fetchAll();
+
+// 각 구성원의 약력 조회
+foreach ($members as $key => $member) {
+    $stmt = $pdo->prepare("SELECT career FROM member_careers WHERE member_id = ? ORDER BY display_order ASC, id ASC");
+    $stmt->execute([$member['id']]);
+    $members[$key]['careers'] = $stmt->fetchAll(PDO::FETCH_COLUMN);
+}
+?>
 
 <main>
     <!-- Top Image Section -->
@@ -97,97 +111,26 @@
                 <div class="advisory-team">
                     <h2 class="section-title">전문 자문단</h2>
                     <div class="team-grid">
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
+                        <?php foreach ($members as $member): ?>
+                            <div class="team-card">
+                                <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
+                                <div class="team-photo">
+                                    <?php if (!empty($member['profile_image'])): ?>
+                                        <img src="<?php echo htmlspecialchars($member['profile_image']); ?>" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                    <?php else: ?>
+                                        <img src="/images/person/main.png" alt="<?php echo htmlspecialchars($member['name']); ?>">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="team-info-box">
+                                    <h3 class="team-name"><?php echo htmlspecialchars($member['name']); ?> <span class="team-title"><?php echo htmlspecialchars($member['position']); ?></span></h3>
+                                    <ul class="team-specialty">
+                                        <?php foreach ($member['careers'] as $career): ?>
+                                            <li><?php echo htmlspecialchars($career); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <img src="/images/person_logo.svg" alt="PANO" class="team-card-logo">
-                            <div class="team-photo">
-                                <img src="/images/person/main.png" alt="송동민 변호사">
-                            </div>
-                            <div class="team-info-box">
-                                <h3 class="team-name">송동민 <span class="team-title">변호사</span></h3>
-                                <ul class="team-specialty">
-                                    <li>예전시 개인변호 역임 9년 고경험자</li>
-                                    <li>지주회의 11년 연수경력(재직)</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
 
