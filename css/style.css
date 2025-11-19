@@ -1441,8 +1441,21 @@ footer {
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 30px;
+}
+
+.team-card:nth-child(1),
+.team-card:nth-child(2),
+.team-card:nth-child(3) {
+    grid-column: span 4;
+}
+
+.team-card:nth-child(4),
+.team-card:nth-child(5),
+.team-card:nth-child(6),
+.team-card:nth-child(7) {
+    grid-column: span 3;
 }
 
 .team-card {
