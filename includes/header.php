@@ -28,9 +28,14 @@
                         <li><a href="/info.php">오시는길</a></li>
                     </ul>
                 </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="메뉴">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-        
+
         <!-- 전체 서브메뉴 영역 -->
         <div class="header-submenu-area">
             <div class="container">
@@ -54,3 +59,49 @@
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav>
+            <ul>
+                <li><a href="/intro.php">파노소개</a></li>
+                <li><a href="/intro.php?tab=members">구성원</a></li>
+                <li><a href="/field.php">업무분야</a></li>
+                <li><a href="/news.php">소식/자료</a></li>
+                <li><a href="/news.php?tab=cases">파노성공사례</a></li>
+                <li><a href="/news.php?tab=press">언론보도</a></li>
+                <li><a href="/info.php">오시는길</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+    function toggleMobileMenu() {
+        mobileMenuBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        mobileMenuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+
+    mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay?.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu when clicking a link
+    const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+    mobileMenuLinks?.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuBtn.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
+    </script>
