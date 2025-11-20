@@ -253,7 +253,7 @@ include 'includes/db.php';
                 <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
                     <div class="form-row-horizontal">
                         <div class="form-field">
-                            <label for="name"> 성함 </label>
+<parameter name="label for="name">　성함</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-field">
