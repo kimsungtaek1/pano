@@ -466,7 +466,7 @@
  .case-card{background: #fff;border-top: 1px solid #ddd;border-bottom: none;border-left: none;border-right: none;padding: 15px 0;text-decoration: none;display: flex;flex-direction: row;gap: 45px;}
  .case-card:hover{background: #fafafa;}
  .cases-grid .case-card .thumbnail{width: 120px;height: 180px;background: #e8e8e8;flex-shrink: 0;}
- .news-grid .case-card .thumbnail{width: 240px;height: 180px;background: #e8e8e8;flex-shrink: 0;}
+ .news-grid .case-card .thumbnail{width: 120px;height: 180px;background: #e8e8e8;flex-shrink: 0;}
  .case-card .content{display: flex;flex-direction: column;flex: 1;gap: 8px;justify-content: center;}
  .case-card .badge{align-self: flex-start;}
  .case-card h3{font-size: 18px;color: #000;line-height: 1.5;font-weight: 500;}
