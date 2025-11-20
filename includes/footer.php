@@ -1,5 +1,5 @@
     <!-- Fixed Bottom Consultation Bar -->
-    <div class="fixed-consultation-bar">
+    <div class="fixed-consultation-bar" id="fixedConsultationBar">
         <form id="fixedConsultationForm" class="fixed-consultation-form" method="POST" action="/api/submit_consultation.php">
             <input type="text" name="name" placeholder="이름" required>
             <input type="tel" name="phone" placeholder="연락처 (010-1234-5678)" required>
@@ -7,6 +7,85 @@
             <button type="submit" class="btn-submit-bar">상담신청</button>
         </form>
     </div>
+
+    <script>
+    // 모바일 고정 상담신청 폼 토글 기능
+    (function() {
+        const fixedBar = document.getElementById('fixedConsultationBar');
+        const fixedForm = document.getElementById('fixedConsultationForm');
+        
+        if (!fixedBar || !fixedForm) return;
+        
+        let isFormVisible = false;
+        
+        // 모바일인지 체크
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+        
+        // 폼 표시/숨김 토글
+        function toggleForm() {
+            if (!isMobile()) return;
+            
+            isFormVisible = !isFormVisible;
+            if (isFormVisible) {
+                fixedBar.classList.add('expanded');
+            } else {
+                fixedBar.classList.remove('expanded');
+            }
+        }
+        
+        // 폼 숨기기
+        function hideForm() {
+            if (!isMobile() || !isFormVisible) return;
+            
+            isFormVisible = false;
+            fixedBar.classList.remove('expanded');
+        }
+        
+        // 버튼 클릭 이벤트
+        const submitBtn = fixedForm.querySelector('.btn-submit-bar');
+        submitBtn.addEventListener('click', function(e) {
+            if (!isMobile()) return;
+            
+            // 폼이 닫혀있으면 열기만 하고 제출 방지
+            if (!isFormVisible) {
+                e.preventDefault();
+                toggleForm();
+                return;
+            }
+            
+            // 폼이 열려있고 유효성 검사 통과하면 제출 진행
+            if (!fixedForm.checkValidity()) {
+                return; // 브라우저 기본 유효성 검사 메시지 표시
+            }
+        });
+        
+        // 스크롤 시 폼 숨기기
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(hideForm, 100);
+        }, { passive: true });
+        
+        // 외부 터치 시 폼 숨기기
+        document.addEventListener('touchstart', function(e) {
+            if (!isMobile() || !isFormVisible) return;
+            
+            // 고정 바 외부를 터치한 경우에만 숨김
+            if (!fixedBar.contains(e.target)) {
+                hideForm();
+            }
+        }, { passive: true });
+        
+        // 화면 크기 변경 시 모바일이 아니면 폼 숨김
+        window.addEventListener('resize', function() {
+            if (!isMobile() && isFormVisible) {
+                hideForm();
+            }
+        });
+    })();
+    </script>
 
     <!-- Floating Action Buttons -->
     <div class="floating-buttons">
