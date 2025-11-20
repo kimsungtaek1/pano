@@ -376,7 +376,10 @@
    .footer-left,  .footer-right{ width: 100%;}
    .footer-logo img{ height: 40px;}
    .footer-info p{ font-size: 11px;}
-    .fixed-consultation-bar{ padding: 10px;}
+    .fixed-consultation-bar{ 
+       padding: 8px 10px; 
+       overflow: hidden;
+   }
    
    /* 모바일: 폼 필드 숨김 상태 */
    .fixed-consultation-form input[name="name"],
@@ -392,6 +395,10 @@
    }
    
    /* 모바일: 폼이 열린 상태 */
+   .fixed-consultation-bar.expanded{ 
+       padding: 10px;
+   }
+   
    .fixed-consultation-bar.expanded .fixed-consultation-form input[name="name"],
    .fixed-consultation-bar.expanded .fixed-consultation-form input[name="phone"],
    .fixed-consultation-bar.expanded .fixed-consultation-form textarea{
