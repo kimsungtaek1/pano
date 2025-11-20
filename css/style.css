@@ -345,7 +345,7 @@
    .hero{ height: 400px;}
    .hero-logo{ max-width: 200px; width: 60%;}
    .hero-content{ bottom: 20px; right: 20px;}
-    .success-layout{ flex-direction: column; gap: 30px;}
+    .success-layout{ flex-direction: column; gap: 0;}
    .success-intro{ flex: 1; padding-top: 0;}
    .success-intro h2{ font-size: 28px;}
    .success-content{ width: 100%;}
