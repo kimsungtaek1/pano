@@ -252,7 +252,7 @@
   .card-header h3{ font-size: 24px; font-weight: bold; line-height: 1.5; color: #fff; margin: 0;}
   .card-body{ background: #fff; padding: 25px; flex: 1; overflow: hidden;}
   .card-body p{ font-size: 16px; color: #64748b; line-height: 1.8; margin: 0;}
-   .btn-more-wrapper{ margin-top: 80px;}
+   .btn-more-wrapper{ margin-top: 40px;}
   .btn-more-link{ display: flex; align-items: center; gap: 10px; text-decoration: none;}
   .btn-more-link span{ font-size: 20px; color: #000; font-weight: 300;}
   .btn-circle-arrow{ width: 32px; height: 32px; border-radius: 50%; background: rgba(24, 38, 80, 1); border: none; color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;}
