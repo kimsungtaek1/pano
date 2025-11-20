@@ -367,6 +367,7 @@
    .consultation-subtitle{ font-size: 16px;}
    .consultation-form{ width: 100%; padding: 30px 20px;}
    .form-row-horizontal{ flex-direction: column; gap: 15px;}
+   .form-row-horizontal .form-field{ gap: 0;}
    .form-row-vertical{ flex-direction: column; gap: 10px;}
    .consultation-form label{ font-size: 16px;}
    .consultation-form input,  .consultation-form textarea{ font-size: 16px; padding: 12px 15px;}
