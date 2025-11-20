@@ -98,15 +98,7 @@
         <a href="https://blog.naver.com/cthrtic64924" target="_blank" class="floating-btn blog" title="블로그">
             <img src="/images/blog.png" alt="블로그">
         </a>
-        <?php
-        // index.php에서만 상담신청 버튼 표시
-        $current_page = basename($_SERVER['PHP_SELF']);
-        if ($current_page === 'index.php') :
-        ?>
-        <a href="javascript:void(0)" class="floating-btn consultation" title="상담 신청" onclick="return scrollToConsultation(event)">
-            📝
-        </a>
-        <?php endif; ?>
+
     </div>
 
     <footer>
