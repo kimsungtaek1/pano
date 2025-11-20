@@ -2,7 +2,7 @@
   @font-face{ font-family: 'Paperlogy'; src: url('/fonts/Paperlogy-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal;}
   @font-face{ font-family: 'Pretendard'; src: url('/fonts/Pretendard-Regular.otf') format('opentype'); font-weight: normal; font-style: normal;}
    *{ margin: 0; padding: 0; box-sizing: border-box;}
-  body{ font-family: 'Noto Sans KR', sans-serif; line-height: 1.6; color: #333;}
+  body{ font-family: 'Pretendard', sans-serif; line-height: 1.6; color: #333;}
   a{ text-decoration: none; color: inherit;}
   ul{ list-style: none;}
   img{ max-width: 100%; height: auto; display: block;}
