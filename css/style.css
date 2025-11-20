@@ -381,6 +381,15 @@
        overflow: hidden;
    }
    
+   /* 모바일: 폼 닫힌 상태 - gap 제거 */
+   .fixed-consultation-form{ 
+       display: grid; 
+       grid-template-columns: 1fr; 
+       grid-template-rows: 0 0 0 auto; 
+       gap: 0;
+       transition: all 0.3s ease;
+   }
+   
    /* 모바일: 폼 필드 숨김 상태 */
    .fixed-consultation-form input[name="name"],
    .fixed-consultation-form input[name="phone"],
@@ -399,6 +408,11 @@
        padding: 10px;
    }
    
+   .fixed-consultation-bar.expanded .fixed-consultation-form{
+       grid-template-rows: auto auto auto auto;
+       gap: 8px;
+   }
+   
    .fixed-consultation-bar.expanded .fixed-consultation-form input[name="name"],
    .fixed-consultation-bar.expanded .fixed-consultation-form input[name="phone"],
    .fixed-consultation-bar.expanded .fixed-consultation-form textarea{
@@ -407,7 +421,6 @@
        border: 1px solid rgba(255, 255, 255, 0.2);
        opacity: 1;
    }
-   .fixed-consultation-form{ display: grid; grid-template-columns: 1fr; grid-template-rows: auto auto auto auto; gap: 8px;}
    .fixed-consultation-form input[name="name"],  .fixed-consultation-form input[name="phone"],  .fixed-consultation-form textarea{ width: 100%; font-size: 12px; padding: 8px 12px; grid-column: 1;}
    .fixed-consultation-form input[name="name"]{ grid-row: 1;}
    .fixed-consultation-form input[name="phone"]{ grid-row: 2;}
