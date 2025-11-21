@@ -332,7 +332,7 @@
   .mobile-menu nav > ul > li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
   .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700;}
   .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
-  .accordion-item .accordion-header::after{ content: '▼'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 12px; transition: transform 0.3s;}
+  .accordion-item .accordion-header::after{ content: 'v'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 12px; transition: transform 0.3s;}
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(180deg);}
   .accordion-content{ display: none; padding-left: 15px;}
   .accordion-item.active .accordion-content{ display: block;}
