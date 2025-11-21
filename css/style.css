@@ -373,7 +373,7 @@
    .btn-more-wrapper{ margin-top: 0;}
    .btn-more-link span{ font-size: 14px;}
    .slider-controls{ margin-bottom: 0;}
-    .press-coverage{ padding: 40px 0;}
+    .press-coverage{ padding: 40px 0 20px 0;}
    .press-layout{ flex-direction: column; gap: 0;}
    .press-intro{ flex: 1; padding-top: 0; width: 100%;}
    .press-intro h2{ font-size: 28px; margin-bottom: 0;}
