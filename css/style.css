@@ -138,7 +138,7 @@
   .info-large{ font-size: 20px; font-weight: bold; line-height: 1.6;}
   .building-photos{ padding: 60px 0; background: #fff;}
   .photo-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;}
-  .photo-card{ width: 100%; aspect-ratio: 4/3; background: #f0f0f0; border-radius: 8px;}
+  .photo-card{ width: 100%; aspect-ratio: 3/4; background: #f0f0f0; border-radius: 8px;}
   .recruit-section{ padding: 60px 0; background: #f8f9fa;}
   .recruit-section h2{ font-size: 28px; font-weight: bold; margin-bottom: 20px;}
   .recruit-desc{ font-size: 14px; line-height: 1.8; color: #666; margin-bottom: 40px;}
