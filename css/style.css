@@ -340,7 +340,7 @@
    .header-content{ flex-direction: row; justify-content: space-between; gap: 20px;}
    .logo img{ height: 30px;}
    .hero{ height: 400px;}
-   .hero-logo{ max-width: 200px; width: 60%;}
+   .hero-logo{ max-width: 300px; width: 90%;}
    .hero-content{ bottom: 20px; right: 20px;}
     .success-layout{ flex-direction: column; gap: 0;}
    .success-intro{ flex: 1; padding-top: 0; width: 100%;}
