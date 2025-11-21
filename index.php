@@ -263,7 +263,7 @@ include 'includes/db.php';
                     </div>
                     <div class="form-row-vertical">
                         <label for="content">내용</label>
-                        <textarea id="content" name="content" rows="4" required placeholder="상담하실 내용을 자세히 입력해주세요."></textarea>
+                        <textarea id="content" name="content" rows="4" required placeholder="문의 내용을 입력해주세요."></textarea>
                     </div>
                     <div class="form-row-button">
                         <button type="submit" class="btn-submit">상담신청</button>
