@@ -232,7 +232,7 @@
   .recruitment .section-title{ font-size: 24px; margin-bottom: 10px;}
   .recruitment-text{ font-size: 18px; line-height: 1.8; color: #666; text-align: left; margin-bottom: 20px;}
   .recruitment-email{ font-size: 18px; line-height: 1.8; color: #666; text-align: left;}
-     .success-stories{ padding: 80px 0; background: transparent;}
+     .success-stories{ padding: 20px 0; background: transparent;}
   .success-layout{ display: flex; gap: 20px; align-items: flex-start;}
   .success-intro{ flex: 0 0 360px; padding-top: 20px;}
   .section-label{ font-size: 14px; color: #2563eb; margin-bottom: 10px; font-weight: 500; border-left: 3px solid #2563eb; padding-left: 10px;}
@@ -261,7 +261,7 @@
   .slider-arrow img{ width: 16px; height: 16px; object-fit: contain;}
   .slider-arrow:hover{ background: #1e293b; color: #fff; border-color: #1e293b;}
   .slider-arrow:hover img{ filter: brightness(0) invert(1);}
-   .press-coverage{ padding: 80px 0; background: #f8f9fa;}
+   .press-coverage{ padding: 20px 0; background: #f8f9fa;}
   .press-layout{ display: flex; gap: 20px; align-items: flex-start;}
   .press-intro{ flex: 0 0 360px; padding-top: 20px;}
   .press-intro .section-label-text{ font-size: 20px; font-weight: 700; color: #000; margin-bottom: 0;}
