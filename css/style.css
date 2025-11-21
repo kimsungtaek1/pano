@@ -331,7 +331,9 @@
   .mobile-menu nav{ padding: 80px 20px 20px;}
   .mobile-menu nav > ul{ flex-direction: column; gap: 0; min-width: auto;}
   .mobile-menu nav > ul > li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
-  .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700; position: relative; z-index: 1;}
+  .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700; position: relative; z-index: 1; text-align: left;}
+  .mobile-menu nav li{ text-align: left;}
+  .mobile-menu nav a{ text-align: left;}
   .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
   .accordion-item .accordion-header::after{ content: ''; position: absolute; right: 8px; top: 50%; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-right: 1px solid #333; border-bottom: 1px solid #333; transition: transform 0.3s; z-index: 10; pointer-events: none;}
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(-135deg);}
