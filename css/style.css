@@ -332,12 +332,12 @@
   .mobile-menu nav > ul > li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
   .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700;}
   .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
-  .accordion-item .accordion-header::after{ content: '\u25BC'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 12px; transition: transform 0.3s;}
+  .accordion-item .accordion-header::after{ content: '▼'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 12px; transition: transform 0.3s;}
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(180deg);}
   .accordion-content{ display: none; padding-left: 15px;}
   .accordion-item.active .accordion-content{ display: block;}
   .accordion-content li{ border-bottom: none;}
-  .accordion-content a{ font-size: 15px; font-weight: 400; padding: 10px 0; color: #666;}
+  .accordion-content a{ font-size: 15px; font-weight: 400; padding: 10px 0; color: #666; text-align: left;}
   .mobile-menu-overlay{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999;}
   .mobile-menu-overlay.active{ display: block;}
    @media (max-width: 1200px){ nav ul{ gap: 60px; min-width: 400px;}
@@ -500,15 +500,15 @@
     position: absolute;
     top: 20px;
     right: 40px;
-    color: #fff;
+    color: #ccc;
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 300;
     cursor: pointer;
     z-index: 2001;
 }
 
 .modal-close:hover {
-    color: #bbb;
+    color: #999;
 }
 
 .modal-prev,
