@@ -412,11 +412,12 @@
     .member-main{ min-height: auto; padding: 20px 0;}
    .member-main-content{ flex-direction: column; gap: 20px;}
    .member-photo{ flex: 1; width: 100%;}
-   .member-info{ padding: 20px 0;}
-   .member-name{ font-size: 28px;}
+   .member-info{ padding: 20px 0; text-align: left;}
+   .member-name{ font-size: 28px; text-align: left;}
    .member-title{ font-size: 18px;}
-   .member-subtitle{ font-size: 18px;}
-   .member-career li{ font-size: 14px;}
+   .member-subtitle{ font-size: 18px; text-align: left;}
+   .member-career{ text-align: left;}
+   .member-career li{ font-size: 14px; text-align: left;}
    .expertise-label{ padding-left: 20px; font-size: 14px;}
    .expertise-btn{ font-size: 12px; padding: 6px 15px;}
     .section-title{ font-size: 24px;}
