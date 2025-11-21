@@ -289,6 +289,7 @@
   .practice-card h3{ font-size: 24px; font-weight: 700; color: #333; margin: 0; line-height: 1.4;}
   .practice-card h3 .dot{ display: inline-block; vertical-align: middle; line-height: 1;}
    .consultation-subtitle{ font-size: 18px; color: #cbd5e1; margin-top: 10px;}
+   .mobile-br{ display: none;}
    .field-grid-section{ padding: 60px 0; background: #fff;}
   .field-grid-2col{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-bottom: 0;}
   .field-grid-2col .field-item{ background: transparent; border: none; padding: 0; margin: 0 40px 0 0; display: flex;}
@@ -368,6 +369,7 @@
    .consultation-text{ min-width: 100%; text-align: left;}
    .consultation-text h2{ font-size: 28px;}
    .consultation-subtitle{ font-size: 16px;}
+   .mobile-br{ display: inline;}
    .consultation-form{ width: 100%; padding: 30px 20px;}
    .form-row-horizontal{ flex-direction: column; gap: 15px;}
    .form-row-horizontal .form-field{ gap: 0;}
