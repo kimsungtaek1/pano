@@ -358,7 +358,8 @@
    .press-content{ width: 100%;}
    .press-cards{ flex-direction: row; gap: 20px;}
    .press-card{ flex: 0 0 100%; min-width: 100%; height: auto; min-height: 280px;}
-    .practice-header h2{ font-size: 28px;}
+    .practice-areas{ padding: 20px 0;}
+   .practice-header h2{ font-size: 28px;}
    .practice-grid{ grid-template-columns: repeat(2, 1fr); gap: 15px;}
    .practice-icon{ width: 80px; height: 80px;}
    .practice-card h3{ font-size: 16px;}
