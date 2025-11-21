@@ -32,12 +32,12 @@ include 'includes/header.php';
         <div class="container">
             <div class="info-row">
                 <div class="info-label">오시는길</div>
-                <div class="info-value">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩)</div>
+                <div class="info-value">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩) (교대역 14번 출구에서 215m)</div>
             </div>
 
             <div class="info-row">
                 <div class="info-label">업무시간</div>
-                <div class="info-value">평일 9:00~18:00</div>
+                <div class="info-value">평일 09:00~18:00</div>
             </div>
 
             <div class="info-row">
