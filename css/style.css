@@ -333,7 +333,7 @@
   .mobile-menu nav{ padding: 80px 20px 20px;}
   .mobile-menu nav > ul{ flex-direction: column; gap: 0; min-width: auto;}
   .mobile-menu nav > ul > li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
-  .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700; position: relative; z-index: 1; text-align: left;}
+  .mobile-menu nav > ul > li > a{ display: block; padding: 20px 0; font-size: 16px; font-weight: 700; position: relative; z-index: 1; text-align: left;}
   .mobile-menu nav li{ text-align: left;}
   .mobile-menu nav a{ text-align: left; -webkit-tap-highlight-color: transparent;}
   .accordion-item .accordion-header{ position: relative; padding-right: 30px; color: #000;}
@@ -346,7 +346,7 @@
   .accordion-content{ display: none; padding-left: 0;}
   .accordion-item.active .accordion-content{ display: block; padding-bottom: 15px;}
   .accordion-content li{ border-bottom: none;}
-  .accordion-content a{ font-size: 15px; font-weight: 400; padding: 10px 0; color: #666; text-align: left;}
+  .accordion-content a{ font-size: 16px; font-weight: 400; padding: 15px 0; color: #666; text-align: left;}
   .mobile-menu-logo{ position: absolute; bottom: 20px; left: 0; right: 0; padding: 40px 20px 20px; text-align: center;}
   .mobile-menu-logo img{ height: 40px; width: auto; margin: 0 auto;}
   .mobile-menu-overlay{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999;}
