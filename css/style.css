@@ -325,10 +325,19 @@
   .mobile-menu-btn.active span:nth-child(3){ transform: rotate(-45deg) translate(7px, -6px);}
    .mobile-menu{ display: none; position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: #fff; box-shadow: -2px 0 10px rgba(0,0,0,0.1); z-index: 1000; transition: right 0.3s ease; overflow-y: auto;}
   .mobile-menu.active{ right: 0;}
+  .mobile-menu-close{ position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 36px; color: #333; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; z-index: 1001;}
+  .mobile-menu-close:hover{ color: #2563eb;}
   .mobile-menu nav{ padding: 80px 20px 20px;}
-  .mobile-menu nav ul{ flex-direction: column; gap: 0; min-width: auto;}
-  .mobile-menu nav li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
-  .mobile-menu nav a{ display: block; padding: 15px 0; font-size: 16px;}
+  .mobile-menu nav > ul{ flex-direction: column; gap: 0; min-width: auto;}
+  .mobile-menu nav > ul > li{ width: 100%; text-align: left; border-bottom: 1px solid #e0e0e0;}
+  .mobile-menu nav > ul > li > a{ display: block; padding: 15px 0; font-size: 16px; font-weight: 700;}
+  .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
+  .accordion-item .accordion-header::after{ content: '\u25BC'; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-size: 12px; transition: transform 0.3s;}
+  .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(180deg);}
+  .accordion-content{ display: none; padding-left: 15px;}
+  .accordion-item.active .accordion-content{ display: block;}
+  .accordion-content li{ border-bottom: none;}
+  .accordion-content a{ font-size: 15px; font-weight: 400; padding: 10px 0; color: #666;}
   .mobile-menu-overlay{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999;}
   .mobile-menu-overlay.active{ display: block;}
    @media (max-width: 1200px){ nav ul{ gap: 60px; min-width: 400px;}

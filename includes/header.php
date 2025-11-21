@@ -65,13 +65,25 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="닫기">
+            <span>&times;</span>
+        </button>
         <nav>
             <ul>
-                <li><a href="/intro.php">파노소개</a></li>
-                <li><a href="/intro.php?tab=members">구성원</a></li>
-                <li><a href="/field.php">업무분야</a></li>
-                <li><a href="/news.php">소식/자료</a></li>
-                <li><a href="/news.php?tab=cases">파노성공사례</a></li>
+                <li class="accordion-item">
+                    <a href="#" class="accordion-header">파노소개</a>
+                    <ul class="accordion-content">
+                        <li><a href="/intro.php">파노 법률사무소</a></li>
+                        <li><a href="/intro.php?tab=members">구성원</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-item">
+                    <a href="#" class="accordion-header">소식/자료</a>
+                    <ul class="accordion-content">
+                        <li><a href="/news.php?tab=cases">파노성공사례</a></li>
+                        <li><a href="/news.php?tab=press">언론보도</a></li>
+                    </ul>
+                </li>
                 <li><a href="/news.php?tab=press">언론보도</a></li>
                 <li><a href="/info.php">오시는길</a></li>
             </ul>
@@ -83,6 +95,7 @@
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
 
     function toggleMobileMenu() {
         mobileMenuBtn.classList.toggle('active');
@@ -91,17 +104,42 @@
         document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     }
 
-    mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
-    mobileMenuOverlay?.addEventListener('click', toggleMobileMenu);
+    function closeMobileMenu() {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
 
-    // Close mobile menu when clicking a link
-    const mobileMenuLinks = mobileMenu?.querySelectorAll('a');
+    mobileMenuBtn?.addEventListener('click', toggleMobileMenu);
+    mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
+    mobileMenuClose?.addEventListener('click', closeMobileMenu);
+
+    // Accordion functionality
+    const accordionHeaders = mobileMenu?.querySelectorAll('.accordion-header');
+    accordionHeaders?.forEach(header => {
+        header.addEventListener('click', (e) => {
+            e.preventDefault();
+            const accordionItem = header.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+            
+            // Close all accordion items
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                accordionItem.classList.add('active');
+            }
+        });
+    });
+
+    // Close mobile menu when clicking a non-accordion link
+    const mobileMenuLinks = mobileMenu?.querySelectorAll('a:not(.accordion-header)');
     mobileMenuLinks?.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenuBtn.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            closeMobileMenu();
         });
     });
     </script>
