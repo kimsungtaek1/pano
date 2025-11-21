@@ -372,7 +372,7 @@
    .slider-controls{ margin-bottom: 0;}
     .press-layout{ flex-direction: column; gap: 0;}
    .press-intro{ flex: 1; padding-top: 0; width: 100%;}
-   .press-intro h2{ font-size: 28px;}
+   .press-intro h2{ font-size: 28px; margin-bottom: 0;}
    .press-content{ width: 100%;}
    .press-cards{ flex-direction: row; gap: 20px;}
    .press-card{ flex: 0 0 100%; min-width: 100%; height: auto; min-height: 280px;}
