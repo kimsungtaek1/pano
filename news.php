@@ -67,16 +67,14 @@ include 'includes/header.php';
             <!-- 뉴스 상세 화면 -->
             <div id="detail-view" style="display: none;">
                 <div class="detail-header-row">
-                    <h2 id="detail-main-title">파노 성공사례</h2>
+                    <h2 id="detail-main-title">제목이 여기 들어갑니다</h2>
                     <button class="detail-type-btn" id="detail-type-badge">회생파산</button>
-                </div>
-
-                <div class="detail-title-row">
-                    <h3 id="detail-title">제목제목제목~~~~~</h3>
                 </div>
 
                 <div class="detail-images-row" id="detail-images-container">
                     <div class="detail-test-image"></div>
+                    <div class="detail-test-image"></div>
+                </div>
                     <div class="detail-test-image"></div>
                 </div>
 
@@ -207,36 +205,29 @@ function showDetail(id, tabType) {
                 return;
             }
 
-            // 메인 타이틀 (카테고리)
-            document.getElementById('detail-main-title').textContent = data.category;
+            // 메인 타이틀 (제목)
+            document.getElementById('detail-main-title').textContent = data.title;
 
             // 종류 버튼 (일단 카테고리 표시, 추후 변경 가능)
             document.getElementById('detail-type-badge').textContent = data.category === '최근 업무사례' ? '회생파산' : '언론보도';
-
-            // 제목
-            document.getElementById('detail-title').textContent = data.title;
 
             // 이미지 처리 (image_urls 필드에서 가져오기)
             const imagesContainer = document.getElementById('detail-images-container');
             imagesContainer.innerHTML = '';
 
             if (data.image_urls && data.image_urls.length > 0) {
-                // 이미지가 3개일 때는 처음 2개만 표시
-                const maxImages = data.image_urls.length === 3 ? 2 : data.image_urls.length;
-                for (let i = 0; i < maxImages; i++) {
+                // 모든 이미지 표시
+                data.image_urls.forEach((url, i) => {
                     const img = document.createElement('img');
-                    img.src = data.image_urls[i];
+                    img.src = url;
                     img.alt = data.title + ' 이미지 ' + (i + 1);
                     imagesContainer.appendChild(img);
-                }
+                });
             } else {
-                // 이미지가 없을 때 테스트 회색 이미지 2개 표시
-                const testImage1 = document.createElement('div');
-                testImage1.className = 'detail-test-image';
-                const testImage2 = document.createElement('div');
-                testImage2.className = 'detail-test-image';
-                imagesContainer.appendChild(testImage1);
-                imagesContainer.appendChild(testImage2);
+                // 이미지가 없을 때 테스트 회색 이미지 1개 표시
+                const testImage = document.createElement('div');
+                testImage.className = 'detail-test-image';
+                imagesContainer.appendChild(testImage);
             }
 
             // 하이라이트 박스 (본문에서 추출 또는 기본값)
