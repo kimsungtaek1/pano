@@ -424,22 +424,19 @@
     .team-grid{ flex-direction: column; gap: 20px;}
    .team-card{ width: 100%;}
     .member-main{ display: none;}
-   .member-main-mobile{ display: block; padding: 20px 0;}
-   .mobile-member-card{ display: flex; gap: 20px; align-items: flex-start; padding: 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);}
-   .mobile-member-photo{ flex: 0 0 120px; width: 120px; height: 150px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(24,38,80,0.2);}
-   .mobile-member-photo img{ width: 100%; height: 100%; object-fit: cover;}
-   .mobile-member-info{ flex: 1; display: flex; flex-direction: column; gap: 10px;}
-   .mobile-member-header{ display: flex; align-items: baseline; gap: 8px;}
-   .mobile-member-name{ font-family: 'Paperlogy', sans-serif; font-size: 24px; font-weight: 800; color: #182650; margin: 0;}
-   .mobile-member-title{ font-size: 14px; color: #666; font-weight: 500;}
-   .mobile-member-badge{ display: inline-block; background: #182650; color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 500;}
-   .mobile-member-expertise{ display: flex; flex-wrap: wrap; gap: 6px; margin-top: 5px;}
-   .mobile-expertise-tag{ background: #fff; color: #182650; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500; border: 1px solid #182650;}
-   .mobile-member-career{ background: #fff; border-radius: 12px; padding: 20px; margin-top: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);}
-   .mobile-career-title{ font-size: 14px; font-weight: 700; color: #182650; margin: 0 0 12px 0; padding-bottom: 8px; border-bottom: 2px solid #182650;}
-   .mobile-member-career ul{ list-style: none; padding: 0; margin: 0;}
-   .mobile-member-career li{ font-size: 13px; line-height: 1.8; color: #333; padding-left: 16px; position: relative;}
-   .mobile-member-career li:before{ content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #182650; border-radius: 50%;}
+   .member-main-mobile{ display: block; background: #fff;}
+   .member-main-mobile .mobile-member-photo{ width: 100%; position: relative;}
+   .member-main-mobile .mobile-member-photo img{ width: 100%; height: auto; display: block;}
+   .member-main-mobile .mobile-member-header{ padding: 15px 20px 10px; position: relative;}
+   .member-main-mobile .mobile-member-name{ font-family: 'Paperlogy', sans-serif; font-size: 28px; font-weight: 800; color: #000; margin: 0;}
+   .member-main-mobile .mobile-member-title{ font-size: 18px; font-weight: normal; color: #000; margin-left: 5px;}
+   .member-main-mobile .mobile-member-badge{ display: inline-block; background: #182650; color: #fff; padding: 8px 15px; border-radius: 8px; font-size: 14px; font-weight: 500; margin-top: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);}
+   .member-main-mobile .mobile-member-expertise{ display: flex; flex-wrap: wrap; gap: 8px; align-items: center; background: #182650; padding: 15px 20px; margin-top: 10px;}
+   .member-main-mobile .mobile-expertise-label{ font-size: 14px; font-weight: 500; color: #fff; margin-right: 5px;}
+   .member-main-mobile .mobile-expertise-btn{ padding: 6px 15px; background: transparent; border: 1px solid #fff; color: #fff; border-radius: 20px; font-size: 12px; cursor: pointer;}
+   .member-main-mobile .mobile-member-career{ list-style: none; padding: 20px; margin: 0; background: #fff;}
+   .member-main-mobile .mobile-member-career li{ font-size: 14px; line-height: 2; color: #333; padding-left: 15px; position: relative;}
+   .member-main-mobile .mobile-member-career li:before{ content: '·'; position: absolute; left: 0; color: #333; font-weight: bold;}
    .member-main-content{ flex-direction: column; gap: 20px;}
    .member-photo{ flex: 1; width: 100%;}
    .member-info{ padding: 20px 0; text-align: left;}

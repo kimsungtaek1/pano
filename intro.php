@@ -109,36 +109,35 @@ foreach ($members as $key => $member) {
 
                 <!-- 모바일용 대표 변호사 섹션 -->
                 <div class="member-main-mobile">
-                    <div class="mobile-member-card">
-                        <div class="mobile-member-photo">
-                            <img src="/images/person/main.png" alt="송동민 대표변호사">
-                        </div>
-                        <div class="mobile-member-info">
-                            <div class="mobile-member-header">
-                                <h2 class="mobile-member-name">송동민</h2>
-                                <span class="mobile-member-title">대표변호사</span>
-                            </div>
-                            <div class="mobile-member-badge">검사 · 한의사 역임 변호사</div>
-                            <div class="mobile-member-expertise">
-                                <span class="mobile-expertise-tag">성범죄</span>
-                                <span class="mobile-expertise-tag">마약</span>
-                                <span class="mobile-expertise-tag">학교폭력</span>
-                                <span class="mobile-expertise-tag">교통사고</span>
-                            </div>
-                        </div>
+                    <div class="mobile-member-photo">
+                        <img src="/images/person/main.png" alt="송동민 대표변호사">
                     </div>
-                    <div class="mobile-member-career">
-                        <h4 class="mobile-career-title">주요 경력</h4>
-                        <ul>
-                            <li>원광대학교 한의학과 졸업(전체 수석 입학)</li>
-                            <li>부산대학교 법학전문대학원 졸업</li>
-                            <li>변호사시험 8회</li>
-                            <li>의정부지검 검사(건축/부동산, 환경 등 전담)</li>
-                            <li>순천지청 검사(조세/관세, 서민 다중 범죄 전담)</li>
-                            <li>목포지청 검사(강력, 성폭력, 아동학대 등 전담)</li>
-                            <li>파노 법률사무소 대표 변호사(현)</li>
-                        </ul>
+                    <div class="mobile-member-header">
+                        <h2 class="mobile-member-name">송동민 <span class="mobile-member-title">대표변호사</span></h2>
+                        <div class="mobile-member-badge">검사·한의사 역임 변호사</div>
                     </div>
+                    <div class="mobile-member-expertise">
+                        <span class="mobile-expertise-label">전문분야  |</span>
+                        <button class="mobile-expertise-btn">성범죄</button>
+                        <button class="mobile-expertise-btn">마약</button>
+                        <button class="mobile-expertise-btn">학교폭력</button>
+                        <button class="mobile-expertise-btn">교통사고</button>
+                    </div>
+                    <ul class="mobile-member-career">
+                        <li>원광대학교 한의학과 졸업(원광대학교 전체 수석 입학)</li>
+                        <li>대한 공중보건 한 의사협의회 법제 이사</li>
+                        <li>전남 신안군 공중보건의/경기도 안성시 공중보건의</li>
+                        <li>한방병원/요양병원 한방과장</li>
+                        <li>부산대학교 법학전문대학원 졸업</li>
+                        <li>변호사시험 8회</li>
+                        <li>의정부지검 검사(건축/부동산, 환경 등 전담)</li>
+                        <li>순천지청 검사(조세/관세, 서민 다중 범죄, 사행/퇴폐, 스토킹 등 전담)</li>
+                        <li>목포지청 검사(강력, 성폭력, 가정폭력, 아동학대, 소년범죄, 조세/관세, 해양 등 전담)</li>
+                        <li>법률사무소 상산 대표 변호사(전)</li>
+                        <li>재외 동포 청 정보공개심의회 위원</li>
+                        <li>해운사, 의약외품 제조사 등 고문 변호사</li>
+                        <li>파노 법률사무소 대표 변호사(현)</li>
+                    </ul>
                 </div>
 
                 <!-- 전문 자문단 섹션 -->
