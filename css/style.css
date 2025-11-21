@@ -553,7 +553,16 @@
         right: 20px;
     }
 
+    .practice-header {
+        margin-bottom: 20px;
+    }
+
+    .practice-header h2 {
+        margin-bottom: 0;
+    }
+
     .practice-header .btn-more-wrapper {
+        margin-top: 0;
         justify-content: flex-end;
     }
 }
