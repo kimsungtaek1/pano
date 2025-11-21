@@ -413,6 +413,7 @@
    .detail-test-image{ max-width: 200px;}
    .detail-highlight-box{ font-size: 16px; padding: 15px;}
    .detail-body{ font-size: 14px;}
+   .photo-grid{ gap: 10px;}
 }
    .news-grid, .cases-grid{display: flex;flex-direction: column;gap: 15px;margin: 40px 0;}
  .case-card{background: #fff;border-top: 1px solid #ddd;border-bottom: none;border-left: none;border-right: none;padding: 15px 0;text-decoration: none;display: flex;flex-direction: row;gap: 45px;}
