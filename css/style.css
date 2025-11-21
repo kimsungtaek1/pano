@@ -599,4 +599,8 @@
         margin-top: 0;
         justify-content: flex-end;
     }
+
+    .field-grid-2col .field-item ul {
+        margin-left: 0;
+    }
 }
