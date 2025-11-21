@@ -398,7 +398,7 @@
    .consultation-form label{ font-size: 16px; padding-top: 0;}
    .consultation-form input,  .consultation-form textarea{ font-size: 16px; padding: 12px 15px;}
    .consultation-form .btn-submit{ font-size: 16px; padding: 12px 25px;}
-    footer{ padding: 40px 0 90px;}
+    footer{ padding: 20px 0 90px;}
    .footer-content{ flex-direction: column; align-items: flex-start; gap: 30px;}
    .footer-left,  .footer-right{ width: 100%;}
    .footer-logo img{ height: 40px;}
