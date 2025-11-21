@@ -335,7 +335,7 @@
   .mobile-menu nav li{ text-align: left;}
   .mobile-menu nav a{ text-align: left;}
   .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
-  .accordion-item .accordion-header::after{ content: ''; position: absolute; right: 8px; top: 50%; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-right: 1px solid #333; border-bottom: 1px solid #333; transition: transform 0.3s; z-index: 10; pointer-events: none;}
+  .accordion-item .accordion-header::after{ content: ''; position: absolute; right: 30px; top: 50%; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-right: 1px solid #333; border-bottom: 1px solid #333; transition: transform 0.3s; z-index: 10; pointer-events: none;}
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(-135deg);}
   .accordion-item.active > .accordion-header{ padding: 15px 0 0 0;}
   .accordion-content{ display: none; padding-left: 0;}
