@@ -502,9 +502,10 @@
     right: 40px;
     color: #ccc;
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 100;
     cursor: pointer;
     z-index: 2001;
+    transform: scaleX(0.7);
 }
 
 .modal-close:hover {
