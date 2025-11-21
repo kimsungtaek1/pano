@@ -1,8 +1,14 @@
     <!-- Fixed Bottom Button Bar (Mobile Only) -->
     <div class="fixed-bottom-buttons" id="fixedBottomButtons">
-        <button onclick="scrollToConsultation(event)" class="fixed-btn-left">상담신청</button>
+        <button onclick="scrollToConsultation(event)" class="fixed-btn-left">
+            <img src="/images/consutation.png" alt="상담신청">
+            <span>상담신청</span>
+        </button>
         <div class="fixed-btn-divider"></div>
-        <a href="tel:1551-8385" class="fixed-btn-right">전화바로연결</a>
+        <a href="tel:1551-8385" class="fixed-btn-right">
+            <img src="/images/phone.png" alt="전화">
+            <span>전화바로연결</span>
+        </a>
     </div>
 
     <!-- Floating Action Buttons -->
