@@ -433,7 +433,7 @@
     .member-main{ display: none;}
    .member-main-mobile{ display: block; background: #fff;}
    .member-main-mobile .mobile-member-photo{ width: 100%; position: relative;}
-   .member-main-mobile .mobile-member-photo img{ width: 100%; height: auto; display: block;}
+   .member-main-mobile .mobile-member-photo img{ width: 50%; height: auto; display: block; margin-left: auto;}
    .member-main-mobile .mobile-member-header{ padding: 15px 20px 10px; position: relative;}
    .member-main-mobile .mobile-member-name{ font-family: 'Paperlogy', sans-serif; font-size: 28px; font-weight: 800; color: #000; margin: 0;}
    .member-main-mobile .mobile-member-title{ font-size: 18px; font-weight: normal; color: #000; margin-left: 5px;}
