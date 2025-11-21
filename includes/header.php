@@ -88,6 +88,9 @@
                 <li><a href="/info.php">오시는길</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu-logo">
+            <img src="/images/logo.png" alt="PANO 법률사무소">
+        </div>
     </div>
 
     <script>
