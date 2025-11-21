@@ -174,7 +174,7 @@
    .fixed-btn-divider{ width: 1px; height: 60%; background: #e0e0e0; align-self: center;}
  }
    .intro-hero{ padding: 0; margin: 0; position: relative;}
-  .intro-hero img{ width: 100%; height: auto; display: block; max-height: 40vh; object-fit: cover;}
+  .intro-hero img{ width: 100%; height: 200px; display: block; max-height: 40vh; object-fit: cover;}
   .intro-hero-text-container{ position: absolute; bottom: 40px; left: 0; right: 0; z-index: 2;}
   .intro-hero-text{}
   .hero-subtitle{ font-size: 19px; font-weight: 300; color: #fff; margin: 0 0 10px 0; line-height: 1;}
