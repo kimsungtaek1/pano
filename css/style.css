@@ -250,14 +250,13 @@
   .card-header h3{ font-size: 24px; font-weight: bold; line-height: 1.5; color: #fff; margin: 0;}
   .card-body{ background: #fff; padding: 25px; flex: 1; overflow: hidden;}
   .card-body p{ font-size: 16px; color: #64748b; line-height: 1.8; margin: 0;}
-   .controls-wrapper{ display: flex; justify-content: space-between; align-items: center; margin: 40px 0 20px 0; padding: 0; width: 100%;}
-  .btn-more-wrapper{ margin-top: 0;}
+  .btn-more-wrapper{ margin-top: 40px;}
   .btn-more-link{ display: flex; align-items: center; gap: 10px; text-decoration: none;}
-  .btn-more-link span{ font-size: 14px; color: #000; font-weight: 300;}
+  .btn-more-link span{ font-size: 20px; color: #000; font-weight: 300;}
   .btn-circle-arrow{ width: 32px; height: 32px; border-radius: 50%; background: rgba(24, 38, 80, 1); border: none; color: #fff; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;}
   .btn-circle-arrow img{ width: 16px; height: 16px; object-fit: contain;}
   .btn-circle-arrow:hover{ background: rgba(24, 38, 80, 0.8); transform: scale(1.1);}
-   .slider-controls{ display: flex; gap: 10px;}
+   .slider-controls{ display: flex; gap: 10px; margin-bottom: 20px;}
   .slider-arrow{ width: 32px; height: 32px; border-radius: 50%; background: rgba(217, 217, 217, 1); border: 1px solid #e2e8f0; color: #1e293b; font-size: 18px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;}
   .slider-arrow img{ width: 16px; height: 16px; object-fit: contain;}
   .slider-arrow:hover{ background: #1e293b; color: #fff; border-color: #1e293b;}
@@ -349,7 +348,10 @@
    .success-content{ width: 100%;}
    .success-cards{ flex-direction: row; gap: 20px;}
    .success-card{ flex: 0 0 100%; min-width: 100%; height: auto; min-height: 280px;}
-   .controls-wrapper{ margin: 0;}
+   .controls-wrapper{ display: flex; justify-content: space-between; align-items: center; margin: 0;}
+   .btn-more-wrapper{ margin-top: 0;}
+   .btn-more-link span{ font-size: 14px;}
+   .slider-controls{ margin-bottom: 0;}
     .press-layout{ flex-direction: column; gap: 0;}
    .press-intro{ flex: 1; padding-top: 0; width: 100%;}
    .press-intro h2{ font-size: 28px;}
