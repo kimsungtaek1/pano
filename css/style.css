@@ -153,7 +153,7 @@
   .form-row-vertical{ margin-bottom: 25px; display: flex; align-items: flex-start; gap: 30px;}
   .consultation-form label{ color: #ffffff; font-size: 20px; font-weight: bold; white-space: nowrap; flex-shrink: 0;}
   .form-row-horizontal .form-field label{ margin: 0; min-width: 60px;}
-  .form-row-vertical label{ padding-top: 15px;}
+  .form-row-vertical label{ padding-top: 15px; min-width: 60px;}
   .form-row-button{ display: flex; justify-content: flex-end;}
     .consultation-form input, .consultation-form textarea{ width: 100%; padding: 15px 20px; border: none; border-radius: 4px; background: rgba(255, 255, 255, 0.9); color: #333; font-size: 20px; font-family: inherit; transition: all 0.3s;}
   .consultation-form input::placeholder, .consultation-form textarea::placeholder{ color: rgba(0, 0, 0, 0.5);}
