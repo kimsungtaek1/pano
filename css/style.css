@@ -186,6 +186,7 @@
   .intro-tab-btn:hover{ border-color: #182650; color: #182650;}
   .intro-tab-btn.active:hover{ color: #fff;}
    .intro-content-section{ padding: 0 0 80px; background: #fff;}
+  .intro-content-section .container{ padding: 0;}
   .intro-bg-container{ position: relative; width: 100%; height: auto;}
   .intro-bg-image{ display: block; width: 100%; height: auto;}
   .intro-text-overlay{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 20px 0 33px 20px; z-index: 1;}
