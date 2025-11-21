@@ -75,12 +75,7 @@
                         <li><a href="/intro.php?tab=members">구성원</a></li>
                     </ul>
                 </li>
-                <li class="accordion-item">
-                    <a href="#" class="accordion-header">업무소개</a>
-                    <ul class="accordion-content">
-                        <li><a href="/field.php">분야별 전문성</a></li>
-                    </ul>
-                </li>
+                <li><a href="/field.php">업무분야</a></li>
                 <li class="accordion-item">
                     <a href="#" class="accordion-header">소식/자료</a>
                     <ul class="accordion-content">
