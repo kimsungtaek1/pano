@@ -344,7 +344,7 @@
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(45deg);}
   .accordion-item.active > .accordion-header{ padding: 15px 0 0 0;}
   .accordion-content{ display: none; padding-left: 0;}
-  .accordion-item.active .accordion-content{ display: block; padding-bottom: 15px;}
+  .accordion-item.active .accordion-content{ display: block; padding-bottom: 0;}
   .accordion-content li{ border-bottom: none; padding: 15px 0;}
   .accordion-content a{ font-size: 16px; font-weight: 400; padding: 0; color: #666; text-align: left;}
   .mobile-menu-logo{ position: absolute; bottom: 20px; left: 0; right: 0; padding: 40px 20px 20px; text-align: center;}
