@@ -165,20 +165,14 @@
   .consultation-form .btn-submit:hover{ background: #1d4ed8; transform: translateY(-2px);}
     .consultation-form .btn-submit:disabled{ opacity: 0.6; cursor: not-allowed;}
    .fixed-bottom-buttons{ display: none;}
-
-/* Intro Hero - PC */
-.intro-hero { padding: 0; margin: 0; position: relative; }
-.intro-hero img { width: 100%; height: auto; display: block; }
-.intro-hero-text { position: absolute; bottom: 80px; left: 100px; z-index: 2; }
-.hero-subtitle { font-size: 38px; font-weight: 300; color: #fff; margin: 0 0 10px 0; line-height: 1; }
-.hero-title { font-size: 40px; font-weight: 900; color: #fff; margin: 0; line-height: 1; }
-
-@media (max-width: 768px){
+ 
+ @media (max-width: 768px){ 
    .fixed-bottom-buttons{ display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #fff; height: 80px; z-index: 999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);}
    .fixed-btn-left, .fixed-btn-right{ flex: 1; border: none; background: transparent; font-size: 14px; font-weight: 400; color: #000; cursor: pointer; text-decoration: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; transition: background 0.3s;}
    .fixed-btn-left img, .fixed-btn-right img{ height: 30px; width: auto;}
    .fixed-btn-left:active, .fixed-btn-right:active{ background: #f5f5f5;}
    .fixed-btn-divider{ width: 1px; height: 60%; background: #e0e0e0; align-self: center;}
+ }
    .intro-hero{ padding: 0; margin: 0; position: relative;}
   .intro-hero img{ width: 100%; height: 180px; display: block; max-height: 40vh; object-fit: cover;}
   .intro-hero-text-container{ position: absolute; bottom: 40px; left: 0; right: 0; z-index: 2;}
@@ -359,7 +353,6 @@
   .mobile-menu-logo img{ height: 40px; width: auto; margin: 0 auto;}
   .mobile-menu-overlay{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999;}
   .mobile-menu-overlay.active{ display: block;}
-}
    @media (max-width: 1200px){ nav ul{ gap: 60px; min-width: 400px;}
    nav a{ font-size: 15px;}
 }
@@ -433,7 +426,7 @@
     .member-main{ display: none;}
    .member-main-mobile{ display: block; background: #fff;}
    .member-main-mobile .mobile-member-photo{ width: 100%; position: relative;}
-   .member-main-mobile .mobile-member-photo img{ width: 50%; height: auto; display: block; margin-left: auto;}
+   .member-main-mobile .mobile-member-photo img{ width: 100%; height: auto; display: block;}
    .member-main-mobile .mobile-member-header{ padding: 15px 20px 10px; position: relative;}
    .member-main-mobile .mobile-member-name{ font-family: 'Paperlogy', sans-serif; font-size: 28px; font-weight: 800; color: #000; margin: 0;}
    .member-main-mobile .mobile-member-title{ font-size: 18px; font-weight: normal; color: #000; margin-left: 5px;}
