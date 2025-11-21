@@ -385,7 +385,7 @@
    .practice-grid{ grid-template-columns: repeat(2, 1fr); gap: 15px;}
    .practice-icon{ width: 80px; height: 80px;}
    .practice-card h3{ font-size: 16px;}
-    .consultation{ padding: 60px 0 40px;}
+    .consultation{ padding: 20px 0;}
    .consultation-wrapper{ flex-direction: column; gap: 30px;}
    .consultation-text{ min-width: 100%; text-align: left;}
    .consultation-text h2{ font-size: 28px;}
