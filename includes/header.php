@@ -65,9 +65,7 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="닫기">
-            <span class="arrow-left"></span>
-        </button>
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="닫기">×</button>
         <nav>
             <ul>
                 <li class="accordion-item">

@@ -364,7 +364,8 @@
    .hero{ height: 400px;}
    .hero-logo{ max-width: 250px; width: 70%;}
    .hero-content{ bottom: 20px; right: 20px;}
-    .success-layout{ flex-direction: column; gap: 0;}
+    .success-stories{ padding: 40px 0;}
+   .success-layout{ flex-direction: column; gap: 0;}
    .success-intro{ flex: 1; padding-top: 0; width: 100%;}
    .success-intro h2{ font-size: 28px;}
    .success-content{ width: 100%;}
@@ -374,7 +375,8 @@
    .btn-more-wrapper{ margin-top: 0;}
    .btn-more-link span{ font-size: 14px;}
    .slider-controls{ margin-bottom: 0;}
-    .press-layout{ flex-direction: column; gap: 0;}
+    .press-coverage{ padding: 40px 0;}
+   .press-layout{ flex-direction: column; gap: 0;}
    .press-intro{ flex: 1; padding-top: 0; width: 100%;}
    .press-intro h2{ font-size: 28px; margin-bottom: 0;}
    .press-content{ width: 100%;}
