@@ -362,7 +362,7 @@
    .hero{ height: 400px;}
    .hero-logo{ max-width: 250px; width: 70%;}
    .hero-content{ bottom: 20px; right: 20px;}
-    .success-stories{ padding: 40px 0;}
+    .success-stories{ padding: 40px 0 20px 0;}
    .success-layout{ flex-direction: column; gap: 0;}
    .success-intro{ flex: 1; padding-top: 0; width: 100%;}
    .success-intro h2{ font-size: 28px;}
