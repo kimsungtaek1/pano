@@ -337,8 +337,9 @@
   .accordion-item .accordion-header{ position: relative; padding-right: 30px;}
   .accordion-item .accordion-header::after{ content: ''; position: absolute; right: 8px; top: 50%; transform: translateY(-50%) rotate(45deg); width: 8px; height: 8px; border-right: 1px solid #333; border-bottom: 1px solid #333; transition: transform 0.3s; z-index: 10; pointer-events: none;}
   .accordion-item.active .accordion-header::after{ transform: translateY(-50%) rotate(-135deg);}
+  .accordion-item.active > .accordion-header{ padding: 15px 0 0 0;}
   .accordion-content{ display: none; padding-left: 0;}
-  .accordion-item.active .accordion-content{ display: block;}
+  .accordion-item.active .accordion-content{ display: block; padding-bottom: 15px;}
   .accordion-content li{ border-bottom: none;}
   .accordion-content a{ font-size: 15px; font-weight: 400; padding: 10px 0; color: #666; text-align: left;}
   .mobile-menu-overlay{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.5); z-index: 999;}
