@@ -76,13 +76,18 @@
                     </ul>
                 </li>
                 <li class="accordion-item">
+                    <a href="#" class="accordion-header">업무소개</a>
+                    <ul class="accordion-content">
+                        <li><a href="/field.php">분야별 전문성</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-item">
                     <a href="#" class="accordion-header">소식/자료</a>
                     <ul class="accordion-content">
                         <li><a href="/news.php?tab=cases">파노성공사례</a></li>
                         <li><a href="/news.php?tab=press">언론보도</a></li>
                     </ul>
                 </li>
-                <li><a href="/news.php?tab=press">언론보도</a></li>
                 <li><a href="/info.php">오시는길</a></li>
             </ul>
         </nav>
