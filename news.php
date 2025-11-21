@@ -73,9 +73,6 @@ include 'includes/header.php';
 
                 <div class="detail-images-row" id="detail-images-container">
                     <div class="detail-test-image"></div>
-                    <div class="detail-test-image"></div>
-                </div>
-                    <div class="detail-test-image"></div>
                 </div>
 
                 <div class="detail-highlight-box" id="detail-highlight">
