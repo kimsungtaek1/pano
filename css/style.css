@@ -249,7 +249,7 @@
   .card-tag{ display: inline-block; background: #fff; color: #1e293b; font-size: 14px; font-weight: 600; padding: 6px 12px; border-radius: 20px; margin-bottom: 15px;}
   .card-header h3{ font-size: 24px; font-weight: bold; line-height: 1.5; color: #fff; margin: 0;}
   .card-body{ background: #fff; padding: 25px; flex: 1; overflow: hidden;}
-  .card-body p{ font-size: 16px; color: #64748b; line-height: 1.8; margin: 0;}
+  .card-body p{ font-size: 16px; color: #64748b; line-height: 1.8; margin: 0; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;}
   .btn-more-wrapper{ margin-top: 80px;}
   .btn-more-link{ display: flex; align-items: center; gap: 10px; text-decoration: none;}
   .btn-more-link span{ font-size: 20px; color: #000; font-weight: 300;}
