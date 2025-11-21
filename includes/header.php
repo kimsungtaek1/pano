@@ -66,7 +66,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu-close" id="mobileMenuClose" aria-label="닫기">
-            <span>&times;</span>
+            <span class="arrow-left"></span>
         </button>
         <nav>
             <ul>
