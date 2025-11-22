@@ -2976,6 +2976,7 @@
 
      .intro-hero img {
          height: 150px;
+         object-fit: cover;
      }
 
      .intro-hero-text-container {
