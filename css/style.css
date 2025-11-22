@@ -1389,6 +1389,7 @@
      height: 50px;
      z-index: 10;
      background: transparent;
+     opacity: 0.4;
  }
 
  .section-title {
