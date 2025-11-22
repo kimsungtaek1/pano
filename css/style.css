@@ -2752,7 +2752,7 @@
 
      .mobile-member-name {
          font-family: 'Paperlogy', sans-serif;
-         font-size: 30px;
+         font-size: 24px;
          font-weight: 800;
          color: #000;
          margin: 0 0 5px 0;
@@ -2761,7 +2761,7 @@
 
      .mobile-member-title {
          font-family: 'Pretendard', sans-serif;
-         font-size: 18px;
+         font-size: 16px;
          font-weight: 400;
          color: #333;
          margin-left: 0;
@@ -2773,7 +2773,7 @@
          color: #fff;
          padding: 6px 12px;
          border-radius: 4px;
-         font-size: 15px;
+         font-size: 13px;
          font-weight: 500;
          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
      }
