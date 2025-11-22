@@ -56,13 +56,13 @@ include 'includes/header.php';
     <section class="building-photos">
         <div class="container">
             <div class="photo-grid">
-                <div class="photo-card" onclick="openModal(0)">
+                <div class="photo-card" data-index="0">
                     <img src="/images/comming1.png" alt="사무실 사진 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
                 </div>
-                <div class="photo-card" onclick="openModal(1)">
+                <div class="photo-card" data-index="1">
                     <img src="/images/comming2.png" alt="사무실 사진 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
                 </div>
-                <div class="photo-card" onclick="openModal(2)">
+                <div class="photo-card" data-index="2">
                     <img src="/images/comming3.png" alt="사무실 사진 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
                 </div>
             </div>
@@ -146,6 +146,16 @@ include 'includes/header.php';
         modalImg.src = images[currentImageIndex];
         document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
     }
+
+    // photo-card 클릭 이벤트 (모바일 터치 지원)
+    document.querySelectorAll('.photo-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const index = parseInt(this.getAttribute('data-index'));
+            openModal(index);
+        });
+    });
 
     function closeModal() {
         const modal = document.getElementById('imageModal');
