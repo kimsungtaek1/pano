@@ -32,7 +32,7 @@ include 'includes/header.php';
         <div class="container">
             <div class="info-row">
                 <div class="info-label">오시는길</div>
-                <div class="info-value">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩) (교대역 14번 출구에서 215m)</div>
+                <div class="info-value">서울특별시 서초구 반포대로28길 63, 3층(남양빌딩) <br class="mobile-br">(교대역 14번 출구에서 215m)</div>
             </div>
 
             <div class="info-row">

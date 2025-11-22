@@ -109,12 +109,15 @@ foreach ($members as $key => $member) {
 
                 <!-- 모바일용 대표 변호사 섹션 -->
                 <div class="member-main-mobile">
-                    <div class="mobile-member-photo">
-                        <img src="/images/person/main.png" alt="송동민 대표변호사">
-                    </div>
-                    <div class="mobile-member-header">
-                        <h2 class="mobile-member-name">송동민 <span class="mobile-member-title">대표변호사</span></h2>
-                        <div class="mobile-member-badge">검사·한의사 역임 변호사</div>
+                    <div class="mobile-top-section">
+                        <img src="/images/person_logo.svg" alt="PANO" class="mobile-logo">
+                        <div class="mobile-member-info">
+                            <h2 class="mobile-member-name">송동민 <span class="mobile-member-title">대표변호사</span></h2>
+                            <div class="mobile-member-badge">검사·한의사 역임 변호사</div>
+                        </div>
+                        <div class="mobile-member-photo">
+                            <img src="/images/person/main.png" alt="송동민 대표변호사">
+                        </div>
                     </div>
                     <div class="mobile-member-expertise">
                         <span class="mobile-expertise-label">전문분야  |</span>
@@ -123,26 +126,28 @@ foreach ($members as $key => $member) {
                         <button class="mobile-expertise-btn">학교폭력</button>
                         <button class="mobile-expertise-btn">교통사고</button>
                     </div>
-                    <ul class="mobile-member-career">
-                        <li>원광대학교 한의학과 졸업(원광대학교 전체 수석 입학)</li>
-                        <li>대한 공중보건 한 의사협의회 법제 이사</li>
-                        <li>전남 신안군 공중보건의/경기도 안성시 공중보건의</li>
-                        <li>한방병원/요양병원 한방과장</li>
-                        <li>부산대학교 법학전문대학원 졸업</li>
-                        <li>변호사시험 8회</li>
-                        <li>의정부지검 검사(건축/부동산, 환경 등 전담)</li>
-                        <li>순천지청 검사(조세/관세, 서민 다중 범죄, 사행/퇴폐, 스토킹 등 전담)</li>
-                        <li>목포지청 검사(강력, 성폭력, 가정폭력, 아동학대, 소년범죄, 조세/관세, 해양 등 전담)</li>
-                        <li>법률사무소 상산 대표 변호사(전)</li>
-                        <li>재외 동포 청 정보공개심의회 위원</li>
-                        <li>해운사, 의약외품 제조사 등 고문 변호사</li>
-                        <li>파노 법률사무소 대표 변호사(현)</li>
-                    </ul>
+                    <div class="mobile-bottom-section">
+                        <ul class="mobile-member-career">
+                            <li>원광대학교 한의학과 졸업(원광대학교 전체 수석 입학)</li>
+                            <li>대한 공중보건 한 의사협의회 법제 이사</li>
+                            <li>전남 신안군 공중보건의/경기도 안성시 공중보건의</li>
+                            <li>한방병원/요양병원 한방과장</li>
+                            <li>부산대학교 법학전문대학원 졸업</li>
+                            <li>변호사시험 8회</li>
+                            <li>의정부지검 검사(건축/부동산, 환경 등 전담)</li>
+                            <li>순천지청 검사(조세/관세, 서민 다중 범죄, 사행/퇴폐, 스토킹 등 전담)</li>
+                            <li>목포지청 검사(강력, 성폭력, 가정폭력, 아동학대, 소년범죄, 조세/관세, 해양 등 전담)</li>
+                            <li>법률사무소 상산 대표 변호사(전)</li>
+                            <li>재외 동포 청 정보공개심의회 위원</li>
+                            <li>해운사, 의약외품 제조사 등 고문 변호사</li>
+                            <li>파노 법률사무소 대표 변호사(현)</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- 전문 자문단 섹션 -->
                 <div class="advisory-team">
-                    <h2 class="section-title">전문 자문단</h2>
+                    <h2 class="section-title advisory-team-title">전문 자문단</h2>
                     <!-- 첫 번째 줄: 3명 -->
                     <div class="team-grid team-grid-3">
                         <?php for ($i = 0; $i < 3 && $i < count($members); $i++):

@@ -49,7 +49,7 @@
                             </li>
                             <li></li>
                             <li>
-                                <a href="/news.php?tab=cases">파노성공사례</a>
+                                <a href="/news.php?tab=cases">파노 성공사례</a>
                                 <a href="/news.php?tab=press">언론보도</a>
                             </li>
                             <li></li>
@@ -79,7 +79,7 @@
                 <li class="accordion-item">
                     <a href="#" class="accordion-header">소식/자료</a>
                     <ul class="accordion-content">
-                        <li><a href="/news.php?tab=cases">파노성공사례</a></li>
+                        <li><a href="/news.php?tab=cases">파노 성공사례</a></li>
                         <li><a href="/news.php?tab=press">언론보도</a></li>
                     </ul>
                 </li>
