@@ -56,26 +56,18 @@ include 'includes/header.php';
     <section class="building-photos">
         <div class="container">
             <div class="photo-grid">
-                <div class="photo-card" data-index="0">
-                    <img src="/images/comming1.png" alt="사무실 사진 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
+                <div class="photo-card">
+                    <img src="/images/comming1.png" alt="사무실 사진 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
-                <div class="photo-card" data-index="1">
-                    <img src="/images/comming2.png" alt="사무실 사진 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
+                <div class="photo-card">
+                    <img src="/images/comming2.png" alt="사무실 사진 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
-                <div class="photo-card" data-index="2">
-                    <img src="/images/comming3.png" alt="사무실 사진 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px; cursor: pointer;">
+                <div class="photo-card">
+                    <img src="/images/comming3.png" alt="사무실 사진 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 이미지 모달 -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="modal-close">&times;</span>
-        <button class="modal-prev" onclick="event.stopPropagation(); changeSlide(-1)">&#10094;</button>
-        <img class="modal-content" id="modalImage" onclick="event.stopPropagation()">
-        <button class="modal-next" onclick="event.stopPropagation(); changeSlide(1)">&#10095;</button>
-    </div>
 </main>
 
 <?php include 'includes/footer.php'; ?>
@@ -130,66 +122,4 @@ include 'includes/header.php';
         initMap();
     }
 
-    // 이미지 모달 관련 코드
-    const images = [
-        '/images/comming1.png',
-        '/images/comming2.png',
-        '/images/comming3.png'
-    ];
-    let currentImageIndex = 0;
-
-    function openModal(index) {
-        currentImageIndex = index;
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImage');
-        modal.style.display = 'flex';
-        modalImg.src = images[currentImageIndex];
-        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
-    }
-
-    // photo-card 클릭 이벤트 (모바일 터치 지원)
-    document.querySelectorAll('.photo-card').forEach(card => {
-        card.style.cursor = 'pointer';
-        card.addEventListener('click', function(e) {
-            e.preventDefault();
-            const index = parseInt(this.getAttribute('data-index'));
-            openModal(index);
-        });
-    });
-
-    function closeModal() {
-        const modal = document.getElementById('imageModal');
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // 배경 스크롤 복원
-    }
-
-    function changeSlide(direction) {
-        currentImageIndex += direction;
-        if (currentImageIndex < 0) {
-            currentImageIndex = images.length - 1;
-        } else if (currentImageIndex >= images.length) {
-            currentImageIndex = 0;
-        }
-        const modalImg = document.getElementById('modalImage');
-        modalImg.src = images[currentImageIndex];
-    }
-
-    // ESC 키로 모달 닫기
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            closeModal();
-        }
-    });
-
-    // 좌우 화살표 키로 슬라이드
-    document.addEventListener('keydown', function(event) {
-        const modal = document.getElementById('imageModal');
-        if (modal.style.display === 'flex') {
-            if (event.key === 'ArrowLeft') {
-                changeSlide(-1);
-            } else if (event.key === 'ArrowRight') {
-                changeSlide(1);
-            }
-        }
-    });
 </script>
