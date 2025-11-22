@@ -3026,6 +3026,10 @@
      .intro-bg-image {
          content: url('/images/intro_2x.png');
      }
+
+     .team-specialty li {
+         font-size: 10px;
+     }
  }
 
  .news-grid,
