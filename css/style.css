@@ -2684,18 +2684,23 @@
      }
 
      .intro-content-section {
-         padding: 0;
-     }
+        padding: 0;
+    }
 
-     .field-grid-2col,
+    /* 구성원 탭 활성화 시 컨테이너 패딩 제거 */
+    .intro-content-section .container:has(#tab-members.active) {
+        padding: 0;
+    }
+
+    .field-grid-2col,
      .field-grid-3col {
          grid-template-columns: 1fr;
      }
 
      .team-grid {
-         flex-direction: column;
-         gap: 20px;
-         padding: 0 25px;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
      }
 
      .team-card {
