@@ -3435,8 +3435,17 @@
      }
 
      .field-grid-2col .field-item ul {
-         order: 4;
-         padding-left: 20px;
-         margin-left: 0;
-     }
- }
+        order: 4;
+        padding-left: 20px;
+        margin-left: 0;
+    }
+
+    /* field-grid-3col 모바일 글자 크기 (field-grid-2col과 동일) */
+    .field-grid-3col .field-item h2 {
+        font-size: 18px;
+    }
+
+    .field-grid-3col .field-item li {
+        font-size: 15px;
+    }
+}
