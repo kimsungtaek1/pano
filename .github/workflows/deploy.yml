@@ -13,22 +13,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_REMOTE_DIR }}
-          exclude: |
-            **/.git*
-            **/.git*/**
-            .env
-            deploy.sh
-            README.md
-            .gitignore
-            database/**
-            .github/**
-            .agent/**
-            .serena/**
-            admin/**
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
+      - name: Deploy via FTP
+        run: |
+          lftp -e "
+            set ssl:verify-certificate no;
+            set ftp:passive-mode true;
+            open ftp://${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}@${{ secrets.FTP_HOST }};
+            mirror --reverse --only-newer --verbose \
+              --exclude .git/ \
+              --exclude .env \
+              --exclude deploy.sh \
+              --exclude README.md \
+              --exclude .gitignore \
+              --exclude database/ \
+              --exclude .github/ \
+              --exclude .agent/ \
+              --exclude .serena/ \
+              --exclude admin/ \
+              ./ ${{ secrets.FTP_REMOTE_DIR }};
+            bye
+          "
