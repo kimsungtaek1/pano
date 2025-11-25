@@ -3311,6 +3311,12 @@
          gap: 10px;
          padding: 0;
      }
+
+     .news-grid,
+     .cases-grid {
+         border-bottom: 1px solid #ddd;
+         padding-bottom: 20px;
+     }
  }
 
  .case-card .thumbnail {
