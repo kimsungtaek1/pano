@@ -68,7 +68,7 @@
                     <div class="field-content">
                         <div class="field-header-row">
                             <h2>금융·경제</h2>
-                            <p class="field-subtitle-text">금융·경제사건 전담 검사로 재직하며<br>축적한 경험을 바탕으로 법률 대응을 지원합니다.</p>
+                            <p class="field-subtitle-text">금융·경제사건 전담 검사로 재직하며<br>축적한 경험을 바탕으로<br class="mobile-br"> 법률 대응을 지원합니다.</p>
                         </div>
                         <hr class="field-divider">
                         <ul>
