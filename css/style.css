@@ -3306,10 +3306,10 @@
 
      .case-card {
          flex-direction: column;
-         gap: 10px;
+         gap: 0;
          padding: 0;
-         margin-top: 15px;
-         padding-top: 15px;
+         margin-top: 20px;
+         padding-top: 20px;
      }
  }
 
