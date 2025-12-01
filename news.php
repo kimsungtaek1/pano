@@ -72,17 +72,7 @@ include 'includes/header.php';
                 </div>
 
                 <div class="detail-slider-container" id="detail-slider-container" style="display: none;">
-                    <div class="detail-slider">
-                        <button class="slider-btn slider-prev" onclick="slideImage(-1)">&#10094;</button>
-                        <div class="slider-image-wrapper">
-                            <img id="slider-image" src="" alt="">
-                        </div>
-                        <button class="slider-btn slider-next" onclick="slideImage(1)">&#10095;</button>
-                    </div>
-                    <div class="slider-counter">
-                        <span id="slider-current">1</span> / <span id="slider-total">1</span>
-                    </div>
-                    <div class="slider-thumbnails" id="slider-thumbnails"></div>
+                    <div class="detail-slider-track" id="detail-slider-track"></div>
                 </div>
 
                 <div class="detail-highlight-box" id="detail-highlight" style="display: none;"></div>
@@ -244,43 +234,26 @@ function showDetail(id, tabType) {
 
             // 이미지 슬라이더 처리
             const sliderContainer = document.getElementById('detail-slider-container');
-            const sliderImage = document.getElementById('slider-image');
-            const sliderThumbnails = document.getElementById('slider-thumbnails');
+            const sliderTrack = document.getElementById('detail-slider-track');
 
             // 슬라이더용 이미지 배열 저장
             window.currentImages = data.image_urls || [];
-            window.currentSlideIndex = 0;
 
             if (data.image_urls && data.image_urls.length > 0) {
                 sliderContainer.style.display = 'block';
 
-                // 첫 번째 이미지 표시
-                sliderImage.src = data.image_urls[0];
-                sliderImage.alt = data.title;
-                document.getElementById('slider-current').textContent = '1';
-                document.getElementById('slider-total').textContent = data.image_urls.length;
-
-                // 썸네일 생성
-                sliderThumbnails.innerHTML = '';
+                // 이미지 요소 생성
+                sliderTrack.innerHTML = '';
                 data.image_urls.forEach((url, i) => {
-                    const thumb = document.createElement('img');
-                    thumb.src = url;
-                    thumb.alt = '썸네일 ' + (i + 1);
-                    thumb.className = i === 0 ? 'active' : '';
-                    thumb.onclick = function() { goToSlide(i); };
-                    sliderThumbnails.appendChild(thumb);
+                    const img = document.createElement('img');
+                    img.src = url;
+                    img.alt = data.title + ' 이미지 ' + (i + 1);
+                    img.onclick = function() { openLightbox(i); };
+                    sliderTrack.appendChild(img);
                 });
 
-                // 이미지가 1개면 버튼 숨기기
-                const prevBtn = document.querySelector('.slider-prev');
-                const nextBtn = document.querySelector('.slider-next');
-                if (data.image_urls.length <= 1) {
-                    prevBtn.style.display = 'none';
-                    nextBtn.style.display = 'none';
-                } else {
-                    prevBtn.style.display = 'block';
-                    nextBtn.style.display = 'block';
-                }
+                // 드래그 슬라이더 초기화
+                initDragSlider();
             } else {
                 sliderContainer.style.display = 'none';
             }
@@ -355,37 +328,57 @@ function hideDetail() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// 슬라이더 관련 함수
-function slideImage(direction) {
-    if (!window.currentImages || window.currentImages.length === 0) return;
+// 드래그 슬라이더 관련 함수
+function initDragSlider() {
+    const track = document.getElementById('detail-slider-track');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-    window.currentSlideIndex += direction;
-
-    // 순환
-    if (window.currentSlideIndex < 0) {
-        window.currentSlideIndex = window.currentImages.length - 1;
-    } else if (window.currentSlideIndex >= window.currentImages.length) {
-        window.currentSlideIndex = 0;
-    }
-
-    updateSlider();
-}
-
-function goToSlide(index) {
-    window.currentSlideIndex = index;
-    updateSlider();
-}
-
-function updateSlider() {
-    const sliderImage = document.getElementById('slider-image');
-    sliderImage.src = window.currentImages[window.currentSlideIndex];
-    document.getElementById('slider-current').textContent = window.currentSlideIndex + 1;
-
-    // 썸네일 active 상태 업데이트
-    const thumbnails = document.querySelectorAll('.slider-thumbnails img');
-    thumbnails.forEach((thumb, i) => {
-        thumb.className = i === window.currentSlideIndex ? 'active' : '';
+    // 마우스 이벤트
+    track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        track.classList.add('dragging');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+        e.preventDefault();
     });
+
+    track.addEventListener('mouseleave', () => {
+        isDown = false;
+        track.classList.remove('dragging');
+    });
+
+    track.addEventListener('mouseup', () => {
+        isDown = false;
+        track.classList.remove('dragging');
+    });
+
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    // 터치 이벤트 (모바일)
+    track.addEventListener('touchstart', (e) => {
+        isDown = true;
+        startX = e.touches[0].pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    }, { passive: true });
+
+    track.addEventListener('touchend', () => {
+        isDown = false;
+    });
+
+    track.addEventListener('touchmove', (e) => {
+        if (!isDown) return;
+        const x = e.touches[0].pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        track.scrollLeft = scrollLeft - walk;
+    }, { passive: true });
 }
 
 // 라이트박스 관련 변수 및 함수
