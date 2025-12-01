@@ -7,7 +7,7 @@ $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $per_page = 9;
 $offset = ($page - 1) * $per_page;
 
-$where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
+$where_sql = "WHERE is_published = 1 AND category = '파노 성공사례'";
 
 $count_sql = "SELECT COUNT(*) FROM news $where_sql";
 $total = $pdo->query($count_sql)->fetchColumn();

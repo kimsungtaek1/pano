@@ -101,9 +101,8 @@ if (isset($_GET['delete'])) {
                     <input type="text" name="search" placeholder="제목 또는 내용 검색" value="<?php echo htmlspecialchars($search); ?>">
                     <select name="category">
                         <option value="">전체 카테고리</option>
-                        <option value="최근 업무사례" <?php echo $category === '최근 업무사례' ? 'selected' : ''; ?>>최근 업무사례</option>
+                        <option value="파노 성공사례" <?php echo $category === '파노 성공사례' ? 'selected' : ''; ?>>파노 성공사례</option>
                         <option value="언론보도" <?php echo $category === '언론보도' ? 'selected' : ''; ?>>언론보도</option>
-                        <option value="한경BUSINESS" <?php echo $category === '한경BUSINESS' ? 'selected' : ''; ?>>한경BUSINESS</option>
                     </select>
                     <button type="submit" class="btn btn-secondary">검색</button>
                     <a href="news_list.php" class="btn btn-secondary">초기화</a>

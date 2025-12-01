@@ -1,8 +1,8 @@
 <?php
 include 'includes/db.php';
 
-// 성공사례 (최근 업무사례) - 최신 6개
-$success_sql = "SELECT * FROM news WHERE is_published = 1 AND category = '최근 업무사례' ORDER BY news_date DESC, created_at DESC LIMIT 6";
+// 성공사례 (파노 성공사례) - 최신 6개
+$success_sql = "SELECT * FROM news WHERE is_published = 1 AND category = '파노 성공사례' ORDER BY news_date DESC, created_at DESC LIMIT 6";
 $success_list = $pdo->query($success_sql)->fetchAll();
 
 // 언론보도 - 최신 6개

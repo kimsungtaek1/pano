@@ -11,7 +11,7 @@ $cases_page = isset($_GET['cases_page']) ? (int)$_GET['cases_page'] : 1;
 $cases_per_page = 9;
 $cases_offset = ($cases_page - 1) * $cases_per_page;
 
-$cases_where_sql = "WHERE is_published = 1 AND category = '최근 업무사례'";
+$cases_where_sql = "WHERE is_published = 1 AND category = '파노 성공사례'";
 
 $cases_count_sql = "SELECT COUNT(*) FROM news $cases_where_sql";
 $cases_total = $pdo->query($cases_count_sql)->fetchColumn();
