@@ -40,59 +40,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $subtitle = $_POST['subtitle'] ?? '';
     $news_date = $_POST['news_date'] ?? '';
     $is_published = isset($_POST['is_published']) ? 1 : 0;
-    
-    // 이미지 파일 업로드 처리 (최대 5개)
-    $image_urls = [];
-    $upload_dir = '../uploads/news/';
 
-    // 업로드 디렉토리 생성 (없으면)
-    if (!is_dir($upload_dir)) {
-        mkdir($upload_dir, 0755, true);
+    // 이미지는 이미 즉시 업로드/삭제로 처리되므로, 기존 DB 값 유지
+    // 수정 모드일 경우 현재 DB의 image_urls를 그대로 사용
+    $image_urls_json = null;
+    if ($is_edit) {
+        // 수정 시에는 DB에서 현재 image_urls 가져오기 (이미 upload_image.php와 delete_image.php로 업데이트됨)
+        $stmt = $pdo->prepare("SELECT image_urls FROM news WHERE id = ?");
+        $stmt->execute([$id]);
+        $current = $stmt->fetch();
+        $image_urls_json = $current['image_urls'] ?? '[]';
+    } else {
+        // 새 글 작성 시에는 빈 배열로 시작 (저장 후 이미지 추가)
+        $image_urls_json = '[]';
     }
-
-    // 기존 이미지 유지
-    for ($i = 1; $i <= 5; $i++) {
-        $existing_image = $_POST["existing_image_$i"] ?? '';
-        $delete_image = isset($_POST["delete_image_$i"]);
-
-        // URL 경로를 서버 파일 경로로 변환
-        $existing_file_path = $existing_image ? '..' . $existing_image : '';
-
-        // 삭제 체크가 되어있으면 스킵
-        if ($delete_image && $existing_image) {
-            // 실제 파일 삭제
-            if ($existing_file_path && file_exists($existing_file_path)) {
-                @unlink($existing_file_path);
-            }
-            continue;
-        }
-
-        // 새 파일 업로드 확인
-        if (isset($_FILES["image_$i"]) && $_FILES["image_$i"]['error'] === UPLOAD_ERR_OK) {
-            $file = $_FILES["image_$i"];
-            $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = ['jpg', 'jpeg', 'png', 'webp'];
-
-            if (in_array($extension, $allowed)) {
-                $filename = uniqid() . '_' . time() . '.' . $extension;
-                $filepath = $upload_dir . $filename;
-
-                if (move_uploaded_file($file['tmp_name'], $filepath)) {
-                    $image_urls[] = '/uploads/news/' . $filename;
-
-                    // 기존 파일이 있으면 삭제
-                    if ($existing_file_path && file_exists($existing_file_path)) {
-                        @unlink($existing_file_path);
-                    }
-                }
-            }
-        } elseif ($existing_image) {
-            // 새 파일이 없으면 기존 이미지 유지
-            $image_urls[] = $existing_image;
-        }
-    }
-
-    $image_urls_json = json_encode($image_urls, JSON_UNESCAPED_UNICODE);
 
     // 유효성 검사
     if (empty($category) || empty($title) || empty($content) || empty($news_date)) {
@@ -231,33 +192,31 @@ if (isset($_GET['success'])) {
 
                 <div class="form-group">
                     <label>이미지 업로드 (최대 5개)</label>
-                    <div class="image-upload-container">
-                        <?php
-                        $existing_urls = [];
-                        if (isset($news) && isset($news['image_urls']) && !empty($news['image_urls'])) {
-                            $decoded = json_decode($news['image_urls'], true);
-                            if (is_array($decoded)) {
-                                $existing_urls = $decoded;
+                    <div class="image-upload-section">
+                        <div class="image-list" id="image-list">
+                            <?php
+                            $existing_urls = [];
+                            if (isset($news) && isset($news['image_urls']) && !empty($news['image_urls'])) {
+                                $decoded = json_decode($news['image_urls'], true);
+                                if (is_array($decoded)) {
+                                    $existing_urls = $decoded;
+                                }
                             }
-                        }
-                        for ($i = 1; $i <= 5; $i++):
-                            $existing_image = $existing_urls[$i - 1] ?? '';
-                        ?>
-                        <div class="image-upload-row">
-                            <span class="upload-number"><?php echo $i; ?>.</span>
-                            <input type="file" name="image_<?php echo $i; ?>" accept="image/*" class="image-file-input">
-                            <?php if ($existing_image): ?>
-                                <div class="existing-image" id="existing-image-<?php echo $i; ?>">
-                                    <img src="<?php echo htmlspecialchars($existing_image); ?>" alt="이미지 <?php echo $i; ?>">
-                                    <button type="button" class="btn-delete-image" onclick="deleteImage(<?php echo $id ?? 0; ?>, '<?php echo htmlspecialchars($existing_image); ?>', <?php echo $i; ?>)">삭제</button>
-                                    <input type="hidden" name="existing_image_<?php echo $i; ?>" id="existing_image_<?php echo $i; ?>" value="<?php echo htmlspecialchars($existing_image); ?>">
-                                </div>
-                            <?php endif; ?>
+                            foreach ($existing_urls as $index => $existing_image):
+                            ?>
+                            <div class="existing-image" id="existing-image-<?php echo $index; ?>">
+                                <img src="<?php echo htmlspecialchars($existing_image); ?>" alt="이미지">
+                                <button type="button" class="btn-delete-image" onclick="deleteImage(<?php echo $id ?? 0; ?>, '<?php echo htmlspecialchars($existing_image); ?>', <?php echo $index; ?>)">삭제</button>
+                            </div>
+                            <?php endforeach; ?>
                         </div>
-                        <?php endfor; ?>
+                        <div class="image-upload-input">
+                            <input type="file" id="image-upload" accept="image/*" class="image-file-input">
+                            <button type="button" class="btn btn-primary" onclick="uploadImage()">이미지 추가</button>
+                        </div>
                     </div>
                     <small style="color: #666; display: block; margin-top: 8px;">
-                        JPG, PNG, WEBP 형식의 이미지를 업로드하세요. 기존 이미지를 유지하려면 새 파일을 선택하지 마세요.
+                        JPG, PNG, WEBP 형식의 이미지를 업로드하세요.
                     </small>
                 </div>
 
@@ -287,6 +246,9 @@ if (isset($_GET['success'])) {
     document.getElementById('category').addEventListener('change', toggleCaseFields);
     // 페이지 로드 시 초기 상태 설정
     document.addEventListener('DOMContentLoaded', toggleCaseFields);
+
+    // 현재 뉴스 ID
+    const currentNewsId = <?php echo $id ?? 0; ?>;
 
     // 이미지 즉시 삭제
     function deleteImage(newsId, imageUrl, index) {
@@ -321,6 +283,56 @@ if (isset($_GET['success'])) {
         .catch(error => {
             console.error('Error:', error);
             alert('삭제 중 오류가 발생했습니다.');
+        });
+    }
+
+    // 이미지 즉시 업로드
+    function uploadImage() {
+        if (!currentNewsId) {
+            alert('뉴스를 먼저 저장해주세요.');
+            return;
+        }
+
+        const fileInput = document.getElementById('image-upload');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert('파일을 선택해주세요.');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('news_id', currentNewsId);
+        formData.append('image', file);
+
+        fetch('upload_image.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // UI에 이미지 추가
+                const imageList = document.getElementById('image-list');
+                const newIndex = imageList.children.length;
+                const newImageDiv = document.createElement('div');
+                newImageDiv.className = 'existing-image';
+                newImageDiv.id = 'existing-image-' + newIndex;
+                newImageDiv.innerHTML = `
+                    <img src="${data.image_url}" alt="이미지">
+                    <button type="button" class="btn-delete-image" onclick="deleteImage(${currentNewsId}, '${data.image_url}', ${newIndex})">삭제</button>
+                `;
+                imageList.appendChild(newImageDiv);
+
+                // 파일 입력 초기화
+                fileInput.value = '';
+            } else {
+                alert('업로드 실패: ' + (data.error || '알 수 없는 오류'));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('업로드 중 오류가 발생했습니다.');
         });
     }
     </script>

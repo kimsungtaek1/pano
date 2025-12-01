@@ -63,12 +63,12 @@
   .form-group textarea{ resize: vertical; font-family: inherit;}
   .form-actions{ margin-top: 30px; display: flex; gap: 10px;}
   .form-actions .btn{ padding: 12px 30px;}
-   .image-upload-container{ display: flex; flex-direction: column; gap: 15px;}
-  .image-upload-row{ display: flex; align-items: flex-start; gap: 10px; padding: 10px; border: 1px solid #e0e0e0; border-radius: 5px; background: #fafafa;}
-  .upload-number{ width: 30px; font-weight: 500; color: #666; flex-shrink: 0; padding-top: 8px;}
+   .image-upload-section{ display: flex; flex-direction: column; gap: 15px;}
+  .image-list{ display: flex; flex-wrap: wrap; gap: 10px;}
+  .image-upload-input{ display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid #e0e0e0; border-radius: 5px; background: #fafafa;}
   .image-file-input{ flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 4px; background: white;}
-  .existing-image{ display: flex; align-items: center; gap: 10px; padding: 8px; background: white; border: 1px solid #ddd; border-radius: 4px;}
-  .existing-image img{ width: 60px; height: 60px; object-fit: cover; border-radius: 4px;}
+  .existing-image{ display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px; background: white; border: 1px solid #ddd; border-radius: 4px;}
+  .existing-image img{ width: 100px; height: 100px; object-fit: cover; border-radius: 4px;}
   .btn-delete-image{ padding: 5px 10px; background: #e74c3c; color: white; border: none; border-radius: 4px; font-size: 12px; cursor: pointer; transition: background 0.3s;}
   .btn-delete-image:hover{ background: #c0392b;}
    @media (max-width: 768px){ .admin-container{ flex-direction: column;}
