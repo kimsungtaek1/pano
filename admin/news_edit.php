@@ -247,13 +247,10 @@ if (isset($_GET['success'])) {
                             <span class="upload-number"><?php echo $i; ?>.</span>
                             <input type="file" name="image_<?php echo $i; ?>" accept="image/*" class="image-file-input">
                             <?php if ($existing_image): ?>
-                                <div class="existing-image">
+                                <div class="existing-image" id="existing-image-<?php echo $i; ?>">
                                     <img src="<?php echo htmlspecialchars($existing_image); ?>" alt="이미지 <?php echo $i; ?>">
-                                    <label>
-                                        <input type="checkbox" name="delete_image_<?php echo $i; ?>" value="1">
-                                        삭제
-                                    </label>
-                                    <input type="hidden" name="existing_image_<?php echo $i; ?>" value="<?php echo htmlspecialchars($existing_image); ?>">
+                                    <button type="button" class="btn-delete-image" onclick="deleteImage(<?php echo $id ?? 0; ?>, '<?php echo htmlspecialchars($existing_image); ?>', <?php echo $i; ?>)">삭제</button>
+                                    <input type="hidden" name="existing_image_<?php echo $i; ?>" id="existing_image_<?php echo $i; ?>" value="<?php echo htmlspecialchars($existing_image); ?>">
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -290,6 +287,42 @@ if (isset($_GET['success'])) {
     document.getElementById('category').addEventListener('change', toggleCaseFields);
     // 페이지 로드 시 초기 상태 설정
     document.addEventListener('DOMContentLoaded', toggleCaseFields);
+
+    // 이미지 즉시 삭제
+    function deleteImage(newsId, imageUrl, index) {
+        if (!newsId) {
+            alert('뉴스를 먼저 저장해주세요.');
+            return;
+        }
+
+        if (!confirm('이미지를 삭제하시겠습니까?')) {
+            return;
+        }
+
+        fetch('delete_image.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'news_id=' + newsId + '&image_url=' + encodeURIComponent(imageUrl)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // UI에서 이미지 제거
+                const imageDiv = document.getElementById('existing-image-' + index);
+                if (imageDiv) {
+                    imageDiv.remove();
+                }
+            } else {
+                alert('삭제 실패: ' + (data.error || '알 수 없는 오류'));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('삭제 중 오류가 발생했습니다.');
+        });
+    }
     </script>
 </body>
 </html>
