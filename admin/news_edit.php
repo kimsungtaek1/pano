@@ -36,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'] ?? '';
     $content = $_POST['content'] ?? '';
     $summary = $_POST['summary'] ?? '';
+    $case_type = $_POST['case_type'] ?? '';
+    $subtitle = $_POST['subtitle'] ?? '';
     $news_date = $_POST['news_date'] ?? '';
     $is_published = isset($_POST['is_published']) ? 1 : 0;
     
@@ -90,26 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             if ($is_edit) {
-                // 수정 - image_urls 컬럼이 있는지 확인
-                try {
-                    $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
-                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json, $id]);
-                } catch (PDOException $e) {
-                    // image_urls 컬럼이 없으면 제외하고 업데이트
-                    $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, news_date = ?, is_published = ? WHERE id = ?");
-                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $id]);
-                }
+                // 수정
+                $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, case_type = ?, subtitle = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
+                $stmt->execute([$category, $title, $content, $summary, $case_type, $subtitle, $news_date, $is_published, $image_urls_json, $id]);
                 $success = '뉴스가 수정되었습니다.';
             } else {
-                // 새 글 작성 - image_urls 컬럼이 있는지 확인
-                try {
-                    $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published, $image_urls_json]);
-                } catch (PDOException $e) {
-                    // image_urls 컬럼이 없으면 제외하고 삽입
-                    $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, news_date, is_published) VALUES (?, ?, ?, ?, ?, ?)");
-                    $stmt->execute([$category, $title, $content, $summary, $news_date, $is_published]);
-                }
+                // 새 글 작성
+                $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, case_type, subtitle, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$category, $title, $content, $summary, $case_type, $subtitle, $news_date, $is_published, $image_urls_json]);
                 $success = '뉴스가 등록되었습니다.';
 
                 // 새로 생성된 ID로 리다이렉트
@@ -211,6 +201,21 @@ if (isset($_GET['success'])) {
                               placeholder="뉴스 목록에 표시될 요약 내용을 입력하세요"><?php echo isset($news) ? htmlspecialchars($news['summary']) : ''; ?></textarea>
                 </div>
 
+                <div class="form-row" id="case-fields" style="display: none;">
+                    <div class="form-group">
+                        <label for="case_type">유형 (원형 외각선 버튼)</label>
+                        <input type="text" id="case_type" name="case_type"
+                               value="<?php echo isset($news) ? htmlspecialchars($news['case_type'] ?? '') : ''; ?>"
+                               placeholder="예: 회생파산, 형사, 민사, 금융" maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="subtitle">소제목 (하이라이트 박스)</label>
+                        <input type="text" id="subtitle" name="subtitle"
+                               value="<?php echo isset($news) ? htmlspecialchars($news['subtitle'] ?? '') : ''; ?>"
+                               placeholder="예: 결과적 반감률 60%" maxlength="255">
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="content">내용 <span class="required">*</span></label>
                     <textarea id="content" name="content" rows="15" required><?php echo isset($news) ? htmlspecialchars($news['content']) : ''; ?></textarea>
@@ -262,5 +267,21 @@ if (isset($_GET['success'])) {
     </div>
 
     <script src="js/admin.js"></script>
+    <script>
+    // 카테고리에 따라 유형/소제목 필드 표시/숨김
+    function toggleCaseFields() {
+        const category = document.getElementById('category').value;
+        const caseFields = document.getElementById('case-fields');
+        if (category === '최근 업무사례') {
+            caseFields.style.display = 'flex';
+        } else {
+            caseFields.style.display = 'none';
+        }
+    }
+
+    document.getElementById('category').addEventListener('change', toggleCaseFields);
+    // 페이지 로드 시 초기 상태 설정
+    document.addEventListener('DOMContentLoaded', toggleCaseFields);
+    </script>
 </body>
 </html>

@@ -68,16 +68,14 @@ include 'includes/header.php';
             <div id="detail-view" style="display: none;">
                 <div class="detail-header-row">
                     <h2 id="detail-main-title">제목이 여기 들어갑니다</h2>
-                    <button class="detail-type-btn" id="detail-type-badge">회생파산</button>
+                    <button class="detail-type-btn" id="detail-type-badge" style="display: none;"></button>
                 </div>
 
                 <div class="detail-images-row" id="detail-images-container">
                     <div class="detail-test-image"></div>
                 </div>
 
-                <div class="detail-highlight-box" id="detail-highlight">
-                    결과적 반감률 60%
-                </div>
+                <div class="detail-highlight-box" id="detail-highlight" style="display: none;"></div>
 
                 <div class="detail-body" id="detail-content">
                     <!-- 본문 내용 -->
@@ -205,8 +203,14 @@ function showDetail(id, tabType) {
             // 메인 타이틀 (제목)
             document.getElementById('detail-main-title').textContent = data.title;
 
-            // 종류 버튼 (일단 카테고리 표시, 추후 변경 가능)
-            document.getElementById('detail-type-badge').textContent = data.category === '최근 업무사례' ? '회생파산' : '언론보도';
+            // 유형 버튼 (DB의 case_type 필드 사용)
+            const typeBadge = document.getElementById('detail-type-badge');
+            if (data.case_type && data.case_type.trim() !== '') {
+                typeBadge.textContent = data.case_type;
+                typeBadge.style.display = 'inline-block';
+            } else {
+                typeBadge.style.display = 'none';
+            }
 
             // 이미지 처리 (image_urls 필드에서 가져오기)
             const imagesContainer = document.getElementById('detail-images-container');
@@ -227,10 +231,14 @@ function showDetail(id, tabType) {
                 imagesContainer.appendChild(testImage);
             }
 
-            // 하이라이트 박스 (본문에서 추출 또는 기본값)
+            // 소제목/하이라이트 박스 (DB의 subtitle 필드 사용)
             const highlightBox = document.getElementById('detail-highlight');
-            // 임시로 기본값 사용, 추후 DB 필드 추가 가능
-            highlightBox.style.display = data.category === '최근 업무사례' ? 'block' : 'none';
+            if (data.subtitle && data.subtitle.trim() !== '') {
+                highlightBox.textContent = data.subtitle;
+                highlightBox.style.display = 'block';
+            } else {
+                highlightBox.style.display = 'none';
+            }
 
             // 본문
             document.getElementById('detail-content').innerHTML = data.content;
