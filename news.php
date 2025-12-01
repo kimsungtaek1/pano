@@ -98,6 +98,20 @@ include 'includes/header.php';
                 </div>
             </div>
 
+            <!-- 이미지 라이트박스 -->
+            <div id="image-lightbox" class="lightbox">
+                <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+                <div class="lightbox-content">
+                    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+                    <button class="lightbox-prev" onclick="slideLightbox(-1)">&#10094;</button>
+                    <img id="lightbox-image" src="" alt="">
+                    <button class="lightbox-next" onclick="slideLightbox(1)">&#10095;</button>
+                    <div class="lightbox-counter">
+                        <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- 성공사례 탭 컨텐츠 -->
             <div class="intro-tab-content <?php echo $tab === 'cases' ? 'active' : ''; ?>" id="tab-cases">
                 <div class="cases-grid">
@@ -222,12 +236,17 @@ function showDetail(id, tabType) {
             const imagesContainer = document.getElementById('detail-images-container');
             imagesContainer.innerHTML = '';
 
+            // 라이트박스용 이미지 배열 저장
+            window.currentImages = data.image_urls || [];
+
             if (data.image_urls && data.image_urls.length > 0) {
                 // 모든 이미지 표시
                 data.image_urls.forEach((url, i) => {
                     const img = document.createElement('img');
                     img.src = url;
                     img.alt = data.title + ' 이미지 ' + (i + 1);
+                    img.style.cursor = 'pointer';
+                    img.onclick = function() { openLightbox(i); };
                     imagesContainer.appendChild(img);
                 });
             } else {
@@ -306,6 +325,72 @@ function hideDetail() {
     // 페이지 상단으로 스크롤
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// 라이트박스 관련 변수 및 함수
+let currentLightboxIndex = 0;
+
+function openLightbox(index) {
+    if (!window.currentImages || window.currentImages.length === 0) return;
+
+    currentLightboxIndex = index;
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+
+    lightboxImage.src = window.currentImages[index];
+    document.getElementById('lightbox-current').textContent = index + 1;
+    document.getElementById('lightbox-total').textContent = window.currentImages.length;
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // 이미지가 1개면 좌우 버튼 숨기기
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    if (window.currentImages.length <= 1) {
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    } else {
+        prevBtn.style.display = 'block';
+        nextBtn.style.display = 'block';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function slideLightbox(direction) {
+    if (!window.currentImages || window.currentImages.length === 0) return;
+
+    currentLightboxIndex += direction;
+
+    // 순환
+    if (currentLightboxIndex < 0) {
+        currentLightboxIndex = window.currentImages.length - 1;
+    } else if (currentLightboxIndex >= window.currentImages.length) {
+        currentLightboxIndex = 0;
+    }
+
+    const lightboxImage = document.getElementById('lightbox-image');
+    lightboxImage.src = window.currentImages[currentLightboxIndex];
+    document.getElementById('lightbox-current').textContent = currentLightboxIndex + 1;
+}
+
+// 키보드 이벤트 (ESC로 닫기, 좌우 화살표로 이동)
+document.addEventListener('keydown', function(e) {
+    const lightbox = document.getElementById('image-lightbox');
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        slideLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+        slideLightbox(1);
+    }
+});
 </script>
 
 <?php include 'includes/footer.php'; ?>

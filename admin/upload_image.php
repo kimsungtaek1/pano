@@ -67,10 +67,10 @@ try {
 
     $image_urls = !empty($news['image_urls']) ? json_decode($news['image_urls'], true) : [];
 
-    // 최대 5개 제한
-    if (count($image_urls) >= 5) {
+    // 최대 10개 제한
+    if (count($image_urls) >= 10) {
         @unlink($filepath);
-        echo json_encode(['success' => false, 'error' => '이미지는 최대 5개까지 업로드할 수 있습니다.']);
+        echo json_encode(['success' => false, 'error' => '이미지는 최대 10개까지 업로드할 수 있습니다.']);
         exit;
     }
 
