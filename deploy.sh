@@ -13,7 +13,8 @@ echo "카페24 FTP 자동 배포 시작"
 echo "=========================================="
 
 # 제외 목록 생성
-EXCLUDE_OPTS="--exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/"
+# uploads/ 폴더는 서버에서 직접 업로드되므로 동기화에서 제외 (삭제 방지)
+EXCLUDE_OPTS="--exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/ --exclude uploads/"
 
 # 한글이 포함된 모든 파일 및 디렉토리 제외
 echo "한글 파일/디렉토리 제외 중..."
