@@ -245,11 +245,21 @@ function showDetail(id, tabType) {
                 // 이미지 요소 생성
                 sliderTrack.innerHTML = '';
                 data.image_urls.forEach((url, i) => {
+                    const item = document.createElement('div');
+                    item.className = 'slider-item';
+
                     const img = document.createElement('img');
                     img.src = url;
                     img.alt = data.title + ' 이미지 ' + (i + 1);
-                    img.onclick = function() { openLightbox(i); };
-                    sliderTrack.appendChild(img);
+
+                    const zoomBtn = document.createElement('button');
+                    zoomBtn.className = 'slider-zoom-btn';
+                    zoomBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>';
+                    zoomBtn.onclick = function(e) { e.stopPropagation(); openLightbox(i); };
+
+                    item.appendChild(img);
+                    item.appendChild(zoomBtn);
+                    sliderTrack.appendChild(item);
                 });
 
                 // 드래그 슬라이더 초기화
