@@ -104,7 +104,9 @@ include 'includes/header.php';
                 <div class="lightbox-content">
                     <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
                     <button class="lightbox-prev" onclick="slideLightbox(-1)">&#10094;</button>
-                    <img id="lightbox-image" src="" alt="">
+                    <div class="lightbox-slider" id="lightbox-slider">
+                        <div class="lightbox-track" id="lightbox-track"></div>
+                    </div>
                     <button class="lightbox-next" onclick="slideLightbox(1)">&#10095;</button>
                     <div class="lightbox-counter">
                         <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
@@ -399,14 +401,27 @@ function openLightbox(index) {
 
     currentLightboxIndex = index;
     const lightbox = document.getElementById('image-lightbox');
-    const lightboxImage = document.getElementById('lightbox-image');
+    const track = document.getElementById('lightbox-track');
 
-    lightboxImage.src = window.currentImages[index];
+    // 트랙에 모든 이미지 추가
+    track.innerHTML = '';
+    window.currentImages.forEach((url, i) => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = '이미지 ' + (i + 1);
+        track.appendChild(img);
+    });
+
     document.getElementById('lightbox-current').textContent = index + 1;
     document.getElementById('lightbox-total').textContent = window.currentImages.length;
 
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // 해당 인덱스로 이동
+    setTimeout(() => {
+        updateLightboxPosition(false);
+    }, 10);
 
     // 이미지가 1개면 좌우 버튼 숨기기
     const prevBtn = document.querySelector('.lightbox-prev');
@@ -418,6 +433,9 @@ function openLightbox(index) {
         prevBtn.style.display = 'block';
         nextBtn.style.display = 'block';
     }
+
+    // 드래그 이벤트 초기화
+    initLightboxDrag();
 }
 
 function closeLightbox() {
@@ -438,9 +456,84 @@ function slideLightbox(direction) {
         currentLightboxIndex = 0;
     }
 
-    const lightboxImage = document.getElementById('lightbox-image');
-    lightboxImage.src = window.currentImages[currentLightboxIndex];
+    updateLightboxPosition(true);
+}
+
+function updateLightboxPosition(animate) {
+    const track = document.getElementById('lightbox-track');
+    const slider = document.getElementById('lightbox-slider');
+    const slideWidth = slider.offsetWidth;
+
+    track.style.transition = animate ? 'transform 0.3s ease' : 'none';
+    track.style.transform = `translateX(-${currentLightboxIndex * slideWidth}px)`;
+
     document.getElementById('lightbox-current').textContent = currentLightboxIndex + 1;
+}
+
+function initLightboxDrag() {
+    const track = document.getElementById('lightbox-track');
+    const slider = document.getElementById('lightbox-slider');
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+
+    function handleDragStart(x) {
+        isDragging = true;
+        startX = x;
+        track.style.transition = 'none';
+    }
+
+    function handleDragMove(x) {
+        if (!isDragging) return;
+        currentX = x;
+        const diff = currentX - startX;
+        const slideWidth = slider.offsetWidth;
+        const currentOffset = -currentLightboxIndex * slideWidth;
+        track.style.transform = `translateX(${currentOffset + diff}px)`;
+    }
+
+    function handleDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+
+        if (Math.abs(diff) > 50) {
+            if (diff > 0 && currentLightboxIndex > 0) {
+                currentLightboxIndex--;
+            } else if (diff < 0 && currentLightboxIndex < window.currentImages.length - 1) {
+                currentLightboxIndex++;
+            }
+        }
+
+        updateLightboxPosition(true);
+    }
+
+    // 마우스 이벤트
+    track.onmousedown = (e) => {
+        if (e.target.tagName === 'BUTTON') return;
+        e.preventDefault();
+        handleDragStart(e.clientX);
+    };
+
+    track.onmousemove = (e) => {
+        handleDragMove(e.clientX);
+    };
+
+    track.onmouseup = handleDragEnd;
+    track.onmouseleave = () => {
+        if (isDragging) handleDragEnd();
+    };
+
+    // 터치 이벤트
+    track.ontouchstart = (e) => {
+        handleDragStart(e.touches[0].clientX);
+    };
+
+    track.ontouchmove = (e) => {
+        handleDragMove(e.touches[0].clientX);
+    };
+
+    track.ontouchend = handleDragEnd;
 }
 
 // 키보드 이벤트 (ESC로 닫기, 좌우 화살표로 이동)
@@ -457,53 +550,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// 라이트박스 드래그/스와이프 이벤트
-(function() {
-    const lightboxContent = document.querySelector('.lightbox-content');
-    let startX = 0;
-    let isDragging = false;
-
-    // 마우스 이벤트
-    lightboxContent.addEventListener('mousedown', function(e) {
-        if (e.target.tagName === 'BUTTON') return;
-        isDragging = true;
-        startX = e.clientX;
-    });
-
-    lightboxContent.addEventListener('mouseup', function(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        const diff = e.clientX - startX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-                slideLightbox(-1); // 오른쪽으로 드래그 = 이전
-            } else {
-                slideLightbox(1); // 왼쪽으로 드래그 = 다음
-            }
-        }
-    });
-
-    lightboxContent.addEventListener('mouseleave', function() {
-        isDragging = false;
-    });
-
-    // 터치 이벤트 (모바일)
-    lightboxContent.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'BUTTON') return;
-        startX = e.touches[0].clientX;
-    }, { passive: true });
-
-    lightboxContent.addEventListener('touchend', function(e) {
-        const diff = e.changedTouches[0].clientX - startX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) {
-                slideLightbox(-1);
-            } else {
-                slideLightbox(1);
-            }
-        }
-    });
-})();
 </script>
 
 <?php include 'includes/footer.php'; ?>
