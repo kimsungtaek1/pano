@@ -191,7 +191,7 @@ if (isset($_GET['success'])) {
                 </div>
 
                 <div class="form-group">
-                    <label>이미지 업로드 (최대 5개)</label>
+                    <label>이미지 업로드 (최대 10개)</label>
                     <div class="image-upload-section">
                         <div class="image-list" id="image-list">
                             <?php
