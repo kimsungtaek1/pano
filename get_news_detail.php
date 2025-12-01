@@ -34,4 +34,7 @@ if (!empty($news['image_urls'])) {
     $news['image_urls'] = [];
 }
 
+// 본문 줄바꿈 처리 (textarea의 \n을 <br>로 변환)
+$news['content'] = nl2br(htmlspecialchars($news['content']));
+
 echo json_encode($news, JSON_UNESCAPED_UNICODE);
