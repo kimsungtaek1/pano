@@ -456,6 +456,54 @@ document.addEventListener('keydown', function(e) {
         slideLightbox(1);
     }
 });
+
+// 라이트박스 드래그/스와이프 이벤트
+(function() {
+    const lightboxContent = document.querySelector('.lightbox-content');
+    let startX = 0;
+    let isDragging = false;
+
+    // 마우스 이벤트
+    lightboxContent.addEventListener('mousedown', function(e) {
+        if (e.target.tagName === 'BUTTON') return;
+        isDragging = true;
+        startX = e.clientX;
+    });
+
+    lightboxContent.addEventListener('mouseup', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = e.clientX - startX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                slideLightbox(-1); // 오른쪽으로 드래그 = 이전
+            } else {
+                slideLightbox(1); // 왼쪽으로 드래그 = 다음
+            }
+        }
+    });
+
+    lightboxContent.addEventListener('mouseleave', function() {
+        isDragging = false;
+    });
+
+    // 터치 이벤트 (모바일)
+    lightboxContent.addEventListener('touchstart', function(e) {
+        if (e.target.tagName === 'BUTTON') return;
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    lightboxContent.addEventListener('touchend', function(e) {
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                slideLightbox(-1);
+            } else {
+                slideLightbox(1);
+            }
+        }
+    });
+})();
 </script>
 
 <?php include 'includes/footer.php'; ?>
