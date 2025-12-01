@@ -3085,6 +3085,8 @@
      width: 120px;
      height: 180px;
      background: #e8e8e8;
+     background-size: cover;
+     background-position: center;
      flex-shrink: 0;
  }
 
@@ -3092,6 +3094,8 @@
      width: 120px;
      height: 180px;
      background: #e8e8e8;
+     background-size: cover;
+     background-position: center;
      flex-shrink: 0;
  }
 

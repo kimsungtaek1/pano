@@ -104,9 +104,12 @@ include 'includes/header.php';
                     <?php if (empty($cases_list)): ?>
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 파노 성공사례가 없습니다.</p>
                     <?php else: ?>
-                        <?php foreach ($cases_list as $case): ?>
+                        <?php foreach ($cases_list as $case):
+                                $case_images = !empty($case['image_urls']) ? json_decode($case['image_urls'], true) : [];
+                                $case_thumb = !empty($case_images[0]) ? $case_images[0] : '';
+                            ?>
                             <a href="#" class="case-card" onclick="showDetail(<?php echo $case['id']; ?>, 'cases'); return false;">
-                                <div class="thumbnail"></div>
+                                <div class="thumbnail"<?php if ($case_thumb): ?> style="background-image: url('<?php echo htmlspecialchars($case_thumb); ?>');"<?php endif; ?>></div>
                                 <div class="content">
                                     <span class="badge badge-red">구속영장 기각</span>
                                     <h3><?php echo htmlspecialchars($case['title']); ?></h3>
@@ -137,9 +140,12 @@ include 'includes/header.php';
                     <?php if (empty($news_list)): ?>
                         <p style="text-align: center; padding: 60px 0; color: #999;">등록된 뉴스가 없습니다.</p>
                     <?php else: ?>
-                        <?php foreach ($news_list as $news): ?>
+                        <?php foreach ($news_list as $news):
+                                $news_images = !empty($news['image_urls']) ? json_decode($news['image_urls'], true) : [];
+                                $news_thumb = !empty($news_images[0]) ? $news_images[0] : '';
+                            ?>
                             <a href="#" class="case-card" onclick="showDetail(<?php echo $news['id']; ?>, 'press'); return false;">
-                                <div class="thumbnail"></div>
+                                <div class="thumbnail"<?php if ($news_thumb): ?> style="background-image: url('<?php echo htmlspecialchars($news_thumb); ?>');"<?php endif; ?>></div>
                                 <div class="content">
                                     <span class="badge badge-blue">언론보도</span>
                                     <h3><?php echo htmlspecialchars($news['title']); ?></h3>
