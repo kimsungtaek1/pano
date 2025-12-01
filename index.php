@@ -1,6 +1,15 @@
 <?php
-include 'includes/header.php';
 include 'includes/db.php';
+
+// 성공사례 (최근 업무사례) - 최신 6개
+$success_sql = "SELECT * FROM news WHERE is_published = 1 AND category = '최근 업무사례' ORDER BY news_date DESC, created_at DESC LIMIT 6";
+$success_list = $pdo->query($success_sql)->fetchAll();
+
+// 언론보도 - 최신 6개
+$press_sql = "SELECT * FROM news WHERE is_published = 1 AND category = '언론보도' ORDER BY news_date DESC, created_at DESC LIMIT 6";
+$press_list = $pdo->query($press_sql)->fetchAll();
+
+include 'includes/header.php';
 ?>
 
 <main>
@@ -53,60 +62,31 @@ include 'includes/db.php';
                 </div>
                 <div class="success-content">
                     <div class="success-cards">
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">구속영장 기각</span>
-                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                        <?php if (empty($success_list)): ?>
+                            <div class="success-card">
+                                <div class="card-header">
+                                    <span class="card-tag">안내</span>
+                                    <h3>등록된<br>성공사례가 없습니다</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p>곧 파노의 성공사례를 만나보실 수 있습니다.</p>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <p>피고인이 2023년 5월 조치 불출시기 방법 조직범죄 관한처분을 범죄 권리위반 신청원 고발원이 만약어 제재우 송수청원 권립라윈 것....</p>
+                        <?php else: ?>
+                            <?php foreach ($success_list as $success): ?>
+                            <div class="success-card">
+                                <div class="card-header">
+                                    <?php if (!empty($success['case_type'])): ?>
+                                    <span class="card-tag"><?php echo htmlspecialchars($success['case_type']); ?></span>
+                                    <?php endif; ?>
+                                    <h3><?php echo nl2br(htmlspecialchars($success['title'])); ?></h3>
+                                </div>
+                                <div class="card-body">
+                                    <p><?php echo htmlspecialchars($success['summary'] ?: mb_substr(strip_tags($success['content']), 0, 80) . '...'); ?></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">무죄 판결</span>
-                                <h3>횡령 혐의<br>1심 무죄 판결</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>검찰이 제기한 횡령 혐의에 대해 철저한 증거 분석과 법리 검토를 통해 1심에서 무죄 판결을 이끌어냈습니다.</p>
-                            </div>
-                        </div>
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">집행유예</span>
-                                <h3>특수상해 사건<br>집행유예 선고</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>특수상해 혐의로 기소된 사건에서 피고인의 정상 참작 사유를 적극 주장하여 실형이 아닌 집행유예 판결을 받았습니다.</p>
-                            </div>
-                        </div>
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">불기소 처분</span>
-                                <h3>사기 혐의<br>불기소 처분</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>사기 혐의로 고소된 사건에서 명확한 법리 검토와 증거 제출로 검찰의 불기소 처분을 받았습니다.</p>
-                            </div>
-                        </div>
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">승소 판결</span>
-                                <h3>민사 손해배상<br>원고 승소</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>손해배상 청구 소송에서 피해 사실을 명확히 입증하여 법원으로부터 전액 배상 판결을 받았습니다.</p>
-                            </div>
-                        </div>
-                        <div class="success-card">
-                            <div class="card-header">
-                                <span class="card-tag">합의 성공</span>
-                                <h3>교통사고<br>원만한 합의</h3>
-                            </div>
-                            <div class="card-body">
-                                <p>교통사고 피해 사건에서 보험사와의 협상을 통해 의뢰인에게 유리한 조건으로 합의했습니다.</p>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -142,48 +122,28 @@ include 'includes/db.php';
                 </div>
                 <div class="press-content">
                     <div class="press-cards">
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>현행범체포<br>구속영장청구 기각</h3>
+                        <?php if (empty($press_list)): ?>
+                            <div class="press-card">
+                                <div class="card-image"></div>
+                                <div class="card-header">
+                                    <span class="card-tag">안내</span>
+                                    <h3>등록된<br>언론보도가 없습니다</h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>법무법인 파노<br>전문성 인정</h3>
+                        <?php else: ?>
+                            <?php foreach ($press_list as $press):
+                                $press_images = !empty($press['image_urls']) ? json_decode($press['image_urls'], true) : [];
+                                $press_thumb = !empty($press_images[0]) ? $press_images[0] : '';
+                            ?>
+                            <div class="press-card">
+                                <div class="card-image"<?php if ($press_thumb): ?> style="background-image: url('<?php echo htmlspecialchars($press_thumb); ?>'); background-size: cover; background-position: center;"<?php endif; ?>></div>
+                                <div class="card-header">
+                                    <span class="card-tag">언론보도</span>
+                                    <h3><?php echo nl2br(htmlspecialchars($press['title'])); ?></h3>
+                                </div>
                             </div>
-                        </div>
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>공익활동 참여<br>사회공헌 활동</h3>
-                            </div>
-                        </div>
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>형사전문 변호사<br>업계 주목</h3>
-                            </div>
-                        </div>
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>의료 분쟁 해결<br>전문성 강화</h3>
-                            </div>
-                        </div>
-                        <div class="press-card">
-                            <div class="card-image"></div>
-                            <div class="card-header">
-                                <span class="card-tag">언론보도</span>
-                                <h3>기업법무 강화<br>법률 파트너</h3>
-                            </div>
-                        </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

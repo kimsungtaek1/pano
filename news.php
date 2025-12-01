@@ -127,7 +127,9 @@ include 'includes/header.php';
                             <a href="#" class="case-card" onclick="showDetail(<?php echo $case['id']; ?>, 'cases'); return false;">
                                 <div class="thumbnail"<?php if ($case_thumb): ?> style="background-image: url('<?php echo htmlspecialchars($case_thumb); ?>');"<?php endif; ?>></div>
                                 <div class="content">
-                                    <span class="badge badge-red">구속영장 기각</span>
+                                    <?php if (!empty($case['case_type'])): ?>
+                                    <span class="badge badge-red"><?php echo htmlspecialchars($case['case_type']); ?></span>
+                                <?php endif; ?>
                                     <h3><?php echo htmlspecialchars($case['title']); ?></h3>
                                     <p><?php echo htmlspecialchars($case['summary'] ?: mb_substr(strip_tags($case['content']), 0, 100) . '...'); ?></p>
                                     <span class="date"><?php echo date('Y.m.d', strtotime($case['news_date'])); ?></span>
