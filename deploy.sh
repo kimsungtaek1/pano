@@ -27,7 +27,7 @@ echo "업로드 시작..."
 lftp -e "
 set ssl:verify-certificate no
 open ftp://${FTP_USERNAME}:${FTP_PASSWORD}@${FTP_HOST}
-mirror --reverse --delete --verbose $EXCLUDE_OPTS ./ ${FTP_REMOTE_DIR}
+mirror --reverse --verbose $EXCLUDE_OPTS ./ ${FTP_REMOTE_DIR}
 bye
 "
 
