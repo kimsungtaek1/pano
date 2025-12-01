@@ -136,9 +136,8 @@ if (isset($_GET['success'])) {
                         <label for="category">카테고리 <span class="required">*</span></label>
                         <select id="category" name="category" required>
                             <option value="">선택하세요</option>
-                            <option value="최근 업무사례" <?php echo (isset($news) && $news['category'] === '최근 업무사례') ? 'selected' : ''; ?>>최근 업무사례</option>
+                            <option value="파노 성공사례" <?php echo (isset($news) && $news['category'] === '파노 성공사례') ? 'selected' : ''; ?>>파노 성공사례</option>
                             <option value="언론보도" <?php echo (isset($news) && $news['category'] === '언론보도') ? 'selected' : ''; ?>>언론보도</option>
-                            <option value="한경BUSINESS" <?php echo (isset($news) && $news['category'] === '한경BUSINESS') ? 'selected' : ''; ?>>한경BUSINESS</option>
                         </select>
                     </div>
 
@@ -236,7 +235,7 @@ if (isset($_GET['success'])) {
     function toggleCaseFields() {
         const category = document.getElementById('category').value;
         const caseFields = document.getElementById('case-fields');
-        if (category === '최근 업무사례') {
+        if (category === '파노 성공사례') {
             caseFields.style.display = 'flex';
         } else {
             caseFields.style.display = 'none';
