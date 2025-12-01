@@ -3651,7 +3651,7 @@
 
 .detail-slider-track .slider-item {
     flex-shrink: 0;
-    width: calc(28.5% - 14px);
+    width: calc(30% - 10px);
     position: relative;
     display: inline-block;
     aspect-ratio: 210 / 297;
@@ -3699,7 +3699,7 @@
     }
 
     .detail-slider-track .slider-item {
-        width: calc(28.5% - 10px);
+        width: calc(30% - 10px);
     }
 
     .slider-zoom-btn {
