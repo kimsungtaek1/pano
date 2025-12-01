@@ -41,20 +41,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $news_date = $_POST['news_date'] ?? '';
     $is_published = isset($_POST['is_published']) ? 1 : 0;
     
-    // 이미지 파일 업로드 처리 (최대 10개)
+    // 이미지 파일 업로드 처리 (최대 5개)
     $image_urls = [];
     $upload_dir = '../uploads/news/';
 
+    // 업로드 디렉토리 생성 (없으면)
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+
     // 기존 이미지 유지
-    for ($i = 1; $i <= 10; $i++) {
+    for ($i = 1; $i <= 5; $i++) {
         $existing_image = $_POST["existing_image_$i"] ?? '';
         $delete_image = isset($_POST["delete_image_$i"]);
+
+        // URL 경로를 서버 파일 경로로 변환
+        $existing_file_path = $existing_image ? '..' . $existing_image : '';
 
         // 삭제 체크가 되어있으면 스킵
         if ($delete_image && $existing_image) {
             // 실제 파일 삭제
-            if (file_exists($existing_image)) {
-                @unlink($existing_image);
+            if ($existing_file_path && file_exists($existing_file_path)) {
+                @unlink($existing_file_path);
             }
             continue;
         }
@@ -73,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $image_urls[] = '/uploads/news/' . $filename;
 
                     // 기존 파일이 있으면 삭제
-                    if ($existing_image && file_exists($existing_image)) {
-                        @unlink($existing_image);
+                    if ($existing_file_path && file_exists($existing_file_path)) {
+                        @unlink($existing_file_path);
                     }
                 }
             }
@@ -222,7 +230,7 @@ if (isset($_GET['success'])) {
                 </div>
 
                 <div class="form-group">
-                    <label>이미지 업로드 (최대 10개)</label>
+                    <label>이미지 업로드 (최대 5개)</label>
                     <div class="image-upload-container">
                         <?php
                         $existing_urls = [];
@@ -232,7 +240,7 @@ if (isset($_GET['success'])) {
                                 $existing_urls = $decoded;
                             }
                         }
-                        for ($i = 1; $i <= 10; $i++):
+                        for ($i = 1; $i <= 5; $i++):
                             $existing_image = $existing_urls[$i - 1] ?? '';
                         ?>
                         <div class="image-upload-row">
