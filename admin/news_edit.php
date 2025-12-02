@@ -169,7 +169,7 @@ if (isset($_GET['success'])) {
                               placeholder="뉴스 목록에 표시될 요약 내용을 입력하세요"><?php echo isset($news) ? htmlspecialchars($news['summary']) : ''; ?></textarea>
                 </div>
 
-                <div class="form-row" id="case-fields" style="display: none;">
+                <div class="form-row">
                     <div class="form-group">
                         <label for="case_type">유형 (원형 외각선 버튼)</label>
                         <input type="text" id="case_type" name="case_type"
@@ -231,21 +231,6 @@ if (isset($_GET['success'])) {
 
     <script src="js/admin.js"></script>
     <script>
-    // 카테고리에 따라 유형/소제목 필드 표시/숨김
-    function toggleCaseFields() {
-        const category = document.getElementById('category').value;
-        const caseFields = document.getElementById('case-fields');
-        if (category === '파노 성공사례') {
-            caseFields.style.display = 'flex';
-        } else {
-            caseFields.style.display = 'none';
-        }
-    }
-
-    document.getElementById('category').addEventListener('change', toggleCaseFields);
-    // 페이지 로드 시 초기 상태 설정
-    toggleCaseFields();
-
     // 현재 뉴스 ID
     const currentNewsId = <?php echo $id ?? 0; ?>;
 
