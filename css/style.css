@@ -3098,6 +3098,7 @@
      background-size: cover;
      background-position: center;
      flex-shrink: 0;
+     border: 1px solid #ddd;
  }
 
  .case-card .content {
