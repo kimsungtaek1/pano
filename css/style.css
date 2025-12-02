@@ -3246,7 +3246,7 @@
  }
 
  .detail-body {
-     font-size: 18px;
+     font-size: 16px;
      line-height: 1.8;
      color: #333;
      margin-bottom: 60px;
@@ -3657,6 +3657,7 @@
     position: relative;
     display: inline-block;
     aspect-ratio: 210 / 297;
+    border: 1px solid #ddd;
 }
 
 .detail-slider-track .slider-item img {
