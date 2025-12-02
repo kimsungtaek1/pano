@@ -3088,6 +3088,7 @@
      background-size: cover;
      background-position: center;
      flex-shrink: 0;
+     border: 1px solid #ddd;
  }
 
  .news-grid .case-card .thumbnail {
@@ -3324,9 +3325,6 @@
      grid-template-columns: 1fr;
  }
 
- .detail-body {
-     font-size: 14px;
- }
  }
 
 
