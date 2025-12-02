@@ -244,7 +244,7 @@ if (isset($_GET['success'])) {
 
     document.getElementById('category').addEventListener('change', toggleCaseFields);
     // 페이지 로드 시 초기 상태 설정
-    document.addEventListener('DOMContentLoaded', toggleCaseFields);
+    toggleCaseFields();
 
     // 현재 뉴스 ID
     const currentNewsId = <?php echo $id ?? 0; ?>;
