@@ -64,7 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // 수정
                 $stmt = $pdo->prepare("UPDATE news SET category = ?, title = ?, content = ?, summary = ?, case_type = ?, subtitle = ?, news_date = ?, is_published = ?, image_urls = ? WHERE id = ?");
                 $stmt->execute([$category, $title, $content, $summary, $case_type, $subtitle, $news_date, $is_published, $image_urls_json, $id]);
-                $success = '뉴스가 수정되었습니다.';
+                // 수정 성공 후 리다이렉트하여 최신 데이터 표시
+                header("Location: news_edit.php?id=$id&success=2");
+                exit;
             } else {
                 // 새 글 작성
                 $stmt = $pdo->prepare("INSERT INTO news (category, title, content, summary, case_type, subtitle, news_date, is_published, image_urls) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -84,7 +86,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 // 성공 메시지 (리다이렉트 후)
 if (isset($_GET['success'])) {
-    $success = '뉴스가 등록되었습니다.';
+    if ($_GET['success'] == '2') {
+        $success = '뉴스가 수정되었습니다.';
+    } else {
+        $success = '뉴스가 등록되었습니다.';
+    }
 }
 ?>
 <!DOCTYPE html>
