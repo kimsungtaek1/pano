@@ -3589,7 +3589,7 @@
 
 .lightbox-counter {
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
@@ -3619,7 +3619,7 @@
     }
 
     .lightbox-counter {
-        bottom: 20px;
+        bottom: 10px;
         font-size: 14px;
     }
 }
