@@ -29,13 +29,17 @@ set ssl:verify-certificate no
 set net:timeout 10
 set net:max-retries 2
 set net:reconnect-interval-base 5
+set cmd:fail-exit yes
+set ftp:use-feat no
+set net:connection-limit 1
 open ftp://${FTP_USERNAME}:${FTP_PASSWORD}@${FTP_HOST}
-mirror --reverse --verbose $EXCLUDE_OPTS ./ ${FTP_REMOTE_DIR}
-quit
+mirror --reverse --verbose --parallel=1 $EXCLUDE_OPTS ./ ${FTP_REMOTE_DIR}
+bye
 " 2>/dev/null
 
 # 연결 확실히 종료
-pkill -f "lftp.*${FTP_HOST}" 2>/dev/null || true
+sleep 1
+pkill -9 -f "lftp" 2>/dev/null || true
 
 if [ $? -eq 0 ]; then
     echo "=========================================="
