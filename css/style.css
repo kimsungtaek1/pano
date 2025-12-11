@@ -3760,5 +3760,21 @@
 @media (max-width: 768px) {
     .fraud-banner p {
         font-size: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .fraud-banner .text {
+        font-size: 18px;
+    }
+
+    .fraud-banner .divider {
+        display: none;
+    }
+
+    .fraud-banner .phone {
+        font-size: 30px;
     }
 }

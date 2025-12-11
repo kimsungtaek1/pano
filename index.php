@@ -203,7 +203,7 @@ include 'includes/header.php';
     <!-- 금융사기 피해구제 배너 -->
     <section class="fraud-banner">
         <div class="container">
-            <p><span class="red">금융사기 피해구제</span> 24시 상담 | 02-588-8385</p>
+            <p><span class="text"><span class="red">금융사기 피해구제</span> 24시 상담</span><span class="divider"> | </span><span class="phone">02-588-8385</span></p>
         </div>
     </section>
 
