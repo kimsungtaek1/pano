@@ -14,7 +14,7 @@ echo "=========================================="
 
 # 제외 목록 생성
 # uploads/ 폴더는 서버에서 직접 업로드되므로 동기화에서 제외 (삭제 방지)
-EXCLUDE_OPTS="--exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/ --exclude uploads/"
+EXCLUDE_OPTS="--exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/ --exclude uploads/ --exclude CLAUDE.md"
 
 # 한글이 포함된 모든 파일 및 디렉토리 제외
 echo "한글 파일/디렉토리 제외 중..."
