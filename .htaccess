@@ -1,0 +1,7 @@
+<Files "robots.txt">
+    Require all granted
+</Files>
+
+<Files "*.txt">
+    Require all granted
+</Files>
