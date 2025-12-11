@@ -3719,3 +3719,28 @@
         height: 18px;
     }
 }
+
+
+/* 금융사기 피해구제 배너 */
+.fraud-banner {
+    background: #000;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.fraud-banner p {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+.fraud-banner .red {
+    color: #FF0000;
+}
+
+@media (max-width: 768px) {
+    .fraud-banner p {
+        font-size: 30px;
+    }
+}

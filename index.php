@@ -200,6 +200,13 @@ include 'includes/header.php';
         </div>
     </section>
 
+    <!-- 금융사기 피해구제 배너 -->
+    <section class="fraud-banner">
+        <div class="container">
+            <p><span class="red">금융사기 피해구제</span> 24시 상담 | 02-588-8385</p>
+        </div>
+    </section>
+
     <!-- Consultation Request Section -->
     <section class="consultation">
         <div class="container">
