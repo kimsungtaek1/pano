@@ -24,7 +24,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <h1 class="logo"><a href="/index.php"><img src="/images/logo.png" alt="PANO 법률사무소"></a></h1>
+                <div class="logo"><a href="/index.php"><img src="/images/logo.png" alt="PANO 법률사무소"></a></div>
                 <nav>
                     <ul>
                         <li><a href="/intro.php">파노소개</a></li>
@@ -45,7 +45,7 @@
         <div class="header-submenu-area">
             <div class="container">
                 <div class="header-content">
-                    <h1 class="logo submenu-logo-space"></h1>
+                    <div class="logo submenu-logo-space"></div>
                     <nav>
                         <ul>
                             <li>

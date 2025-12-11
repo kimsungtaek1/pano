@@ -27,6 +27,7 @@ include 'includes/header.php';
         <div class="hero-overlay">
             <div class="container">
                 <div class="hero-content">
+                    <h1 class="visually-hidden">PANO 법률사무소</h1>
                     <img src="/images/slide_logo.png" alt="PANO" class="hero-logo">
                 </div>
             </div>
