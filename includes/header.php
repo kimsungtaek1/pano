@@ -12,7 +12,10 @@
     <meta property="og:image" content="https://panolawyer.com/images/thumbnail.png">
     <meta property="og:url" content="https://panolawyer.com">
 
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
