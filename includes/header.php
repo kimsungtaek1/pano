@@ -11,6 +11,7 @@
     <meta property="og:description" content="의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다.">
     <meta property="og:image" content="https://panolawyer.com/images/thumbnail.png">
     <meta property="og:url" content="https://panolawyer.com">
+    <meta name="naver-site-verification" content="1cfc6e07e5292bb22204b23a558d2efb08ee20f9" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
