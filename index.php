@@ -74,7 +74,7 @@ include 'includes/header.php';
                             </div>
                         <?php else: ?>
                             <?php foreach ($success_list as $success): ?>
-                            <div class="success-card">
+                            <a href="/news.php?tab=cases&id=<?php echo $success['id']; ?>" class="success-card">
                                 <div class="card-header">
                                     <?php if (!empty($success['case_type'])): ?>
                                     <span class="card-tag"><?php echo htmlspecialchars($success['case_type']); ?></span>
@@ -84,7 +84,7 @@ include 'includes/header.php';
                                 <div class="card-body">
                                     <p><?php echo htmlspecialchars($success['summary'] ?: mb_substr(strip_tags($success['content']), 0, 80) . '...'); ?></p>
                                 </div>
-                            </div>
+                            </a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
@@ -135,13 +135,13 @@ include 'includes/header.php';
                                 $press_images = !empty($press['image_urls']) ? json_decode($press['image_urls'], true) : [];
                                 $press_thumb = !empty($press_images[0]) ? $press_images[0] : '';
                             ?>
-                            <div class="press-card">
+                            <a href="/news.php?tab=press&id=<?php echo $press['id']; ?>" class="press-card">
                                 <div class="card-image"<?php if ($press_thumb): ?> style="background-image: url('<?php echo htmlspecialchars($press_thumb); ?>'); background-size: cover; background-position: center;"<?php endif; ?>></div>
                                 <div class="card-header">
                                     <span class="card-tag">언론보도</span>
                                     <h3><?php echo nl2br(htmlspecialchars($press['title'])); ?></h3>
                                 </div>
-                            </div>
+                            </a>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>

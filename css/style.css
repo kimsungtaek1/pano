@@ -3729,18 +3729,24 @@
 }
 
 .fraud-banner p {
-    font-size: 60px;
+    font-size: 50px;
     font-weight: bold;
     color: #fff;
     margin: 0;
+    animation: blink 1s infinite;
 }
 
 .fraud-banner .red {
     color: #FF0000;
 }
 
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
 @media (max-width: 768px) {
     .fraud-banner p {
-        font-size: 30px;
+        font-size: 25px;
     }
 }
