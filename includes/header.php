@@ -6,6 +6,7 @@
     <title>PANO - 법률사무소</title>
 
     <!-- Open Graph 메타 태그 (카카오톡, 페이스북 등 SNS 공유용) -->
+    <meta name="description" content="의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="PANO - 법률사무소">
     <meta property="og:description" content="의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다.">
