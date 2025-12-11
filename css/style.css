@@ -3753,8 +3753,8 @@
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+    0%, 80% { opacity: 1; }
+    90%, 100% { opacity: 0; }
 }
 
 @media (max-width: 768px) {
