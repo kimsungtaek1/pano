@@ -1669,6 +1669,7 @@
      white-space: nowrap;
      overflow: hidden;
      text-overflow: ellipsis;
+     min-height: calc(24px * 1.5 * 2);
  }
 
  .card-body {
