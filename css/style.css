@@ -3745,8 +3745,7 @@
     font-weight: bold;
     color: #fff;
     margin: 0;
-    animation: blink 2s infinite;
-}
+    }
 
 .fraud-banner .red {
     color: #FF0000;
