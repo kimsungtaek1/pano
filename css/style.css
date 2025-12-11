@@ -3758,12 +3758,16 @@
 }
 
 @media (max-width: 768px) {
+    .fraud-banner {
+        padding: 15px 0;
+    }
+
     .fraud-banner p {
         font-size: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 5px;
+        gap: 0;
     }
 
     .fraud-banner .text {
@@ -3775,7 +3779,7 @@
     }
 
     .fraud-banner .phone {
-        font-size: 30px;
+        font-size: 40px;
         font-weight: 900;
     }
 }
