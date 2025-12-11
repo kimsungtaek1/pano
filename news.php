@@ -6,6 +6,9 @@ require_once 'includes/db.php';
 // 현재 탭 확인
 $tab = $_GET['tab'] ?? 'cases';
 
+// 상세 보기 ID (메인에서 넘어온 경우)
+$detail_id = isset($_GET['id']) ? (int)$_GET['id'] : null;
+
 // 성공사례 탭 데이터
 $cases_page = isset($_GET['cases_page']) ? (int)$_GET['cases_page'] : 1;
 $cases_per_page = 9;
@@ -203,6 +206,11 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = '?tab=' + tab;
         });
     });
+
+    // URL에 id 파라미터가 있으면 상세 페이지 자동 표시
+    <?php if ($detail_id): ?>
+    showDetail(<?php echo $detail_id; ?>, '<?php echo $tab; ?>');
+    <?php endif; ?>
 });
 
 // 현재 표시 중인 뉴스 정보
