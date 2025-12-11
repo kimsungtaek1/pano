@@ -269,21 +269,6 @@ function moveSuccessSlide(direction) {
     container.style.transform = `translateX(-${offset}px)`;
 }
 
-function setSuccessSlidePosition(slideIndex) {
-    const cards = document.querySelectorAll('.success-card');
-    const totalCards = cards.length;
-    const isMobile = window.innerWidth <= 768;
-    const cardsPerView = isMobile ? 1 : 3;
-
-    currentSuccessSlide = Math.max(0, Math.min(slideIndex, totalCards - cardsPerView));
-
-    const container = document.querySelector('.success-cards');
-    const cardWidth = cards[0].offsetWidth;
-    const gap = isMobile ? 20 : 28;
-    const offset = currentSuccessSlide * (cardWidth + gap);
-    container.style.transform = `translateX(-${offset}px)`;
-}
-
 function autoMoveSuccessSlide() {
     const cards = document.querySelectorAll('.success-card');
     const totalCards = cards.length;
@@ -340,21 +325,6 @@ function movePressSlide(direction) {
     container.style.transform = `translateX(-${offset}px)`;
 }
 
-function setPressSlidePosition(slideIndex) {
-    const cards = document.querySelectorAll('.press-card');
-    const totalCards = cards.length;
-    const isMobile = window.innerWidth <= 768;
-    const cardsPerView = isMobile ? 1 : 3;
-
-    currentPressSlide = Math.max(0, Math.min(slideIndex, totalCards - cardsPerView));
-
-    const container = document.querySelector('.press-cards');
-    const cardWidth = cards[0].offsetWidth;
-    const gap = isMobile ? 20 : 28;
-    const offset = currentPressSlide * (cardWidth + gap);
-    container.style.transform = `translateX(-${offset}px)`;
-}
-
 function autoMovePressSlide() {
     const cards = document.querySelectorAll('.press-card');
     const totalCards = cards.length;
@@ -391,106 +361,6 @@ window.addEventListener('resize', function() {
     moveSuccessSlide(0);
     movePressSlide(0);
 });
-
-// 드래그 슬라이드 기능
-function initDragSlider(containerSelector, cardSelector, setPositionFn, getCurrentSlide) {
-    const container = document.querySelector(containerSelector);
-    if (!container) return;
-
-    let isDragging = false;
-    let startX = 0;
-    let currentX = 0;
-    let startTranslate = 0;
-    let dragDistance = 0;
-    const DRAG_THRESHOLD = 10; // 이 거리 이상 움직여야 드래그로 인식
-
-    function getTranslateX() {
-        const style = window.getComputedStyle(container);
-        const matrix = new DOMMatrix(style.transform);
-        return matrix.m41;
-    }
-
-    function onDragStart(e) {
-        isDragging = true;
-        dragDistance = 0;
-        startX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-        startTranslate = getTranslateX();
-        container.style.transition = 'none';
-    }
-
-    function onDragMove(e) {
-        if (!isDragging) return;
-
-        currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
-        const diff = currentX - startX;
-        dragDistance = Math.abs(diff);
-
-        container.style.transform = `translateX(${startTranslate + diff}px)`;
-    }
-
-    function onDragEnd(e) {
-        if (!isDragging) return;
-        isDragging = false;
-
-        container.style.transition = 'transform 0.3s ease';
-
-        // 드래그 거리가 threshold 미만이면 클릭으로 처리
-        if (dragDistance < DRAG_THRESHOLD) {
-            // 원래 위치로 복귀
-            const cards = document.querySelectorAll(cardSelector);
-            const isMobile = window.innerWidth <= 768;
-            const gap = isMobile ? 20 : 28;
-            const cardWidth = cards[0].offsetWidth;
-            const offset = getCurrentSlide() * (cardWidth + gap);
-            container.style.transform = `translateX(-${offset}px)`;
-            return;
-        }
-
-        // 드래그로 인식 - 링크 클릭 방지는 이미 처리됨
-        const cards = document.querySelectorAll(cardSelector);
-        const isMobile = window.innerWidth <= 768;
-        const gap = isMobile ? 20 : 28;
-        const cardWidth = cards[0].offsetWidth;
-        const diff = currentX - startX;
-
-        // 드래그 방향에 따라 슬라이드 이동
-        let newSlide = getCurrentSlide();
-        if (diff < -50) {
-            newSlide++; // 왼쪽으로 드래그 = 다음 슬라이드
-        } else if (diff > 50) {
-            newSlide--; // 오른쪽으로 드래그 = 이전 슬라이드
-        }
-
-        setPositionFn(newSlide);
-    }
-
-    // 마우스 이벤트
-    container.addEventListener('mousedown', onDragStart);
-    document.addEventListener('mousemove', onDragMove);
-    document.addEventListener('mouseup', onDragEnd);
-
-    // 터치 이벤트
-    container.addEventListener('touchstart', onDragStart, { passive: true });
-    container.addEventListener('touchmove', onDragMove, { passive: true });
-    container.addEventListener('touchend', onDragEnd);
-
-    // 드래그 중 링크 클릭 방지
-    container.addEventListener('click', function(e) {
-        if (dragDistance >= DRAG_THRESHOLD) {
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, true);
-
-    // 드래그 중 이미지 드래그 방지
-    container.querySelectorAll('img').forEach(img => {
-        img.addEventListener('dragstart', e => e.preventDefault());
-    });
-}
-
-// 드래그 슬라이더 초기화
-initDragSlider('.success-cards', '.success-card', setSuccessSlidePosition, () => currentSuccessSlide);
-initDragSlider('.press-cards', '.press-card', setPressSlidePosition, () => currentPressSlide);
 
 // Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
