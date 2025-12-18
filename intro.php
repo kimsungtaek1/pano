@@ -79,7 +79,7 @@ foreach ($members as $key => $member) {
                             <h3 class="member-subtitle">검사 한의사 역임 변호사</h3>
                             <ul class="member-career">
                                 <li>원광대학교 한의학과 졸업(원광대학교 전체 수석 입학)</li>
-                                <li>대한 공중보건 한 의사협의회 법제 이사</li>
+                                <li>대한공중보건한의사협의회 법제 이사</li>
                                 <li>전남 신안군 공중보건의/경기도 안성시 공중보건의</li>
                                 <li>한방병원/요양병원 한방과장</li>
                                 <li>부산대학교 법학전문대학원 졸업</li>
@@ -129,7 +129,7 @@ foreach ($members as $key => $member) {
                     <div class="mobile-bottom-section">
                         <ul class="mobile-member-career">
                             <li>원광대학교 한의학과 졸업(원광대학교 전체 수석 입학)</li>
-                            <li>대한 공중보건 한 의사협의회 법제 이사</li>
+                            <li>대한공중보건한의사협의회 법제 이사</li>
                             <li>전남 신안군 공중보건의/경기도 안성시 공중보건의</li>
                             <li>한방병원/요양병원 한방과장</li>
                             <li>부산대학교 법학전문대학원 졸업</li>
