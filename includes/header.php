@@ -10,8 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="PANO - 법률사무소">
     <meta property="og:description" content="의뢰인의 믿음과 신뢰를 받을 수 있도록 최선을 다하겠습니다.">
-    <meta property="og:image" content="https://panolawyer.com/images/thumbnail.png">
-    <meta property="og:url" content="https://panolawyer.com">
+    <meta property="og:image" content="https://panolaw.com/images/thumbnail.png">
+    <meta property="og:url" content="https://panolaw.com">
     <meta name="naver-site-verification" content="1cfc6e07e5292bb22204b23a558d2efb08ee20f9" />
     <meta name="facebook-domain-verification" content="nt1dsyzdzk40nu54gz2ec8o1w8oxma" />
 
