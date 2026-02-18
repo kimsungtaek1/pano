@@ -13,6 +13,7 @@
     <meta property="og:image" content="https://panolawyer.com/images/thumbnail.png">
     <meta property="og:url" content="https://panolawyer.com">
     <meta name="naver-site-verification" content="1cfc6e07e5292bb22204b23a558d2efb08ee20f9" />
+    <meta name="facebook-domain-verification" content="nt1dsyzdzk40nu54gz2ec8o1w8oxma" />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
