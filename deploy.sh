@@ -12,29 +12,47 @@ echo "=========================================="
 echo "카페24 SCP 자동 배포 시작"
 echo "=========================================="
 
-# 제외 목록 (rsync용)
-EXCLUDE_OPTS="--exclude=.git/ --exclude=.env --exclude=deploy.sh --exclude=README.md --exclude=.gitignore --exclude=database/ --exclude=uploads/ --exclude=CLAUDE.md"
+# 제외 패턴
+EXCLUDES=".git .env deploy.sh README.md .gitignore database uploads CLAUDE.md"
 
-# 한글 파일/디렉토리 제외
-echo "한글 파일/디렉토리 제외 중..."
-EXCLUDE_OPTS="$EXCLUDE_OPTS --exclude=*[가-힣]*"
-echo "⚠️  한글이 포함된 모든 파일 및 디렉토리는 제외됩니다."
+should_exclude() {
+    local file="$1"
+    # 제외 목록 체크
+    for ex in $EXCLUDES; do
+        if [[ "$file" == "$ex"* ]]; then
+            return 0
+        fi
+    done
+    # 한글 포함 체크
+    if [[ "$file" =~ [가-힣] ]]; then
+        return 0
+    fi
+    return 1
+}
 
 echo "업로드 시작..."
 
-# SCP 방식으로 rsync over SSH 업로드
-sshpass -p "${FTP_PASSWORD}" rsync -avz --no-perms --no-owner --no-group \
-    -e "ssh -o StrictHostKeyChecking=no" \
-    $EXCLUDE_OPTS \
-    ./ ${FTP_USERNAME}@${FTP_HOST}:www/ 2>&1
+# 변경된 파일 목록 생성 및 업로드
+find . -type f | while read -r file; do
+    # ./ 제거
+    rel="${file#./}"
 
-if [ $? -eq 0 ]; then
-    echo "=========================================="
-    echo "✅ 배포 완료!"
-    echo "=========================================="
-else
-    echo "=========================================="
-    echo "❌ 배포 실패!"
-    echo "=========================================="
-    exit 1
-fi
+    if should_exclude "$rel"; then
+        continue
+    fi
+
+    # 원격 디렉토리 생성 후 파일 업로드
+    remote_dir=$(dirname "www/$rel")
+    sshpass -p "${FTP_PASSWORD}" ssh -o StrictHostKeyChecking=no ${FTP_USERNAME}@${FTP_HOST} "mkdir -p $remote_dir" 2>/dev/null
+    sshpass -p "${FTP_PASSWORD}" scp -o StrictHostKeyChecking=no "$file" "${FTP_USERNAME}@${FTP_HOST}:www/$rel" 2>/dev/null
+
+    if [ $? -eq 0 ]; then
+        echo "  ✓ $rel"
+    else
+        echo "  ✗ $rel (실패)"
+    fi
+done
+
+echo "=========================================="
+echo "✅ 배포 완료!"
+echo "=========================================="
