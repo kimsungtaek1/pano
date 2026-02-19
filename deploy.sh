@@ -9,37 +9,24 @@ else
 fi
 
 echo "=========================================="
-echo "카페24 FTP 자동 배포 시작"
+echo "카페24 SCP 자동 배포 시작"
 echo "=========================================="
 
-# 제외 목록 생성
-# uploads/ 폴더는 서버에서 직접 업로드되므로 동기화에서 제외 (삭제 방지)
-EXCLUDE_OPTS="--exclude .git/ --exclude .env --exclude deploy.sh --exclude README.md --exclude .gitignore --exclude database/ --exclude uploads/ --exclude CLAUDE.md"
+# 제외 목록 (rsync용)
+EXCLUDE_OPTS="--exclude=.git/ --exclude=.env --exclude=deploy.sh --exclude=README.md --exclude=.gitignore --exclude=database/ --exclude=uploads/ --exclude=CLAUDE.md"
 
-# 한글이 포함된 모든 파일 및 디렉토리 제외
+# 한글 파일/디렉토리 제외
 echo "한글 파일/디렉토리 제외 중..."
-EXCLUDE_OPTS="$EXCLUDE_OPTS --exclude-glob '*[가-힣]*'"
+EXCLUDE_OPTS="$EXCLUDE_OPTS --exclude=*[가-힣]*"
 echo "⚠️  한글이 포함된 모든 파일 및 디렉토리는 제외됩니다."
 
 echo "업로드 시작..."
 
-# FTP 서버에 파일 업로드
-lftp -e "
-set ssl:verify-certificate no
-set net:timeout 10
-set net:max-retries 2
-set net:reconnect-interval-base 5
-set cmd:fail-exit yes
-set ftp:use-feat no
-set net:connection-limit 1
-open ftp://${FTP_USERNAME}:${FTP_PASSWORD}@${FTP_HOST}
-mirror --reverse --verbose --parallel=1 $EXCLUDE_OPTS ./ ${FTP_REMOTE_DIR}
-bye
-" 2>/dev/null
-
-# 연결 확실히 종료
-sleep 1
-pkill -9 -f "lftp" 2>/dev/null || true
+# SCP 방식으로 rsync over SSH 업로드
+sshpass -p "${FTP_PASSWORD}" rsync -avz --no-perms --no-owner --no-group \
+    -e "ssh -o StrictHostKeyChecking=no" \
+    $EXCLUDE_OPTS \
+    ./ ${FTP_USERNAME}@${FTP_HOST}:www/ 2>&1
 
 if [ $? -eq 0 ]; then
     echo "=========================================="
