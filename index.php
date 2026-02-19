@@ -219,6 +219,12 @@ include 'includes/header.php';
                 </div>
                 
                 <form id="consultationForm" class="consultation-form" method="POST" action="/api/submit_consultation.php">
+                    <input type="hidden" name="utm_source" id="utm_source">
+                    <input type="hidden" name="utm_medium" id="utm_medium">
+                    <input type="hidden" name="utm_campaign" id="utm_campaign">
+                    <input type="hidden" name="utm_content" id="utm_content">
+                    <input type="hidden" name="utm_term" id="utm_term">
+                    <input type="hidden" name="fbclid" id="fbclid">
                     <div class="form-row-horizontal">
                         <div class="form-field">
                             <label for="name">성함</label>
