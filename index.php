@@ -368,6 +368,13 @@ window.addEventListener('resize', function() {
     movePressSlide(0);
 });
 
+// UTM 파라미터 추출
+const urlParams = new URLSearchParams(window.location.search);
+['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'].forEach(param => {
+    const el = document.getElementById(param);
+    if (el) el.value = urlParams.get(param) || '';
+});
+
 // Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
