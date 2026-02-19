@@ -18,6 +18,23 @@ require_once '../includes/db.php';
 $name = trim($_POST['name'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
 $content = trim($_POST['content'] ?? '');
+$utm_source = trim($_POST['utm_source'] ?? '');
+$utm_medium = trim($_POST['utm_medium'] ?? '');
+$utm_campaign = trim($_POST['utm_campaign'] ?? '');
+$utm_content = trim($_POST['utm_content'] ?? '');
+$utm_term = trim($_POST['utm_term'] ?? '');
+$fbclid = trim($_POST['fbclid'] ?? '');
+$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '';
+$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+// IP 기반 국가코드 조회
+$country = null;
+if ($ip_address) {
+    $geoData = @file_get_contents("http://ip-api.com/json/{$ip_address}?fields=countryCode");
+    if ($geoData) {
+        $country = json_decode($geoData, true)['countryCode'] ?? null;
+    }
+}
 
 // 필수 항목 검증
 if (empty($name) || empty($phone) || empty($content)) {
