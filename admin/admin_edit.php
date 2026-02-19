@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// 로그인 체크
-if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
-    header('Location: index.php');
-    exit;
-}
+// 로그인 체크 (임시 비활성화)
+// if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+//     header('Location: index.php');
+//     exit;
+// }
 
 require_once '../includes/db.php';
 
