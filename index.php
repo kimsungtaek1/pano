@@ -375,9 +375,34 @@ const urlParams = new URLSearchParams(window.location.search);
     if (el) el.value = urlParams.get(param) || '';
 });
 
+// 상담신청 유효성 검사
+function validateConsultation(form) {
+    const name = form.querySelector('[name="name"]').value.trim();
+    const phone = form.querySelector('[name="phone"]').value.replace(/[^0-9]/g, '');
+    const content = form.querySelector('[name="content"]').value.trim();
+
+    if (name.length < 2) {
+        alert('이름을 2자 이상 입력해주세요.');
+        return false;
+    }
+    if (phone.length < 10 || phone.length > 11 || !/^01[0-9]/.test(phone)) {
+        alert('유효한 휴대폰 번호를 입력해주세요.');
+        return false;
+    }
+    if (content.length < 5) {
+        alert('문의내용을 5자 이상 입력해주세요.');
+        return false;
+    }
+    // 숫자만 추출한 값으로 덮어쓰기
+    form.querySelector('[name="phone"]').value = phone;
+    return true;
+}
+
 // Consultation form submit
 document.getElementById('consultationForm').addEventListener('submit', function(e) {
     e.preventDefault();
+
+    if (!validateConsultation(this)) return;
 
     const formData = new FormData(this);
     const submitBtn = this.querySelector('.btn-submit');
