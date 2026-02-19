@@ -124,6 +124,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
 
                 <div class="view-section">
+                    <h2>추적 정보</h2>
+                    <table class="view-table">
+                        <tr>
+                            <th>국가</th>
+                            <td<?php echo (!empty($consultation['country']) && $consultation['country'] !== 'KR') ? ' style="color:red;font-weight:bold;"' : ''; ?>><?php echo htmlspecialchars($consultation['country'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>IP 주소</th>
+                            <td><?php echo htmlspecialchars($consultation['ip_address'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>디바이스</th>
+                            <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['user_agent'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>유입 도메인</th>
+                            <td><?php echo htmlspecialchars($consultation['domain'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>UTM Source</th>
+                            <td><?php echo htmlspecialchars($consultation['utm_source'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>UTM Medium</th>
+                            <td><?php echo htmlspecialchars($consultation['utm_medium'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>UTM Campaign</th>
+                            <td><?php echo htmlspecialchars($consultation['utm_campaign'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>UTM Content</th>
+                            <td><?php echo htmlspecialchars($consultation['utm_content'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>UTM Term</th>
+                            <td><?php echo htmlspecialchars($consultation['utm_term'] ?? '-'); ?></td>
+                        </tr>
+                        <tr>
+                            <th>FBCLID</th>
+                            <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['fbclid'] ?? '-'); ?></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="view-section">
                     <h2>처리 정보</h2>
                     <form method="POST" action="">
                         <input type="hidden" name="action" value="update_status">
