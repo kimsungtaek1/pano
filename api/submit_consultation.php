@@ -30,7 +30,13 @@ $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 // IP 기반 국가코드 조회
 $country = null;
 if ($ip_address) {
-    $geoData = @file_get_contents("http://ip-api.com/json/{$ip_address}?fields=countryCode");
+    $ch = curl_init("http://ip-api.com/json/{$ip_address}?fields=countryCode");
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT => 3,
+    ]);
+    $geoData = curl_exec($ch);
+    curl_close($ch);
     if ($geoData) {
         $country = json_decode($geoData, true)['countryCode'] ?? null;
     }
