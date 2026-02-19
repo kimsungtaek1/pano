@@ -42,15 +42,22 @@ if ($ip_address) {
     }
 }
 
-// 필수 항목 검증
-if (empty($name) || empty($phone) || empty($content)) {
-    echo json_encode(['success' => false, 'message' => '필수 항목을 입력해주세요.']);
+// 이름: 2자 이상
+if (mb_strlen($name) < 2) {
+    echo json_encode(['success' => false, 'message' => '이름을 2자 이상 입력해주세요.']);
     exit;
 }
 
-// 전화번호 형식 간단 검증
-if (!preg_match('/^[0-9-]+$/', $phone)) {
-    echo json_encode(['success' => false, 'message' => '전화번호 형식이 올바르지 않습니다.']);
+// 전화번호: 숫자만 추출 후 01x로 시작하는 10~11자리
+$phone = preg_replace('/[^0-9]/', '', $phone);
+if (!preg_match('/^01[0-9][0-9]{7,8}$/', $phone)) {
+    echo json_encode(['success' => false, 'message' => '유효한 휴대폰 번호를 입력해주세요.']);
+    exit;
+}
+
+// 문의내용: 5자 이상
+if (mb_strlen($content) < 5) {
+    echo json_encode(['success' => false, 'message' => '문의내용을 5자 이상 입력해주세요.']);
     exit;
 }
 
