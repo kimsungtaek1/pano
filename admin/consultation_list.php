@@ -223,7 +223,7 @@ try {
                     <tbody>
                         <?php if (empty($consultations)): ?>
                             <tr>
-                                <td colspan="7" class="text-center">등록된 상담신청이 없습니다.</td>
+                                <td colspan="9" class="text-center">등록된 상담신청이 없습니다.</td>
                             </tr>
                         <?php else: ?>
                             <?php foreach ($consultations as $idx => $consultation): ?>
