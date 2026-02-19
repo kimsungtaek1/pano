@@ -34,8 +34,17 @@ should_exclude() {
     return 1
 }
 
-# 최근 커밋에서 변경된 파일 목록 가져오기
-changed_files=$(git diff --name-only HEAD~1 HEAD 2>/dev/null)
+# --all 옵션: 전체 파일 배포
+if [ "$1" = "--all" ]; then
+    echo "전체 파일 업로드 중..."
+    changed_files=$(find . -type f \
+        -not -path './.git/*' \
+        -not -name '.git' \
+        | sed 's|^\./||')
+else
+    # 최근 커밋에서 변경된 파일만
+    changed_files=$(git diff --name-only HEAD~1 HEAD 2>/dev/null)
+fi
 
 if [ -z "$changed_files" ]; then
     echo "변경된 파일이 없습니다."
