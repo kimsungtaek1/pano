@@ -453,6 +453,8 @@ if (fixedForm) {
     fixedForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
+    if (!validateConsultation(this)) return;
+
     const formData = new FormData(this);
     const submitBtn = this.querySelector('.btn-submit-bar');
 
