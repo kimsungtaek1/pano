@@ -67,14 +67,23 @@ try {
 
     // 데이터 삽입
     $stmt = $pdo->prepare("
-        INSERT INTO consultations (name, phone, content, status)
-        VALUES (?, ?, ?, 'pending')
+        INSERT INTO consultations (name, phone, content, status, utm_source, utm_medium, utm_campaign, utm_content, utm_term, fbclid, ip_address, user_agent, country)
+        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
 
     $result = $stmt->execute([
         $name,
         $phone,
-        $content
+        $content,
+        $utm_source ?: null,
+        $utm_medium ?: null,
+        $utm_campaign ?: null,
+        $utm_content ?: null,
+        $utm_term ?: null,
+        $fbclid ?: null,
+        $ip_address ?: null,
+        $user_agent ?: null,
+        $country
     ]);
 
     if ($result) {
