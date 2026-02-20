@@ -71,8 +71,8 @@ $offset = ($page - 1) * $per_page;
 $search = $_GET['search'] ?? '';
 $status_filter = $_GET['status'] ?? '';
 
-// WHERE 조건 구성
-$where = [];
+// WHERE 조건 구성 (panolaw.com만 표시)
+$where = ["domain = 'panolaw.com'"];
 $params = [];
 
 if (!empty($search)) {
