@@ -81,8 +81,8 @@ try {
 
     // 데이터 삽입
     $stmt = $pdo->prepare("
-        INSERT INTO consultations (name, phone, content, status, utm_source, utm_medium, utm_campaign, utm_content, utm_term, fbclid, ip_address, user_agent, country)
-        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        INSERT INTO consultations (name, phone, content, status, domain, utm_source, utm_medium, utm_campaign, utm_content, utm_term, fbclid, ip_address, user_agent, country)
+        VALUES (?, ?, ?, 'pending', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     ");
 
     $result = $stmt->execute([
