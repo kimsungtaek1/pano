@@ -342,5 +342,43 @@ try {
             </div>
         </main>
     </div>
+    <!-- 상담 추가 모달 -->
+    <div id="addModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+        <div style="background:#fff; border-radius:12px; padding:30px; width:500px; max-width:90%;">
+            <h2 style="margin:0 0 20px 0; font-size:20px;">상담신청 추가</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="add">
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:600; font-size:14px;">이름 *</label>
+                    <input type="text" name="name" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:600; font-size:14px;">연락처 *</label>
+                    <input type="text" name="phone" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:600; font-size:14px;">내용 *</label>
+                    <textarea name="content" required rows="4" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box; resize:vertical;"></textarea>
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:600; font-size:14px;">광고</label>
+                    <input type="text" name="utm_source" placeholder="예: meta, google" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:20px;">
+                    <label style="display:block; margin-bottom:5px; font-weight:600; font-size:14px;">홈페이지</label>
+                    <input type="text" name="domain" value="panolaw.com" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; box-sizing:border-box;">
+                </div>
+                <div style="display:flex; gap:10px; justify-content:flex-end;">
+                    <button type="button" onclick="document.getElementById('addModal').style.display='none'" style="padding:10px 20px; border:1px solid #ddd; background:#fff; border-radius:6px; cursor:pointer;">취소</button>
+                    <button type="submit" class="btn btn-primary" style="padding:10px 20px;">추가</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .btn-sm.btn-delete { background:#e74c3c; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+        .btn-sm.btn-delete:hover { background:#c0392b; }
+    </style>
 </body>
 </html>
