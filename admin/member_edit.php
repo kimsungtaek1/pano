@@ -132,6 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <nav class="admin-nav">
                 <a href="dashboard.php">대시보드</a>
                 <a href="consultation_list.php">상담신청 관리</a>
+                <a href="landing_list.php">랜딩페이지</a>
                 <a href="news_list.php">뉴스 관리</a>
                 <a href="member_list.php" class="active">구성원 관리</a>
                 <a href="admin_list.php">관리자 관리</a>
