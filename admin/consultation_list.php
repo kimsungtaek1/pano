@@ -289,7 +289,12 @@ try {
                                         </span>
                                     </td>
                                     <td class="action-cell">
-                                        <a href="consultation_view.php?id=<?php echo $consultation['id']; ?>" class="btn-sm btn-edit">상세보기</a>
+                                        <a href="consultation_view.php?id=<?php echo $consultation['id']; ?>" class="btn-sm btn-edit">수정</a>
+                                        <form method="POST" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="id" value="<?php echo $consultation['id']; ?>">
+                                            <button type="submit" class="btn-sm btn-delete">삭제</button>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
