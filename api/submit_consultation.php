@@ -18,6 +18,7 @@ require_once '../includes/db.php';
 $name = trim($_POST['name'] ?? '');
 $phone = trim($_POST['phone'] ?? '');
 $content = trim($_POST['content'] ?? '');
+$domain = trim($_POST['domain'] ?? '');
 $utm_source = trim($_POST['utm_source'] ?? '');
 $utm_medium = trim($_POST['utm_medium'] ?? '');
 $utm_campaign = trim($_POST['utm_campaign'] ?? '');
