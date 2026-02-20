@@ -418,8 +418,7 @@ document.getElementById('consultationForm').addEventListener('submit', function(
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('상담신청이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
-            this.reset();
+            window.location.href = 'complete-panolaw.php';
         } else {
             alert('오류가 발생했습니다: ' + (data.message || '다시 시도해주세요.'));
         }
@@ -469,8 +468,7 @@ if (fixedForm) {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            alert('상담신청이 완료되었습니다.\n빠른 시일 내에 연락드리겠습니다.');
-            this.reset();
+            window.location.href = 'complete-panolaw.php';
         } else {
             alert('오류가 발생했습니다: ' + (data.message || '다시 시도해주세요.'));
         }
