@@ -145,6 +145,9 @@ try {
                 <a href="consultation_list.php" class="active">
                     <span class="nav-icon">💬</span> 상담신청 관리
                 </a>
+                <a href="landing_list.php">
+                    <span class="nav-icon">🚀</span> 랜딩페이지
+                </a>
                 <a href="news_list.php">
                     <span class="nav-icon">📰</span> 뉴스 관리
                 </a>
