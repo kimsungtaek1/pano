@@ -70,6 +70,7 @@ try {
         phone VARCHAR(20) NOT NULL COMMENT '전화번호',
         content TEXT NOT NULL COMMENT '상담내용',
         status VARCHAR(20) DEFAULT 'pending' COMMENT '상태',
+        domain VARCHAR(100) COMMENT '홈페이지',
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '신청일시',
         processed_at TIMESTAMP NULL COMMENT '처리일시',
         admin_memo TEXT COMMENT '관리자 메모',
