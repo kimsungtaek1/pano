@@ -168,9 +168,17 @@ try {
 
         <!-- 메인 컨텐츠 -->
         <main class="main-content">
-            <div class="content-header" style="margin-bottom: 30px;">
+            <div class="content-header" style="margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center;">
                 <h1>💬 상담신청 관리</h1>
+                <button onclick="document.getElementById('addModal').style.display='flex'" class="btn btn-primary">+ 상담 추가</button>
             </div>
+
+            <?php if (isset($_GET['added'])): ?>
+                <div class="alert alert-success" style="margin-bottom: 20px; padding: 12px 16px; background: #d4edda; color: #155724; border-radius: 6px;">상담신청이 추가되었습니다.</div>
+            <?php endif; ?>
+            <?php if (isset($_GET['deleted'])): ?>
+                <div class="alert alert-success" style="margin-bottom: 20px; padding: 12px 16px; background: #d4edda; color: #155724; border-radius: 6px;">상담신청이 삭제되었습니다.</div>
+            <?php endif; ?>
 
             <!-- 통계 카드 -->
             <div class="stats-grid-main" style="margin-bottom: 30px;">
