@@ -111,7 +111,7 @@ $status_counts = [
 ];
 
 try {
-    $count_stmt = $pdo->query("SELECT status, COUNT(*) as cnt FROM consultations GROUP BY status");
+    $count_stmt = $pdo->query("SELECT status, COUNT(*) as cnt FROM consultations WHERE domain = 'panolaw.com' GROUP BY status");
     while ($row = $count_stmt->fetch()) {
         if (isset($status_counts[$row['status']])) {
             $status_counts[$row['status']] = $row['cnt'];
