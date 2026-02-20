@@ -214,7 +214,7 @@ try {
                             <th width="130">연락처</th>
                             <th>내용</th>
                             <th width="60">국가</th>
-                            <th width="100">유입경로</th>
+                            <th width="100">홈페이지</th>
                             <th width="150">신청일시</th>
                             <th width="80">상태</th>
                             <th width="100">관리</th>
