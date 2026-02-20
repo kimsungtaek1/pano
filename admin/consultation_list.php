@@ -12,6 +12,34 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 
 require_once '../includes/db.php';
 
+// POST 요청 처리
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $action = $_POST['action'] ?? '';
+
+    if ($action === 'add') {
+        $name = trim($_POST['name'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
+        $content = trim($_POST['content'] ?? '');
+        $domain = trim($_POST['domain'] ?? '');
+        $utm_source = trim($_POST['utm_source'] ?? '');
+
+        if ($name && $phone && $content) {
+            $stmt = $pdo->prepare("INSERT INTO consultations (name, phone, content, status, domain, utm_source) VALUES (?, ?, ?, 'pending', ?, ?)");
+            $stmt->execute([$name, $phone, $content, $domain ?: null, $utm_source ?: null]);
+            header('Location: consultation_list.php?added=1');
+            exit;
+        }
+    } elseif ($action === 'delete') {
+        $id = (int)($_POST['id'] ?? 0);
+        if ($id > 0) {
+            $stmt = $pdo->prepare("DELETE FROM consultations WHERE id = ?");
+            $stmt->execute([$id]);
+            header('Location: consultation_list.php?deleted=1');
+            exit;
+        }
+    }
+}
+
 // 테이블 생성 (없는 경우)
 try {
     $createTableSQL = "CREATE TABLE IF NOT EXISTS consultations (
