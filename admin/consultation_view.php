@@ -30,21 +30,25 @@ if (!$consultation) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
-    if ($action === 'update_status') {
-        $new_status = $_POST['status'] ?? '';
+    if ($action === 'update') {
+        $name = trim($_POST['name'] ?? '');
+        $phone = trim($_POST['phone'] ?? '');
+        $content = trim($_POST['content'] ?? '');
+        $domain = trim($_POST['domain'] ?? '');
+        $utm_source = trim($_POST['utm_source'] ?? '');
+        $new_status = $_POST['status'] ?? 'pending';
         $admin_memo = $_POST['admin_memo'] ?? '';
 
-        if (in_array($new_status, ['pending', 'processed'])) {
-            $processed_at = $new_status === 'processed' ? date('Y-m-d H:i:s') : null;
+        if ($name && $phone && $content) {
+            $processed_at = in_array($new_status, ['processed', 'completed']) ? date('Y-m-d H:i:s') : null;
 
             $stmt = $pdo->prepare("
                 UPDATE consultations
-                SET status = ?, admin_memo = ?, processed_at = ?
+                SET name = ?, phone = ?, content = ?, domain = ?, utm_source = ?, status = ?, admin_memo = ?, processed_at = ?
                 WHERE id = ?
             ");
-            $stmt->execute([$new_status, $admin_memo, $processed_at, $id]);
+            $stmt->execute([$name, $phone, $content, $domain ?: null, $utm_source ?: null, $new_status, $admin_memo, $processed_at, $id]);
 
-            // 페이지 새로고침
             header("Location: consultation_view.php?id=$id&updated=1");
             exit;
         }
