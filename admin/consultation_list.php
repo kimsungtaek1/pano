@@ -237,6 +237,7 @@ try {
                                         <?php if (mb_strlen($consultation['content']) > 50): ?>...<?php endif; ?>
                                     </td>
                                     <td<?php echo (!empty($consultation['country']) && $consultation['country'] !== 'KR') ? ' style="color:red;font-weight:bold;"' : ''; ?>><?php echo htmlspecialchars($consultation['country'] ?? '-'); ?></td>
+                                    <td><?php echo htmlspecialchars($consultation['utm_source'] ?? '-'); ?></td>
                                     <td><?php echo htmlspecialchars($consultation['domain'] ?? '-'); ?></td>
                                     <td><?php echo date('Y-m-d H:i', strtotime($consultation['created_at'])); ?></td>
                                     <td>
