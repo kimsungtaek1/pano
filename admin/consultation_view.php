@@ -102,87 +102,86 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="admin-content">
             <div class="view-container">
-                <div class="view-section">
-                    <h2>신청자 정보</h2>
-                    <table class="view-table">
-                        <tr>
-                            <th>이름</th>
-                            <td><?php echo htmlspecialchars($consultation['name']); ?></td>
-                        </tr>
-                        <tr>
-                            <th>연락처</th>
-                            <td><?php echo htmlspecialchars($consultation['phone']); ?></td>
-                        </tr>
-                        <tr>
-                            <th>신청일시</th>
-                            <td><?php echo date('Y-m-d H:i:s', strtotime($consultation['created_at'])); ?></td>
-                        </tr>
-                    </table>
-                </div>
+                <form method="POST" action="">
+                    <input type="hidden" name="action" value="update">
 
-                <div class="view-section">
-                    <h2>상담내용</h2>
-                    <div class="content-box">
-                        <?php echo nl2br(htmlspecialchars($consultation['content'])); ?>
+                    <div class="view-section">
+                        <h2>신청자 정보</h2>
+                        <table class="view-table">
+                            <tr>
+                                <th>이름</th>
+                                <td><input type="text" name="name" value="<?php echo htmlspecialchars($consultation['name']); ?>" required class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>연락처</th>
+                                <td><input type="text" name="phone" value="<?php echo htmlspecialchars($consultation['phone']); ?>" required class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>신청일시</th>
+                                <td><?php echo date('Y-m-d H:i:s', strtotime($consultation['created_at'])); ?></td>
+                            </tr>
+                        </table>
                     </div>
-                </div>
 
-                <div class="view-section">
-                    <h2>추적 정보</h2>
-                    <table class="view-table">
-                        <tr>
-                            <th>국가</th>
-                            <td<?php echo (!empty($consultation['country']) && $consultation['country'] !== 'KR') ? ' style="color:red;font-weight:bold;"' : ''; ?>><?php echo htmlspecialchars($consultation['country'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>IP 주소</th>
-                            <td><?php echo htmlspecialchars($consultation['ip_address'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>디바이스</th>
-                            <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['user_agent'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>유입 도메인</th>
-                            <td><?php echo htmlspecialchars($consultation['domain'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>UTM Source</th>
-                            <td><?php echo htmlspecialchars($consultation['utm_source'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>UTM Medium</th>
-                            <td><?php echo htmlspecialchars($consultation['utm_medium'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>UTM Campaign</th>
-                            <td><?php echo htmlspecialchars($consultation['utm_campaign'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>UTM Content</th>
-                            <td><?php echo htmlspecialchars($consultation['utm_content'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>UTM Term</th>
-                            <td><?php echo htmlspecialchars($consultation['utm_term'] ?? '-'); ?></td>
-                        </tr>
-                        <tr>
-                            <th>FBCLID</th>
-                            <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['fbclid'] ?? '-'); ?></td>
-                        </tr>
-                    </table>
-                </div>
+                    <div class="view-section">
+                        <h2>상담내용</h2>
+                        <textarea name="content" required class="form-control" rows="6"><?php echo htmlspecialchars($consultation['content']); ?></textarea>
+                    </div>
 
-                <div class="view-section">
-                    <h2>처리 정보</h2>
-                    <form method="POST" action="">
-                        <input type="hidden" name="action" value="update_status">
+                    <div class="view-section">
+                        <h2>추적 정보</h2>
+                        <table class="view-table">
+                            <tr>
+                                <th>국가</th>
+                                <td<?php echo (!empty($consultation['country']) && $consultation['country'] !== 'KR') ? ' style="color:red;font-weight:bold;"' : ''; ?>><?php echo htmlspecialchars($consultation['country'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>IP 주소</th>
+                                <td><?php echo htmlspecialchars($consultation['ip_address'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>디바이스</th>
+                                <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['user_agent'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>홈페이지</th>
+                                <td><input type="text" name="domain" value="<?php echo htmlspecialchars($consultation['domain'] ?? ''); ?>" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>광고</th>
+                                <td><input type="text" name="utm_source" value="<?php echo htmlspecialchars($consultation['utm_source'] ?? ''); ?>" class="form-control" placeholder="예: meta, google"></td>
+                            </tr>
+                            <tr>
+                                <th>UTM Medium</th>
+                                <td><?php echo htmlspecialchars($consultation['utm_medium'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>UTM Campaign</th>
+                                <td><?php echo htmlspecialchars($consultation['utm_campaign'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>UTM Content</th>
+                                <td><?php echo htmlspecialchars($consultation['utm_content'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>UTM Term</th>
+                                <td><?php echo htmlspecialchars($consultation['utm_term'] ?? '-'); ?></td>
+                            </tr>
+                            <tr>
+                                <th>FBCLID</th>
+                                <td style="word-break:break-all;"><?php echo htmlspecialchars($consultation['fbclid'] ?? '-'); ?></td>
+                            </tr>
+                        </table>
+                    </div>
 
+                    <div class="view-section">
+                        <h2>처리 정보</h2>
                         <div class="form-group">
                             <label for="status">상태</label>
                             <select name="status" id="status" class="form-control">
-                                <option value="pending" <?php echo $consultation['status'] === 'pending' ? 'selected' : ''; ?>>대기중</option>
-                                <option value="processed" <?php echo $consultation['status'] === 'processed' ? 'selected' : ''; ?>>처리완료</option>
+                                <option value="pending" <?php echo $consultation['status'] === 'pending' ? 'selected' : ''; ?>>미처리</option>
+                                <option value="processing" <?php echo $consultation['status'] === 'processing' ? 'selected' : ''; ?>>처리중</option>
+                                <option value="completed" <?php echo $consultation['status'] === 'completed' ? 'selected' : ''; ?>>완료</option>
                             </select>
                         </div>
 
@@ -204,8 +203,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <button type="submit" class="btn-primary">저장</button>
                             <a href="consultation_list.php" class="btn-secondary">취소</a>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
 
                 <div class="view-section danger-zone">
                     <h2>위험 영역</h2>
