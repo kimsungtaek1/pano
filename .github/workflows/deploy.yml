@@ -25,6 +25,7 @@ jobs:
             mirror --reverse --only-newer --verbose \
               --exclude .git/ \
               --exclude .env \
+              --exclude .pano-config.php \
               --exclude deploy.sh \
               --exclude README.md \
               --exclude .gitignore \

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://panolaw.co.kr/</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/intro.php</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/intro.php?tab=members</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/field.php</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/news.php</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/news.php?tab=cases</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/news.php?tab=press</loc>
+  </url>
+  <url>
+    <loc>https://panolaw.co.kr/info.php</loc>
+  </url>
+</urlset>

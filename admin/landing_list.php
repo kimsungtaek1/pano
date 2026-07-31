@@ -27,9 +27,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// 랜딩페이지 도메인 목록
-$landing_domains = ['victim-pano.com', 'criminallaw.kr', 'newstart-life.co.kr'];
-$domain_placeholders = implode(',', array_fill(0, count($landing_domains), '?'));
+// 랜딩페이지 탭은 panolaw.com(상담신청 관리)과 분리
+$normalized_domain_expr = "LOWER(TRIM(SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(COALESCE(domain, ''), 'https://', ''), 'http://', ''), 'www.', ''), '/', 1)))";
+$landing_base_where = "($normalized_domain_expr <> 'panolaw.com')";
+
+// 도메인 필터 옵션(현재 DB 기준 panolaw.com 제외)
+$landing_domains = [];
+try {
+    $landing_domain_stmt = $pdo->prepare("SELECT DISTINCT domain FROM consultations WHERE $landing_base_where AND domain IS NOT NULL AND domain <> '' ORDER BY domain ASC");
+    $landing_domain_stmt->execute();
+    $landing_domains = $landing_domain_stmt->fetchAll(PDO::FETCH_COLUMN);
+} catch (PDOException $e) {
+    $landing_domains = [];
+}
 
 // 페이지네이션 설정
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
@@ -42,8 +52,8 @@ $status_filter = $_GET['status'] ?? '';
 $domain_filter = $_GET['domain'] ?? '';
 
 // WHERE 조건 구성
-$where = ["domain IN ($domain_placeholders)"];
-$params = $landing_domains;
+$where = [$landing_base_where];
+$params = [];
 
 if (!empty($search)) {
     $where[] = "(name LIKE ? OR phone LIKE ? OR content LIKE ?)";
@@ -86,9 +96,8 @@ $status_counts = [
 ];
 
 try {
-    $status_sql = "SELECT status, COUNT(*) as cnt FROM consultations WHERE domain IN ($domain_placeholders) GROUP BY status";
-    $count_stmt = $pdo->prepare($status_sql);
-    $count_stmt->execute($landing_domains);
+    $status_sql = "SELECT status, COUNT(*) as cnt FROM consultations WHERE $landing_base_where GROUP BY status";
+    $count_stmt = $pdo->query($status_sql);
     while ($row = $count_stmt->fetch()) {
         if (isset($status_counts[$row['status']])) {
             $status_counts[$row['status']] = $row['cnt'];
@@ -271,7 +280,7 @@ try {
                                         </span>
                                     </td>
                                     <td class="action-cell">
-                                        <a href="consultation_view.php?id=<?php echo $consultation['id']; ?>" class="btn-sm btn-edit">수정</a>
+                                        <a href="consultation_view.php?id=<?php echo $consultation['id']; ?>&source=landing" class="btn-sm btn-edit">수정</a>
                                         <form method="POST" style="display:inline;" onsubmit="return confirm('정말 삭제하시겠습니까?');">
                                             <input type="hidden" name="action" value="delete">
                                             <input type="hidden" name="id" value="<?php echo $consultation['id']; ?>">

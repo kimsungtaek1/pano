@@ -10,9 +10,12 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== tru
 require_once '../includes/db.php';
 
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$source = isset($_GET['source']) ? $_GET['source'] : 'consultation';
+$source = ($source === 'landing') ? 'landing' : 'consultation';
+$back_url = ($source === 'landing') ? 'landing_list.php' : 'consultation_list.php';
 
 if ($id <= 0) {
-    header('Location: consultation_list.php');
+    header("Location: {$back_url}");
     exit;
 }
 
@@ -22,13 +25,16 @@ $stmt->execute([$id]);
 $consultation = $stmt->fetch();
 
 if (!$consultation) {
-    header('Location: consultation_list.php');
+    header("Location: {$back_url}");
     exit;
 }
 
 // POST 요청 처리 (상태 변경, 메모 저장)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
+    $source = $_POST['source'] ?? $source;
+    $source = ($source === 'landing') ? 'landing' : 'consultation';
+    $back_url = ($source === 'landing') ? 'landing_list.php' : 'consultation_list.php';
 
     if ($action === 'update') {
         $name = trim($_POST['name'] ?? '');
@@ -49,14 +55,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ");
             $stmt->execute([$name, $phone, $content, $domain ?: null, $utm_source ?: null, $new_status, $admin_memo, $processed_at, $id]);
 
-            header("Location: consultation_view.php?id=$id&updated=1");
+            $redirect = "consultation_view.php?id=$id&updated=1";
+            if ($source === 'landing') {
+                $redirect .= '&source=landing';
+            }
+            header("Location: $redirect");
             exit;
         }
     } elseif ($action === 'delete') {
         $stmt = $pdo->prepare("DELETE FROM consultations WHERE id = ?");
         $stmt->execute([$id]);
 
-        header('Location: consultation_list.php?deleted=1');
+        header($back_url . '?deleted=1');
         exit;
     }
 }
@@ -66,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상담신청 상세 - PANO</title>
+    <title><?php echo $source === 'landing' ? '랜딩페이지 상세' : '상담신청 상세'; ?> - PANO</title>
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
@@ -78,8 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <nav class="admin-nav">
                 <a href="dashboard.php">대시보드</a>
-                <a href="consultation_list.php" class="active">상담신청 관리</a>
-                <a href="landing_list.php">랜딩페이지</a>
+                <a href="consultation_list.php"<?php echo $source === 'landing' ? '' : ' class="active"'; ?>>상담신청 관리</a>
+                <a href="landing_list.php"<?php echo $source === 'landing' ? ' class="active"' : ''; ?>>랜딩페이지</a>
                 <a href="news_list.php">뉴스 관리</a>
                 <a href="member_list.php">구성원 관리</a>
                 <a href="admin_list.php">관리자 관리</a>
@@ -93,8 +103,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- 메인 컨텐츠 -->
         <main class="main-content">
         <div class="admin-header">
-            <h1>상담신청 상세</h1>
-            <a href="consultation_list.php" class="btn-secondary">목록으로</a>
+            <h1><?php echo $source === 'landing' ? '랜딩페이지 상세' : '상담신청 상세'; ?></h1>
+            <a href="<?php echo $back_url; ?>" class="btn-secondary">목록으로</a>
         </div>
 
         <?php if (isset($_GET['updated'])): ?>
@@ -105,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="view-container">
                 <form method="POST" action="">
                     <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="source" value="<?php echo $source; ?>">
 
                     <div class="view-section">
                         <h2>신청자 정보</h2>
@@ -202,7 +213,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="form-actions">
                             <button type="submit" class="btn-primary">저장</button>
-                            <a href="consultation_list.php" class="btn-secondary">취소</a>
+                            <a href="<?php echo $back_url; ?>" class="btn-secondary">취소</a>
                         </div>
                     </div>
                 </form>

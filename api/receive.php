@@ -2,12 +2,21 @@
 // API 인증 키 (pano_landing_2와 동일해야 함)
 define('API_SECRET_KEY', 'pano2_to_panolaw_9f8x7k2m4v6b');
 
-// DB 설정
-define('DB_HOST', 'localhost');
-define('DB_PORT', '3306');
-define('DB_NAME', 'lez0628');
-define('DB_USERNAME', 'lez0628');
-define('DB_PASSWORD', 'vkshdb*0628');
+// DB 설정은 웹 공개 루트(/www) 밖의 서버 설정 파일에서 읽습니다.
+$configPath = dirname(__DIR__, 2) . '/.pano-config.php';
+if (!is_file($configPath)) {
+    error_log('Pano database configuration file is missing.');
+    http_response_code(500);
+    exit(json_encode(['success' => false, 'message' => '서비스 설정 오류'], JSON_UNESCAPED_UNICODE));
+}
+
+$config = require $configPath;
+$db = $config['db'] ?? null;
+if (!is_array($db) || !isset($db['host'], $db['port'], $db['name'], $db['username'], $db['password'], $db['charset'])) {
+    error_log('Pano database configuration is invalid.');
+    http_response_code(500);
+    exit(json_encode(['success' => false, 'message' => '서비스 설정 오류'], JSON_UNESCAPED_UNICODE));
+}
 
 // CORS
 header('Access-Control-Allow-Origin: *');
@@ -74,8 +83,8 @@ if (empty($name) || empty($phone)) {
 
 // DB 저장
 try {
-    $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=utf8mb4";
-    $pdo = new PDO($dsn, DB_USERNAME, DB_PASSWORD, [
+    $dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;charset=%s', $db['host'], $db['port'], $db['name'], $db['charset']);
+    $pdo = new PDO($dsn, $db['username'], $db['password'], [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false

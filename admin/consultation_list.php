@@ -72,7 +72,8 @@ $search = $_GET['search'] ?? '';
 $status_filter = $_GET['status'] ?? '';
 
 // WHERE 조건 구성 (panolaw.com만 표시)
-$where = ["domain = 'panolaw.com'"];
+$normalized_domain_expr = "LOWER(TRIM(SUBSTRING_INDEX(REPLACE(REPLACE(REPLACE(COALESCE(domain, ''), 'https://', ''), 'http://', ''), 'www.', ''), '/', 1)))";
+$where = ["$normalized_domain_expr = 'panolaw.com'"];
 $params = [];
 
 if (!empty($search)) {
@@ -111,7 +112,7 @@ $status_counts = [
 ];
 
 try {
-    $count_stmt = $pdo->query("SELECT status, COUNT(*) as cnt FROM consultations WHERE domain = 'panolaw.com' GROUP BY status");
+    $count_stmt = $pdo->query("SELECT status, COUNT(*) as cnt FROM consultations WHERE $normalized_domain_expr = 'panolaw.com' GROUP BY status");
     while ($row = $count_stmt->fetch()) {
         if (isset($status_counts[$row['status']])) {
             $status_counts[$row['status']] = $row['cnt'];

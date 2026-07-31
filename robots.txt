@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /admin/
 Disallow: /database/
 Allow: /
+
+Sitemap: https://panolaw.co.kr/sitemap.xml
