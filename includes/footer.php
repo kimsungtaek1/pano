@@ -42,9 +42,9 @@
                         <p>© Copyright 2025 Law Firm PANO. All Rights Reserved.</p>
                     </div>
                     <div class="footer-links">
-                        <a href="#">이용약관</a>
-                        <a href="#">개인정보처리방침</a>
-                        <a href="#">이메일무단수집거부</a>
+                        <a href="/terms.php">이용약관</a>
+                        <a href="/privacy.php">개인정보처리방침</a>
+                        <a href="/email-policy.php">이메일무단수집거부</a>
                     </div>
                 </div>
             </div>
