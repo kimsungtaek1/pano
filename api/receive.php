@@ -1,6 +1,10 @@
 <?php
-// API 인증 키 (pano_landing_2와 동일해야 함)
-define('API_SECRET_KEY', 'pano2_to_panolaw_9f8x7k2m4v6b');
+// API 인증 키 화이트리스트 (각 pano_landing_* 프로젝트와 일치)
+define('API_ALLOWED_KEYS', [
+    'pano1_to_panolaw_8h3w5p7n9q1r',              // pano_landing_finscam
+    'pano2_to_panolaw_9d4cdbaee05cf2471a04184f',   // pano_landing_criminal
+    'pano3_to_panolaw_d21b923a99037cd9d5b42be1',   // pano_landing_victim
+]);
 
 // DB 설정은 웹 공개 루트(/www) 밖의 서버 설정 파일에서 읽습니다.
 $configPath = dirname(__DIR__, 2) . '/.pano-config.php';
@@ -35,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // API 키 검증
 $apiKey = $_SERVER['HTTP_X_API_KEY'] ?? '';
-if ($apiKey !== API_SECRET_KEY) {
+if (!in_array($apiKey, API_ALLOWED_KEYS, true)) {
     http_response_code(403);
     echo json_encode(['success' => false, 'message' => '인증 실패'], JSON_UNESCAPED_UNICODE);
     exit;
